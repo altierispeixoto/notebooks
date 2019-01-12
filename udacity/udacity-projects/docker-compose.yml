@@ -1,0 +1,14 @@
+
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
+version: "2"
+
+services:
+  notebook:
+    image: jupyter/datascience-notebook
+    container_name: jupyter-notebooks
+    volumes:
+      - "/home/altieris/docker/jupyter/notebooks/:/home/jovyan/work"
+    ports:
+      - "8888:8888"

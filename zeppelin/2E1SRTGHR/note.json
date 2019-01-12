@@ -1,0 +1,184 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\nls /work/datascience/data/bulario-txt/1/",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-07 22:54:44.426",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1-10226452015-2961248.txt\n1-10857592018-10851255.txt\n1-11620842017-7350265.txt\n1-18106962016-3518755.txt\n1-5228492015-2680699.txt\n1-5382372014-2111405.txt\n1-7328202018-10696086.txt\n1-7478332014-2199746.txt\n1-7575662014-2206635.txt\n1-9417402014-2271893.txt\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1546908831009_-1689278884",
+      "id": "20190107-225351_1384688505",
+      "dateCreated": "2019-01-07 22:53:51.009",
+      "dateStarted": "2019-01-07 22:54:44.439",
+      "dateFinished": "2019-01-07 22:54:44.454",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n#Microsoft Word - Bula Paciente (1)\n\ndef read_file(textfile):\n    temp \u003d open(textfile,\u0027r\u0027).read().split(\u0027\\n\u0027)\n    file \u003d []\n    for line in temp:\n        if line !\u003d \u0027\u0027:\n            file.append(line)\n    return file\n\ndef cleanse_file(file):\n    for line in range(0,len(file)):\n        if file[line].find(\u0027Microsoft Word\u0027)  !\u003d -1:\n            del file[file.index(file[line])] \n        if file[line].find(\u0027http://\u0027)  !\u003d -1:\n            del file[file.index(file[line])]     \n        if file[line].find(\u0027Bula_Paciente\u0027)  !\u003d -1:\n            del file[file.index(file[line])]         \n        if file[line].find(\"DIZERES LEGAIS\") !\u003d -1:\n            del file[file.index(file[line]):len(l)] \n            break\n    return file\n\nf \u003d read_file(\u0027/work/datascience/data/bulario-txt/1/1-11620842017-7350265.txt\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-08 00:26:50.768",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1546908929565_-1470118985",
+      "id": "20190107-225529_1186955004",
+      "dateCreated": "2019-01-07 22:55:29.565",
+      "dateStarted": "2019-01-08 00:26:50.784",
+      "dateFinished": "2019-01-08 00:26:50.856",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nline \u003d \u0027 \u0027\ni \u003d 0\nwhile line \u003d\u003d \u0027 \u0027:\n    line \u003d f[i]\n    i \u003d i+1\n    \nline",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-08 00:26:53.313",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u0027APIDRA®\u0027"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1546909033330_1944405961",
+      "id": "20190107-225713_449628423",
+      "dateCreated": "2019-01-07 22:57:13.330",
+      "dateStarted": "2019-01-08 00:26:53.323",
+      "dateFinished": "2019-01-08 00:26:53.394",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ncleanse_file(f)\n\n#PARA QUE ESTE MEDICAMENTO É INDICADO\n#COMO ESTE MEDICAMENTO FUNCIONA\n#QUANDO NÃO DEVO USAR ESTE MEDICAMENTO\n#O QUE DEVO SABER ANTES DE USAR ESTE MEDICAMENTO",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-08 00:24:47.507",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "255"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1546909705996_153379380",
+      "id": "20190107-230825_1302775426",
+      "dateCreated": "2019-01-07 23:08:25.996",
+      "dateStarted": "2019-01-08 00:01:18.350",
+      "dateFinished": "2019-01-08 00:01:18.417",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-07 23:39:02.231",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1546911542230_-646577424",
+      "id": "20190107-233902_1311980945",
+      "dateCreated": "2019-01-07 23:39:02.230",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "DATAMINING/IV - TEXT-MINING",
+  "id": "2E1SRTGHR",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
