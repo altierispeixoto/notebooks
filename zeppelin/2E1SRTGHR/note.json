@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%python\nimport os\nfrom shutil import copyfile\nfrom unicodedata import normalize\nimport pandas as pd\n\n# read \ndef read_file(textfile):\n    temp \u003d open(textfile,\u0027r\u0027).read().split(\u0027\\n\u0027)\n    file \u003d []\n    for line in temp:\n        if line !\u003d \u0027\u0027:\n            file.append(line)\n    return file\n\n\n# def find_disease(file,disease):\n#     for i in range(0,len(file)):\n#         line \u003d file[i].lower()\n#         if line.find(disease) !\u003d -1:\n#             return True\n#     return False\n\ndef remover_acentos(txt):\n    return normalize(\u0027NFKD\u0027, txt).encode(\u0027ASCII\u0027, \u0027ignore\u0027).decode(\u0027ASCII\u0027)\n\n\ndef get_files(path):\n    # r\u003droot, d\u003ddirectories, f \u003d files\n    f_list \u003d []\n    for r, d, f in os.walk(path):\n        for file in f:\n            if \".txt\" in file:\n                f_list.append(os.path.join(r, file))\n    return f_list\n\n\n# def find_files_by_disease(path, disease):\n#     files \u003d get_files(path)\n#     headers \u003d []\n#     for file in files:\n#         f \u003d read_file(file)\n#         if(len(f) \u003e 0):\n#             if find_disease(f,\u0027hipertensão\u0027):\n#                 headers.append(file)\n#     return headers\n\n\n# def copy_files(files_from,dest):\n#     for file in files_from:\n#         copyfile(file, dest+file.split(\u0027/\u0027)[6])\n\ndef find_topic(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return True\n    return False\n\ndef find_topic_line(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return i\n    return -1\n    \n\ndef cleanse_text(text):\n    new_text \u003d text.lower() \n            # .replace(\u0027.\u0027,\u0027\u0027) \\\n            # .replace(\u0027)\u0027,\u0027\u0027) \\\n            # .replace(\u0027(\u0027,\u0027\u0027)\n            # .replace(\u0027microsoft word\u0027,\u0027\u0027)\n    \n    return remover_acentos(new_text)\n    \ndef extract_topics(bulas):\n    bulas_padrao \u003d [] \n    cnt_topic \u003d 0\n    for bula in bulas:\n        text \u003d read_file(bula)\n    \n        comp       \u003d find_topic(text,\u0027composicoes\u0027) or find_topic(text,\u0027composicao\u0027)\n        topic1     \u003d find_topic(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n        topic2     \u003d find_topic(text,\u0027como este medicamento funciona\u0027)\n        topic3     \u003d find_topic(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        topic4     \u003d find_topic(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n    \n        if comp and topic1  and topic2 and topic3 and topic4:\n            cnt_topic \u003d cnt_topic +1\n        \n            index_composicao \u003d find_topic_line(text,\u0027composicoes\u0027) or find_topic(text,\u0027composicao\u0027)\n            index_topic1     \u003d find_topic_line(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n            index_topic2     \u003d find_topic_line(text,\u0027como este medicamento funciona\u0027)\n            index_topic3     \u003d find_topic_line(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n            index_topic4     \u003d find_topic_line(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        \n            \n            composicao \u003d cleanse_text(\u0027\u0027.join(text[index_composicao+1:index_topic1]))\n            indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic1+1:index_topic2]))\n            contra_indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic3+1:index_topic4]))\n        \n            bulas_padrao.append((bula,composicao,indicacao,contra_indicacao))\n        \n    bulas_df \u003d pd.DataFrame(bulas_padrao,columns\u003d[\u0027filename\u0027,\u0027composicao\u0027,\u0027indicacao\u0027,\u0027contraindicacao\u0027])\n    print(\"Total de bulas cotendo os tópicos : {}\".format(cnt_topic))\n    return bulas_df\n    ",
+      "text": "%python\nimport os\nfrom shutil import copyfile\nfrom unicodedata import normalize\nimport pandas as pd\n\n# read \ndef read_file(textfile):\n    temp \u003d open(textfile,\u0027r\u0027).read().split(\u0027\\n\u0027)\n    file \u003d []\n    for line in temp:\n        if line !\u003d \u0027\u0027:\n            file.append(line)\n    return file\n\n\n# def find_disease(file,disease):\n#     for i in range(0,len(file)):\n#         line \u003d file[i].lower()\n#         if line.find(disease) !\u003d -1:\n#             return True\n#     return False\n\ndef remover_acentos(txt):\n    return normalize(\u0027NFKD\u0027, txt).encode(\u0027ASCII\u0027, \u0027ignore\u0027).decode(\u0027ASCII\u0027)\n\n\ndef get_files(path):\n    # r\u003droot, d\u003ddirectories, f \u003d files\n    f_list \u003d []\n    for r, d, f in os.walk(path):\n        for file in f:\n            if \".txt\" in file:\n                f_list.append(os.path.join(r, file))\n    return f_list\n\n\n# def find_files_by_disease(path, disease):\n#     files \u003d get_files(path)\n#     headers \u003d []\n#     for file in files:\n#         f \u003d read_file(file)\n#         if(len(f) \u003e 0):\n#             if find_disease(f,\u0027hipertensão\u0027):\n#                 headers.append(file)\n#     return headers\n\n\n# def copy_files(files_from,dest):\n#     for file in files_from:\n#         copyfile(file, dest+file.split(\u0027/\u0027)[6])\n\ndef find_topic(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return True\n    return False\n\ndef find_topic_line(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return i\n    return -1\n    \n\ndef cleanse_text(text):\n    new_text \u003d text.lower() \n            # .replace(\u0027.\u0027,\u0027\u0027) \\\n            # .replace(\u0027)\u0027,\u0027\u0027) \\\n            # .replace(\u0027(\u0027,\u0027\u0027)\n            # .replace(\u0027microsoft word\u0027,\u0027\u0027)\n    \n    return remover_acentos(new_text)\n    \ndef extract_topics(bulas):\n    bulas_padrao \u003d [] \n    cnt_topic \u003d 0\n    for bula in bulas:\n        text \u003d read_file(bula)\n    \n        comp       \u003d find_topic(text,\u0027composicao\u0027) #or find_topic(text,\u0027composicoes\u0027) \n        topic1     \u003d find_topic(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n        topic2     \u003d find_topic(text,\u0027como este medicamento funciona\u0027)\n        topic3     \u003d find_topic(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        topic4     \u003d find_topic(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n    \n        if comp and topic1  and topic2 and topic3 and topic4:\n            cnt_topic \u003d cnt_topic +1\n        \n            index_composicao \u003d find_topic(text,\u0027composicao\u0027) #or find_topic_line(text,\u0027composicoes\u0027) \n            index_topic1     \u003d find_topic_line(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n            index_topic2     \u003d find_topic_line(text,\u0027como este medicamento funciona\u0027)\n            index_topic3     \u003d find_topic_line(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n            index_topic4     \u003d find_topic_line(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        \n            \n            composicao \u003d cleanse_text(\u0027\u0027.join(text[index_composicao+1:index_topic1]))\n            indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic1+1:index_topic2]))\n            contra_indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic3+1:index_topic4]))\n        \n            bulas_padrao.append((bula,composicao,indicacao,contra_indicacao))\n        \n    bulas_df \u003d pd.DataFrame(bulas_padrao,columns\u003d[\u0027filename\u0027,\u0027composicao\u0027,\u0027indicacao\u0027,\u0027contraindicacao\u0027])\n    print(\"Total de bulas cotendo os tópicos : {}\".format(cnt_topic))\n    return bulas_df\n    ",
       "user": "anonymous",
-      "dateUpdated": "2019-01-13 11:39:50.546",
+      "dateUpdated": "2019-01-14 22:00:55.136",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +29,15 @@
       "jobName": "paragraph_1546908929565_-1470118985",
       "id": "20190107-225529_1186955004",
       "dateCreated": "2019-01-07 22:55:29.565",
-      "dateStarted": "2019-01-13 11:39:50.558",
-      "dateFinished": "2019-01-13 11:39:50.740",
+      "dateStarted": "2019-01-14 22:00:55.143",
+      "dateFinished": "2019-01-14 22:00:55.361",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n### Extrair e copiar arquivos que contenham a doença HIPERTENSÃO\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-12 10:51:31.856",
+      "dateUpdated": "2019-01-14 21:42:04.314",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -70,15 +70,15 @@
       "jobName": "paragraph_1547297433670_771323379",
       "id": "20190112-105033_875112825",
       "dateCreated": "2019-01-12 10:50:33.671",
-      "dateStarted": "2019-01-12 10:51:31.857",
-      "dateFinished": "2019-01-12 10:51:34.099",
+      "dateStarted": "2019-01-14 21:42:04.320",
+      "dateFinished": "2019-01-14 21:42:06.535",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\npath\u003d\u0027/work/datascience/data/bulario-txt/\u0027\nfiles \u003d get_files(path)\ndf \u003d extract_topics(files)\ndf.to_csv(\"/work/datascience/data/bulas.csv\",sep\u003d\";\")",
+      "text": "%python\n\npath\u003d\u0027/work/datascience/data/bulario-txt/\u0027\nfiles \u003d get_files(path)\ndf \u003d extract_topics(files)\ndf.to_csv(\"/work/datascience/data/bulas.csv\",sep\u003d\";\",index\u003dFalse)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-13 11:39:53.791",
+      "dateUpdated": "2019-01-14 22:00:57.933",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -101,7 +101,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Total de bulas cotendo os tópicos : 6061\n"
+            "data": "Total de bulas cotendo os tópicos : 6026\n"
           }
         ]
       },
@@ -109,15 +109,15 @@
       "jobName": "paragraph_1547290654821_1350051420",
       "id": "20190112-085734_2072423398",
       "dateCreated": "2019-01-12 08:57:34.821",
-      "dateStarted": "2019-01-13 11:39:53.807",
-      "dateFinished": "2019-01-13 11:40:09.448",
+      "dateStarted": "2019-01-14 22:00:57.948",
+      "dateFinished": "2019-01-14 22:01:04.707",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nz.show(df[1:2].head())",
       "user": "anonymous",
-      "dateUpdated": "2019-01-13 11:06:58.074",
+      "dateUpdated": "2019-01-14 22:01:08.632",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -172,7 +172,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\n/work/datascience/data/bulario-txt/485/485-6127972013-1719099.txt\t - 01_ifosfamida_bula_47 bula para o paciente_v1_final    ifosfamida  eurofarma laboratorios sa  bula para paciente po para preparacao extemporanea  1 g e 2 g                 essa versao nao altera nenhuma anterior  01_ifosfamida_bula_47 bula para o paciente_v1_finalpagina 1 29/7/2013    rdc no 47 de 08/09/2009  ifosfamida medicamento generico lei no 9787, de 1999    po para preparacao extemporanea  forma farmaceutica e apresentacoes  po para preparacao extemporanea, 1 g embalagens contendo 10 frascos-ampola po para preparacao extemporanea, 2 g embalagens contendo 10 frascos-ampola  uso adulto e pediatrico  para uso endovenoso no interior de uma veia  composicao: ifosfamida 1 g cada frasco-ampola contem: ifosfamida 1 g excipientes qsp1 frasco-ampola* * excipientes: manitol  ifosfamida 2 g cada frasco-ampola contem: ifosfamida 2 g excipientes qsp1 frasco-ampola* * excipientes: manitol    informacoes ao paciente   \t  ifosfamida e um medicamento indicado no tratamento de:   carcinoma bronquico cancer de bronquios de celulas pequenas;   carcinoma cancer de ovario;   carcinoma de mama;   tumores de testiculo;   sarcoma cancer de tecidos moles fibras musculares e cartilagem;   carcinoma de endometrio;   carcinoma de rim hipernefroide cancer de celulas do rim;   carcinoma de pancreas;   linfomas malignos proliferacao descontrolada dos linfocitos, que sao celulas de defesa do organismo   seu emprego e restrito aos oncologistas especializados em quimioterapia e e de uso exclusivo em hospitais  maiores detalhes a respeito das propriedades e aplicacoes da ifosfamida sao encontrados na documentacao cientifica do produto  \t ifosfamida nao deve ser usada nos casos de intensa diminuicao na producao de celulas sanguineas da medula ossea, de insuficiencia renal dos rins, de hipotonia vesical diminuicao ou perda do tonus da bexiga, de bloqueio das vias urinarias eferentes e de metastases formacao de novos tumores a partir de outros, mas sem continuidade entre eles cerebrais  ifosfamida e contraindicada no primeiro trimestre da gravidez, enquanto que no restante da gestacao so devera ser usado se o beneficio para a mulher justificar o risco potencial para o feto  tambem e contraindicado para pacientes com alergia conhecida a ifosfamida   este medicamento e contraindicado para uso por pacientes com intensa depressao de medula ossea, insuficiencia renal, hipotonia vesical, obstrucao das vias urinarias eferentes, metastases cerebrais, cistite e infeccoes agudas   este medicamento e contraindicado para uso por mulheres no primeiro trimestre da gravidez  \n"
+            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\n/work/datascience/data/bulario-txt/485/485-6127972013-1719099.txt\t   ifosfamida  eurofarma laboratorios s.a.  bula para paciente po para preparacao extemporanea  1 g e 2 g                 essa versao nao altera nenhuma anterior  01_ifosfamida_bula_47 bula para o paciente_v1_finalpagina 1 29/7/2013    rdc no 47 de 08/09/2009  ifosfamida medicamento generico lei no 9.787, de 1999    po para preparacao extemporanea  forma farmaceutica e apresentacoes  po para preparacao extemporanea, 1 g. embalagens contendo 10 frascos-ampola. po para preparacao extemporanea, 2 g. embalagens contendo 10 frascos-ampola.  uso adulto e pediatrico  para uso endovenoso (no interior de uma veia)  composicao: ifosfamida 1 g. cada frasco-ampola contem: ifosfamida ........................................................................1 g excipientes q.s.p.........................................1 frasco-ampola* * excipientes: manitol.  ifosfamida 2 g. cada frasco-ampola contem: ifosfamida ........................................................................2 g excipientes q.s.p.........................................1 frasco-ampola* * excipientes: manitol.    informacoes ao paciente   \t  ifosfamida e um medicamento indicado no tratamento de:   carcinoma bronquico (cancer de bronquios) de celulas pequenas;   carcinoma (cancer) de ovario;   carcinoma de mama;   tumores de testiculo;   sarcoma (cancer) de tecidos moles (fibras musculares e cartilagem);   carcinoma de endometrio;   carcinoma de rim hipernefroide (cancer de celulas do rim);   carcinoma de pancreas;   linfomas malignos (proliferacao descontrolada dos linfocitos, que sao celulas de defesa do organismo).   seu emprego e restrito aos oncologistas especializados em quimioterapia e e de uso exclusivo em hospitais.  maiores detalhes a respeito das propriedades e aplicacoes da ifosfamida sao encontrados na documentacao cientifica do produto.  \t ifosfamida nao deve ser usada nos casos de intensa diminuicao na producao de celulas sanguineas da medula ossea, de insuficiencia renal (dos rins), de hipotonia vesical (diminuicao ou perda do tonus da bexiga), de bloqueio das vias urinarias eferentes e de metastases (formacao de novos tumores a partir de outros, mas sem continuidade entre eles) cerebrais.  ifosfamida e contraindicada no primeiro trimestre da gravidez, enquanto que no restante da gestacao so devera ser usado se o beneficio para a mulher justificar o risco potencial para o feto.  tambem e contraindicado para pacientes com alergia conhecida a ifosfamida.   este medicamento e contraindicado para uso por pacientes com intensa depressao de medula ossea, insuficiencia renal, hipotonia vesical, obstrucao das vias urinarias eferentes, metastases cerebrais, cistite e infeccoes agudas.   este medicamento e contraindicado para uso por mulheres no primeiro trimestre da gravidez.  \n"
           }
         ]
       },
@@ -180,15 +180,15 @@
       "jobName": "paragraph_1547314377167_1120813036",
       "id": "20190112-153257_409454446",
       "dateCreated": "2019-01-12 15:32:57.167",
-      "dateStarted": "2019-01-13 11:06:58.083",
-      "dateFinished": "2019-01-13 11:06:58.135",
+      "dateStarted": "2019-01-14 22:01:08.648",
+      "dateFinished": "2019-01-14 22:01:08.735",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-13 10:35:10.742",
+      "dateUpdated": "2019-01-14 21:42:53.670",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -227,7 +227,6 @@
   "angularObjects": {
     "md:shared_process": [],
     "python:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": [],
     "livy:shared_process": []
   },

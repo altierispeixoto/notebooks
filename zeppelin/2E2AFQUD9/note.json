@@ -1,0 +1,620 @@
+{
+  "paragraphs": [
+    {
+      "text": "%python\n\nimport os\nimport csv\nimport gzip\nimport collections\nimport re\nimport io\nimport json\nimport pandas as pd\nimport numpy as np\nimport xml.etree.ElementTree as ET",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:53:14.320",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547601532286_-1554337313",
+      "id": "20190115-231852_1707865294",
+      "dateCreated": "2019-01-15 23:18:52.286",
+      "dateStarted": "2019-01-15 23:53:14.341",
+      "dateFinished": "2019-01-15 23:53:14.936",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nwith open(\u0027/work/datascience/data/drugbank/drugbank.xml\u0027) as xml_file:\n    tree \u003d ET.parse(xml_file)\nroot \u003d tree.getroot()\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:48:18.616",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547602582670_-607987280",
+      "id": "20190115-233622_1651850175",
+      "dateCreated": "2019-01-15 23:36:22.670",
+      "dateStarted": "2019-01-15 23:48:18.640",
+      "dateFinished": "2019-01-15 23:49:01.859",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nns \u003d \u0027{http://www.drugbank.ca}\u0027\ninchikey_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChIKey\u0027]/{ns}value\"\ninchi_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChI\u0027]/{ns}value\"\n\nrows \u003d list()\nfor i, drug in enumerate(root):\n    row \u003d collections.OrderedDict()\n    assert drug.tag \u003d\u003d ns + \u0027drug\u0027\n    row[\u0027type\u0027] \u003d drug.get(\u0027type\u0027)\n    row[\u0027drugbank_id\u0027] \u003d drug.findtext(ns + \"drugbank-id[@primary\u003d\u0027true\u0027]\")\n    row[\u0027name\u0027] \u003d drug.findtext(ns + \"name\")\n    row[\u0027description\u0027] \u003d drug.findtext(ns + \"description\")\n    row[\u0027groups\u0027] \u003d [group.text for group in\n        drug.findall(\"{ns}groups/{ns}group\".format(ns \u003d ns))]\n    row[\u0027atc_codes\u0027] \u003d [code.get(\u0027code\u0027) for code in\n        drug.findall(\"{ns}atc-codes/{ns}atc-code\".format(ns \u003d ns))]\n    row[\u0027categories\u0027] \u003d [x.findtext(ns + \u0027category\u0027) for x in\n        drug.findall(\"{ns}categories/{ns}category\".format(ns \u003d ns))]\n    row[\u0027inchi\u0027] \u003d drug.findtext(inchi_template.format(ns \u003d ns))\n    row[\u0027inchikey\u0027] \u003d drug.findtext(inchikey_template.format(ns \u003d ns))\n    \n    # Add drug aliases\n    aliases \u003d {\n        elem.text for elem in \n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}synonyms/{ns}synonym[@language\u003d\u0027English\u0027]\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}products/{ns}product/{ns}name\".format(ns \u003d ns))\n\n    }\n    aliases.add(row[\u0027name\u0027])\n    row[\u0027aliases\u0027] \u003d sorted(aliases)\n\n    rows.append(row)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:49:28.166",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547601622438_1449191176",
+      "id": "20190115-232022_1639256430",
+      "dateCreated": "2019-01-15 23:20:22.438",
+      "dateStarted": "2019-01-15 23:49:28.180",
+      "dateFinished": "2019-01-15 23:49:29.533",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nalias_dict \u003d {row[\u0027drugbank_id\u0027]: row[\u0027aliases\u0027] for row in rows}\nwith open(\u0027/work/datascience/data/drugbank/aliases.json\u0027, \u0027w\u0027) as fp:\n    json.dump(alias_dict, fp, indent\u003d2, sort_keys\u003dTrue)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:51:26.727",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547601627524_2019600770",
+      "id": "20190115-232027_51871811",
+      "dateCreated": "2019-01-15 23:20:27.524",
+      "dateStarted": "2019-01-15 23:51:26.748",
+      "dateFinished": "2019-01-15 23:51:26.928",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ndef collapse_list_values(row):\n    for key, value in row.items():\n        if isinstance(value, list):\n            row[key] \u003d \u0027|\u0027.join(value)\n    return row\n\nrows \u003d list(map(collapse_list_values, rows))",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:52:43.071",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603474802_-91588494",
+      "id": "20190115-235114_1659065541",
+      "dateCreated": "2019-01-15 23:51:14.803",
+      "dateStarted": "2019-01-15 23:52:43.093",
+      "dateFinished": "2019-01-15 23:52:43.228",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ncolumns \u003d [\u0027drugbank_id\u0027, \u0027name\u0027, \u0027type\u0027, \u0027groups\u0027, \u0027atc_codes\u0027, \u0027categories\u0027, \u0027inchikey\u0027, \u0027inchi\u0027, \u0027description\u0027]\ndrugbank_df \u003d pd.DataFrame.from_dict(rows)[columns]\nz.show(drugbank_df.head())",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:53:41.892",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "drugbank_id": "string",
+                      "name": "string",
+                      "type": "string",
+                      "groups": "string",
+                      "atc_codes": "string",
+                      "categories": "string",
+                      "inchikey": "string",
+                      "inchi": "string",
+                      "description": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "drugbank_id\tname\ttype\tgroups\tatc_codes\tcategories\tinchikey\tinchi\tdescription\nDB00001\tLepirudin\tbiotech\tapproved\tB01AE02\tAmino Acids, Peptides, and Proteins|Anticoagulants|Antithrombin Proteins|Antithrombins|Blood and Blood Forming Organs|Cardiovascular Agents|Enzyme Inhibitors|Fibrin Modulating Agents|Hematologic Agents|Peptides|Protease Inhibitors|Proteins|Serine Proteinase Inhibitors|Serpins|Thrombin Inhibitors\tNone\tNone\tLepirudin is identical to natural hirudin except for substitution of leucine for isoleucine at the N-terminal end of the molecule and the absence of a sulfate group on the tyrosine at position 63. It is produced via yeast cells. Bayer ceased the production of lepirudin (Refludan) effective May 31, 2012.\nDB00002\tCetuximab\tbiotech\tapproved\tL01XC06\tAmino Acids, Peptides, and Proteins|Antibodies|Antibodies, Monoclonal|Antibodies, Monoclonal, Humanized|Antineoplastic Agents|Antineoplastic and Immunomodulating Agents|Blood Proteins|Epidermal Growth Factor Receptor Antagonist|Globulins|HER1 Antagonists|Immunoglobulins|Immunoproteins|Proteins|Serum Globulins\tNone\tNone\tCetuximab is an epidermal growth factor receptor binding FAB. Cetuximab is composed of the Fv (variable; antigen-binding) regions of the 225 murine EGFr monoclonal antibody specific for the N-terminal portion of human EGFr with human IgG1 heavy and kappa light chain constant (framework) regions. Cetuximab is marketed under the brand Erbitux® by Eli Lilly and Company. In the United States, a regimen of cetuximab costs approximately $30,790 for an eight-week course.\nDB00003\tDornase alfa\tbiotech\tapproved\tR05CB13\tAmino Acids, Peptides, and Proteins|Cough and Cold Preparations|Decreased Respiratory Secretion Viscosity|Deoxyribonucleases|Endodeoxyribonucleases|Endonucleases|Enzymes|Enzymes and Coenzymes|Esterases|Expectorants|Hydrolases|Proteins|Recombinant Human Deoxyribonuclease 1\tNone\tNone\tDornase alfa is a biosynthetic form of human deoxyribunuclease I (DNase I) enzyme. It is produced in genetically modified Chinese hamster ovary (CHO) cells using recombinant DNA technology. The 260-amino acid sequence of dornase alfa is identical to the endogenous human enzyme. Dornase alfa cleaves extracellular DNA to 5´-phosphodinucleotide and 5´-phosphooligonucleotide end products without affecting intracellular DNA. In individuals with cystic fibrosis, extracellular DNA, which is an extremely viscous anion, is released by degenerating leukocytes that accumulate during inflammatory responses to infections. Enzymatic breakdown of this extracellular DNA appears to reduce sputum viscosity and viscoelasticity.\nDB00004\tDenileukin diftitox\tbiotech\tapproved|investigational\tL01XX29\tADP Ribose Transferases|Amino Acids, Peptides, and Proteins|Antineoplastic Agents|Antineoplastic and Immunomodulating Agents|Bacterial Toxins|Biological Factors|CD25-directed Cytotoxin|Cytokines|Enzymes|Enzymes and Coenzymes|Glycosyltransferases|Intercellular Signaling Peptides and Proteins|Interleukins|Lymphokines|Pentosyltransferases|Peptides|Proteins|Recombinant Proteins|Toxins, Biological|Transferases\tNone\tNone\tA recombinant DNA-derived cytotoxic protein composed of the amino acid sequences for diphtheria toxin fragments A and B (Met 1-Thr 387)-His followed by the sequences for interleukin-2 (IL-2; Ala 1-Thr 133). It is produced in an E. coli expression system.\nDB00005\tEtanercept\tbiotech\tapproved|investigational\tL04AB01\tAgents reducing cytokine levels|Amino Acids, Peptides, and Proteins|Anti-Inflammatory Agents|Antibodies|Biologics for Rheumatoid Arthritis Treatment|Disease-modifying Antirheumatic Agents|Immunoglobulin Isotypes|Immunologic Factors|Immunoproteins|Immunosuppressive Agents|Membrane Proteins|Proteins|Receptors, Cell Surface|Receptors, Cytokine|Receptors, Immunologic|Receptors, Tumor Necrosis Factor|Serum Globulins|Tumor Necrosis Factor Alpha (TNF-α) Inhibitors|Tumor Necrosis Factor Blocker|Tumor Necrosis Factor Receptor Blocking Activity\tNone\tNone\tDimeric fusion protein consisting of the extracellular ligand-binding portion of the human 75 kilodalton (p75) tumor necrosis factor receptor (TNFR) linked to the Fc portion of human IgG1. The Fc component of etanercept contains the CH2 domain, the CH3 domain and hinge region, but not the CH1 domain of IgG1. Etanercept is produced by recombinant DNA technology in a Chinese hamster ovary (CHO) mammalian cell expression system. It consists of 934 amino acids.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603499780_2138943216",
+      "id": "20190115-235139_946625838",
+      "dateCreated": "2019-01-15 23:51:39.780",
+      "dateStarted": "2019-01-15 23:53:39.576",
+      "dateFinished": "2019-01-15 23:53:39.703",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ndrugbank_slim_df \u003d drugbank_df[\n    drugbank_df.groups.map(lambda x: \u0027approved\u0027 in x) \u0026\n    drugbank_df.inchi.map(lambda x: x is not None) \u0026\n    drugbank_df.type.map(lambda x: x \u003d\u003d \u0027small molecule\u0027)\n]\nz.show(drugbank_slim_df.head())",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:54:41.453",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "drugbank_id": "string",
+                      "name": "string",
+                      "type": "string",
+                      "groups": "string",
+                      "atc_codes": "string",
+                      "categories": "string",
+                      "inchikey": "string",
+                      "inchi": "string",
+                      "description": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "drugbank_id\tname\ttype\tgroups\tatc_codes\tcategories\tinchikey\tinchi\tdescription\nDB00006\tBivalirudin\tsmall molecule\tapproved|investigational\tB01AE06\tAmino Acids, Peptides, and Proteins|Anticoagulants|Antithrombin Proteins|Antithrombins|Blood and Blood Forming Organs|Enzyme Inhibitors|Hematologic Agents|Peptides|Proteins|Serine Proteinase Inhibitors|Serpins|Thrombin Inhibitors\tOIRCOABEOLEUMC-GEJPAHFPSA-N\tInChI\u003d1S/C98H138N24O33/c1-5-52(4)82(96(153)122-39-15-23-70(122)92(149)114-60(30-34-79(134)135)85(142)111-59(29-33-78(132)133)86(143)116-64(43-55-24-26-56(123)27-25-55)89(146)118-67(97(154)155)40-51(2)3)119-87(144)61(31-35-80(136)137)112-84(141)58(28-32-77(130)131)113-88(145)63(42-54-18-10-7-11-19-54)117-90(147)66(45-81(138)139)110-76(129)50-107-83(140)65(44-71(100)124)109-75(128)49-106-73(126)47-104-72(125)46-105-74(127)48-108-91(148)68-21-13-38-121(68)95(152)62(20-12-36-103-98(101)102)115-93(150)69-22-14-37-120(69)94(151)57(99)41-53-16-8-6-9-17-53/h6-11,16-19,24-27,51-52,57-70,82,123H,5,12-15,20-23,28-50,99H2,1-4H3,(H2,100,124)(H,104,125)(H,105,127)(H,106,126)(H,107,140)(H,108,148)(H,109,128)(H,110,129)(H,111,142)(H,112,141)(H,113,145)(H,114,149)(H,115,150)(H,116,143)(H,117,147)(H,118,146)(H,119,144)(H,130,131)(H,132,133)(H,134,135)(H,136,137)(H,138,139)(H,154,155)(H4,101,102,103)/t52-,57+,58-,59-,60-,61-,62-,63-,64-,65-,66-,67-,68-,69-,70-,82-/m0/s1\tBivalirudin is a synthetic 20 residue peptide (thrombin inhibitor) which reversibly inhibits thrombin. Once bound to the active site, thrombin cannot activate fibrinogen into fibrin, the crucial step in the formation of thrombus. It is administered intravenously. Because it can cause blood stagnation, it is important to monitor changes in hematocrit, activated partial thromboplastin time, international normalized ratio and blood pressure.\nDB00014\tGoserelin\tsmall molecule\tapproved\tL02AE03\tAdrenal Cortex Hormones|Amino Acids, Peptides, and Proteins|Antineoplastic Agents|Antineoplastic Agents, Hormonal|Antineoplastic and Immunomodulating Agents|Endocrine Therapy|Gonadotropin Releasing Hormone Receptor Agonist|Gonadotropin Releasing Hormone Receptor Agonists|Gonadotropin-releasing hormone agonist|Gonadotropins|Hormones|Hormones and Related Agents|Hormones, Hormone Substitutes, and Hormone Antagonists|Hyperglycemia-Associated Agents|Hypothalamic Hormones|Miscellaneous Therapeutic Agents|Moderate Risk QTc-Prolonging Agents|Nerve Tissue Proteins|Neuropeptides|Oligopeptides|Peptide Hormones|Peptides|Pituitary Hormone-Releasing Hormones|Proteins|QTc Prolonging Agents\tBLCLNMBMMGCOAS-URPVMXJPSA-N\tInChI\u003d1S/C59H84N18O14/c1-31(2)22-40(49(82)68-39(12-8-20-64-57(60)61)56(89)77-21-9-13-46(77)55(88)75-76-58(62)90)69-54(87)45(29-91-59(3,4)5)74-50(83)41(23-32-14-16-35(79)17-15-32)70-53(86)44(28-78)73-51(84)42(24-33-26-65-37-11-7-6-10-36(33)37)71-52(85)43(25-34-27-63-30-66-34)72-48(81)38-18-19-47(80)67-38/h6-7,10-11,14-17,26-27,30-31,38-46,65,78-79H,8-9,12-13,18-25,28-29H2,1-5H3,(H,63,66)(H,67,80)(H,68,82)(H,69,87)(H,70,86)(H,71,85)(H,72,81)(H,73,84)(H,74,83)(H,75,88)(H4,60,61,64)(H3,62,76,90)/t38-,39-,40-,41-,42-,43-,44-,45+,46-/m0/s1\tGoserelin is a synthetic hormone. In men, it stops the production of the hormone testosterone, which may stimulate the growth of cancer cells. In women, goserelin decreases the production of the hormone estradiol (which may stimulate the growth of cancer cells) to levels similar to a postmenopausal state. When the medication is stopped, hormone levels return to normal.\nDB00027\tGramicidin D\tsmall molecule\tapproved\tR02AB30\tAmino Acids, Peptides, and Proteins|Anti-Bacterial Agents|Anti-Infective Agents|Anti-Infective Agents, Local|Membrane Proteins|P-glycoprotein/ABCB1 Inhibitors|P-glycoprotein/ABCB1 Substrates|Peptides|Peptides, Cyclic|Pore Forming Cytotoxic Proteins|Proteins|Throat Preparations|Tyrothricin\tNDAYQJDHGXTBJL-MWWSRJDJSA-N\tInChI\u003d1S/C96H135N19O16/c1-50(2)36-71(105-79(118)48-102-93(128)80(54(9)10)103-49-117)86(121)104-58(17)84(119)113-82(56(13)14)95(130)115-83(57(15)16)96(131)114-81(55(11)12)94(129)112-78(43-62-47-101-70-33-25-21-29-66(62)70)92(127)108-74(39-53(7)8)89(124)111-77(42-61-46-100-69-32-24-20-28-65(61)69)91(126)107-73(38-52(5)6)88(123)110-76(41-60-45-99-68-31-23-19-27-64(60)68)90(125)106-72(37-51(3)4)87(122)109-75(85(120)97-34-35-116)40-59-44-98-67-30-22-18-26-63(59)67/h18-33,44-47,49-58,71-78,80-83,98-101,116H,34-43,48H2,1-17H3,(H,97,120)(H,102,128)(H,103,117)(H,104,121)(H,105,118)(H,106,125)(H,107,126)(H,108,127)(H,109,122)(H,110,123)(H,111,124)(H,112,129)(H,113,119)(H,114,131)(H,115,130)/t58-,71+,72+,73+,74+,75-,76-,77-,78-,80-,81+,82+,83-/m0/s1\tGramcidin D is a heterogeneous mixture of three antibiotic compounds, gramicidins A, B and C, making up 80%, 6%, and 14% respectively all of which are obtained from the soil bacterial species Bacillus brevis and called collectively gramicidin D. Gramcidins are 15 residue peptides with alternating D and L amino acids. The peptides assemble inside of the hydrophobic interior of the cellular lipid bilayer to form a β-helix. The helix itself is not long enough to span the membrane but it dimerizes to form the elongated channel needed to span the whole membrane. Gramicidin D is used primarily as a topical antibiotic and is one of the three constituents of consumer antibiotic polysporin ophthalmic solution.\nDB00035\tDesmopressin\tsmall molecule\tapproved\tH01BA02\tAgents that produce hypertension|Amino Acids, Peptides, and Proteins|Antidiuretic Agents|Arginine Vasopressin|Cardiovascular Agents|Coagulants|Factor VIII Activator|Hematologic Agents|Hemostatics|Hormones|Hormones, Hormone Substitutes, and Hormone Antagonists|Increased Coagulation Factor VIII Activity|Increased Coagulation Factor VIII Concentration|Natriuretic Agents|Nerve Tissue Proteins|Neuropeptides|Oligopeptides|Peptide Hormones|Peptides|Pituitary|Pituitary and Hypothalamic Hormones and Analogues|Pituitary Hormones|Pituitary Hormones, Posterior|Posterior Pituitary Lobe Hormones|Proteins|Systemic Hormonal Preparations, Excl. Sex Hormones and Insulins|Vasopressin Analog|Vasopressin and Analogues|Vasopressins\tNFLWUMRGJYTJIN-NXBWRCJVSA-N\tInChI\u003d1S/C46H64N14O12S2/c47-35(62)15-14-29-40(67)58-32(22-36(48)63)43(70)59-33(45(72)60-18-5-9-34(60)44(71)56-28(8-4-17-52-46(50)51)39(66)53-23-37(49)64)24-74-73-19-16-38(65)54-30(21-26-10-12-27(61)13-11-26)41(68)57-31(42(69)55-29)20-25-6-2-1-3-7-25/h1-3,6-7,10-13,28-34,61H,4-5,8-9,14-24H2,(H2,47,62)(H2,48,63)(H2,49,64)(H,53,66)(H,54,65)(H,55,69)(H,56,71)(H,57,68)(H,58,67)(H,59,70)(H4,50,51,52)/t28-,29-,30-,31-,32-,33-,34-/m0/s1\tDesmopressin (dDAVP), a synthetic analogue of 8-arginine vasopressin (ADH), is an antidiuretic peptide drug modified by deamination of 1-cysteine and substitution of 8-L-arginine by 8-D-arginine. ADH is an endogenous pituitary hormone that has a crucial role in the control of the water content in the body. Upon release from the stimulation of increased plasma osmolarity or decreased circulating blood volume, ADH mainly acts on the cells of the distal part of the nephron and the collecting tubules in the kidney [T28]. The hormone interacts with V1, V2 or V3 receptors with differing signal cascade systems.\r\n\r\nDesmopressin displays enhanced antidiuretic potency, fewer pressor effects due to V2-selective actions, and a prolonged half-life and duration of action compared to endogenous ADH [A31661]. It has been employed clinically since 1972 and is available in various formulations including intranasal solution, intravenous solution, oral tablet and oral lyophilisate [A31662]. Desmopressin is indicated for the treatment of polyuric conditions including primary nocturnal enuresis, nocturia, and diabetes insipidus. It was also newly approved for the treatment of mild classical hemophilia and von Willebrand\u0027s disease for minor surgeries. The active ingredient in most formulations is desmopressin acetate. Nocdurna, or desmopressin acetate, was approved by the FDA on June 21st, 2018 for the treatment of nocturia due to nocturnal polyuria in adults. It is available as a sublingual tablet.\nDB00050\tCetrorelix\tsmall molecule\tapproved|investigational\tH01CC02\tAmino Acids, Peptides, and Proteins|Anti-Gonadotropin-Releasing Hormones|Decreased GnRH Secretion|Fertility Agents|Fertility Agents, Female|Gonadotropin Releasing Hormone Receptor Antagonists|Gonadotropin-releasing Hormone Antagonists|Hormone Antagonists|Hormones|Hormones, Hormone Substitutes, and Hormone Antagonists|Hypothalamic Hormones|Nerve Tissue Proteins|Neuropeptides|Oligopeptides|Peptide Hormones|Peptides|Pituitary and Hypothalamic Hormones and Analogues|Pituitary Hormone-Releasing Hormones|Proteins|Reproductive Control Agents|Systemic Hormonal Preparations, Excl. Sex Hormones and Insulins\tSBNPWPIBESPSIF-MHWMIDJBSA-N\tInChI\u003d1S/C70H92ClN17O14/c1-39(2)31-52(61(94)82-51(15-9-28-77-69(73)74)68(101)88-30-10-16-58(88)67(100)79-40(3)59(72)92)83-60(93)50(14-8-29-78-70(75)102)81-63(96)54(34-43-20-25-49(91)26-21-43)86-66(99)57(38-89)87-65(98)56(36-45-11-7-27-76-37-45)85-64(97)55(33-42-18-23-48(71)24-19-42)84-62(95)53(80-41(4)90)35-44-17-22-46-12-5-6-13-47(46)32-44/h5-7,11-13,17-27,32,37,39-40,50-58,89,91H,8-10,14-16,28-31,33-36,38H2,1-4H3,(H2,72,92)(H,79,100)(H,80,90)(H,81,96)(H,82,94)(H,83,93)(H,84,95)(H,85,97)(H,86,99)(H,87,98)(H4,73,74,77)(H3,75,78,102)/t40-,50-,51+,52+,53-,54+,55-,56-,57+,58+/m1/s1\tCetrorelix is a man-made hormone that blocks the effects of Gonadotropin Releasing Hormone (GnRH). GnRH controls another hormone that is called luteinizing hormone (LH), which is the hormone that starts ovulation during the menstrual cycle. When undergoing hormone treatment sometimes premature ovulation can occur, leading to eggs that are not ready for fertilization to be released. Cetrorelix does not allow the premature release of these eggs to occur.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603552938_-2072736470",
+      "id": "20190115-235232_2854543",
+      "dateCreated": "2019-01-15 23:52:32.938",
+      "dateStarted": "2019-01-15 23:54:38.303",
+      "dateFinished": "2019-01-15 23:54:38.381",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n# write drugbank tsv\ndrugbank_df.to_csv(\u0027/work/datascience/data/drugbank/drugbank.tsv\u0027, sep\u003d\u0027\\t\u0027, index\u003dFalse)\n\n# write slim drugbank tsv\ndrugbank_slim_df.to_csv(\u0027/work/datascience/data/drugbank/drugbank-slim.tsv\u0027, sep\u003d\u0027\\t\u0027, index\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-16 00:00:04.774",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603659975_1190105732",
+      "id": "20190115-235419_1588635594",
+      "dateCreated": "2019-01-15 23:54:19.975",
+      "dateStarted": "2019-01-16 00:00:04.800",
+      "dateFinished": "2019-01-16 00:00:05.006",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nExtract protein information¶\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:55:59.310",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eExtract protein information¶\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603745802_1871377932",
+      "id": "20190115-235545_392067233",
+      "dateCreated": "2019-01-15 23:55:45.802",
+      "dateStarted": "2019-01-15 23:55:59.310",
+      "dateFinished": "2019-01-15 23:56:01.525",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprotein_rows \u003d list()\nfor i, drug in enumerate(root):\n    drugbank_id \u003d drug.findtext(ns + \"drugbank-id[@primary\u003d\u0027true\u0027]\")\n    for category in [\u0027target\u0027, \u0027enzyme\u0027, \u0027carrier\u0027, \u0027transporter\u0027]:\n        proteins \u003d drug.findall(\u0027{ns}{cat}s/{ns}{cat}\u0027.format(ns\u003dns, cat\u003dcategory))\n        for protein in proteins:\n            row \u003d {\u0027drugbank_id\u0027: drugbank_id, \u0027category\u0027: category}\n            row[\u0027organism\u0027] \u003d protein.findtext(\u0027{}organism\u0027.format(ns))\n            row[\u0027known_action\u0027] \u003d protein.findtext(\u0027{}known-action\u0027.format(ns))\n            actions \u003d protein.findall(\u0027{ns}actions/{ns}action\u0027.format(ns\u003dns))\n            row[\u0027actions\u0027] \u003d \u0027|\u0027.join(action.text for action in actions)\n            uniprot_ids \u003d [polypep.text for polypep in protein.findall(\n                \"{ns}polypeptide/{ns}external-identifiers/{ns}external-identifier[{ns}resource\u003d\u0027UniProtKB\u0027]/{ns}identifier\".format(ns\u003dns))]            \n            if len(uniprot_ids) !\u003d 1:\n                continue\n            row[\u0027uniprot_id\u0027] \u003d uniprot_ids[0]\n            ref_text \u003d protein.findtext(\"{ns}references[@format\u003d\u0027textile\u0027]\".format(ns\u003dns))\n            pmids \u003d re.findall(r\u0027pubmed/([0-9]+)\u0027, ref_text)\n            row[\u0027pubmed_ids\u0027] \u003d \u0027|\u0027.join(pmids)\n            protein_rows.append(row)\n\nprotein_df \u003d pandas.DataFrame.from_dict(protein_rows)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-16 00:00:15.643",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)\n\u001b[0;32m\u003cipython-input-24-96b306d212ed\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     16\u001b[0m             \u001b[0mrow\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\u0027uniprot_id\u0027\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0muniprot_ids\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m             \u001b[0mref_text\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mprotein\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfindtext\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"{ns}references[@format\u003d\u0027textile\u0027]\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mns\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0mns\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 18\u001b[0;31m             \u001b[0mpmids\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mre\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfindall\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mr\u0027pubmed/([0-9]+)\u0027\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mref_text\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     19\u001b[0m             \u001b[0mrow\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\u0027pubmed_ids\u0027\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0;34m\u0027|\u0027\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpmids\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     20\u001b[0m             \u001b[0mprotein_rows\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrow\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m~/anaconda3/lib/python3.6/re.py\u001b[0m in \u001b[0;36mfindall\u001b[0;34m(pattern, string, flags)\u001b[0m\n\u001b[1;32m    220\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    221\u001b[0m     Empty matches are included in the result.\"\"\"\n\u001b[0;32m--\u003e 222\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0m_compile\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpattern\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mflags\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfindall\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstring\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    223\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    224\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mfinditer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpattern\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstring\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mflags\u001b[0m\u001b[0;34m\u003d\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mTypeError\u001b[0m: expected string or bytes-like object"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603759292_308309758",
+      "id": "20190115-235559_2038087325",
+      "dateCreated": "2019-01-15 23:55:59.292",
+      "dateStarted": "2019-01-16 00:00:15.666",
+      "dateFinished": "2019-01-16 00:00:15.756",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n# Read our uniprot to entrez_gene mapping\nresponse \u003d requests.get(\u0027http://git.dhimmel.com/uniprot/data/map/GeneID.tsv.gz\u0027, stream\u003dTrue)\ntext \u003d io.TextIOWrapper(gzip.GzipFile(fileobj\u003dresponse.raw))\nuniprot_df \u003d pandas.read_table(text, engine\u003d\u0027python\u0027)\nuniprot_df.rename(columns\u003d{\u0027uniprot\u0027: \u0027uniprot_id\u0027, \u0027GeneID\u0027: \u0027entrez_gene_id\u0027}, inplace\u003dTrue)\n\n# merge uniprot mapping with protein_df\nentrez_df \u003d protein_df.merge(uniprot_df, how\u003d\u0027inner\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:57:19.981",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603779816_-1959905329",
+      "id": "20190115-235619_796128990",
+      "dateCreated": "2019-01-15 23:56:19.816",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ncolumns \u003d [\u0027drugbank_id\u0027, \u0027category\u0027, \u0027uniprot_id\u0027, \u0027entrez_gene_id\u0027, \u0027organism\u0027,\u0027known_action\u0027, \u0027actions\u0027, \u0027pubmed_ids\u0027]\nentrez_df \u003d entrez_df[columns]",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-16 00:00:51.372",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603840091_-2026451999",
+      "id": "20190115-235720_1180217412",
+      "dateCreated": "2019-01-15 23:57:20.091",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\npath \u003d os.path.join(\u0027data\u0027, \u0027proteins.tsv\u0027)\nentrez_df.to_csv(path, sep\u003d\u0027\\t\u0027, index\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:57:35.712",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603847915_4526360",
+      "id": "20190115-235727_36595817",
+      "dateCreated": "2019-01-15 23:57:27.916",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n# Number of unique genes with an interaction\nlen(set(entrez_df.entrez_gene_id))",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:57:45.541",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603855811_2132047916",
+      "id": "20190115-235735_475865833",
+      "dateCreated": "2019-01-15 23:57:35.812",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n# Number of unique drugs  with an interaction\nlen(set(entrez_df.drugbank_id))",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-15 23:57:58.419",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547603874823_-1464285166",
+      "id": "20190115-235754_1540001989",
+      "dateCreated": "2019-01-15 23:57:54.823",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nhttps://spacy.io/models/pt",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-16 00:13:38.996",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1547604814817_2042177962",
+      "id": "20190116-001334_171587478",
+      "dateCreated": "2019-01-16 00:13:34.817",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "DATAMINING/VI - DRUGBANK",
+  "id": "2E2AFQUD9",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "spark:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
