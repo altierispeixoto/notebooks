@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n**CID-10-CAPITULOS.CSV:** contém a descrição dos capítulos da CID-10;\n\n**CID-10-GRUPOS.CSV:** contém a descrição dos grupos de categorias da CID-10;\n\n**CID-10-CATEGORIAS.CSV:** contém a descrição das categorias (códigos a três caracteres) da CID-10;\n\n**CID-10-SUBCATEGORIAS.CSV:** contém a descrição das subcategorias (códigos a quatro caracteres), assim como as categorias que não tem subcategorias, da CID-10; os códigos existentes neste arquivos são os que podem ser utilizados para codificação de causas, diagnósticos etc.;\n\nComo separador, é utilizado o padrão brasileiro, ou seja, os campos são separadas por ponto-e-vírgula (\";\").\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:16.533",
+      "dateUpdated": "2019-01-21 23:36:11.084",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -36,8 +36,8 @@
       "jobName": "paragraph_1546794351732_777303911",
       "id": "20190106-150551_1837843203",
       "dateCreated": "2019-01-06 15:05:51.732",
-      "dateStarted": "2019-01-06 15:32:16.546",
-      "dateFinished": "2019-01-06 15:32:16.550",
+      "dateStarted": "2019-01-21 23:36:11.097",
+      "dateFinished": "2019-01-21 23:36:13.342",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -45,7 +45,7 @@
       "title": "CID-10-CAPITULOS.CSV",
       "text": "%md\n\n**NUMCAP:** número do capítulo (em numeração arábica); se igual a zero, \nindica o capítulo que contém os códigos não oficialmente pertinentes à CID-10;\n\n**CATINIC:** código da primeira categoria do capítulo;\n**CATFIM:** código da última categoria do capítulo;\n**DESCRICAO:** descrição (nome) do capítulo; e\n**DESCRABREV:** descrição (nome) abreviado do capítulo, com até 50 caracteres.",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:16.645",
+      "dateUpdated": "2019-01-21 23:36:13.399",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -79,15 +79,15 @@
       "jobName": "paragraph_1546794498276_-982067232",
       "id": "20190106-150818_1547674245",
       "dateCreated": "2019-01-06 15:08:18.276",
-      "dateStarted": "2019-01-06 15:32:16.662",
-      "dateFinished": "2019-01-06 15:32:16.665",
+      "dateStarted": "2019-01-21 23:36:13.412",
+      "dateFinished": "2019-01-21 23:36:13.421",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nimport pandas as pd\n\ncapitulos \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-CAPITULOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(capitulos)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:16.762",
+      "dateUpdated": "2019-01-21 23:36:13.511",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -151,8 +151,8 @@
       "jobName": "paragraph_1546793827083_-429518052",
       "id": "20190106-145707_2019433005",
       "dateCreated": "2019-01-06 14:57:07.083",
-      "dateStarted": "2019-01-06 15:32:16.797",
-      "dateFinished": "2019-01-06 15:32:16.900",
+      "dateStarted": "2019-01-21 23:36:13.523",
+      "dateFinished": "2019-01-21 23:36:13.654",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -160,7 +160,7 @@
       "title": "CID-10-GRUPOS.CSV",
       "text": "%md\n\n**CATINIC:** código da primeira categoria do grupo;\n**CATFIM:** código da última categoria do grupo;\n**DESCRICAO:** descrição (nome) do grupo; e\n**DESCRABREV:** descrição (nome) abreviado do grupo, com até 50 caracteres.\nObservação: um grupo pode conter outros grupos.",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:16.997",
+      "dateUpdated": "2019-01-21 23:36:13.722",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -194,15 +194,15 @@
       "jobName": "paragraph_1546794532997_-1031135336",
       "id": "20190106-150852_1906954256",
       "dateCreated": "2019-01-06 15:08:52.997",
-      "dateStarted": "2019-01-06 15:32:17.009",
-      "dateFinished": "2019-01-06 15:32:17.012",
+      "dateStarted": "2019-01-21 23:36:13.735",
+      "dateFinished": "2019-01-21 23:36:13.740",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\ngrupos \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-GRUPOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(grupos)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:17.109",
+      "dateUpdated": "2019-01-21 23:36:13.834",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -215,7 +215,72 @@
               "optionOpen": false,
               "setting": {
                 "table": {
-                  "tableGridState": {},
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "CATINIC",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "CATFIM",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "DESCRICAO",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "DESCRABREV",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "Unnamed: 4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
                   "tableColumnTypeState": {
                     "names": {
                       "CATINIC": "string",
@@ -265,8 +330,8 @@
       "jobName": "paragraph_1546795783357_1218293518",
       "id": "20190106-152943_207354029",
       "dateCreated": "2019-01-06 15:29:43.357",
-      "dateStarted": "2019-01-06 15:32:17.126",
-      "dateFinished": "2019-01-06 15:32:17.189",
+      "dateStarted": "2019-01-21 23:36:13.849",
+      "dateFinished": "2019-01-21 23:36:13.941",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -274,7 +339,7 @@
       "title": "CID-10-CATEGORIAS.CSV",
       "text": "%md\n**CAT:** código da categoria;\n\n**CLASSIF:** indica se a situação da categoria em relação à classificação cruz/asterisco:\nem branco: não tem dupla classificação;\n+: classificação por etiologia; e\n*: classificação por manifestação.\n\n**DESCRICAO:** descrição (nome) da categoria;\n**DESCRABREV:** descrição (nome) abreviado da categoria, com até 50 caracteres (inclui o código da categoria);\n**REFER:** contém, quando a categoria tiver dupla classificação, o código da categoria segundo a outra classificação (nem todos os casos de dupla classificação contém este campo); e\n**EXCLUIDOS:** contém o(s) código(s) de categorias excluídas que agora fazem parte desta categoria.",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 19:53:48.287",
+      "dateUpdated": "2019-01-21 23:36:13.949",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -308,15 +373,15 @@
       "jobName": "paragraph_1546794635054_1435522592",
       "id": "20190106-151035_638973399",
       "dateCreated": "2019-01-06 15:10:35.054",
-      "dateStarted": "2019-01-06 19:53:48.287",
-      "dateFinished": "2019-01-06 19:53:50.411",
+      "dateStarted": "2019-01-21 23:36:13.964",
+      "dateFinished": "2019-01-21 23:36:13.973",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\ncategorias \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-CATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(categorias)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:17.339",
+      "dateUpdated": "2019-01-21 23:36:14.063",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -381,8 +446,8 @@
       "jobName": "paragraph_1546795813188_1357443393",
       "id": "20190106-153013_1583647563",
       "dateCreated": "2019-01-06 15:30:13.188",
-      "dateStarted": "2019-01-06 15:32:17.388",
-      "dateFinished": "2019-01-06 15:32:17.499",
+      "dateStarted": "2019-01-21 23:36:14.094",
+      "dateFinished": "2019-01-21 23:36:14.242",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -390,7 +455,7 @@
       "title": "CID-10-SUBCATEGORIAS.CSV",
       "text": "%md\n\nObservação: estão consideradas como subcategorias também as categorias que não têm subcategorias.\n\n**SUBCAT:** código da subcategoria (sem incluir ponto); para categorias sem subcategorias, o quarto caractere está em branco;\n\n**CLASSIF:** indica se a situação da subcategoria em relação à classificação cruz/asterisco:\nem branco: não tem dupla classificação;\n+: classificação por etiologia; e\n*: classificação por manifestação.\n\n**RESTRSEXO:** indica se a subcategoria só pode ser usada para homens ou mulheres:\nem branco: pode ser utilizada em qualquer situação;\nF: só deve ser utilizada para o sexo feminino; e\nM: só deve ser utilizada para o sexo masculino.\n\n**CAUSAOBITO:** indica se a subcategoria pode causar óbito:\nem branco: não há restrição; e\nN: a subcategoria tem pouca probabilidade de causar óbito.\n\nObservação: além disto, deve-se atentar para o fato de que as subcategorias da classificação asterisco não devem ser utilizadas na classificação de causas de óbitos, assim como as subcategorias do capítulo XIX e do capítulo XXI.\n\n**DESCRICAO:** descrição (nome) da subcategoria;\n**DESCRABREV:** descrição (nome) abreviado da subcategoria, com até 50 caracteres (inclui o código da subcategoria);\n**REFER:** contém, quando a subcategoria tiver dupla classificação, o código da subcategoria segundo a outra classificação (nem todos os casos de dupla classificação contém este campo); e\n**EXCLUIDOS:** contém o(s) código(s) de subcategorias excluídas que agora fazem parte desta subcategoria.",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:17.587",
+      "dateUpdated": "2019-01-21 23:36:14.293",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -424,15 +489,15 @@
       "jobName": "paragraph_1546794755920_-1312514916",
       "id": "20190106-151235_2021826958",
       "dateCreated": "2019-01-06 15:12:35.920",
-      "dateStarted": "2019-01-06 15:32:17.598",
-      "dateFinished": "2019-01-06 15:32:17.603",
+      "dateStarted": "2019-01-21 23:36:14.307",
+      "dateFinished": "2019-01-21 23:36:14.319",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nsubcategorias \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-SUBCATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(subcategorias)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 15:32:17.697",
+      "dateUpdated": "2019-01-21 23:36:14.406",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -503,24 +568,145 @@
       "jobName": "paragraph_1546795870692_894826333",
       "id": "20190106-153110_1796556214",
       "dateCreated": "2019-01-06 15:31:10.692",
-      "dateStarted": "2019-01-06 15:32:17.743",
-      "dateFinished": "2019-01-06 15:32:17.845",
+      "dateStarted": "2019-01-21 23:36:14.443",
+      "dateFinished": "2019-01-21 23:36:14.659",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%livy.sparkr\n",
+      "text": "%md\n## EDA\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 19:12:26.440",
+      "dateUpdated": "2019-01-21 23:37:34.993",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eEDA\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1546809146435_797140216",
+      "id": "20190106-191226_1796392144",
+      "dateCreated": "2019-01-06 19:12:26.435",
+      "dateStarted": "2019-01-21 23:37:34.994",
+      "dateFinished": "2019-01-21 23:37:34.998",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndef exist_word(mystring,word):\n    if word in mystring: \n        print(mystring)\n   \ncategorias[\u0027DESCRICAO\u0027].map(lambda categoria: exist_word(categoria,\u0027Hipertensão\u0027))",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-21 23:48:43.512",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hipertensão essencial (primária)\nHipertensão secundária\nHipertensão pré-existente complicando a gravidez, o parto e o puerpério\nHipertensão gestacional [induzida pela gravidez] sem proteinúria significativa\nHipertensão gestacional [induzida pela gravidez] com proteinúria significativa\nHipertensão materna não especificada\n0       None\n1       None\n2       None\n3       None\n4       None\n5       None\n6       None\n7       None\n8       None\n9       None\n10      None\n11      None\n12      None\n13      None\n14      None\n15      None\n16      None\n17      None\n18      None\n19      None\n20      None\n21      None\n22      None\n23      None\n24      None\n25      None\n26      None\n27      None\n28      None\n29      None\n        ... \n2015    None\n2016    None\n2017    None\n2018    None\n2019    None\n2020    None\n2021    None\n2022    None\n2023    None\n2024    None\n2025    None\n2026    None\n2027    None\n2028    None\n2029    None\n2030    None\n2031    None\n2032    None\n2033    None\n2034    None\n2035    None\n2036    None\n2037    None\n2038    None\n2039    None\n2040    None\n2041    None\n2042    None\n2043    None\n2044    None\nName: DESCRICAO, Length: 2045, dtype: object"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548121054981_-888036770",
+      "id": "20190121-233734_674389531",
+      "dateCreated": "2019-01-21 23:37:34.981",
+      "dateStarted": "2019-01-21 23:48:43.529",
+      "dateFinished": "2019-01-21 23:48:43.598",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndef exist_word(mystring,word):\n    if word in mystring: \n        print(mystring)\n   \nsubcategorias[\u0027DESCRICAO\u0027].map(lambda categoria: exist_word(categoria,\u0027Hipertensão\u0027))\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-21 23:49:17.906",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hipertensão intracraniana benigna\nHipertensão essencial (primária)\nHipertensão renovascular\nHipertensão secundária a outras afecções renais\nHipertensão secundária a afecções endócrinas\nHipertensão secundária, não especificada\nHipertensão pulmonar primária\nHipertensão portal\nHipertensão essencial pré-existente complicando a gravidez, o parto e o puerpério\nHipertensão secundária pré-existente complicando a gravidez, o parto e o puerpério\nHipertensão pré-existente não especificada, complicando a gravidez, o parto e o puerpério\nHipertensão gestacional [induzida pela gravidez] sem proteinúria significativa\nHipertensão materna não especificada\nHipertensão neonatal\n0        None\n1        None\n2        None\n3        None\n4        None\n5        None\n6        None\n7        None\n8        None\n9        None\n10       None\n11       None\n12       None\n13       None\n14       None\n15       None\n16       None\n17       None\n18       None\n19       None\n20       None\n21       None\n22       None\n23       None\n24       None\n25       None\n26       None\n27       None\n28       None\n29       None\n         ... \n12421    None\n12422    None\n12423    None\n12424    None\n12425    None\n12426    None\n12427    None\n12428    None\n12429    None\n12430    None\n12431    None\n12432    None\n12433    None\n12434    None\n12435    None\n12436    None\n12437    None\n12438    None\n12439    None\n12440    None\n12441    None\n12442    None\n12443    None\n12444    None\n12445    None\n12446    None\n12447    None\n12448    None\n12449    None\n12450    None\nName: DESCRICAO, Length: 12451, dtype: object"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548121190883_960846215",
+      "id": "20190121-233950_214399853",
+      "dateCreated": "2019-01-21 23:39:50.883",
+      "dateStarted": "2019-01-21 23:49:17.929",
+      "dateFinished": "2019-01-21 23:49:18.037",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-21 23:49:17.907",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1546809146435_797140216",
-      "id": "20190106-191226_1796392144",
-      "dateCreated": "2019-01-06 19:12:26.435",
+      "jobName": "paragraph_1548121757906_1279945371",
+      "id": "20190121-234917_1286070157",
+      "dateCreated": "2019-01-21 23:49:17.906",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -532,6 +718,8 @@
   "angularObjects": {
     "md:shared_process": [],
     "python:shared_process": [],
+    "neo4j:shared_process": [],
+    "sh:shared_process": [],
     "spark:shared_process": [],
     "livy:shared_process": []
   },
