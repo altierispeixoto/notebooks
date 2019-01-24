@@ -35,47 +35,6 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Extrair e copiar arquivos que contenham a doença HIPERTENSÃO\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-14 21:42:04.314",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eExtrair e copiar arquivos que contenham a doença HIPERTENSÃO\u003c/h3\u003e\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1547297433670_771323379",
-      "id": "20190112-105033_875112825",
-      "dateCreated": "2019-01-12 10:50:33.671",
-      "dateStarted": "2019-01-14 21:42:04.320",
-      "dateFinished": "2019-01-14 21:42:06.535",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
       "text": "%python\n\npath\u003d\u0027/work/datascience/data/bulario-txt/\u0027\nfiles \u003d get_files(path)\ndf \u003d extract_topics(files)\ndf.to_csv(\"/work/datascience/data/bulas.csv\",sep\u003d\";\",index\u003dFalse)",
       "user": "anonymous",
       "dateUpdated": "2019-01-14 22:00:57.933",
@@ -111,77 +70,6 @@
       "dateCreated": "2019-01-12 08:57:34.821",
       "dateStarted": "2019-01-14 22:00:57.948",
       "dateFinished": "2019-01-14 22:01:04.707",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\nz.show(df[1:2].head())",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-14 22:01:08.632",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 414.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "filename": "string",
-                      "composicao": "string",
-                      "indicacao": "string",
-                      "contraindicacao": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python",
-        "lineNumbers": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\n/work/datascience/data/bulario-txt/485/485-6127972013-1719099.txt\t   ifosfamida  eurofarma laboratorios s.a.  bula para paciente po para preparacao extemporanea  1 g e 2 g                 essa versao nao altera nenhuma anterior  01_ifosfamida_bula_47 bula para o paciente_v1_finalpagina 1 29/7/2013    rdc no 47 de 08/09/2009  ifosfamida medicamento generico lei no 9.787, de 1999    po para preparacao extemporanea  forma farmaceutica e apresentacoes  po para preparacao extemporanea, 1 g. embalagens contendo 10 frascos-ampola. po para preparacao extemporanea, 2 g. embalagens contendo 10 frascos-ampola.  uso adulto e pediatrico  para uso endovenoso (no interior de uma veia)  composicao: ifosfamida 1 g. cada frasco-ampola contem: ifosfamida ........................................................................1 g excipientes q.s.p.........................................1 frasco-ampola* * excipientes: manitol.  ifosfamida 2 g. cada frasco-ampola contem: ifosfamida ........................................................................2 g excipientes q.s.p.........................................1 frasco-ampola* * excipientes: manitol.    informacoes ao paciente   \t  ifosfamida e um medicamento indicado no tratamento de:   carcinoma bronquico (cancer de bronquios) de celulas pequenas;   carcinoma (cancer) de ovario;   carcinoma de mama;   tumores de testiculo;   sarcoma (cancer) de tecidos moles (fibras musculares e cartilagem);   carcinoma de endometrio;   carcinoma de rim hipernefroide (cancer de celulas do rim);   carcinoma de pancreas;   linfomas malignos (proliferacao descontrolada dos linfocitos, que sao celulas de defesa do organismo).   seu emprego e restrito aos oncologistas especializados em quimioterapia e e de uso exclusivo em hospitais.  maiores detalhes a respeito das propriedades e aplicacoes da ifosfamida sao encontrados na documentacao cientifica do produto.  \t ifosfamida nao deve ser usada nos casos de intensa diminuicao na producao de celulas sanguineas da medula ossea, de insuficiencia renal (dos rins), de hipotonia vesical (diminuicao ou perda do tonus da bexiga), de bloqueio das vias urinarias eferentes e de metastases (formacao de novos tumores a partir de outros, mas sem continuidade entre eles) cerebrais.  ifosfamida e contraindicada no primeiro trimestre da gravidez, enquanto que no restante da gestacao so devera ser usado se o beneficio para a mulher justificar o risco potencial para o feto.  tambem e contraindicado para pacientes com alergia conhecida a ifosfamida.   este medicamento e contraindicado para uso por pacientes com intensa depressao de medula ossea, insuficiencia renal, hipotonia vesical, obstrucao das vias urinarias eferentes, metastases cerebrais, cistite e infeccoes agudas.   este medicamento e contraindicado para uso por mulheres no primeiro trimestre da gravidez.  \n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1547314377167_1120813036",
-      "id": "20190112-153257_409454446",
-      "dateCreated": "2019-01-12 15:32:57.167",
-      "dateStarted": "2019-01-14 22:01:08.648",
-      "dateFinished": "2019-01-14 22:01:08.735",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -227,8 +115,7 @@
   "angularObjects": {
     "md:shared_process": [],
     "python:shared_process": [],
-    "spark:shared_process": [],
-    "livy:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
