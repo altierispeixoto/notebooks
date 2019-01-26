@@ -3,7 +3,7 @@
     {
       "text": "%python\nimport pandas as pd\n\nbulas_df \u003d pd.read_csv(\"/work/datascience/data/bulas.csv\",sep\u003d\";\") \nremove_words \u003d pd.read_csv(\u0027/work/datascience/data/words.txt\u0027,names\u003d[\u0027words\u0027], sep\u003d\u0027|\u0027,header\u003dNone).words.values[0].split(\u0027,\u0027) # Do not remove the | from sep",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 23:00:09.605",
+      "dateUpdated": "2019-01-26 16:20:58.138",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -30,15 +30,15 @@
       "jobName": "paragraph_1547383668723_1683255121",
       "id": "20190113-104748_1284592589",
       "dateCreated": "2019-01-13 10:47:48.723",
-      "dateStarted": "2019-01-23 23:00:09.622",
-      "dateFinished": "2019-01-23 23:00:09.778",
+      "dateStarted": "2019-01-26 16:20:58.145",
+      "dateFinished": "2019-01-26 16:20:58.284",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nz.show(bulas_df.head())",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 21:45:18.559",
+      "dateUpdated": "2019-01-26 16:20:58.345",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -101,15 +101,15 @@
       "jobName": "paragraph_1547383714672_246968120",
       "id": "20190113-104834_608138871",
       "dateCreated": "2019-01-13 10:48:34.672",
-      "dateStarted": "2019-01-23 21:45:18.586",
-      "dateFinished": "2019-01-23 21:45:18.741",
+      "dateStarted": "2019-01-26 16:20:58.352",
+      "dateFinished": "2019-01-26 16:20:58.547",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nbulas_df[\u0027indicacao\u0027].isnull().sum()",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:17:21.545",
+      "dateUpdated": "2019-01-26 16:20:58.552",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -140,15 +140,15 @@
       "jobName": "paragraph_1547513879324_-899508254",
       "id": "20190114-225759_188844172",
       "dateCreated": "2019-01-14 22:57:59.324",
-      "dateStarted": "2019-01-22 23:17:21.555",
-      "dateFinished": "2019-01-22 23:17:21.637",
+      "dateStarted": "2019-01-26 16:20:58.565",
+      "dateFinished": "2019-01-26 16:20:58.838",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nimport nltk\n#nltk.download(\u0027all\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 21:45:36.854",
+      "dateUpdated": "2019-01-26 16:20:58.865",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -174,15 +174,15 @@
       "jobName": "paragraph_1548119118419_2039588460",
       "id": "20190121-230518_971570613",
       "dateCreated": "2019-01-21 23:05:18.419",
-      "dateStarted": "2019-01-23 21:45:36.878",
-      "dateFinished": "2019-01-23 21:45:37.406",
+      "dateStarted": "2019-01-26 16:20:58.873",
+      "dateFinished": "2019-01-26 16:20:59.142",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\nfrom nltk import sent_tokenize\nfrom nltk.tokenize import word_tokenize\nfrom nltk.corpus import stopwords\n\ndef extract_words(text,remove_words):\n  try:\n    tokens \u003d word_tokenize(text)\n    words \u003d [word for word in tokens if word.isalpha()]\n    stop_words \u003d set(stopwords.words(\u0027portuguese\u0027))\n    words \u003d [w for w in words if not w in stop_words]\n    words \u003d [w for w in words if not w in remove_words]\n    return set(words)\n  except Exception as ex:\n        pass\n  \n\n    \ndef extract_principio_ativo(text):\n    \n    if text.find(\u0027contem\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027contem\u0027) + len(\u0027contem\u0027)\n    elif text.find(\u0027composicao\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027composicao\u0027) + len(\u0027composicao\u0027)\n    else:\n        start_index \u003d 0\n    \n    if text.find(\u0027excipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipientes\u0027)\n    \n    elif text.find(\u0027excipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipiente\u0027)\n        \n    elif text.find(\u0027exicipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipientes\u0027)\n    elif text.find(\u0027exicipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipiente\u0027)\n    elif text.find(\u0027veiculo\u0027) !\u003d -1:  \n        end_index \u003d text.find(\u0027veiculo\u0027)\n    else:\n        end_index \u003d len(text)\n    \n    return text[start_index:end_index]\n   \ndef remove_character(text,character):\n    return text.replace(character,\"\")\n    \n",
+      "text": "%python\n\nfrom nltk import sent_tokenize\nfrom nltk.tokenize import word_tokenize\nfrom nltk.corpus import stopwords\n\ndef extract_words(text,remove_words):\n  try:\n    tokens \u003d word_tokenize(text)\n    words \u003d [word for word in tokens if word.isalpha()]\n    stop_words \u003d set(stopwords.words(\u0027portuguese\u0027))\n    words \u003d [w for w in words if not w in stop_words]\n    words \u003d [w for w in words if not w in remove_words]\n    terms \u003d list(set(words))\n    return \",\".join(terms)\n    \n  except Exception as ex:\n        pass\n  \n\n    \ndef extract_principio_ativo(text):\n    \n    if text.find(\u0027contem\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027contem\u0027) + len(\u0027contem\u0027)\n    elif text.find(\u0027composicao\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027composicao\u0027) + len(\u0027composicao\u0027)\n    else:\n        start_index \u003d 0\n    \n    if text.find(\u0027excipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipientes\u0027)\n    \n    elif text.find(\u0027excipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipiente\u0027)\n        \n    elif text.find(\u0027exicipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipientes\u0027)\n    elif text.find(\u0027exicipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipiente\u0027)\n    elif text.find(\u0027veiculo\u0027) !\u003d -1:  \n        end_index \u003d text.find(\u0027veiculo\u0027)\n    else:\n        end_index \u003d len(text)\n    \n    return text[start_index:end_index]\n   \ndef remove_character(text,character):\n    return text.replace(character,\"\")\n    \n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 23:00:13.203",
+      "dateUpdated": "2019-01-26 16:20:59.173",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -210,15 +210,15 @@
       "jobName": "paragraph_1547386370352_-1616966651",
       "id": "20190113-113250_911686991",
       "dateCreated": "2019-01-13 11:32:50.353",
-      "dateStarted": "2019-01-23 23:00:13.220",
-      "dateFinished": "2019-01-23 23:00:13.306",
+      "dateStarted": "2019-01-26 16:20:59.182",
+      "dateFinished": "2019-01-26 16:20:59.444",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nbulas_df[\u0027composicao\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : remove_character(x,\u0027*\u0027)) \n\nbulas_df[\u0027composicao_keywords\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027indicacao_keywords\u0027] \u003d bulas_df[\u0027indicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027contraindicacao_keywords\u0027] \u003d bulas_df[\u0027contraindicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027principio_ativo\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_principio_ativo(x))\nbulas_df[\u0027principio_ativo_keywords\u0027] \u003d bulas_df[\u0027principio_ativo\u0027].map(lambda x : extract_words(x,remove_words))",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 23:00:15.396",
+      "dateUpdated": "2019-01-26 16:20:59.482",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -244,54 +244,15 @@
       "jobName": "paragraph_1548291458794_1254061479",
       "id": "20190123-225738_2065339465",
       "dateCreated": "2019-01-23 22:57:38.794",
-      "dateStarted": "2019-01-23 23:00:15.415",
-      "dateFinished": "2019-01-23 23:01:08.841",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\ntext \u003d\u0027        **     cloridrato de nebivo lol    brainfarma industria quimica e farmaceutica s.a.    comprimido    5mg  cloridrato de nebivolol  comprimido - bula para o paciente  1 i - identificacao do medicamento:  cloridrato de nebivolol medicamento generico lei no 9.787, de 1999  apresentacao comprimido. embalagem contendo 28 comprimidos.  via de administracao: oral  uso adulto   composicao cada comprimido contem: cloridrato de nebivolol (equivalente a 5mg de nebivolol)................................................................5,45mg excipiente q.s.p. .....................................................................................................................1 comprimido (lactose monoidratada, celulose microcristalina, estearato de magnesio, crospovidona, poloxaleno e povidona).     cloridrato de nebivolol  comprimido - bula para o paciente  2 ii - informacoes ao paciente:  \u0027\n\nremove_character(\u0027*\u0027,text)",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-23 22:57:54.789",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "\u0027             cloridrato de nebivo lol    brainfarma industria quimica e farmaceutica s.a.    comprimido    5mg  cloridrato de nebivolol  comprimido - bula para o paciente  1 i - identificacao do medicamento:  cloridrato de nebivolol medicamento generico lei no 9.787, de 1999  apresentacao comprimido. embalagem contendo 28 comprimidos.  via de administracao: oral  uso adulto   composicao cada comprimido contem: cloridrato de nebivolol (equivalente a 5mg de nebivolol)................................................................5,45mg excipiente q.s.p. .....................................................................................................................1 comprimido (lactose monoidratada, celulose microcristalina, estearato de magnesio, crospovidona, poloxaleno e povidona).     cloridrato de nebivolol  comprimido - bula para o paciente  2 ii - informacoes ao paciente:  \u0027"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1548289948687_-678410208",
-      "id": "20190123-223228_923867040",
-      "dateCreated": "2019-01-23 22:32:28.687",
-      "dateStarted": "2019-01-23 22:57:54.810",
-      "dateFinished": "2019-01-23 22:57:54.887",
+      "dateStarted": "2019-01-26 16:20:59.489",
+      "dateFinished": "2019-01-26 16:21:53.428",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nz.show(bulas_df[170:200].head())",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 23:00:19.031",
+      "dateUpdated": "2019-01-26 16:21:53.526",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -351,7 +312,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\tcomposicao_keywords\tindicacao_keywords\tcontraindicacao_keywords\tprincipio_ativo\tprincipio_ativo_keywords\n/work/datascience/data/bulario-txt/391/391-24204902017-10351846.txt\t       febupen  ems s/a  comprimido revestido  100mg                                    aceclofenaco comprimido revestido paciente    i - identificacao do medicamento febupen aceclofenaco  apresentacoes comprimidos revestidos de 100mg em embalagens contendo 6, 12, 16 ou 24 comprimidos revestidos.  uso adulto uso oral  composicao: cada comprimido revestido contem: aceclofenaco ........................................................................................................100 mg excipiente q.s.p...................................................................................................com rev povidona, celulose microcristalina, lactose monoidratada, acido estearico, croscarmelose sodica, hipromelose + macrogol, dioxido de titanio.  ii - informacoes ao paciente  \tfebupen (aceclofenaco) esta indicado para o tratamento de processos dolorosos e inflamatorios tais como: dores de dentes, traumatismos, dores musculares (ex: lombares), dores pos-cirurgicas (apos o parto normal, apos extracao dentaria), dores nas articulacoes dos ombros e reumatismos.  tambem e eficaz no tratamento cronico de processos inflamatorios, como artrite reumatoide, osteoartrite e espondilite anquilosante.   \tfebupen (aceclofenaco) e contraindicado em caso de hipersensibilidade (alergia) conhecida ao aceclofenaco e/ou a qualquer componente da formulacao. aceclofenaco nao deve ser administrado em pacientes alergicos ao diclofenaco, pois se relata a ocorrencia de reacoes alergicas graves nestes pacientes, quando em tratamento com agentes anti-inflamatorios nao esteroidais. tambem nao deve ser administrado aqueles que sofrem de broncoespasmo, urticaria ou rinite aguda devido ao acido acetilsalicilico ou a outros anti-inflamatorios nao-esteroidais.  febupen (aceclofenaco)  nao deve ser usado em pacientes com ulcera do estomago ou duodeno, em fase ativa. a seguranca de febupen (aceclofenaco) em gestantes nao foi testada. contudo, medicamentos semelhantes podem causar risco fetal humano. assim, este produto esta contraindicado na gravidez, exceto quando, a criterio medico, os seus beneficios superem os riscos.  este produto e contraindicado durante a lactacao.  pacientes que sofrem de tontura e vertigem ou outros disturbios nervosos devem evitar tomar medicamentos anti-inflamatorios nao-esteroidais quando vao operar automoveis ou outros equipamentos perigosos ate que se saiba como estes farmacos em particular os afeta.   este medicamento e contraindicado para menores de 12 anos.  este medicamento e contraindicado para uso por mulheres gravidas.  informe imediatamente seu medico em caso de suspeita de gravidez.   \t{\u0027povidona\u0027, \u0027titanio\u0027, \u0027hipromelose\u0027, \u0027aceclofenaco\u0027, \u0027croscarmelose\u0027, \u0027estearico\u0027, \u0027macrogol\u0027, \u0027dioxido\u0027, \u0027sodica\u0027, \u0027monoidratada\u0027, \u0027lactose\u0027, \u0027acido\u0027, \u0027febupen\u0027}\t{\u0027parto\u0027, \u0027artrite\u0027, \u0027inflamatorios\u0027, \u0027processos\u0027, \u0027aceclofenaco\u0027, \u0027dentes\u0027, \u0027dentaria\u0027, \u0027dores\u0027, \u0027cronico\u0027, \u0027osteoartrite\u0027, \u0027ombros\u0027, \u0027ex\u0027, \u0027eficaz\u0027, \u0027anquilosante\u0027, \u0027espondilite\u0027, \u0027traumatismos\u0027, \u0027reumatismos\u0027, \u0027dolorosos\u0027, \u0027reumatoide\u0027, \u0027febupen\u0027}\t{\u0027hipersensibilidade\u0027, \u0027rinite\u0027, \u0027ulcera\u0027, \u0027duodeno\u0027, \u0027perigosos\u0027, \u0027broncoespasmo\u0027, \u0027saiba\u0027, \u0027aceclofenaco\u0027, \u0027acetilsalicilico\u0027, \u0027disturbios\u0027, \u0027acido\u0027, \u0027vao\u0027, \u0027relata\u0027, \u0027alergicos\u0027, \u0027testada\u0027, \u0027esteroidais\u0027, \u0027urticaria\u0027, \u0027diclofenaco\u0027, \u0027nervosos\u0027, \u0027equipamentos\u0027, \u0027febupen\u0027, \u0027afeta\u0027, \u0027contudo\u0027, \u0027alergia\u0027, \u0027graves\u0027, \u0027superem\u0027}\t: aceclofenaco ........................................................................................................100 mg \t{\u0027aceclofenaco\u0027}\n/work/datascience/data/bulario-txt/391/391-8253012018-10738605.txt\t         febridor (acido acetilsalicilico) laboratorio globo ltda. comprimido 100 mg           febridor_bula_paciente   pagina 2 de 6 febridor acido acetilsalicilico  apresentacao comprimido de 100 mg em embalagem contendo 200 comprimidos.  uso oral uso pediatrico  composicao cada comprimido de febridor contem: acido acetilsalicilico ........................................................................................................................... 100 mg excipientes (amido, celulose microcristalina, lactose mono-hidratada, talco, vanilina, corante amarelo de tartrazina e sacarina sodica di-hidratada) q.s.p. ....................................................................... 1 comprimido  informacoes ao paciente  \tfebridor esta indicado para: - o alivio sintomatico de dores de intensidade leve a moderada, como dor de cabeca, dor de dente, dor de garganta, dor menstrual, dor muscular, dor nas articulacoes, dor nas costas, dor da artrite; - o alivio sintomatico da dor e da febre nos resfriados ou gripes.  \tfebridor nao deve ser utilizado nas seguintes situacoes: - se for alergico ao acido acetilsalicilico ou a salicilatos ou a qualquer um dos ingredientes do medicamento, se nao tiver certeza de ser alergico ao acido acetilsalicilico, consulte o seu medico; - asma bronquica; - se tiver tendencia para sangramentos; - se tiver ulceras no estomago ou no intestino; - se ja tiver tido crise de asma induzida pela administracao de salicilatos ou outras substancias semelhantes; - se estiver em tratamento com metotrexato em doses iguais ou superiores a 15 mg por semana;  - se tiver alteracao grave da funcao dos rins; - se tiver alteracao grave da funcao do figado; - se tiver alteracao grave da funcao do coracao; - se tiver no ultimo trimestre de gravidez.  este medicamento nao deve ser utilizado por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.  \t{\u0027vanilina\u0027, \u0027amido\u0027, \u0027tartrazina\u0027, \u0027acetilsalicilico\u0027, \u0027talco\u0027, \u0027sodica\u0027, \u0027febridor\u0027, \u0027lactose\u0027, \u0027sacarina\u0027, \u0027acido\u0027}\t{\u0027dente\u0027, \u0027resfriados\u0027, \u0027gripes\u0027, \u0027costas\u0027, \u0027dores\u0027, \u0027febridor\u0027, \u0027artrite\u0027, \u0027garganta\u0027, \u0027febre\u0027, \u0027sintomatico\u0027}\t{\u0027rins\u0027, \u0027certeza\u0027, \u0027asma\u0027, \u0027metotrexato\u0027, \u0027intestino\u0027, \u0027tido\u0027, \u0027ulceras\u0027, \u0027tendencia\u0027, \u0027acetilsalicilico\u0027, \u0027alergico\u0027, \u0027sangramentos\u0027, \u0027superiores\u0027, \u0027figado\u0027, \u0027coracao\u0027, \u0027bronquica\u0027, \u0027trimestre\u0027, \u0027febridor\u0027, \u0027salicilatos\u0027, \u0027acido\u0027, \u0027ultimo\u0027}\t: acido acetilsalicilico ........................................................................................................................... 100 mg \t{\u0027acido\u0027, \u0027acetilsalicilico\u0027}\n/work/datascience/data/bulario-txt/391/391-3503402014-2043108.txt\t biowell america ltda comprimidos  polivitaminico    identificacao do medicamento   fdc vit b-12 cianocobalamina  apresentacoes comprimidos de 500 mcg em frasco plastico com 100 comprimidos.  via oral  uso adulto  composicao cada comprimido de fdc vit b-12 contem: cianocobalamina (vitamina b12).......................500 mcg  excipientes: lactose, manitol, celulose microcristalina, croscarmelose sodica, estearato de magnesio.    informacoes ao paciente  \teste medicamento e indicado como suplemento vitaminico em dietas restritivas e inadequadas.   \ta cianocobalamina (vitamina b12) deve ser administrada somente apos a confirmacao do diagnostico de deficiencia de vitamina b12 e nao deve ser utilizada em tratamento de anemia megaloblastica na gravidez. este medicamento e contraindicado em pacientes que apresentam hipersensibilidade a qualquer componente da formula. a absorcao da vitamina b12 do trato gastrintestinal pode ser reduzida pela neomicina, acido aminosalicilico, anti-histaminicos h2 e colchicina. as concentracoes sericas podem ser reduzidas pela administracao concomitante com os anticoncepcionais orais. a utilizacao parenteral de cloranfenicol pode atenuar os efeitos da vitamina b12 na anemia. e um medicamento classificado na categoria a de risco de gravidez. este medicamento e contraindicado para o uso por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.   \t{\u0027cianocobalamina\u0027, \u0027polivitaminico\u0027, \u0027croscarmelose\u0027, \u0027manitol\u0027, \u0027estearato\u0027, \u0027magnesio\u0027, \u0027sodica\u0027, \u0027biowell\u0027, \u0027lactose\u0027, \u0027vitamina\u0027}\t{\u0027inadequadas\u0027, \u0027dietas\u0027, \u0027vitaminico\u0027, \u0027restritivas\u0027}\t{\u0027cianocobalamina\u0027, \u0027parenteral\u0027, \u0027anticoncepcionais\u0027, \u0027megaloblastica\u0027, \u0027anemia\u0027, \u0027cloranfenicol\u0027, \u0027hipersensibilidade\u0027, \u0027trato\u0027, \u0027reduzida\u0027, \u0027gastrintestinal\u0027, \u0027neomicina\u0027, \u0027aminosalicilico\u0027, \u0027deficiencia\u0027, \u0027colchicina\u0027, \u0027atenuar\u0027, \u0027acido\u0027, \u0027vitamina\u0027}\t: cianocobalamina (vitamina b12).......................500 mcg  \t{\u0027cianocobalamina\u0027, \u0027vitamina\u0027}\n/work/datascience/data/bulario-txt/391/391-12109152018-10913412.txt\tt.ebony, 8 andar sao paulo/ sp  04794-000 brasil shire.com.br        feiba complexo protrombinico parcialmente ativado   shire farmaceutica brasil ltda. po liofilizado injetavel + solucao diluente 500 u/1.000 u/2.500 u    feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 1 de 10  i - identificacao do medicamento feiba complexo protrombinico parcialmente ativado  apresentacoes  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 10 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  1.000 u  - frasco-ampola contendo 1.000 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  2.500 u  - frasco-ampola contendo 2.500 unidades de feiba, liofilizado;  - frasco-ampola contendo 50 ml de diluente (agua para injetaveis). - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 10 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis). - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.   feiba  complexo protrombinico parcialmente ativado  1.000 u  - frasco-ampola contendo 1.000 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.   feiba  complexo protrombinico parcialmente ativado  2.500 u  - frasco-ampola contendo 2.500 unidades de feiba, liofilizado;  - frasco-ampola contendo 50 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.    via intravenosa  uso adulto e pediatrico     feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 2 de 10  composicao cada frasco de feiba - complexo protrombinico parcialmente ativado, apos conveniente reconstituicao do po liofilizado, utilizando todo o volume do diluente contido nas respectivas embalagens contem na solucao obtida, pronta para uso, a seguinte composicao:   500 u 500 u 1000 u 2500 u complexo protrombinico parcialmente ativado 500 u 500 u 1000 u 2500 u concentracao do complexo protrombinico parcialmente ativado 25 u/ml 50 u/ml 50 u/ml 50 u/ml agua para injetaveis 20 ml 10 ml 20 ml 50 ml  excipientes: citrato de sodio di-hidratado, cloreto de sodio e agua para injetaveis.    uma solucao contendo 1 unidade de feiba reduz o tempo de tromboplastina parcial ativado (ttpa), de um plasma com inibidor de fator viii, a 50% do valor de referencia (branco).  feiba contem os fatores ii, ix e x principalmente na forma nao ativada bem como o fator vii ativado; o antigeno coagulante do fator viii (f viiic:ag) tambem se encontra presente numa concentracao de ate 0,1 u/1 u de feiba. os fatores do sistema calicreina-cinina se encontram presentes somente em pequenas quantidades, ou ate mesmo ausentes.   ii - informacoes ao paciente   \t feiba e indicado para o tratamento e profilaxia de hemorragias em pacientes portadores de hemofilia a ou b com inibidores.   alem disso, feiba pode ser usado para o tratamento e profilaxia de hemorragias em pacientes nao hemofilicos que desenvolveram inibidores para fatores viii, ix e xi.   existem relatos isolados sobre o uso de feiba no tratamento de pacientes com inibidores adquiridos para os fatores x e xiii.  feiba e utilizado tambem em combinacao com o concentrado de fator viii para uma terapia continua de longo prazo, objetivando conseguir uma completa e permanente eliminacao do inibidor do fator viii, com o proposito de permitir o tratamento regular com concentrado de fator viii, como ocorre em pacientes sem inibidor (imunotolerancia).  \t nas situacoes apresentadas a seguir, feiba somente deve ser usado se, por exemplo, devido a presenca de altos titulos de inibidor, a ausencia de resposta ao tratamento com o concentrado de fator de coagulacao adequado pode ser esperada.  se o paciente e alergico (hipersensivel) a qualquer um dos componentes do feiba;  se existir coagulacao intravascular disseminada (cid). (cid \u003d coagulopatia de consumo, com risco de vida, em que ocorre a coagulacao excessiva do sangue com a formacao pronunciada de coagulos de sangue nos vasos sanguineos. isto leva a um consumo dos fatores de coagulacao em todo o corpo).   feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 3 de 10   nos casos de infarto do miocardio, trombose aguda e/ou embolia, feiba so deve ser usado nos episodios de sangramento em que ha risco de vida.  \t{\u0027protrombinico\u0027, \u0027cloreto\u0027, \u0027f\u0027, \u0027sodio\u0027, \u0027liofilizado\u0027, \u0027intravenosa\u0027, \u0027antigeno\u0027, \u0027concentracao\u0027, \u0027shire\u0027, \u0027inibidor\u0027, \u0027plasma\u0027, \u0027baxject\u0027, \u0027citrato\u0027, \u0027ativado\u0027, \u0027tromboplastina\u0027, \u0027feiba\u0027}\t{\u0027hemofilicos\u0027, \u0027adquiridos\u0027, \u0027conseguir\u0027, \u0027hemofilia\u0027, \u0027xi\u0027, \u0027profilaxia\u0027, \u0027hemorragias\u0027, \u0027b\u0027, \u0027existem\u0027, \u0027inibidor\u0027, \u0027concentrado\u0027, \u0027imunotolerancia\u0027, \u0027eliminacao\u0027, \u0027permanente\u0027, \u0027proposito\u0027, \u0027inibidores\u0027, \u0027terapia\u0027, \u0027relatos\u0027, \u0027feiba\u0027, \u0027objetivando\u0027}\t{\u0027coagulopatia\u0027, \u0027concentrado\u0027, \u0027hipersensivel\u0027, \u0027episodios\u0027, \u0027formacao\u0027, \u0027titulos\u0027, \u0027inibidor\u0027, \u0027leva\u0027, \u0027disseminada\u0027, \u0027esperada\u0027, \u0027alergico\u0027, \u0027infarto\u0027, \u0027cid\u0027, \u0027feiba\u0027, \u0027protrombinico\u0027, \u0027presenca\u0027, \u0027coagulos\u0027, \u0027pronunciada\u0027, \u0027ativado\u0027, \u0027trombose\u0027, \u0027sangramento\u0027}\t na solucao obtida, pronta para uso, a seguinte composicao:   500 u 500 u 1000 u 2500 u complexo protrombinico parcialmente ativado 500 u 500 u 1000 u 2500 u concentracao do complexo protrombinico parcialmente ativado 25 u/ml 50 u/ml 50 u/ml 50 u/ml agua para injetaveis 20 ml 10 ml 20 ml 50 ml  \t{\u0027protrombinico\u0027, \u0027ativado\u0027, \u0027concentracao\u0027}\n/work/datascience/data/bulario-txt/391/391-3464192014-2040813.txt\tfdc vitamin c film coated  biowell america ltda comprimidos revestidos 500 mg 1.000 mg   identificacao do medicamento    fdc vitamin c film coated acido ascorbico   apresentacoes comprimidos revestidos de  - 500 mg em frasco plastico com 30 ou 100 comprimidos. - 1000 mg em frasco plastico com 30 ou 100 comprimidos.    via oral  uso adulto  composicao fdc vitamin c film coated 500 mg: cada comprimido revestido contem 500 mg de acido ascorbico (vitamina c) excipientes: celulose microcristalina, estearato de magnesio, acido estearico, silicato de magnesio.  fdc vitamin c film coated 1000 mg: cada comprimido revestido de contem 1000 mg de acido ascorbico (vitamina c) excipientes: celulose microcristalina, hipromelose, acido estearico, silicato de magnesio.  informacoes ao paciente  \teste medicamento e indicado para rapida correcao de estados de carencia de vitamina c, como estimulantes das defesas organicas; para suprir o aumento das necessidades de vitamina c que ocorrem em estados como gestacao, lactacao e atividade desportiva    \teste medicamento e contraindicado, para pacientes que apresentem litiase oxalica e urica, insuficiencia renal e reconhecida hipersensibilidade a qualquer um dos componentes da formula.   este medicamento e contraindicado para o uso por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.  \t{\u0027ascorbico\u0027, \u0027vitamin\u0027, \u0027coated\u0027, \u0027hipromelose\u0027, \u0027estearico\u0027, \u0027estearato\u0027, \u0027silicato\u0027, \u0027magnesio\u0027, \u0027biowell\u0027, \u0027acido\u0027, \u0027vitamina\u0027}\t{\u0027organicas\u0027, \u0027suprir\u0027, \u0027carencia\u0027, \u0027gestacao\u0027, \u0027estimulantes\u0027, \u0027ocorrem\u0027, \u0027defesas\u0027, \u0027desportiva\u0027, \u0027vitamina\u0027}\t{\u0027urica\u0027, \u0027renal\u0027, \u0027hipersensibilidade\u0027, \u0027litiase\u0027, \u0027insuficiencia\u0027, \u0027oxalica\u0027}\t 500 mg de acido ascorbico (vitamina c) \t{\u0027ascorbico\u0027, \u0027acido\u0027, \u0027vitamina\u0027}\n"
+            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\tcomposicao_keywords\tindicacao_keywords\tcontraindicacao_keywords\tprincipio_ativo\tprincipio_ativo_keywords\n/work/datascience/data/bulario-txt/391/391-24204902017-10351846.txt\t       febupen  ems s/a  comprimido revestido  100mg                                    aceclofenaco comprimido revestido paciente    i - identificacao do medicamento febupen aceclofenaco  apresentacoes comprimidos revestidos de 100mg em embalagens contendo 6, 12, 16 ou 24 comprimidos revestidos.  uso adulto uso oral  composicao: cada comprimido revestido contem: aceclofenaco ........................................................................................................100 mg excipiente q.s.p...................................................................................................com rev povidona, celulose microcristalina, lactose monoidratada, acido estearico, croscarmelose sodica, hipromelose + macrogol, dioxido de titanio.  ii - informacoes ao paciente  \tfebupen (aceclofenaco) esta indicado para o tratamento de processos dolorosos e inflamatorios tais como: dores de dentes, traumatismos, dores musculares (ex: lombares), dores pos-cirurgicas (apos o parto normal, apos extracao dentaria), dores nas articulacoes dos ombros e reumatismos.  tambem e eficaz no tratamento cronico de processos inflamatorios, como artrite reumatoide, osteoartrite e espondilite anquilosante.   \tfebupen (aceclofenaco) e contraindicado em caso de hipersensibilidade (alergia) conhecida ao aceclofenaco e/ou a qualquer componente da formulacao. aceclofenaco nao deve ser administrado em pacientes alergicos ao diclofenaco, pois se relata a ocorrencia de reacoes alergicas graves nestes pacientes, quando em tratamento com agentes anti-inflamatorios nao esteroidais. tambem nao deve ser administrado aqueles que sofrem de broncoespasmo, urticaria ou rinite aguda devido ao acido acetilsalicilico ou a outros anti-inflamatorios nao-esteroidais.  febupen (aceclofenaco)  nao deve ser usado em pacientes com ulcera do estomago ou duodeno, em fase ativa. a seguranca de febupen (aceclofenaco) em gestantes nao foi testada. contudo, medicamentos semelhantes podem causar risco fetal humano. assim, este produto esta contraindicado na gravidez, exceto quando, a criterio medico, os seus beneficios superem os riscos.  este produto e contraindicado durante a lactacao.  pacientes que sofrem de tontura e vertigem ou outros disturbios nervosos devem evitar tomar medicamentos anti-inflamatorios nao-esteroidais quando vao operar automoveis ou outros equipamentos perigosos ate que se saiba como estes farmacos em particular os afeta.   este medicamento e contraindicado para menores de 12 anos.  este medicamento e contraindicado para uso por mulheres gravidas.  informe imediatamente seu medico em caso de suspeita de gravidez.   \tpovidona,lactose,sodica,titanio,macrogol,febupen,aceclofenaco,croscarmelose,hipromelose,estearico,dioxido,acido,monoidratada\teficaz,reumatismos,traumatismos,inflamatorios,febupen,cronico,aceclofenaco,reumatoide,osteoartrite,anquilosante,dores,espondilite,dentes,parto,ombros,ex,processos,dolorosos,dentaria,artrite\tsuperem,febupen,aceclofenaco,hipersensibilidade,nervosos,saiba,broncoespasmo,graves,rinite,afeta,esteroidais,diclofenaco,disturbios,relata,perigosos,testada,alergicos,contudo,acido,vao,equipamentos,duodeno,ulcera,acetilsalicilico,urticaria,alergia\t: aceclofenaco ........................................................................................................100 mg \taceclofenaco\n/work/datascience/data/bulario-txt/391/391-8253012018-10738605.txt\t         febridor (acido acetilsalicilico) laboratorio globo ltda. comprimido 100 mg           febridor_bula_paciente   pagina 2 de 6 febridor acido acetilsalicilico  apresentacao comprimido de 100 mg em embalagem contendo 200 comprimidos.  uso oral uso pediatrico  composicao cada comprimido de febridor contem: acido acetilsalicilico ........................................................................................................................... 100 mg excipientes (amido, celulose microcristalina, lactose mono-hidratada, talco, vanilina, corante amarelo de tartrazina e sacarina sodica di-hidratada) q.s.p. ....................................................................... 1 comprimido  informacoes ao paciente  \tfebridor esta indicado para: - o alivio sintomatico de dores de intensidade leve a moderada, como dor de cabeca, dor de dente, dor de garganta, dor menstrual, dor muscular, dor nas articulacoes, dor nas costas, dor da artrite; - o alivio sintomatico da dor e da febre nos resfriados ou gripes.  \tfebridor nao deve ser utilizado nas seguintes situacoes: - se for alergico ao acido acetilsalicilico ou a salicilatos ou a qualquer um dos ingredientes do medicamento, se nao tiver certeza de ser alergico ao acido acetilsalicilico, consulte o seu medico; - asma bronquica; - se tiver tendencia para sangramentos; - se tiver ulceras no estomago ou no intestino; - se ja tiver tido crise de asma induzida pela administracao de salicilatos ou outras substancias semelhantes; - se estiver em tratamento com metotrexato em doses iguais ou superiores a 15 mg por semana;  - se tiver alteracao grave da funcao dos rins; - se tiver alteracao grave da funcao do figado; - se tiver alteracao grave da funcao do coracao; - se tiver no ultimo trimestre de gravidez.  este medicamento nao deve ser utilizado por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.  \tlactose,talco,tartrazina,sodica,febridor,amido,vanilina,acetilsalicilico,sacarina,acido\tsintomatico,febre,gripes,febridor,costas,dores,garganta,dente,resfriados,artrite\tintestino,asma,alergico,sangramentos,febridor,metotrexato,figado,salicilatos,coracao,rins,bronquica,ulceras,tido,ultimo,tendencia,acetilsalicilico,certeza,superiores,acido,trimestre\t: acido acetilsalicilico ........................................................................................................................... 100 mg \tacido,acetilsalicilico\n/work/datascience/data/bulario-txt/391/391-3503402014-2043108.txt\t biowell america ltda comprimidos  polivitaminico    identificacao do medicamento   fdc vit b-12 cianocobalamina  apresentacoes comprimidos de 500 mcg em frasco plastico com 100 comprimidos.  via oral  uso adulto  composicao cada comprimido de fdc vit b-12 contem: cianocobalamina (vitamina b12).......................500 mcg  excipientes: lactose, manitol, celulose microcristalina, croscarmelose sodica, estearato de magnesio.    informacoes ao paciente  \teste medicamento e indicado como suplemento vitaminico em dietas restritivas e inadequadas.   \ta cianocobalamina (vitamina b12) deve ser administrada somente apos a confirmacao do diagnostico de deficiencia de vitamina b12 e nao deve ser utilizada em tratamento de anemia megaloblastica na gravidez. este medicamento e contraindicado em pacientes que apresentam hipersensibilidade a qualquer componente da formula. a absorcao da vitamina b12 do trato gastrintestinal pode ser reduzida pela neomicina, acido aminosalicilico, anti-histaminicos h2 e colchicina. as concentracoes sericas podem ser reduzidas pela administracao concomitante com os anticoncepcionais orais. a utilizacao parenteral de cloranfenicol pode atenuar os efeitos da vitamina b12 na anemia. e um medicamento classificado na categoria a de risco de gravidez. este medicamento e contraindicado para o uso por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.   \testearato,lactose,sodica,manitol,biowell,croscarmelose,cianocobalamina,vitamina,magnesio,polivitaminico\tinadequadas,dietas,restritivas,vitaminico\tatenuar,megaloblastica,gastrintestinal,anticoncepcionais,parenteral,hipersensibilidade,cianocobalamina,anemia,vitamina,aminosalicilico,colchicina,deficiencia,acido,reduzida,neomicina,trato,cloranfenicol\t: cianocobalamina (vitamina b12).......................500 mcg  \tcianocobalamina,vitamina\n/work/datascience/data/bulario-txt/391/391-12109152018-10913412.txt\tt.ebony, 8 andar sao paulo/ sp  04794-000 brasil shire.com.br        feiba complexo protrombinico parcialmente ativado   shire farmaceutica brasil ltda. po liofilizado injetavel + solucao diluente 500 u/1.000 u/2.500 u    feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 1 de 10  i - identificacao do medicamento feiba complexo protrombinico parcialmente ativado  apresentacoes  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 10 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  1.000 u  - frasco-ampola contendo 1.000 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  2.500 u  - frasco-ampola contendo 2.500 unidades de feiba, liofilizado;  - frasco-ampola contendo 50 ml de diluente (agua para injetaveis). - conjunto de reconstituicao e infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 10 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.  feiba  complexo protrombinico parcialmente ativado  500 u  - frasco-ampola contendo 500 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis). - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.   feiba  complexo protrombinico parcialmente ativado  1.000 u  - frasco-ampola contendo 1.000 unidades de feiba, liofilizado;  - frasco-ampola contendo 20 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.   feiba  complexo protrombinico parcialmente ativado  2.500 u  - frasco-ampola contendo 2.500 unidades de feiba, liofilizado;  - frasco-ampola contendo 50 ml de diluente (agua para injetaveis).  - dispositivo de reconstituicao (baxject ii hi-flow) e conjunto de infusao.    via intravenosa  uso adulto e pediatrico     feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 2 de 10  composicao cada frasco de feiba - complexo protrombinico parcialmente ativado, apos conveniente reconstituicao do po liofilizado, utilizando todo o volume do diluente contido nas respectivas embalagens contem na solucao obtida, pronta para uso, a seguinte composicao:   500 u 500 u 1000 u 2500 u complexo protrombinico parcialmente ativado 500 u 500 u 1000 u 2500 u concentracao do complexo protrombinico parcialmente ativado 25 u/ml 50 u/ml 50 u/ml 50 u/ml agua para injetaveis 20 ml 10 ml 20 ml 50 ml  excipientes: citrato de sodio di-hidratado, cloreto de sodio e agua para injetaveis.    uma solucao contendo 1 unidade de feiba reduz o tempo de tromboplastina parcial ativado (ttpa), de um plasma com inibidor de fator viii, a 50% do valor de referencia (branco).  feiba contem os fatores ii, ix e x principalmente na forma nao ativada bem como o fator vii ativado; o antigeno coagulante do fator viii (f viiic:ag) tambem se encontra presente numa concentracao de ate 0,1 u/1 u de feiba. os fatores do sistema calicreina-cinina se encontram presentes somente em pequenas quantidades, ou ate mesmo ausentes.   ii - informacoes ao paciente   \t feiba e indicado para o tratamento e profilaxia de hemorragias em pacientes portadores de hemofilia a ou b com inibidores.   alem disso, feiba pode ser usado para o tratamento e profilaxia de hemorragias em pacientes nao hemofilicos que desenvolveram inibidores para fatores viii, ix e xi.   existem relatos isolados sobre o uso de feiba no tratamento de pacientes com inibidores adquiridos para os fatores x e xiii.  feiba e utilizado tambem em combinacao com o concentrado de fator viii para uma terapia continua de longo prazo, objetivando conseguir uma completa e permanente eliminacao do inibidor do fator viii, com o proposito de permitir o tratamento regular com concentrado de fator viii, como ocorre em pacientes sem inibidor (imunotolerancia).  \t nas situacoes apresentadas a seguir, feiba somente deve ser usado se, por exemplo, devido a presenca de altos titulos de inibidor, a ausencia de resposta ao tratamento com o concentrado de fator de coagulacao adequado pode ser esperada.  se o paciente e alergico (hipersensivel) a qualquer um dos componentes do feiba;  se existir coagulacao intravascular disseminada (cid). (cid \u003d coagulopatia de consumo, com risco de vida, em que ocorre a coagulacao excessiva do sangue com a formacao pronunciada de coagulos de sangue nos vasos sanguineos. isto leva a um consumo dos fatores de coagulacao em todo o corpo).   feiba (complexo protrombinico parcialmente ativado)      bu03                                                                               pagina 3 de 10   nos casos de infarto do miocardio, trombose aguda e/ou embolia, feiba so deve ser usado nos episodios de sangramento em que ha risco de vida.  \tcitrato,cloreto,antigeno,tromboplastina,protrombinico,intravenosa,plasma,sodio,baxject,concentracao,f,ativado,shire,liofilizado,feiba,inibidor\txi,relatos,adquiridos,objetivando,b,eliminacao,imunotolerancia,inibidores,hemorragias,hemofilicos,permanente,profilaxia,concentrado,terapia,inibidor,proposito,existem,hemofilia,feiba,conseguir\tformacao,pronunciada,cid,coagulopatia,trombose,alergico,hipersensivel,titulos,esperada,concentrado,ativado,infarto,sangramento,leva,feiba,inibidor,disseminada,presenca,protrombinico,coagulos,episodios\t na solucao obtida, pronta para uso, a seguinte composicao:   500 u 500 u 1000 u 2500 u complexo protrombinico parcialmente ativado 500 u 500 u 1000 u 2500 u concentracao do complexo protrombinico parcialmente ativado 25 u/ml 50 u/ml 50 u/ml 50 u/ml agua para injetaveis 20 ml 10 ml 20 ml 50 ml  \tprotrombinico,concentracao,ativado\n/work/datascience/data/bulario-txt/391/391-3464192014-2040813.txt\tfdc vitamin c film coated  biowell america ltda comprimidos revestidos 500 mg 1.000 mg   identificacao do medicamento    fdc vitamin c film coated acido ascorbico   apresentacoes comprimidos revestidos de  - 500 mg em frasco plastico com 30 ou 100 comprimidos. - 1000 mg em frasco plastico com 30 ou 100 comprimidos.    via oral  uso adulto  composicao fdc vitamin c film coated 500 mg: cada comprimido revestido contem 500 mg de acido ascorbico (vitamina c) excipientes: celulose microcristalina, estearato de magnesio, acido estearico, silicato de magnesio.  fdc vitamin c film coated 1000 mg: cada comprimido revestido de contem 1000 mg de acido ascorbico (vitamina c) excipientes: celulose microcristalina, hipromelose, acido estearico, silicato de magnesio.  informacoes ao paciente  \teste medicamento e indicado para rapida correcao de estados de carencia de vitamina c, como estimulantes das defesas organicas; para suprir o aumento das necessidades de vitamina c que ocorrem em estados como gestacao, lactacao e atividade desportiva    \teste medicamento e contraindicado, para pacientes que apresentem litiase oxalica e urica, insuficiencia renal e reconhecida hipersensibilidade a qualquer um dos componentes da formula.   este medicamento e contraindicado para o uso por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.  \testearato,vitamin,biowell,hipromelose,estearico,vitamina,ascorbico,coated,acido,silicato,magnesio\torganicas,defesas,carencia,desportiva,vitamina,gestacao,suprir,estimulantes,ocorrem\toxalica,renal,litiase,insuficiencia,hipersensibilidade,urica\t 500 mg de acido ascorbico (vitamina c) \tacido,vitamina,ascorbico\n"
           }
         ]
       },
@@ -359,15 +320,15 @@
       "jobName": "paragraph_1547508840334_201108168",
       "id": "20190114-213400_1029549085",
       "dateCreated": "2019-01-14 21:34:00.334",
-      "dateStarted": "2019-01-23 23:00:19.040",
-      "dateFinished": "2019-01-23 23:01:08.923",
+      "dateStarted": "2019-01-26 16:21:53.538",
+      "dateFinished": "2019-01-26 16:21:53.611",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nbulas_df.to_csv(\"/work/datascience/data/bulas_tagged.csv\",sep\u003d\u0027;\u0027,index\u003dFalse)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-23 23:01:33.877",
+      "dateUpdated": "2019-01-26 16:21:53.637",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -393,83 +354,15 @@
       "jobName": "paragraph_1548120627949_215457623",
       "id": "20190121-233027_1190923478",
       "dateCreated": "2019-01-21 23:30:27.949",
-      "dateStarted": "2019-01-23 23:01:33.898",
-      "dateFinished": "2019-01-23 23:01:34.353",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\n\n# def word_count(words):\n#     counts \u003d dict()\n#     for word in words:\n#         if word in counts:\n#             counts[word] +\u003d 1\n#         else:\n#             counts[word] \u003d 1\n#     return counts\n    \n# bulas_df[\u0027wordcount\u0027] \u003d bulas_df[\u0027keywords\u0027].map(lambda x: word_count(x))  \n\n# from collections import Counter\n# input_data\u003dbulas_df[\u0027wordcount\u0027]\n\n# dictionary \u003d sum((Counter(dict(x)) for x in input_data),Counter())\n\n# #sorted(dictionary.items(), key\u003dlambda x: x[1],reverse\u003dTrue)\n# txt \u003d pd.DataFrame(sorted(dictionary.items(), key\u003dlambda x: x[1]))\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:10.923",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
-      "apps": [],
-      "jobName": "paragraph_1547398951168_-600547643",
-      "id": "20190113-150231_501137404",
-      "dateCreated": "2019-01-13 15:02:31.168",
-      "dateStarted": "2019-01-22 23:18:10.935",
-      "dateFinished": "2019-01-22 23:18:11.032",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\n#txt.to_csv(\"/work/datascience/data/words.txt\",index\u003dFalse)",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:11.034",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
-      "apps": [],
-      "jobName": "paragraph_1547408457962_1986133474",
-      "id": "20190113-174057_1652887221",
-      "dateCreated": "2019-01-13 17:40:57.962",
-      "dateStarted": "2019-01-22 23:18:11.106",
-      "dateFinished": "2019-01-22 23:18:11.295",
+      "dateStarted": "2019-01-26 16:21:53.648",
+      "dateFinished": "2019-01-26 16:21:54.215",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:11.306",
+      "dateUpdated": "2019-01-26 16:21:54.802",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -502,7 +395,6 @@
   "angularObjects": {
     "md:shared_process": [],
     "python:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

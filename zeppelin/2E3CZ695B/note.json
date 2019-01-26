@@ -1,0 +1,674 @@
+{
+  "paragraphs": [
+    {
+      "text": "%python\nimport pandas as pd",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 16:02:10.068",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502568445_-1771772463",
+      "id": "20190126-093608_2129981658",
+      "dateCreated": "2019-01-26 09:36:08.445",
+      "dateStarted": "2019-01-26 16:02:10.079",
+      "dateFinished": "2019-01-26 16:02:10.135",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nbulas_df  \u003d pd.read_csv(\"/work/datascience/data/bulas_tagged.csv\",sep\u003d\u0027;\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 16:23:51.510",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502281381_1713775657",
+      "id": "20190126-093121_1304408655",
+      "dateCreated": "2019-01-26 09:31:21.381",
+      "dateStarted": "2019-01-26 16:23:51.522",
+      "dateFinished": "2019-01-26 16:23:51.688",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n#diseases \u003d [\u0027Insuficiência cardíaca\u0027,\u0027Hipertensão essencial (primária)\u0027]\n\nhipertensao_df \u003d bulas_df[bulas_df[\u0027indicacao_keywords\u0027].str.contains(\u0027hipertensao\u0027)\u003d\u003dTrue]",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 16:23:54.203",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502371478_-1425616939",
+      "id": "20190126-093251_51702075",
+      "dateCreated": "2019-01-26 09:32:51.478",
+      "dateStarted": "2019-01-26 16:23:54.217",
+      "dateFinished": "2019-01-26 16:23:54.310",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nz.show(hipertensao_df.head())",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 16:02:22.309",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "filename": "string",
+                      "composicao": "string",
+                      "indicacao": "string",
+                      "contraindicacao": "string",
+                      "composicao_keywords": "string",
+                      "indicacao_keywords": "string",
+                      "contraindicacao_keywords": "string",
+                      "principio_ativo": "string",
+                      "principio_ativo_keywords": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "filename\tcomposicao\tindicacao\tcontraindicacao\tcomposicao_keywords\tindicacao_keywords\tcontraindicacao_keywords\tprincipio_ativo\tprincipio_ativo_keywords\n/work/datascience/data/bulario-txt/485/485-6068492014-2137361.txt\tbiolab sanus                 ictus carvedilol  comprimido 3,125 mg, 6,25 mg, 12,5 mg e 25 mg                       biolab sanus      modelo de bula do paciente  ictus carvedilol  identificacao do medicamento  apresentacoes comprimido 3,125 mg  caixa com 30 e 60 comprimidos. comprimido 6,25 mg  caixa com 30 e 60 comprimidos. comprimido 12,5 mg  caixa com 30 e 60  comprimidos. comprimido 25 mg  caixa com 30 e 60  comprimidos.  uso oral uso adulto  composicao cada comprimido 3,125 mg contem: carvedilol..................................................................................................3,125 mg excipientes: lactose, celulose microcristalina, povidona, crospovidona, dioxido de silicio, estearato de magnesio e corante oxido de ferro amarelo.  cada comprimido de 6,25 mg contem: carvedilol..................................................................................................6,25 mg excipientes: lactose, celulose microcristalina, povidona, crospovidona, dioxido de silicio, estearato de magnesio e corante oxido de ferro vermelho.   cada comprimido de 12,5 mg contem: carvedilol..................................................................................................12,5 mg excipientes: lactose, celulose microcristalina, croscarmelose sodica, dioxido de silicio, estearato de magnesio, corante oxido de ferro amarelo e corante oxido de ferro vermelho.   cada comprimido de 25 mg contem: carvedilol..................................................................................................25 mg excipientes: lactose, celulose microcristalina, croscarmelose sodica, dioxido de silicio coloidal e estearato de magnesio.   biolab sanus      informacoes ao paciente \tictus e um medicamento usado para tratar insuficiencia cardiaca congestiva (insuficiencia do coracao), angina do peito (dor no peito de origem cardiaca) e hipertensao arterial (pressao alta).  \tvoce nao pode usar ictus se apresentar alergia ao carvedilol ou a qualquer componente da formulacao, ou se possuir uma das doencas a seguir: insuficiencia cardiaca descompensada/instavel necessitando medicamento intravenoso para aumentar a forca do coracao, insuficiencia do figado; arritmias cardiacas (irregularidades do ritmo cardiaco); asma bronquica ou doenca pulmonar obstrutiva cronica (dpoc) associada a broncoespasmo (contracao dos bronquios); bloqueio atrioventricular (bloqueio dos impulsos nervosos no coracao) de 2o ou 3o grau (a menos que tenha um marca-passo permanente); ritmo cardiaco abaixo de 50 batimentos por minuto); sindrome do no sinusal (incluindo bloqueio sinoatrial); choque cardiogenico (queda acentuada da pressao por problema cardiaco); pressao arterial muito baixa (pressao arterial sistolica \u003c 85 mmhg).  \testearato,povidona,crospovidona,lactose,silicio,ictus,oxido,sodica,coloidal,carvedilol,croscarmelose,dioxido,ferro,magnesio\tarterial,ictus,coracao,peito,hipertensao,insuficiencia,tratar,cardiaca,alta,pressao,angina\tpulmonar,ictus,nervosos,broncoespasmo,arritmias,sinusal,atrioventricular,sistolica,coracao,permanente,intravenoso,sinoatrial,cardiogenico,cardiacas,irregularidades,asma,figado,bronquica,cardiaco,queda,impulsos,arterial,carvedilol,acentuada,insuficiencia,cardiaca,baixa,pressao,possuir,alergia\t: carvedilol..................................................................................................3,125 mg \tcarvedilol\n/work/datascience/data/bulario-txt/431/431-261502018-10417476.txt\t     furosemida geolab industria farmaceutica s/a comprimido 40mg                           v.00_01/2018  modelo de bula para o paciente esta bula e continuamente atualizada. favor proceder a sua leitura antes de utilizar o medicamento.  furosemida medicamento generico, lei n 9.787 de 1999.  forma farmaceutica e apresentacao: comprimido de 40mg: embalagem contendo 20 comprimidos.  uso oral uso adulto e pediatrico  composicao cada comprimido contem: furosemida.....................................................................................................................................................................40mg excipientes: celulose microcristalina, croscarmelose sodica, povidona, estearato de magnesio e alcool etilico.  \ta furosemida e indicada nos casos de: - hipertensao arterial leve a moderada; - edema (inchaco) devido a disturbios do coracao, do figado e dos rins; - edema (inchaco) devido a queimaduras.  \ta furosemida nao deve ser usada em pacientes com: - insuficiencia dos rins com anuria (parada total da eliminacao de urina); - pre-coma e coma devido a problemas associados com encefalopatia do figado (disfuncao do sistema nervoso central em associacao com falencia do figado); - hipopotassemia severa (reducao nos niveis de potassio no sangue); - hiponatremia severa (reducao nos niveis de sodio no sangue); - desidratacao ou hipovolemia (diminuicao do volume liquido circulante nos vasos sanguineos), com ou sem queda da pressao sanguinea; - alergia a furosemida, as sulfonamidas ou a qualquer componente da formula. este medicamento e contraindicado para uso por lactantes. nao ha contraindicacao relativa a faixas etarias.  \testearato,povidona,sodica,furosemida,etilico,croscarmelose,magnesio\tedema,arterial,furosemida,disturbios,coracao,queimaduras,figado,hipertensao,rins\thipovolemia,severa,hiponatremia,desidratacao,faixas,contraindicacao,eliminacao,circulante,anuria,hipopotassemia,etarias,encefalopatia,figado,rins,sodio,queda,disfuncao,furosemida,sulfonamidas,insuficiencia,pressao,potassio,alergia\t: furosemida.....................................................................................................................................................................40mg \tfurosemida\n/work/datascience/data/bulario-txt/431/431-7599402018-10710732.txt\t         furosemida  brainfarma industria quimica e farmaceutica s.a.  comprimido 40mg  furosemida  - comprimido - bula para o paciente   1 i - identificacao do medicamento:  furosemida medicamento generico lei no 9.787, de 1999. apresentacoes comprimido. embalagens contendo 20 e 30 comprimidos.  via de administracao: oral uso adulto e pediatrico  composicao cada comprimido contem: furosemida........................................................................................................................................40,00mg excipientes q.s.p. ............................................................................................. ........................1 comprimido (amidoglicolato de sodio, celulose microcristalina, estearato de magnesio, lactose, povidona).                                           furosemida  - comprimido - bula para o paciente   2 ii - informacoes ao paciente  \ta furosemida e indicada nos casos de: - hipertensao arterial leve a moderada; - edema (inchaco) devido a disturbios do coracao, do figado e dos rins; - edema (inchaco) devido a queimaduras.  \ta furosemida  comprimido nao deve ser usado em pacientes com: - insuficiencia dos rins com anuria (parada total da eliminacao de urina); - pre-coma e coma devido a problemas associado com encefalopatia do figado (disfuncao do sistema nervoso central em associacao com falencia do figado); - hipopotassemia severa (reducao nos niveis de potassio no sangue) (ver item quais os males que este medicamento pode me causar?); - hiponatremia severa (reducao nos niveis de sodio no sangue); - desidratacao ou hipovolemia (diminuicao do volume liquido circulante nos vasos sanguineos), com ou sem queda da pressao sanguinea; - alergia a furosemida, as sulfonamidas ou a qualquer componente da formula.  este medicamento e contraindicado para uso por lactantes. nao ha contraindicacao relativa a faixas etarias.  \testearato,povidona,lactose,furosemida,sodio,amidoglicolato,magnesio\tedema,arterial,furosemida,disturbios,coracao,queimaduras,figado,hipertensao,rins\thipovolemia,severa,hiponatremia,desidratacao,faixas,contraindicacao,eliminacao,circulante,anuria,hipopotassemia,etarias,encefalopatia,figado,rins,sodio,queda,disfuncao,furosemida,sulfonamidas,insuficiencia,pressao,potassio,alergia\t: furosemida........................................................................................................................................40,00mg \tfurosemida\n/work/datascience/data/bulario-txt/431/431-23549082017-10327498.txt\tav. das nacoes unidas, 22.428 cep 04795-000  jurubatuba  sao paulo  sp pabx: (+5511) 5546-6822 furosemida biosintetica farmaceutica ltda. comprimidos 40mg  furosemida_bu 06_vp  1  bula para paciente bula de acordo com a resolucao-rdc no 47/2009  i- identificacao do medicamento  furosemida  medicamento generico lei no 9.787, de 1999  apresentacoes furosemida 40 mg: embalagem com 30 comprimidos.  uso oral   uso adulto e pediatrico   composicao cada comprimido contem: furosemida...............................................................................................................40 mg excipientes: lactose monoidratada, povidona, amido, talco e estearato de magnesio.  ii- informacoes ao paciente  \t furosemida e indicado nos casos de hipertensao arterial leve a moderada, edema (inchaco) devido a disturbios do coracao, do figado e dos rins e edema (inchaco) devido a queimaduras.  \t furosemida comprimidos nao deve ser usado nos seguintes casos: - insuficiencia dos rins com anuria (parada total da eliminacao de urina); - pre-coma e coma devido a encefalopatia do figado (disfuncao do sistema nervoso central em associacao com falencia do figado); - hipopotassemia severa (reducao nos niveis de potassio no sangue) (ver item quais os males que este medicamento pode me causar?); - hiponatremia severa (reducao nos niveis de sodio no sangue); - desidratacao ou hipovolemia (diminuicao do volume liquido circulante nos vasos sanguineos), com ou sem queda da pressao sanguinea; - alergia a furosemida, as sulfonamidas ou a qualquer componente da formula.  este medicamento e contraindicado para uso por lactantes.  nao ha contraindicacao relativa a faixas etarias.     furosemida_bu 06_vp  2 \testearato,povidona,lactose,talco,furosemida,amido,monoidratada,magnesio,biosintetica\tedema,arterial,furosemida,disturbios,coracao,queimaduras,figado,hipertensao,rins\thipovolemia,severa,hiponatremia,desidratacao,faixas,contraindicacao,eliminacao,circulante,anuria,hipopotassemia,etarias,encefalopatia,figado,rins,sodio,queda,disfuncao,furosemida,sulfonamidas,insuficiencia,pressao,potassio,alergia\t: furosemida...............................................................................................................40 mg \tfurosemida\n/work/datascience/data/bulario-txt/147/147-11249552017-7268250.txt\t        captopril  comprimidos  12,5 mg, 25 mg e 50 mg  fabricado por: pharlab industria farmaceutica s.a.  validade: 24 meses         captopril_vp identificacao do medicamento  captopril medicamento generico, lei no 9.787, de 1999  apresentacoes captopril 12,5 mg - embalagens contendo 30 comprimidos. captopril 25 mg - embalagens contendo 30 comprimidos. captopril 50 mg - embalagens contendo 30 comprimidos.  uso oral  uso adulto  composicao cada comprimido de captopril 12,5 mg contem 12,5 mg de captopril excipientes: celulose microcristalina, lactose e acido estearico.  cada comprimido de captopril 25 mg contem 25 mg de captopril excipientes: celulose microcristalina, lactose, acido estearico e corante azul brilhante.  cada comprimido de captopril 50 mg contem 50 mg de captopril  excipientes: celulose microcristalina, lactose e acido estearico.  informacoes ao paciente  \tcaptopril e indicado para tratar pacientes com: - hipertensao; - insuficiencia cardiaca congestiva (usado com outros medicamentos diureticos e digitalicos); - infarto do miocardio; - nefropatia diabetica (doenca renal causada por diabetes).  \tcontraindicacoes voce nao deve utilizar captopril se ja teve reacoes alergicas anteriores com o uso deste medicamento ou qualquer outro medicamento que aja da mesma maneira que o captopril. este medicamento nao deve ser utilizado por mulheres gravidas sem orientacao medica. informe imediatamente seu medico em caso de suspeita de gravidez.        captopril_vp \tcaptopril,estearico,acido,lactose\tnefropatia,diureticos,renal,hipertensao,captopril,insuficiencia,tratar,cardiaca,diabetica,diabetes,infarto\tcontraindicacoes,aja,captopril,anteriores\t 12,5 mg de captopril \tcaptopril\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502497412_-1791809180",
+      "id": "20190126-093457_1370758824",
+      "dateCreated": "2019-01-26 09:34:57.412",
+      "dateStarted": "2019-01-26 16:02:22.316",
+      "dateFinished": "2019-01-26 16:02:22.390",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nhipertensao_df[\u0027principio_ativo_keywords\u0027].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 16:23:59.909",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "principio_ativo_keywords": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "captopril                                             36\nbesilato,anlodipino                                   33\nlosartana,potassica                                   30\natenolol                                              29\ncalcica,atorvastatina                                 28\ndoxazosina,mesilato                                   21\natenolol,clortalidona                                 17\ncilexetila,candesartana                               17\ncarvedilol                                            17\ncloridrato,propranolol                                16\nindapamida                                            15\ncilexetila,hidroclorotiazida,candesartana             14\nbimatoprosta                                          14\nmaleato,timolol                                       14\nmaleato,hidroclorotiazida,enalapril                   13\ncloridrato,verapamil                                  12\nlosartana,hidroclorotiazida,potassica                 12\ncitrato,sildenafila                                   11\nmaleato,cloridrato,dorzolamida,timolol                11\nlisinopril                                            11\ncloridrato,nebivolol                                   9\nfurosemida                                             9\nespironolactona                                        9\nmicronizado,fenofibrato                                8\nbesilato,levanlodipino                                 7\nlatanoprosta                                           7\nmaleato,latanoprosta,timolol                           6\nclortalidona                                           6\norlistate                                              4\ncloridrato,lercanidipino                               4\n                                                      ..\naldomet,metildopa                                      2\nbesilato,atenolol,anlodipino                           2\nfosforico,fosfato,dexametasona,acido,dissodico         2\ntelmisartana,micardis                                  1\nnifedipino                                             1\nbosentana,monohidratada                                1\natenolol,atenol                                        1\ntelmisartana,hidroclorotiazida,micardis                1\nhidroclorotiazida,hemifumarato,bisoprolol,biconcor     1\nperindopril,arginina                                   1\nlacidipino                                             1\nirbesartana,aprozide,hidroclorotiazida                 1\nanlodipino,micardis,telmisartana,anlo,besilato         1\nmanivasc,manidipino,dicloridrato                       1\nbimatoprosta,maleato,timolol                           1\nriociguate                                             1\nsesquiidratada,metildopa                               1\ncloridrato,prazosina                                   1\nsal,perindopril                                        1\nbrinzolamida                                           1\nramipril,hidroclorotiazida                             1\nsodio,nitroprusseto,glicose,diidratado                 1\nhidroclorotiazida,espironolactona                      1\ntravoprosta                                            1\nbrinzolamida,maleato,timolol                           1\nminoxidil                                              1\nhidroclorotiazida,concor,hemifumarato,bisoprolol       1\nrilmenidina,dihidrogenofosfato                         1\nlosartana,besilato,potassica,anlodipino                1\nmaleato,travoprosta,timolol                            1\nName: principio_ativo_keywords, Length: 82, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502607044_-858901989",
+      "id": "20190126-093647_578991944",
+      "dateCreated": "2019-01-26 09:36:47.044",
+      "dateStarted": "2019-01-26 16:23:59.924",
+      "dateFinished": "2019-01-26 16:23:59.992",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nimport numpy as np\nimport json\nimport pandas as pd\n\ndf_all \u003d pd.DataFrame(columns\u003d[\u0027term\u0027,\u0027term_freq\u0027])\n\nitemset \u003d set()\nfor key, value in hipertensao_df[\u0027principio_ativo_keywords\u0027].value_counts().to_dict().items():\n    try:\n        itens \u003d np.array(key.split(\u0027,\u0027))\n        for item in itens:\n            if item !\u003d \u0027\u0027:\n                df_all \u003d df_all.append ({\u0027term\u0027: item,\u0027term_freq\u0027:value}, ignore_index\u003dTrue)# itemset.add(item)\n    except Exception as err:\n        print(\u0027error on {}\u0027.format(key))\n\ndf_all.drop_duplicates(inplace\u003dTrue)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:34:36.751",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548507237651_717243025",
+      "id": "20190126-105357_35423309",
+      "dateCreated": "2019-01-26 10:53:57.651",
+      "dateStarted": "2019-01-26 17:34:19.480",
+      "dateFinished": "2019-01-26 17:34:19.795",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ndf_terms \u003d df_all[[\u0027term\u0027]]\ndf_terms.reset_index(level\u003d0, inplace\u003dTrue)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:35:04.546",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548529896365_1902807789",
+      "id": "20190126-171136_1778568379",
+      "dateCreated": "2019-01-26 17:11:36.365",
+      "dateStarted": "2019-01-26 17:35:04.561",
+      "dateFinished": "2019-01-26 17:35:04.614",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nz.show(df_terms)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:35:11.826",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "index": "string",
+                      "term": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "index\tterm\n0\tcaptopril\n1\tbesilato\n2\tanlodipino\n3\tlosartana\n4\tpotassica\n5\tatenolol\n6\tcalcica\n7\tatorvastatina\n8\tdoxazosina\n9\tmesilato\n10\tatenolol\n11\tclortalidona\n12\tcilexetila\n13\tcandesartana\n14\tcarvedilol\n15\tcloridrato\n16\tpropranolol\n17\tindapamida\n18\tcilexetila\n19\thidroclorotiazida\n20\tcandesartana\n21\tbimatoprosta\n22\tmaleato\n23\ttimolol\n24\tmaleato\n25\thidroclorotiazida\n26\tenalapril\n27\tcloridrato\n28\tverapamil\n29\tlosartana\n30\thidroclorotiazida\n31\tpotassica\n32\tcitrato\n33\tsildenafila\n34\tmaleato\n35\tcloridrato\n36\tdorzolamida\n37\ttimolol\n38\tlisinopril\n39\tcloridrato\n40\tnebivolol\n41\tfurosemida\n42\tespironolactona\n43\tmicronizado\n44\tfenofibrato\n45\tbesilato\n46\tlevanlodipino\n47\tlatanoprosta\n48\tmaleato\n49\tlatanoprosta\n50\ttimolol\n51\tclortalidona\n52\torlistate\n53\tcloridrato\n54\tlercanidipino\n55\tirbesartana\n56\thidroclorotiazida\n57\tdexametasona\n58\tdissodico\n59\tfosfato\n60\tamilorida\n61\tcloridrato\n62\thidroclortiazida\n63\tmetildopa\n64\tfenofibrato\n65\tcloridrato\n66\thidralazina\n67\tbosentana\n68\tmonoidratada\n69\tbesilato\n70\tramipril\n71\tmicrogranulos\n72\tanlodipino\n73\tnitrendipino\n74\tsal\n75\tperindopril\n76\tindapamida\n77\ttelmisartana\n78\thidroclorotiazida\n79\tlosartana\n80\tcozaar\n81\tpotassica\n82\tamilorida\n83\tfurosemida\n84\tpotassio\n85\tcloreto\n86\tclortalidona\n87\tsuccinato\n88\tmetoprolol\n89\ttartarato\n90\tmonoidratado\n91\tirbesartana\n92\tlatanoprosta\n93\testeril\n94\taldomet\n95\tmetildopa\n96\tatenolol\n97\tfosforico\n98\tfosfato\n99\tdexametasona\n100\tacido\n101\tdissodico\n102\ttelmisartana\n103\tmicardis\n104\tnifedipino\n105\tbosentana\n106\tmonohidratada\n107\tatenolol\n108\tatenol\n109\thidroclorotiazida\n110\themifumarato\n111\tbisoprolol\n112\tbiconcor\n113\tperindopril\n114\targinina\n115\tlacidipino\n116\tirbesartana\n117\taprozide\n118\tanlodipino\n119\tanlo\n120\tbesilato\n121\tmanivasc\n122\tmanidipino\n123\tdicloridrato\n124\tbimatoprosta\n125\tmaleato\n126\ttimolol\n127\triociguate\n128\tsesquiidratada\n129\tmetildopa\n130\tcloridrato\n131\tprazosina\n132\tsal\n133\tbrinzolamida\n134\tramipril\n135\tsodio\n136\tnitroprusseto\n137\tglicose\n138\tdiidratado\n139\tespironolactona\n140\ttravoprosta\n141\tminoxidil\n142\tconcor\n143\trilmenidina\n144\tdihidrogenofosfato\n145\tlosartana\n146\tpotassica\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548530138018_-1368790057",
+      "id": "20190126-171538_1060026158",
+      "dateCreated": "2019-01-26 17:15:38.018",
+      "dateStarted": "2019-01-26 17:35:09.673",
+      "dateFinished": "2019-01-26 17:35:09.770",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nfrom neo4j.v1 import GraphDatabase\n\nclass Neo4JConnection(object):\n\n    def __init__(self, uri, user, password):\n        self._driver \u003d GraphDatabase.driver(uri, auth\u003d(user, password))\n\n    def close(self):\n        self._driver.close()\n\n\n    def create_patology(self,id,nome):\n        with self._driver.session() as session:\n            return session.run(\"CREATE (p:Patologia) \" \n                            \" SET p.id \u003d $id , p.nome \u003d $nome  RETURN id(p)\",id \u003d id, nome\u003dnome).single().value()\n                           \n    def create_principio_ativo(self,nome):\n        with self._driver.session() as session:\n            return session.run(\"CREATE (p:ItemPrincipioAtivo {nome:$nome}) RETURN id(p)\", nome\u003dnome).single().value()\n    \n    def create_relationship_principio_ativo_patologia(self,nome_patologia,nome_principio_ativo,term_frequency):\n        with self._driver.session() as session:\n            return session.run(\"MATCH (p:Patologia),(i:ItemPrincipioAtivo) \"\n                            \"WHERE p.nome \u003d $patologia and  i.nome \u003d $principio_ativo \"\n                            \"CREATE (i)-[r:RELTYPE { nome: p.nome + \u0027\u003c-\u003e\u0027 + i.nome , freq: $frequency }]-\u003e(p) RETURN type(r), r.nome\", patologia\u003dnome_patologia, principio_ativo\u003d nome_principio_ativo,frequency \u003d term_frequency)\n    \n    def delete_all(self):\n        with self._driver.session() as session:\n            return session.run(\"MATCH (n) DETACH DELETE n\").single()\n            ",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:29:41.800",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548521500874_-310047862",
+      "id": "20190126-145140_678575831",
+      "dateCreated": "2019-01-26 14:51:40.874",
+      "dateStarted": "2019-01-26 17:29:41.820",
+      "dateFinished": "2019-01-26 17:29:41.892",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:11:31.363",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1548529891362_-95949226",
+      "id": "20190126-171131_543519682",
+      "dateCreated": "2019-01-26 17:11:31.362",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nuri \u003d \"bolt://172.17.0.2:7687\"\nuser\u003d\u0027neo4j\u0027\npassword\u003d\u0027neo4j2018\u0027\n\nneo \u003d Neo4JConnection(uri,user,password)\nneo.create_patology(1,\u0027hipertensao\u0027)\n\nfor index, row in df_terms.iterrows():\n    neo.create_principio_ativo(row[\u0027term\u0027])\n\nfor index, row in df_term.iterrows():\n    neo.create_relationship_principio_ativo_patologia(\u0027hipertensao\u0027,row[\u0027term\u0027],row[\u0027term_freq\u0027]) \n\nneo.delete_all()\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:35:51.000",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)\n\u001b[0;32m\u003cipython-input-282-ac515546567a\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mneo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcreate_patology\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u0027hipertensao\u0027\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----\u003e 8\u001b[0;31m \u001b[0;32mfor\u001b[0m \u001b[0mindex\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mrow\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf_term\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miterrows\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      9\u001b[0m     \u001b[0mneo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcreate_principio_ativo\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrow\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\u0027term\u0027\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mNameError\u001b[0m: name \u0027df_term\u0027 is not defined"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548529074172_1895120727",
+      "id": "20190126-165754_1678998615",
+      "dateCreated": "2019-01-26 16:57:54.172",
+      "dateStarted": "2019-01-26 17:35:42.471",
+      "dateFinished": "2019-01-26 17:35:42.764",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nt \u003d hipertensao_df[\u0027principio_ativo_keywords\u0027].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 10:52:07.191",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548505758086_1171635642",
+      "id": "20190126-102918_954884813",
+      "dateCreated": "2019-01-26 10:29:18.086",
+      "dateStarted": "2019-01-26 10:52:07.199",
+      "dateFinished": "2019-01-26 10:52:07.302",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ntype(t)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 10:52:22.917",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "pandas.core.series.Series"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548507129680_-1213875703",
+      "id": "20190126-105209_1396496895",
+      "dateCreated": "2019-01-26 10:52:09.680",
+      "dateStarted": "2019-01-26 10:52:22.927",
+      "dateFinished": "2019-01-26 10:52:22.998",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nhipertensao_df.to_csv(\u0027/work/datascience/data/bulas_ind_hipertensao.csv\u0027,sep\u003d\u0027;\u0027,index\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 09:34:29.504",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1548502424555_2079694078",
+      "id": "20190126-093344_322320615",
+      "dateCreated": "2019-01-26 09:33:44.555",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%neo4j\nMATCH (n) RETURN n \n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:27:45.494",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "network",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "nome": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":27140,\"data\":{\"nome\":\"atenolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27160,\"data\":{\"nome\":\"calcica\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27161,\"data\":{\"nome\":\"atorvastatina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27162,\"data\":{\"nome\":\"doxazosina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27163,\"data\":{\"nome\":\"mesilato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27164,\"data\":{\"nome\":\"atenolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27165,\"data\":{\"nome\":\"clortalidona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27166,\"data\":{\"nome\":\"cilexetila\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27167,\"data\":{\"nome\":\"candesartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27168,\"data\":{\"nome\":\"carvedilol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27169,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27170,\"data\":{\"nome\":\"propranolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27171,\"data\":{\"nome\":\"indapamida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27172,\"data\":{\"nome\":\"cilexetila\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27173,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27174,\"data\":{\"nome\":\"candesartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27175,\"data\":{\"nome\":\"bimatoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27176,\"data\":{\"nome\":\"maleato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27177,\"data\":{\"nome\":\"timolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27179,\"data\":{\"nome\":\"maleato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27180,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27181,\"data\":{\"nome\":\"enalapril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27182,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27183,\"data\":{\"nome\":\"verapamil\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27184,\"data\":{\"nome\":\"losartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27185,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27186,\"data\":{\"nome\":\"potassica\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27187,\"data\":{\"nome\":\"citrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27196,\"data\":{\"nome\":\"sildenafila\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27197,\"data\":{\"nome\":\"maleato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27198,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27199,\"data\":{\"nome\":\"dorzolamida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27200,\"data\":{\"nome\":\"timolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27201,\"data\":{\"nome\":\"lisinopril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27202,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27203,\"data\":{\"nome\":\"nebivolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27204,\"data\":{\"nome\":\"furosemida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27205,\"data\":{\"nome\":\"espironolactona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27206,\"data\":{\"nome\":\"micronizado\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27207,\"data\":{\"nome\":\"fenofibrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27208,\"data\":{\"nome\":\"besilato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27209,\"data\":{\"nome\":\"levanlodipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27210,\"data\":{\"nome\":\"latanoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27211,\"data\":{\"nome\":\"maleato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27212,\"data\":{\"nome\":\"latanoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27213,\"data\":{\"nome\":\"timolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27214,\"data\":{\"nome\":\"clortalidona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27216,\"data\":{\"nome\":\"orlistate\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27217,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27218,\"data\":{\"nome\":\"lercanidipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27219,\"data\":{\"nome\":\"irbesartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27220,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27221,\"data\":{\"nome\":\"dexametasona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27222,\"data\":{\"nome\":\"dissodico\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27223,\"data\":{\"nome\":\"fosfato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27224,\"data\":{\"nome\":\"amilorida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27225,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27226,\"data\":{\"nome\":\"hidroclortiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27227,\"data\":{\"nome\":\"metildopa\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27228,\"data\":{\"nome\":\"fenofibrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27229,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27230,\"data\":{\"nome\":\"hidralazina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27231,\"data\":{\"nome\":\"bosentana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27232,\"data\":{\"nome\":\"monoidratada\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27233,\"data\":{\"nome\":\"besilato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27234,\"data\":{\"nome\":\"ramipril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27235,\"data\":{\"nome\":\"microgranulos\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27236,\"data\":{\"nome\":\"anlodipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27237,\"data\":{\"nome\":\"nitrendipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27238,\"data\":{\"nome\":\"sal\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27239,\"data\":{\"nome\":\"perindopril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27240,\"data\":{\"nome\":\"indapamida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27241,\"data\":{\"nome\":\"telmisartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27242,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27243,\"data\":{\"nome\":\"losartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27244,\"data\":{\"nome\":\"cozaar\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27245,\"data\":{\"nome\":\"potassica\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27246,\"data\":{\"nome\":\"amilorida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27247,\"data\":{\"nome\":\"furosemida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27248,\"data\":{\"nome\":\"potassio\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27249,\"data\":{\"nome\":\"cloreto\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27250,\"data\":{\"nome\":\"clortalidona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27251,\"data\":{\"nome\":\"succinato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27252,\"data\":{\"nome\":\"metoprolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27253,\"data\":{\"nome\":\"tartarato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27254,\"data\":{\"nome\":\"monoidratado\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27255,\"data\":{\"nome\":\"irbesartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27256,\"data\":{\"nome\":\"latanoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27257,\"data\":{\"nome\":\"esteril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27258,\"data\":{\"nome\":\"aldomet\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27259,\"data\":{\"nome\":\"metildopa\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27260,\"data\":{\"nome\":\"atenolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27261,\"data\":{\"nome\":\"fosforico\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27262,\"data\":{\"nome\":\"fosfato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27263,\"data\":{\"nome\":\"dexametasona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27264,\"data\":{\"nome\":\"acido\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27265,\"data\":{\"nome\":\"dissodico\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27266,\"data\":{\"nome\":\"telmisartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27267,\"data\":{\"nome\":\"micardis\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27268,\"data\":{\"nome\":\"nifedipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27269,\"data\":{\"nome\":\"bosentana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27270,\"data\":{\"nome\":\"monohidratada\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27271,\"data\":{\"nome\":\"atenolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27272,\"data\":{\"nome\":\"atenol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27273,\"data\":{\"nome\":\"hidroclorotiazida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27274,\"data\":{\"nome\":\"hemifumarato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27275,\"data\":{\"nome\":\"bisoprolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27276,\"data\":{\"nome\":\"biconcor\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27277,\"data\":{\"nome\":\"perindopril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27278,\"data\":{\"nome\":\"arginina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27279,\"data\":{\"nome\":\"lacidipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27280,\"data\":{\"nome\":\"irbesartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27281,\"data\":{\"nome\":\"aprozide\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27282,\"data\":{\"nome\":\"anlodipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27283,\"data\":{\"nome\":\"anlo\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27284,\"data\":{\"nome\":\"besilato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27285,\"data\":{\"nome\":\"manivasc\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27286,\"data\":{\"nome\":\"manidipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27287,\"data\":{\"nome\":\"dicloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27288,\"data\":{\"nome\":\"bimatoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27289,\"data\":{\"nome\":\"maleato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27290,\"data\":{\"nome\":\"timolol\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27291,\"data\":{\"nome\":\"riociguate\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27292,\"data\":{\"nome\":\"sesquiidratada\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27293,\"data\":{\"nome\":\"metildopa\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27294,\"data\":{\"nome\":\"cloridrato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27295,\"data\":{\"nome\":\"prazosina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27296,\"data\":{\"nome\":\"sal\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27297,\"data\":{\"nome\":\"brinzolamida\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27298,\"data\":{\"nome\":\"hipertensao\",\"id\":1},\"label\":\"Patologia\"},{\"id\":27299,\"data\":{\"nome\":\"captopril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27300,\"data\":{\"nome\":\"besilato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27301,\"data\":{\"nome\":\"anlodipino\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27302,\"data\":{\"nome\":\"losartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27303,\"data\":{\"nome\":\"potassica\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27304,\"data\":{\"nome\":\"ramipril\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27305,\"data\":{\"nome\":\"sodio\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27306,\"data\":{\"nome\":\"nitroprusseto\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27307,\"data\":{\"nome\":\"glicose\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27308,\"data\":{\"nome\":\"diidratado\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27309,\"data\":{\"nome\":\"espironolactona\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27310,\"data\":{\"nome\":\"travoprosta\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27311,\"data\":{\"nome\":\"minoxidil\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27312,\"data\":{\"nome\":\"concor\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27313,\"data\":{\"nome\":\"rilmenidina\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27314,\"data\":{\"nome\":\"dihidrogenofosfato\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27315,\"data\":{\"nome\":\"losartana\"},\"label\":\"ItemPrincipioAtivo\"},{\"id\":27316,\"data\":{\"nome\":\"potassica\"},\"label\":\"ItemPrincipioAtivo\"}],\"edges\":[],\"labels\":{\"PontoLinha\":\"#AD0F0F\",\"Patologia\":\"#479A7F\",\"ItemPrincipioAtivo\":\"#F072B5\"},\"types\":[\"RELTYPE\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1548530813766_-1951541913",
+      "id": "20190126-172653_1900605028",
+      "dateCreated": "2019-01-26 17:26:53.766",
+      "dateStarted": "2019-01-26 17:27:45.507",
+      "dateFinished": "2019-01-26 17:27:45.532",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-26 17:27:24.935",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1548530844935_246657429",
+      "id": "20190126-172724_1539685648",
+      "dateCreated": "2019-01-26 17:27:24.935",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "DATAMINING/VII - NEO4J",
+  "id": "2E3CZ695B",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "neo4j:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
