@@ -85,9 +85,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nimport pandas as pd\n\ncapitulos \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-CAPITULOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(capitulos)\n",
+      "text": "%python\nimport pandas as pd\n\ncapitulos \u003d pd.read_csv(\"/home/altieris/datascience/data/bulario/cid-10/CID-10-CAPITULOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(capitulos)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:44.329",
+      "dateUpdated": "2019-01-26 20:37:31.735",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -200,9 +200,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\ngrupos \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-GRUPOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(grupos)\n",
+      "text": "%python\ngrupos \u003d pd.read_csv(\"/home/altieris/datascience/data/bulario/cid-10/CID-10-GRUPOS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(grupos)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:44.551",
+      "dateUpdated": "2019-01-26 20:37:41.016",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -379,9 +379,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\ncategorias \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-CATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(categorias)",
+      "text": "%python\ncategorias \u003d pd.read_csv(\"/home/altieris/datascience/data/bulario/cid-10/CID-10-CATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(categorias)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:44.875",
+      "dateUpdated": "2019-01-26 20:37:48.153",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -495,9 +495,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nsubcategorias \u003d pd.read_csv(\"/work/datascience/data/cid10/CID-10-SUBCATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(subcategorias)\n",
+      "text": "%python\nsubcategorias \u003d pd.read_csv(\"/home/altieris/datascience/data/bulario/cid-10/CID-10-SUBCATEGORIAS.CSV\",sep\u003d\";\",encoding\u003d\u0027latin-1\u0027)\nz.show(subcategorias)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-22 23:18:45.241",
+      "dateUpdated": "2019-01-26 20:37:52.704",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -723,14 +723,13 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "DATAMINING/II - SEARCH DISEASES",
+  "name": "DATAMINING/CID-10/CID-10",
   "id": "2E2Z8EZJM",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "python:shared_process": [],
-    "spark:shared_process": []
+    "python:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false

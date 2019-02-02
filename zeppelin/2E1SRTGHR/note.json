@@ -1,9 +1,43 @@
 {
   "paragraphs": [
     {
-      "text": "%python\nimport os\nfrom shutil import copyfile\nfrom unicodedata import normalize\nimport pandas as pd\n\n# read \ndef read_file(textfile):\n    temp \u003d open(textfile,\u0027r\u0027).read().split(\u0027\\n\u0027)\n    file \u003d []\n    for line in temp:\n        if line !\u003d \u0027\u0027:\n            file.append(line)\n    return file\n\n\n# def find_disease(file,disease):\n#     for i in range(0,len(file)):\n#         line \u003d file[i].lower()\n#         if line.find(disease) !\u003d -1:\n#             return True\n#     return False\n\ndef remover_acentos(txt):\n    return normalize(\u0027NFKD\u0027, txt).encode(\u0027ASCII\u0027, \u0027ignore\u0027).decode(\u0027ASCII\u0027)\n\n\ndef get_files(path):\n    # r\u003droot, d\u003ddirectories, f \u003d files\n    f_list \u003d []\n    for r, d, f in os.walk(path):\n        for file in f:\n            if \".txt\" in file:\n                f_list.append(os.path.join(r, file))\n    return f_list\n\n\n# def find_files_by_disease(path, disease):\n#     files \u003d get_files(path)\n#     headers \u003d []\n#     for file in files:\n#         f \u003d read_file(file)\n#         if(len(f) \u003e 0):\n#             if find_disease(f,\u0027hipertensão\u0027):\n#                 headers.append(file)\n#     return headers\n\n\n# def copy_files(files_from,dest):\n#     for file in files_from:\n#         copyfile(file, dest+file.split(\u0027/\u0027)[6])\n\ndef find_topic(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return True\n    return False\n\ndef find_topic_line(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return i\n    return -1\n    \n\ndef cleanse_text(text):\n    new_text \u003d text.lower() \n            # .replace(\u0027.\u0027,\u0027\u0027) \\\n            # .replace(\u0027)\u0027,\u0027\u0027) \\\n            # .replace(\u0027(\u0027,\u0027\u0027)\n            # .replace(\u0027microsoft word\u0027,\u0027\u0027)\n    \n    return remover_acentos(new_text)\n    \ndef extract_topics(bulas):\n    bulas_padrao \u003d [] \n    cnt_topic \u003d 0\n    for bula in bulas:\n        text \u003d read_file(bula)\n    \n        comp       \u003d find_topic(text,\u0027composicao\u0027) #or find_topic(text,\u0027composicoes\u0027) \n        topic1     \u003d find_topic(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n        topic2     \u003d find_topic(text,\u0027como este medicamento funciona\u0027)\n        topic3     \u003d find_topic(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        topic4     \u003d find_topic(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n    \n        if comp and topic1  and topic2 and topic3 and topic4:\n            cnt_topic \u003d cnt_topic +1\n        \n            index_composicao \u003d find_topic(text,\u0027composicao\u0027) #or find_topic_line(text,\u0027composicoes\u0027) \n            index_topic1     \u003d find_topic_line(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n            index_topic2     \u003d find_topic_line(text,\u0027como este medicamento funciona\u0027)\n            index_topic3     \u003d find_topic_line(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n            index_topic4     \u003d find_topic_line(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        \n            \n            composicao \u003d cleanse_text(\u0027\u0027.join(text[index_composicao+1:index_topic1]))\n            indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic1+1:index_topic2]))\n            contra_indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic3+1:index_topic4]))\n        \n            bulas_padrao.append((bula,composicao,indicacao,contra_indicacao))\n        \n    bulas_df \u003d pd.DataFrame(bulas_padrao,columns\u003d[\u0027filename\u0027,\u0027composicao\u0027,\u0027indicacao\u0027,\u0027contraindicacao\u0027])\n    print(\"Total de bulas cotendo os tópicos : {}\".format(cnt_topic))\n    return bulas_df\n    ",
+      "text": "%python\nimport os\nfrom shutil import copyfile\nfrom unicodedata import normalize\nimport pandas as pd",
       "user": "anonymous",
-      "dateUpdated": "2019-01-14 22:00:55.136",
+      "dateUpdated": "2019-01-27 10:47:22.362",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1548593235746_-829276719",
+      "id": "20190127-104715_1409107758",
+      "dateCreated": "2019-01-27 10:47:15.746",
+      "dateStarted": "2019-01-27 10:47:22.376",
+      "dateFinished": "2019-01-27 10:47:29.559",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n\n# read \ndef read_file(textfile):\n    temp \u003d open(textfile,\u0027r\u0027).read().split(\u0027\\n\u0027)\n    file \u003d []\n    for line in temp:\n        if line !\u003d \u0027\u0027:\n            file.append(line)\n    return file\n\n\ndef remover_acentos(txt):\n    return normalize(\u0027NFKD\u0027, txt).encode(\u0027ASCII\u0027, \u0027ignore\u0027).decode(\u0027ASCII\u0027)\n\n\ndef get_files(path):\n    f_list \u003d []\n    for r, d, f in os.walk(path):\n        for file in f:\n            if \".txt\" in file:\n                f_list.append(os.path.join(r, file))\n    return f_list\n\n\ndef find_topic(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return True\n    return False\n\ndef find_topic_line(file,topic):\n    for i in range(0,len(file)):\n        line \u003d remover_acentos(file[i].lower())\n        if line.find(topic) !\u003d -1:\n            return i\n    return -1\n    \n\ndef cleanse_text(text):\n    new_text \u003d text.lower() \n    \n    return remover_acentos(new_text)\n    \ndef extract_topics(bulas):\n    bulas_padrao \u003d [] \n    cnt_topic \u003d 0\n    for bula in bulas:\n        text \u003d read_file(bula)\n    \n        comp       \u003d find_topic(text,\u0027composicao\u0027) #or find_topic(text,\u0027composicoes\u0027) \n        topic1     \u003d find_topic(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n        topic2     \u003d find_topic(text,\u0027como este medicamento funciona\u0027)\n        topic3     \u003d find_topic(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        topic4     \u003d find_topic(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n    \n        if comp and topic1  and topic2 and topic3 and topic4:\n            cnt_topic \u003d cnt_topic +1\n        \n            index_composicao \u003d find_topic(text,\u0027composicao\u0027) #or find_topic_line(text,\u0027composicoes\u0027) \n            index_topic1     \u003d find_topic_line(text,\u0027para que este medicamento e indicado\u0027) #or find_topic(text,\u0027para que este medicamento foi indicado\u0027) or find_topic(text,\u00271. indicacoes\u0027)\n            index_topic2     \u003d find_topic_line(text,\u0027como este medicamento funciona\u0027)\n            index_topic3     \u003d find_topic_line(text,\u0027quando nao devo usar este medicamento\u0027) #or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n            index_topic4     \u003d find_topic_line(text,\u0027o que devo saber antes de usar este medicamento\u0027)# or find_topic(text,\u0027quando nao devo utilizar este medicamento\u0027) or find_topic(text,\u0027quando nao devo tomar este medicamento\u0027)\n        \n            \n            composicao \u003d cleanse_text(\u0027\u0027.join(text[index_composicao+1:index_topic1]))\n            indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic1+1:index_topic2]))\n            contra_indicacao  \u003d cleanse_text(\u0027\u0027.join(text[index_topic3+1:index_topic4]))\n        \n            bulas_padrao.append((bula,composicao,indicacao,contra_indicacao))\n        \n    bulas_df \u003d pd.DataFrame(bulas_padrao,columns\u003d[\u0027filename\u0027,\u0027composicao\u0027,\u0027indicacao\u0027,\u0027contraindicacao\u0027])\n    print(\"Total de bulas cotendo os tópicos : {}\".format(cnt_topic))\n    return bulas_df\n    ",
+      "user": "anonymous",
+      "dateUpdated": "2019-01-27 10:47:59.241",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +63,15 @@
       "jobName": "paragraph_1546908929565_-1470118985",
       "id": "20190107-225529_1186955004",
       "dateCreated": "2019-01-07 22:55:29.565",
-      "dateStarted": "2019-01-14 22:00:55.143",
-      "dateFinished": "2019-01-14 22:00:55.361",
+      "dateStarted": "2019-01-27 10:47:59.261",
+      "dateFinished": "2019-01-27 10:47:59.366",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\npath\u003d\u0027/work/datascience/data/bulario-txt/\u0027\nfiles \u003d get_files(path)\ndf \u003d extract_topics(files)\ndf.to_csv(\"/work/datascience/data/bulas.csv\",sep\u003d\";\",index\u003dFalse)",
+      "text": "%python\n\npath\u003d\u0027/home/altieris/datascience/data/bulario/bulas-txt/\u0027\nfiles \u003d get_files(path)\ndf \u003d extract_topics(files)\ndf.to_csv(\"/home/altieris/datascience/data/bulario/cleansed/bulas-topics.csv\",sep\u003d\";\",index\u003dFalse)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-14 22:00:57.933",
+      "dateUpdated": "2019-01-27 10:48:04.953",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -60,7 +94,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Total de bulas cotendo os tópicos : 6026\n"
+            "data": "Total de bulas cotendo os tópicos : 6082\n"
           }
         ]
       },
@@ -68,8 +102,8 @@
       "jobName": "paragraph_1547290654821_1350051420",
       "id": "20190112-085734_2072423398",
       "dateCreated": "2019-01-12 08:57:34.821",
-      "dateStarted": "2019-01-14 22:00:57.948",
-      "dateFinished": "2019-01-14 22:01:04.707",
+      "dateStarted": "2019-01-27 10:48:04.971",
+      "dateFinished": "2019-01-27 10:48:37.086",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -108,13 +142,14 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "DATAMINING/IV - TOPICS EXTRACTION",
+  "name": "DATAMINING/II - EXTRAÇÃO DE TOPICOS",
   "id": "2E1SRTGHR",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
     "python:shared_process": [],
+    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

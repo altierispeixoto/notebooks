@@ -37,7 +37,7 @@
     {
       "text": "%python\nimport os\nfrom tika import parser\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-06 22:27:06.936",
+      "dateUpdated": "2019-01-27 10:19:53.054",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,15 +63,15 @@
       "jobName": "paragraph_1546811989161_-1393031764",
       "id": "20190106-195949_115723538",
       "dateCreated": "2019-01-06 19:59:49.161",
-      "dateStarted": "2019-01-06 22:27:06.944",
-      "dateFinished": "2019-01-06 22:27:07.004",
+      "dateStarted": "2019-01-27 10:19:53.071",
+      "dateFinished": "2019-01-27 10:19:53.756",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\npath_from\u003d\u0027/work/datascience/data/bulario-pdf/\u0027\npath_to \u003d \u0027/work/datascience/data/bulario-txt/\u0027\n\ndef list_files_from_path(path):\n    files \u003d os.listdir(path)\n    f_list \u003d []\n    for name in files:\n        f_list.append(path+\u0027/\u0027+name)\n    return f_list\n        \ndef parse_from_file(file):\n    raw \u003d parser.from_file(file,\u0027http://172.17.0.2:9998/tika\u0027)\n    return raw[\u0027content\u0027]\n    \ndef save_text(path,text):\n    try:\n        file \u003d open(path,\"w\")\n        file.write(text)\n        file.close()\n    except Exception:\n        print(\"Can\u0027t save {} file\".format(path))\n\ndef create_directory(path):\n\n    try:\n        os.mkdir(path)\n    except OSError as e:\n        print(e)\n    #    print(\"Creation of the directory {} failed\".format(path))\n    #else:\n    #    print(\"Successfully created the directory {} \".format(path))",
+      "text": "%python\n\npath_from\u003d\u0027/home/altieris/datascience/data/bulario/bulas-pdf/\u0027\npath_to \u003d \u0027/home/altieris/datascience/data/bulario/bulas-txt/\u0027\n\ndef list_files_from_path(path):\n    files \u003d os.listdir(path)\n    f_list \u003d []\n    for name in files:\n        f_list.append(path+\u0027/\u0027+name)\n    return f_list\n        \ndef parse_from_file(file):\n    raw \u003d parser.from_file(file,\u0027http://172.17.0.4:9998/tika\u0027)\n    return raw[\u0027content\u0027]\n    \ndef save_text(path,text):\n    try:\n        file \u003d open(path,\"w\")\n        file.write(text)\n        file.close()\n    except Exception:\n        print(\"Can\u0027t save {} file\".format(path))\n\ndef create_directory(path):\n\n    try:\n        os.mkdir(path)\n    except OSError as e:\n        print(e)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-07 00:09:17.608",
+      "dateUpdated": "2019-01-27 10:19:56.681",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -97,15 +97,15 @@
       "jobName": "paragraph_1546812050130_-523473082",
       "id": "20190106-200050_404021350",
       "dateCreated": "2019-01-06 20:00:50.130",
-      "dateStarted": "2019-01-07 00:09:17.624",
-      "dateFinished": "2019-01-07 00:09:17.696",
+      "dateStarted": "2019-01-27 10:19:56.705",
+      "dateFinished": "2019-01-27 10:19:56.809",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\nfolder_list \u003d list_files_from_path(path_from)\n\nfor i in range(1,653):\n    bulas_pdf \u003d list_files_from_path(path_from+str(i))\n    create_directory(path_to+str(i))\n    for bula in bulas_pdf or []:\n        filename \u003d os.path.basename(bula).replace(\u0027pdf\u0027,\u0027txt\u0027)\n        text \u003d parse_from_file(bula)\n        save_text(path_to+str(i)+\u0027/\u0027+filename,text)\n        ",
+      "text": "%python\n\nfolder_list \u003d list_files_from_path(path_from)\n\nfor i in range(655,657):\n    bulas_pdf \u003d list_files_from_path(path_from+str(i))\n    create_directory(path_to+str(i))\n    for bula in bulas_pdf or []:\n        filename \u003d os.path.basename(bula).replace(\u0027pdf\u0027,\u0027txt\u0027)\n        text \u003d parse_from_file(bula)\n        save_text(path_to+str(i)+\u0027/\u0027+filename,text)\n        ",
       "user": "anonymous",
-      "dateUpdated": "2019-01-07 00:09:23.680",
+      "dateUpdated": "2019-01-27 10:42:39.481",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -125,19 +125,14 @@
       },
       "results": {
         "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Can\u0027t save /work/datascience/data/bulario-txt/5/5-5032852017-5543506.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/6/6-5032852017-5543506.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/20/20-25943452016-4090727.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/26/26-3966212013-1618062.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/43/43-8004982017-6359797.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/419/419-17594652017-8970699.txt file\nCan\u0027t save /work/datascience/data/bulario-txt/533/533-10558502018-10841468.txt file\n"
-          }
-        ]
+        "msg": []
       },
       "apps": [],
       "jobName": "paragraph_1546814194023_1944197713",
       "id": "20190106-203634_2015041991",
       "dateCreated": "2019-01-06 20:36:34.023",
-      "dateStarted": "2019-01-07 00:09:23.689",
-      "dateFinished": "2019-01-07 00:13:06.837",
+      "dateStarted": "2019-01-27 10:42:39.502",
+      "dateFinished": "2019-01-27 10:42:42.260",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -158,11 +153,12 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "DATAMINING/III - EXTRAÇÃO-DE-TEXTO",
+  "name": "DATAMINING/I - EXTRAÇÃO DE TEXTO - APACHE TIKA",
   "id": "2E2266CHV",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "python:shared_process": [],
     "sh:shared_process": [],
     "spark:shared_process": []
