@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%python\n\nimport os\nimport csv\nimport gzip\nimport collections\nimport re\nimport io\nimport json\nimport pandas as pd\nimport numpy as np\nimport xml.etree.ElementTree as ET\nfrom googletrans import Translator",
+      "text": "%python\n\nimport os\nimport csv\nimport gzip\nimport collections\nimport re\nimport io\nimport json\nimport pandas as pd\nimport numpy as np\nimport xml.etree.ElementTree as ET\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:33:12.588",
+      "dateUpdated": "2019-02-03 10:01:07.701",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +29,15 @@
       "jobName": "paragraph_1547601532286_-1554337313",
       "id": "20190115-231852_1707865294",
       "dateCreated": "2019-01-15 23:18:52.286",
-      "dateStarted": "2019-01-29 23:33:12.610",
-      "dateFinished": "2019-01-29 23:33:12.681",
+      "dateStarted": "2019-02-03 10:01:08.289",
+      "dateFinished": "2019-02-03 10:01:16.637",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\ndef translate_to_portuguese(text):\n    translator \u003d Translator()\n    t \u003d translator.translate(text, dest\u003d\u0027pt\u0027, src\u003d\u0027en\u0027)\n    return t.text\n    \ndef collapse_list_values(row):\n    for key, value in row.items():\n        if isinstance(value, list):\n            row[key] \u003d \u0027|\u0027.join(value)\n    return row",
+      "text": "%python\n\ndef collapse_list_values(row):\n    for key, value in row.items():\n        if isinstance(value, list):\n            row[key] \u003d \u0027|\u0027.join(value)\n    return row",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:33:14.821",
+      "dateUpdated": "2019-02-02 17:02:47.755",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,15 +63,15 @@
       "jobName": "paragraph_1547774438771_-774108601",
       "id": "20190117-232038_1604909963",
       "dateCreated": "2019-01-17 23:20:38.771",
-      "dateStarted": "2019-01-29 23:33:14.843",
-      "dateFinished": "2019-01-29 23:33:14.910",
+      "dateStarted": "2019-02-02 17:02:47.855",
+      "dateFinished": "2019-02-02 17:02:47.978",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nwith open(\u0027/home/altieris/datascience/data/bulario/drugbank/full-database.xml\u0027) as xml_file:\n    tree \u003d ET.parse(xml_file)\nroot \u003d tree.getroot()",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:33:55.340",
+      "dateUpdated": "2019-02-02 16:56:46.555",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -97,15 +97,15 @@
       "jobName": "paragraph_1547602582670_-607987280",
       "id": "20190115-233622_1651850175",
       "dateCreated": "2019-01-15 23:36:22.670",
-      "dateStarted": "2019-01-29 23:33:55.375",
-      "dateFinished": "2019-01-29 23:37:17.880",
+      "dateStarted": "2019-02-02 16:57:00.006",
+      "dateFinished": "2019-02-02 17:01:11.428",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nns \u003d \u0027{http://www.drugbank.ca}\u0027\ninchikey_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChIKey\u0027]/{ns}value\"\ninchi_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChI\u0027]/{ns}value\"\n\nrows \u003d list()\nfor i, drug in enumerate(root):\n    row \u003d collections.OrderedDict()\n  \n    assert drug.tag \u003d\u003d ns + \u0027drug\u0027\n    row[\u0027type\u0027] \u003d drug.get(\u0027type\u0027)\n    row[\u0027drugbank_id\u0027] \u003d drug.findtext(ns + \"drugbank-id[@primary\u003d\u0027true\u0027]\")\n    row[\u0027name\u0027] \u003d drug.findtext(ns + \"name\")\n    row[\u0027description\u0027] \u003d drug.findtext(ns + \"description\")\n    row[\u0027groups\u0027] \u003d [group.text for group in drug.findall(\"{ns}groups/{ns}group\".format(ns \u003d ns))]\n        \n    row[\u0027atc_codes\u0027] \u003d [code.get(\u0027code\u0027) for code in drug.findall(\"{ns}atc-codes/{ns}atc-code\".format(ns \u003d ns))]\n        \n    row[\u0027categories\u0027] \u003d [x.findtext(ns + \u0027category\u0027) for x in drug.findall(\"{ns}categories/{ns}category\".format(ns \u003d ns))]\n        \n    row[\u0027inchi\u0027] \u003d drug.findtext(inchi_template.format(ns \u003d ns))\n    row[\u0027inchikey\u0027] \u003d drug.findtext(inchikey_template.format(ns \u003d ns))\n    \n    # Add drug aliases\n    aliases \u003d {\n        elem.text for elem in \n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}synonyms/{ns}synonym[@language\u003d\u0027English\u0027]\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}products/{ns}product/{ns}name\".format(ns \u003d ns))\n\n    }\n    aliases.add(row[\u0027name\u0027])\n    row[\u0027aliases\u0027] \u003d sorted(aliases)\n\n    rows.append(row)\n",
+      "text": "%python\nns \u003d \u0027{http://www.drugbank.ca}\u0027\ninchikey_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChIKey\u0027]/{ns}value\"\ninchi_template \u003d \"{ns}calculated-properties/{ns}property[{ns}kind\u003d\u0027InChI\u0027]/{ns}value\"\n\nrows \u003d list()\nfor i, drug in enumerate(root):\n    row \u003d collections.OrderedDict()\n  \n    assert drug.tag \u003d\u003d ns + \u0027drug\u0027\n    row[\u0027type\u0027] \u003d drug.get(\u0027type\u0027)\n    row[\u0027drugbank_id\u0027] \u003d drug.findtext(ns + \"drugbank-id[@primary\u003d\u0027true\u0027]\")\n    row[\u0027name\u0027] \u003d drug.findtext(ns + \"name\")\n    row[\u0027description\u0027] \u003d drug.findtext(ns + \"description\")\n    row[\u0027drug-interactions\u0027] \u003d [interaction.findtext(ns + \u0027drug-interaction\u0027) for interaction in drug.findall(\"{ns}drug-interactions\".format(ns \u003d ns))]\n    \n    row[\u0027groups\u0027] \u003d [group.text for group in drug.findall(\"{ns}groups/{ns}group\".format(ns \u003d ns))]\n        \n    row[\u0027atc_codes\u0027] \u003d [code.get(\u0027code\u0027) for code in drug.findall(\"{ns}atc-codes/{ns}atc-code\".format(ns \u003d ns))]\n        \n    row[\u0027categories\u0027] \u003d [x.findtext(ns + \u0027category\u0027) for x in drug.findall(\"{ns}categories/{ns}category\".format(ns \u003d ns))]\n        \n    row[\u0027inchi\u0027] \u003d drug.findtext(inchi_template.format(ns \u003d ns))\n    row[\u0027inchikey\u0027] \u003d drug.findtext(inchikey_template.format(ns \u003d ns))\n    \n    #Add drug aliases\n    aliases \u003d {\n        elem.text for elem in \n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}synonyms/{ns}synonym[@language\u003d\u0027English\u0027]\".format(ns \u003d ns)) + \n        drug.findall(\"{ns}international-brands/{ns}international-brand\".format(ns \u003d ns)) +\n        drug.findall(\"{ns}products/{ns}product/{ns}name\".format(ns \u003d ns))\n\n    }\n    aliases.add(row[\u0027name\u0027])\n    row[\u0027aliases\u0027] \u003d sorted(aliases)\n\n    rows.append(row)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:35:59.782",
+      "dateUpdated": "2019-02-02 17:02:07.985",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -131,15 +131,15 @@
       "jobName": "paragraph_1547601622438_1449191176",
       "id": "20190115-232022_1639256430",
       "dateCreated": "2019-01-15 23:20:22.438",
-      "dateStarted": "2019-01-29 23:36:00.978",
-      "dateFinished": "2019-01-29 23:37:26.622",
+      "dateStarted": "2019-02-02 17:02:08.054",
+      "dateFinished": "2019-02-02 17:02:22.134",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nalias_dict \u003d {row[\u0027drugbank_id\u0027]: row[\u0027aliases\u0027] for row in rows}\nwith open(\u0027/home/altieris/datascience/data/bulario/drugbank/aliases.json\u0027, \u0027w\u0027) as fp:\n    json.dump(alias_dict, fp, indent\u003d2, sort_keys\u003dTrue)",
+      "text": "%python\n# alias_dict \u003d {row[\u0027drugbank_id\u0027]: row[\u0027aliases\u0027] for row in rows}\n# with open(\u0027/home/altieris/datascience/data/bulario/drugbank/aliases.json\u0027, \u0027w\u0027) as fp:\n#     json.dump(alias_dict, fp, indent\u003d2, sort_keys\u003dTrue)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:37:56.655",
+      "dateUpdated": "2019-02-02 17:04:08.995",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -165,15 +165,15 @@
       "jobName": "paragraph_1547601627524_2019600770",
       "id": "20190115-232027_51871811",
       "dateCreated": "2019-01-15 23:20:27.524",
-      "dateStarted": "2019-01-29 23:37:56.940",
-      "dateFinished": "2019-01-29 23:37:57.928",
+      "dateStarted": "2019-02-02 17:02:13.570",
+      "dateFinished": "2019-02-02 17:02:23.735",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nrows \u003d list(map(collapse_list_values, rows))",
+      "text": "%python\n#rows \u003d list(map(collapse_list_values, rows))",
       "user": "anonymous",
-      "dateUpdated": "2019-01-17 23:22:08.432",
+      "dateUpdated": "2019-02-02 17:04:05.892",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -192,22 +192,27 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)\n\u001b[0;32m\u003cipython-input-14-df0e0d359596\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[0;32m----\u003e 1\u001b[0;31m \u001b[0mrows\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcollapse_list_values\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mrows\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;32m\u003cipython-input-13-61336ca14127\u003e\u001b[0m in \u001b[0;36mcollapse_list_values\u001b[0;34m(row)\u001b[0m\n\u001b[1;32m      2\u001b[0m     \u001b[0;32mfor\u001b[0m \u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvalue\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrow\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mitems\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mvalue\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----\u003e 4\u001b[0;31m             \u001b[0mrow\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0;34m\u0027|\u0027\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mvalue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0mrow\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mTypeError\u001b[0m: sequence item 0: expected str instance, NoneType found"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1547603474802_-91588494",
       "id": "20190115-235114_1659065541",
       "dateCreated": "2019-01-15 23:51:14.803",
-      "dateStarted": "2019-01-17 22:58:42.096",
-      "dateFinished": "2019-01-17 22:58:42.194",
-      "status": "FINISHED",
+      "dateStarted": "2019-02-02 17:02:58.375",
+      "dateFinished": "2019-02-02 17:02:58.499",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\ncolumns \u003d [\u0027drugbank_id\u0027, \u0027name\u0027, \u0027type\u0027, \u0027groups\u0027, \u0027atc_codes\u0027, \u0027categories\u0027, \u0027inchikey\u0027, \u0027inchi\u0027, \u0027description\u0027]\ndrugbank_df \u003d pd.DataFrame.from_dict(rows)[columns]\ndrugbank_df.shape",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:38:04.668",
+      "dateUpdated": "2019-02-02 17:03:37.840",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -274,15 +279,15 @@
       "jobName": "paragraph_1547603499780_2138943216",
       "id": "20190115-235139_946625838",
       "dateCreated": "2019-01-15 23:51:39.780",
-      "dateStarted": "2019-01-29 23:38:04.987",
-      "dateFinished": "2019-01-29 23:38:05.988",
+      "dateStarted": "2019-02-02 17:03:37.930",
+      "dateFinished": "2019-02-02 17:03:39.011",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nz.show(drugbank_df[(drugbank_df[\u0027name\u0027] \u003d\u003d \u0027Linagliptin\u0027)])",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:38:28.197",
+      "dateUpdated": "2019-02-02 17:04:19.291",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -349,16 +354,16 @@
       "jobName": "paragraph_1547772959245_1473034146",
       "id": "20190117-225559_957072167",
       "dateCreated": "2019-01-17 22:55:59.245",
-      "dateStarted": "2019-01-29 23:38:28.418",
-      "dateFinished": "2019-01-29 23:38:28.519",
+      "dateStarted": "2019-02-02 17:04:19.376",
+      "dateFinished": "2019-02-02 17:04:19.839",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "create small drugbank dataframe",
+      "title": "create drugbank  dataframe",
       "text": "%python\ndrugbank_slim_df \u003d drugbank_df[\n    drugbank_df.groups.map(lambda x: \u0027approved\u0027 in x) \u0026\n    drugbank_df.inchi.map(lambda x: x is not None) \u0026\n    drugbank_df.type.map(lambda x: x \u003d\u003d \u0027small molecule\u0027)\n]\nz.show(drugbank_slim_df.head())",
       "user": "anonymous",
-      "dateUpdated": "2019-01-17 23:25:29.521",
+      "dateUpdated": "2019-02-03 09:58:50.133",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -436,7 +441,7 @@
     {
       "text": "%python\n# write drugbank tsv\ndrugbank_df.to_csv(\u0027/home/altieris/datascience/data/bulario/drugbank/drugbank.tsv\u0027, sep\u003d\u0027\\t\u0027, index\u003dFalse)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-29 23:39:50.147",
+      "dateUpdated": "2019-02-02 17:04:37.436",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -462,9 +467,252 @@
       "jobName": "paragraph_1547603659975_1190105732",
       "id": "20190115-235419_1588635594",
       "dateCreated": "2019-01-15 23:54:19.975",
-      "dateStarted": "2019-01-29 23:39:50.184",
-      "dateFinished": "2019-01-29 23:39:50.783",
+      "dateStarted": "2019-02-02 17:04:37.552",
+      "dateFinished": "2019-02-02 17:04:39.209",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### create interactions dataframe\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-03 09:59:15.871",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003ecreate interactions dataframe\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1549195123330_711642320",
+      "id": "20190203-095843_2063449418",
+      "dateCreated": "2019-02-03 09:58:43.330",
+      "dateStarted": "2019-02-03 09:59:15.874",
+      "dateFinished": "2019-02-03 09:59:21.137",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nrows \u003d list()\nns \u003d \u0027{http://www.drugbank.ca}\u0027\nfor i, drug in enumerate(root):\n    row \u003d collections.OrderedDict()\n\n    row[\u0027drugbank_id\u0027] \u003d drug.findtext(ns + \"drugbank-id[@primary\u003d\u0027true\u0027]\")\n    row[\u0027name\u0027] \u003d drug.findtext(ns + \"name\")\n\n    for item in drug.findall(\"{ns}drug-interactions/{ns}drug-interaction\".format(ns\u003dns)):\n\n        interation \u003d [\u0027\u0027.join(chid.text) for chid in item]\n        interation.append(row[\u0027drugbank_id\u0027])\n\n        rows.append(interation)\n\ninterations_df \u003d pd.DataFrame(rows,columns\u003d[\u0027drug_interation_id\u0027,\u0027name\u0027,\u0027description\u0027,\u0027drugbank_id\u0027])",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-02 17:05:35.681",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1549133881648_1267961368",
+      "id": "20190202-165801_50824632",
+      "dateCreated": "2019-02-02 16:58:01.648",
+      "dateStarted": "2019-02-02 17:05:35.746",
+      "dateFinished": "2019-02-02 17:06:52.777",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ninterations_df.to_csv(\u0027/home/altieris/datascience/data/bulario/drugbank/drugbank_interations_df.tsv\u0027, sep\u003d\u0027\\t\u0027, index\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-02 17:07:36.611",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1549133904162_1453744726",
+      "id": "20190202-165824_633359564",
+      "dateCreated": "2019-02-02 16:58:24.162",
+      "dateStarted": "2019-02-02 17:07:36.680",
+      "dateFinished": "2019-02-02 17:08:38.427",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nz.show(interations_df.head())",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-02 17:09:32.220",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "drug_interation_id": "string",
+                      "name": "string",
+                      "description": "string",
+                      "drugbank_id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "drug_interation_id\tname\tdescription\tdrugbank_id\nDB06605\tApixaban\tApixaban may increase the anticoagulant activities of Lepirudin.\tDB00001\nDB06695\tDabigatran etexilate\tDabigatran etexilate may increase the anticoagulant activities of Lepirudin.\tDB00001\nDB01254\tDasatinib\tThe risk or severity of bleeding and hemorrhage can be increased when Dasatinib is combined with Lepirudin.\tDB00001\nDB01609\tDeferasirox\tThe risk or severity of gastrointestinal bleeding can be increased when Lepirudin is combined with Deferasirox.\tDB00001\nDB03619\tDeoxycholic Acid\tThe risk or severity of bleeding and bruising can be increased when Lepirudin is combined with Deoxycholic Acid.\tDB00001\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1549134535093_2035221942",
+      "id": "20190202-170855_1694758673",
+      "dateCreated": "2019-02-02 17:08:55.093",
+      "dateStarted": "2019-02-02 17:09:28.835",
+      "dateFinished": "2019-02-02 17:09:29.082",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport pandas as pd\n# df_translated \u003d pd.read_csv(\"/home/altieris/datascience/data/bulario/drugbank/drugbank_translated.csv\",sep\u003d\u0027\\t\u0027, names\u003d[\u0027drugbank_id\u0027,\u0027name\u0027,\u0027name_pt_br\u0027])\n\n# drugbank_pt_br \u003d drugbank_df[[\u0027drugbank_id\u0027,\u0027name\u0027]]\n# drugbank_pt_br \u003d drugbank_pt_br[~drugbank_pt_br[\u0027drugbank_id\u0027].isin(df_translated[\u0027drugbank_id\u0027].values)]",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-05 19:56:23.192",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1549403013736_-1932397836",
+      "id": "20190205-194333_1401111196",
+      "dateCreated": "2019-02-05 19:43:33.737",
+      "dateStarted": "2019-02-05 19:56:23.304",
+      "dateFinished": "2019-02-05 20:53:58.613",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ndrugbank_pt_br.shape",
+      "user": "anonymous",
+      "dateUpdated": "2019-02-05 19:44:32.041",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1549403024321_1873789361",
+      "id": "20190205-194344_1132106956",
+      "dateCreated": "2019-02-05 19:43:44.321",
+      "dateStarted": "2019-02-05 19:46:32.659",
+      "dateFinished": "2019-02-05 19:46:35.199",
+      "status": "ABORT",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -517,7 +765,6 @@
     "md:shared_process": [],
     "python:shared_process": [],
     "neo4j:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

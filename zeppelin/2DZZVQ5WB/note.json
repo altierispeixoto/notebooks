@@ -141,87 +141,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nbulas_df[\u0027indicacao\u0027].isnull().sum()",
+      "text": "%python\n\ndef extract_words(text,remove_words):\n  try:\n    tokens \u003d word_tokenize(text)\n    words \u003d [word for word in tokens if word.isalpha()]\n    stop_words \u003d set(stopwords.words(\u0027portuguese\u0027))\n    words \u003d [w for w in words if not w in stop_words]\n    words \u003d [w for w in words if not w in remove_words]\n    terms \u003d list(set(words))\n    return \",\".join(terms)\n    \n  except Exception as ex:\n        pass\n\n\ndef extract_words(text,remove_words):\n  try:\n    tokens \u003d word_tokenize(text)\n    words \u003d [word for word in tokens if word.isalpha()]\n    stop_words \u003d set(stopwords.words(\u0027portuguese\u0027))\n    words \u003d [w for w in words if not w in stop_words]\n    words \u003d [w for w in words if not w in remove_words]\n    terms \u003d list(set(words))\n    return \",\".join(terms)\n    \n  except Exception as ex:\n        pass\n  \n    \ndef extract_principio_ativo(text):\n    \n    if text.find(\u0027contem\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027contem\u0027) + len(\u0027contem\u0027)\n    elif text.find(\u0027composicao\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027composicao\u0027) + len(\u0027composicao\u0027)\n    else:\n        start_index \u003d 0\n    \n    if text.find(\u0027excipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipientes\u0027)\n    \n    elif text.find(\u0027excipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipiente\u0027)\n        \n    elif text.find(\u0027exicipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipientes\u0027)\n    elif text.find(\u0027exicipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipiente\u0027)\n    elif text.find(\u0027veiculo\u0027) !\u003d -1:  \n        end_index \u003d text.find(\u0027veiculo\u0027)\n    else:\n        end_index \u003d len(text)\n    \n    return text[start_index:end_index]\n   \ndef remove_character(text,character):\n    return text.replace(character,\"\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-02-02 10:34:22.990",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "14"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1547513879324_-899508254",
-      "id": "20190114-225759_188844172",
-      "dateCreated": "2019-01-14 22:57:59.324",
-      "dateStarted": "2019-02-02 10:34:23.024",
-      "dateFinished": "2019-02-02 10:34:23.125",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\nbulas_df[\u0027contraindicacao\u0027].isnull().sum()",
-      "user": "anonymous",
-      "dateUpdated": "2019-01-27 21:56:39.680",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "37"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1548593565750_444063767",
-      "id": "20190127-105245_921559928",
-      "dateCreated": "2019-01-27 10:52:45.750",
-      "dateStarted": "2019-01-27 21:56:39.709",
-      "dateFinished": "2019-01-27 21:56:39.825",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%python\n\n\ndef extract_words(text,remove_words):\n  try:\n    tokens \u003d word_tokenize(text)\n    words \u003d [word for word in tokens if word.isalpha()]\n    stop_words \u003d set(stopwords.words(\u0027portuguese\u0027))\n    words \u003d [w for w in words if not w in stop_words]\n    words \u003d [w for w in words if not w in remove_words]\n    terms \u003d list(set(words))\n    return \",\".join(terms)\n    \n  except Exception as ex:\n        pass\n  \n    \ndef extract_principio_ativo(text):\n    \n    if text.find(\u0027contem\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027contem\u0027) + len(\u0027contem\u0027)\n    elif text.find(\u0027composicao\u0027) !\u003d -1:\n        start_index \u003d text.find(\u0027composicao\u0027) + len(\u0027composicao\u0027)\n    else:\n        start_index \u003d 0\n    \n    if text.find(\u0027excipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipientes\u0027)\n    \n    elif text.find(\u0027excipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027excipiente\u0027)\n        \n    elif text.find(\u0027exicipientes\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipientes\u0027)\n    elif text.find(\u0027exicipiente\u0027) !\u003d -1:\n        end_index \u003d text.find(\u0027exicipiente\u0027)\n    elif text.find(\u0027veiculo\u0027) !\u003d -1:  \n        end_index \u003d text.find(\u0027veiculo\u0027)\n    else:\n        end_index \u003d len(text)\n    \n    return text[start_index:end_index]\n   \ndef remove_character(text,character):\n    return text.replace(character,\"\")\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-02-02 10:34:27.313",
+      "dateUpdated": "2019-02-05 21:59:37.781",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -255,9 +177,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nbulas_df[\u0027composicao\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : remove_character(x,\u0027*\u0027)) \n\nbulas_df[\u0027composicao_keywords\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027indicacao_keywords\u0027] \u003d bulas_df[\u0027indicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027contraindicacao_keywords\u0027] \u003d bulas_df[\u0027contraindicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027principio_ativo\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_principio_ativo(x))\nbulas_df[\u0027principio_ativo_keywords\u0027] \u003d bulas_df[\u0027principio_ativo\u0027].map(lambda x : extract_words(x,remove_words))",
+      "text": "%python\nbulas_df[\u0027composicao\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : remove_character(x,\u0027*\u0027)) \n\nbulas_df[\u0027composicao_keywords\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027indicacao_keywords\u0027] \u003d bulas_df[\u0027indicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027contraindicacao_keywords\u0027] \u003d bulas_df[\u0027contraindicacao\u0027].map(lambda x : extract_words(x,remove_words))\nbulas_df[\u0027principio_ativo\u0027] \u003d bulas_df[\u0027composicao\u0027].map(lambda x : extract_principio_ativo(x))\n\nbulas_df[\u0027principio_ativo_keywords\u0027] \u003d bulas_df[\u0027principio_ativo\u0027].map(lambda x : extract_words(x,remove_words))",
       "user": "anonymous",
-      "dateUpdated": "2019-02-02 10:34:29.566",
+      "dateUpdated": "2019-02-05 21:59:11.781",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -432,6 +354,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "python:shared_process": [],
     "neo4j:shared_process": [],
     "spark:shared_process": []
