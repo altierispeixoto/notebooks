@@ -69,9 +69,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\npath_from\u003d\u0027/home/altieris/datascience/data/bulario/bulas-pdf/\u0027\npath_to \u003d \u0027/home/altieris/datascience/data/bulario/bulas-txt/\u0027\n\ndef list_files_from_path(path):\n    files \u003d os.listdir(path)\n    f_list \u003d []\n    for name in files:\n        f_list.append(path+\u0027/\u0027+name)\n    return f_list\n        \ndef parse_from_file(file):\n    raw \u003d parser.from_file(file,\u0027http://172.17.0.4:9998/tika\u0027)\n    return raw[\u0027content\u0027]\n    \ndef save_text(path,text):\n    try:\n        file \u003d open(path,\"w\")\n        file.write(text)\n        file.close()\n    except Exception:\n        print(\"Can\u0027t save {} file\".format(path))\n\ndef create_directory(path):\n\n    try:\n        os.mkdir(path)\n    except OSError as e:\n        print(e)",
+      "text": "%python\n\npath_from\u003d\u0027/data/bulario/bulas-pdf/\u0027\npath_to \u003d \u0027/data/bulario/bulas-txt/\u0027\n\ndef list_files_from_path(path):\n    files \u003d os.listdir(path)\n    f_list \u003d []\n    for name in files:\n        f_list.append(path+\u0027/\u0027+name)\n    return f_list\n        \ndef parse_from_file(file):\n    raw \u003d parser.from_file(file,\u0027http://172.17.0.4:9998/tika\u0027)\n    return raw[\u0027content\u0027]\n    \ndef save_text(path,text):\n    try:\n        file \u003d open(path,\"w\")\n        file.write(text)\n        file.close()\n    except Exception:\n        print(\"Can\u0027t save {} file\".format(path))\n\ndef create_directory(path):\n\n    try:\n        os.mkdir(path)\n    except OSError as e:\n        print(e)",
       "user": "anonymous",
-      "dateUpdated": "2019-01-27 10:19:56.681",
+      "dateUpdated": "2019-02-16 19:25:10.236",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -103,9 +103,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\nfolder_list \u003d list_files_from_path(path_from)\n\nfor i in range(655,657):\n    bulas_pdf \u003d list_files_from_path(path_from+str(i))\n    create_directory(path_to+str(i))\n    for bula in bulas_pdf or []:\n        filename \u003d os.path.basename(bula).replace(\u0027pdf\u0027,\u0027txt\u0027)\n        text \u003d parse_from_file(bula)\n        save_text(path_to+str(i)+\u0027/\u0027+filename,text)\n        ",
+      "text": "%python\n\nfolder_list \u003d list_files_from_path(path_from)\n\nfor i in range(1,657):\n    bulas_pdf \u003d list_files_from_path(path_from+str(i))\n    create_directory(path_to+str(i))\n    for bula in bulas_pdf or []:\n        filename \u003d os.path.basename(bula).replace(\u0027pdf\u0027,\u0027txt\u0027)\n        text \u003d parse_from_file(bula)\n        save_text(path_to+str(i)+\u0027/\u0027+filename,text)\n        ",
       "user": "anonymous",
-      "dateUpdated": "2019-01-27 10:42:39.481",
+      "dateUpdated": "2019-02-16 19:27:40.255",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -158,9 +158,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
     "python:shared_process": [],
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
