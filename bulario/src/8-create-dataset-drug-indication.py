@@ -56,7 +56,7 @@ for disease in diseases:
                 drugbank['disease'] = disease
                 drug_df = pd.DataFrame(drugbank, index=[0])
 
-                drug_df.to_csv('/data/drugbank/processed/drugbank_disease.tsv', header=False, sep='\t', index=False, mode='a')
+                drug_df.to_csv('/data/drugbank/processed/drugbank-indications.tsv', header=False, sep='\t', index=False, mode='a')
 
         print('----------------')
 

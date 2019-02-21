@@ -22,9 +22,12 @@ def get_proxy_list():
 def translate(text, src, dest,hotproxy):
         for proxy in get_proxy_list():
             try:
+
+                text = text.replace(')','').replace('(','').replace('[','').replace(']','').replace('\'','')
+                if len(text) > 5000:
+                    return '',''
                 if hotproxy == '':
                     hotproxy = proxy
-
 
                 translator = Translator(proxies={'https': hotproxy}, timeout=5)
                 t = translator.translate(text, dest=dest, src=src)
@@ -47,7 +50,7 @@ approved_drugs = approved_drugs[~approved_drugs['drugbank_id'].isin(translated['
 
 print('{}'.format(approved_drugs.shape[0]))
 
-approved_drugs = approved_drugs.dropna()
+approved_drugs = approved_drugs.fillna('')
 drug = dict()
 hotproxy = ''
 for index, approved_drug in approved_drugs.iterrows():
@@ -58,7 +61,7 @@ for index, approved_drug in approved_drugs.iterrows():
 
     hotproxy, drug['name_pt_br'] = translate(drug['name'],'en','pt',hotproxy)
 
-    hotproxy, drug['desription_pt_br'] = translate(drug['description'],'en','pt',hotproxy)
+    hotproxy, drug['desription_pt_br'] = hotproxy,'' #translate(drug['description'],'en','pt',hotproxy)
 
 
     print('{} - {} '.format(drug['name'],drug['name_pt_br']))

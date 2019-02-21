@@ -3,8 +3,9 @@ import nltk
 from nltk import sent_tokenize
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+import re
 
-nltk.download('all')
+#nltk.download('all')
 
 bulas_df = pd.read_csv("/data/bulario/cleansed/bulas-topics.csv",sep=";")
 
@@ -25,6 +26,20 @@ def extract_words(text):
 
 
 def extract_principio_ativo(text):
+
+
+    print('RAW : {}'.format(text))
+
+    text = re.sub(r'[0-9\.]+', ' ', text)
+    text = re.sub('q.s.p', ' ', text)
+    text = re.sub('d.c.b.', ' ', text)
+    text = re.sub('equivalente', ' ', text)
+    text = re.sub('informacoes ao paciente', ' ', text)
+
+    text = text.replace('.', ' ').replace(',', ' ').replace('(', ' ').replace(')', ' ').replace(':', ' ').replace('*',' ')
+    text = re.sub(' mg ', ' ', text)
+    text = re.sub(' ml ', ' ', text)
+
     if text.find('contem') != -1:
         start_index = text.find('contem') + len('contem')
     elif text.find('composicao') != -1:
@@ -47,12 +62,14 @@ def extract_principio_ativo(text):
     else:
         end_index = len(text)
 
+    print('PROCESSADO : {}'.format(text[start_index:end_index]))
+
+    print('---------------------\n\n')
     return text[start_index:end_index]
 
 
 def remove_character(text, character):
     return text.replace(character, "")
-
 
 bulas_df['composicao'] = bulas_df['composicao'].map(lambda x : remove_character(x,'*'))
 
@@ -65,5 +82,7 @@ bulas_df['principio_ativo'] = bulas_df['composicao'].map(lambda x : extract_prin
 bulas_df['principio_ativo_keywords'] = bulas_df['principio_ativo'].map(lambda x : extract_words(x))
 
 
-bulas_df.to_csv("/data/bulario/cleansed/bulas-tagged.csv",sep=';',index=False)
+bulas_df.to_csv("/data/bulario/cleansed/bulas-tagged.csv", sep=';', index=False)
+
+
 
