@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68135f5a-2254-45dc-ab0d-45a7df6eed12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/10-translate-drug-interactions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/teste2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/4-translate-drugs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/4-translate-drugs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/7-keywords-extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/7-keywords-extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/8-create-dataset-drug-indication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/8-create-dataset-drug-indication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/11-create-database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/11-create-database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Neo4JConnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Neo4JConnection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/teste.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/teste.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,26 +17,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/11-create-database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="358">
+              <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/teste.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="366">
+              <caret line="94" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="94" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Neo4JConnection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="47" column="105" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -58,6 +65,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="altierispeixoto &lt;altieris.marcelino@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
@@ -68,23 +80,25 @@
         <option value="$PROJECT_DIR$/src/1-scrapping-bulario.py" />
         <option value="$PROJECT_DIR$/src/5-extract-text-from-pdf.py" />
         <option value="$PROJECT_DIR$/src/6-topic-extraction.py" />
-        <option value="$PROJECT_DIR$/src/Neo4JConnection.py" />
         <option value="$PROJECT_DIR$/src/7-keywords-extraction.py" />
         <option value="$PROJECT_DIR$/src/4-translate-drugs.py" />
         <option value="$PROJECT_DIR$/src/8-neo4j-database-ingestion.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/8-create-dataset-drug-indication.py" />
-        <option value="$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py" />
-        <option value="$PROJECT_DIR$/src/10-translate-drug-interactions.py" />
+        <option value="$PROJECT_DIR$/src/teste2.py" />
         <option value="$PROJECT_DIR$/src/teste.py" />
+        <option value="$PROJECT_DIR$/src/10-translate-drug-interactions.py" />
+        <option value="$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py" />
+        <option value="$PROJECT_DIR$/src/Neo4JConnection.py" />
+        <option value="$PROJECT_DIR$/src/11-create-database.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1779" />
-    <option name="y" value="212" />
-    <option name="width" value="1167" />
-    <option name="height" value="653" />
+    <option name="x" value="1471" />
+    <option name="y" value="86" />
+    <option name="width" value="1621" />
+    <option name="height" value="917" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -111,6 +125,9 @@
       </pane>
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -123,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.teste">
+  <component name="RunManager" selected="Python.11-create-database">
     <configuration name="10-translate-drug-interactions" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bulario" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,7 +162,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="4-translate-drugs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="11-create-database" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bulario" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,28 +174,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/4-translate-drugs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="8-neo4j-database-ingestion" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="bulario" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/8-create-dataset-drug-indication.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/11-create-database.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,13 +225,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="teste2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bulario" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/teste2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.11-create-database" />
+        <item itemvalue="Python.teste2" />
         <item itemvalue="Python.teste" />
         <item itemvalue="Python.10-translate-drug-interactions" />
         <item itemvalue="Python.9-create-dataset-drug-counter-indication" />
-        <item itemvalue="Python.8-neo4j-database-ingestion" />
-        <item itemvalue="Python.4-translate-drugs" />
       </list>
     </recent_temporary>
   </component>
@@ -250,32 +267,44 @@
       <option name="presentableId" value="Default" />
       <updated>1550353323018</updated>
     </task>
+    <task id="LOCAL-00001" summary="translate drug interactions">
+      <created>1551007095985</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551007095986</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22038421" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1773163" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3260188" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44974095" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29637307" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.29551122" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.3291536" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2737722" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.19201995" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32793018" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="translate drug interactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="translate drug interactions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,13 +319,27 @@
           <line>79</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/10-translate-drug-interactions.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>len(proxy_ips)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxy_ips[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxy_ips</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/5-extract-text-from-pdf.py">
@@ -343,13 +386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Neo4JConnection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/pandas/core/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -378,32 +414,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/3-drug-interactions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" lean-forward="true" selection-start-line="24" selection-end-line="28" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/8-create-dataset-drug-indication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -432,16 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/4-translate-drugs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/2-extract-drugbank.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -452,22 +458,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
+    <entry file="file://$PROJECT_DIR$/src/teste2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="70">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/tools/anaconda3/lib/python3.7/multiprocessing/pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="682" selection-start-line="682" selection-end-line="682" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/teste.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/neo4j/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/8-create-dataset-drug-indication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="58" column="81" lean-forward="true" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4-translate-drugs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="47" selection-start-line="47" selection-end-line="47" selection-end-column="102" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/teste.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/neobolt/direct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        <state relative-caret-position="218">
+          <caret line="737" selection-start-line="737" selection-end-line="737" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/9-create-dataset-drug-counter-indication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="94" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="94" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Neo4JConnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="47" column="105" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/11-create-database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

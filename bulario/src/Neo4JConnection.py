@@ -9,44 +9,52 @@ class Neo4JConnection(object):
     def close(self):
         self._driver.close()
 
-    def create_patology(self, nome):
+    def create_patology(self, disease):
         with self._driver.session() as session:
             return session.run("CREATE (p:Patologia) "
-                               " SET p.nome = $nome  RETURN id(p)", nome=nome).single().value()
+                               " SET p.disease = $disease  RETURN id(p)", disease=disease).single().value()
 
-    def create_principio_ativo(self, term, english_term, drugbank_id, drugbank_description, drugbank_descricao):
+    def create_principio_ativo(self, name_pt_br, name_en, drugbank_id, description_en, description_pt_br):
         with self._driver.session() as session:
             return session.run(
-                "MERGE (p:ItemPrincipioAtivo {term: $term, english_term: $english_term,drugbank_id:$drugbank_id,drugbank_description:$drugbank_description,drugbank_descricao:$drugbank_descricao}) RETURN id(p)", \
-                term=term, english_term=english_term, drugbank_id=drugbank_id,
-                drugbank_description=drugbank_description, drugbank_descricao=drugbank_descricao).single().value()
-            # return session.run("CREATE (p:ItemPrincipioAtivo {nome:$nome}) RETURN id(p)", nome=nome).single().value()
+                "MERGE (d:Drug "
+                "{name_pt_br: $name_pt_br"
+                ",name_en: $name_en,"
+                " drugbank_id:$drugbank_id,"
+                " drugbank_description_en:$description_en,"
+                " description_pt_br:$description_pt_br}"
+                ") RETURN id(d)",
+                name_pt_br=name_pt_br, name_en=name_en, drugbank_id=drugbank_id,
+                description_en=description_en, description_pt_br=description_pt_br).single().value()
 
-    def create_contra_indicacao_term(self, nome):
+    def create_relationship_drug_disease(self, drugbank_id, disease):
         with self._driver.session() as session:
-            return session.run("CREATE (c:ContraIndicacaoTerm {nome:$nome}) RETURN id(c)", nome=nome).single().value()
+            return session.run("MATCH (p:Patologia),(d:Drug) "
+                               "WHERE p.disease = $disease and  d.drugbank_id = $drugbank_id "
+                               "CREATE (d)-[r:indication "
+                               "{ nome: p.disease + ' <-> ' + d.name_pt_br}]->(p) "
+                               "RETURN type(r), r.nome",
+                               disease=disease, drugbank_id=drugbank_id)
 
-    def create_relationship_principio_ativo_patologia(self, nome_patologia, nome_principio_ativo, term_frequency):
+    def create_relationship_counter_indication_drug_disease(self, drugbank_id, disease):
         with self._driver.session() as session:
-            return session.run("MATCH (p:Patologia),(i:ItemPrincipioAtivo) "
-                               "WHERE p.nome = $patologia and  i.term = $principio_ativo "
-                               "CREATE (i)-[r:active_principle_indication { nome: p.nome + ' <-> ' + i.term , freq: $frequency }]->(p) RETURN type(r), r.nome",
-                               patologia=nome_patologia, principio_ativo=nome_principio_ativo, frequency=term_frequency)
+            return session.run("MATCH (p:Patologia),(d:Drug) "
+                               "WHERE p.disease = $disease and  d.drugbank_id = $drugbank_id "
+                               "CREATE (d)-[r:counter_indication "
+                               "{ nome: p.disease + ' <-> ' + d.name_pt_br}]->(p) "
+                               "RETURN type(r), r.nome",
+                               disease=disease, drugbank_id=drugbank_id)
 
-    def create_relationship_contra_indicacao_patologia(self, nome_patologia, nome_contra_indicacao, term_frequency):
+    def create_drug_interaction_relationship(self,drugbank_interaction_id,drugbank_id, description_pt_br):
         with self._driver.session() as session:
-            return session.run("MATCH (p:Patologia),(c:ItemPrincipioAtivo) "
-                               "WHERE p.nome = $patologia and  c.term = $nome_contra_indicacao "
-                               "CREATE (c)-[r:counter_indication_term_associated { nome: p.nome + ' <-> ' + c.term , freq: $frequency }]->(p) RETURN type(r), r.nome",
-                               patologia=nome_patologia, nome_contra_indicacao=nome_contra_indicacao,
-                               frequency=term_frequency)
+            return session.run("MATCH (d0:Drug),(d:Drug) "
+                               "WHERE d0.drugbank_id = $drugbank_interaction_id and  d.drugbank_id = $drugbank_id "
+                               "CREATE (d0)-[r:drug_interaction "
+                               "{ description: $description_pt_br}]->(d) "
+                               "RETURN type(r)",
+                               drugbank_interaction_id=drugbank_interaction_id, drugbank_id=drugbank_id
+                               , description_pt_br=description_pt_br)
 
-    def create_relationship_principio_ativo(self, term1, term2, term_frequency):
-        with self._driver.session() as session:
-            return session.run("MATCH (i1:ItemPrincipioAtivo),(i2:ItemPrincipioAtivo) "
-                               "WHERE i1.term = $term1 and  i2.term = $term2 "
-                               "CREATE (i1)-[r:active_principle_linked_term { nome: i1.term + ' <-> ' + i2.term , freq: $frequency }]->(i2) RETURN type(r), r.nome",
-                               term1=term1, term2=term2, frequency=term_frequency)
 
     def delete_all(self):
         with self._driver.session() as session:

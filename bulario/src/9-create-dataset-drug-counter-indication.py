@@ -3,7 +3,6 @@ import itertools
 from fuzzywuzzy import fuzz
 
 
-diseases = ['parkinson','diabetes', 'hipertensao', 'osteoporose', 'alzheimer']
 
 drugbank_translated = pd.read_csv('/data/drugbank/processed/drugbank_translated.tsv', sep='\t',names=['drugbank_id','name','decription','name_pt_br','description_pt_br'])
 bulas_df = pd.read_csv("/data/bulario/cleansed/bulas-tagged.csv", sep=';')
@@ -63,6 +62,6 @@ def create_counter_indications_diseases(diseases):
     except Exception as err:
         print(err)
 
-
+diseases = ['parkinson','diabetes', 'hipertensao', 'osteoporose', 'alzheimer']
 create_counter_indications_diseases(diseases)
 
