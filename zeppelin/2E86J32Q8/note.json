@@ -1,0 +1,471 @@
+{
+  "paragraphs": [
+    {
+      "text": "import pandas as pd\nfrom sklearn.metrics import roc_auc_score, roc_curve\nimport lightgbm as lgb",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 19:59:39.754",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1551912737553_1025962449",
+      "id": "20190306-195217_1301279314",
+      "dateCreated": "2019-03-06 19:52:17.553",
+      "dateStarted": "2019-03-06 19:59:39.767",
+      "dateFinished": "2019-03-06 19:59:40.199",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#  \u003cdiv style\u003d\"text-align: center\"\u003e  Santander ML Explainability  \u003c/div\u003e \n###  \u003cdiv style\u003d\"text-align: center\"\u003eCLEAR DATA. MADE MODEL. \u003c/div\u003e \n\u003cimg src\u003d\u0027https://galeria.bankier.pl/p/b/5/215103d7ace468-645-387-261-168-1786-1072.jpg\u0027 width\u003d600 height\u003d600\u003e\n\u003cdiv style\u003d\"text-align:center\"\u003e last update: \u003cb\u003e 20/02/2019\u003c/b\u003e\u003c/div\u003e\n\n\n\nYou can Fork code  and  Follow me on:\n\n\u003e ###### [ GitHub](https://github.com/mjbahmani/10-steps-to-become-a-data-scientist)\n\u003e ###### [Kaggle](https://www.kaggle.com/mjbahmani/)\n-------------------------------------------------------------------------------------------------------------\n \u003cb\u003eI hope you find this kernel helpful and some \u003cfont color\u003d\u0027red\u0027\u003eUPVOTES\u003c/font\u003e would be very much appreciated.\u003c/b\u003e\n    \n -----------",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 20:06:53.455",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003e\u003cdiv style\u003d\"text-align: center\"\u003e Santander ML Explainability \u003c/div\u003e\u003c/h1\u003e\n\u003ch3\u003e\u003cdiv style\u003d\"text-align: center\"\u003eCLEAR DATA. MADE MODEL. \u003c/div\u003e\u003c/h3\u003e\n\u003cimg src\u003d\u0027https://galeria.bankier.pl/p/b/5/215103d7ace468-645-387-261-168-1786-1072.jpg\u0027 width\u003d600 height\u003d600\u003e\n\u003cdiv style\u003d\"text-align:center\"\u003e last update: \u003cb\u003e 20/02/2019\u003c/b\u003e\u003c/div\u003e\n\u003cp\u003eYou can Fork code and Follow me on:\u003c/p\u003e\n\u003cblockquote\u003e\n  \u003ch6\u003e\u003ca href\u003d\"https://github.com/mjbahmani/10-steps-to-become-a-data-scientist\"\u003e GitHub\u003c/a\u003e\u003c/h6\u003e\n  \u003ch6\u003e\u003ca href\u003d\"https://www.kaggle.com/mjbahmani/\"\u003eKaggle\u003c/a\u003e\u003c/h6\u003e\n  \u003chr/\u003e\n  \u003cp\u003e\u003cb\u003eI hope you find this kernel helpful and some \u003cfont color\u003d\u0027red\u0027\u003eUPVOTES\u003c/font\u003e would be very much appreciated.\u003c/b\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr/\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1551913608484_-774584109",
+      "id": "20190306-200648_2108676047",
+      "dateCreated": "2019-03-06 20:06:48.484",
+      "dateStarted": "2019-03-06 20:06:53.456",
+      "dateFinished": "2019-03-06 20:06:55.702",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh ls ",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 19:56:10.112",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "sample_submission.csv\ntest.csv\ntrain.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1551912924075_1744600818",
+      "id": "20190306-195524_13427154",
+      "dateCreated": "2019-03-06 19:55:24.075",
+      "dateStarted": "2019-03-06 19:56:02.484",
+      "dateFinished": "2019-03-06 19:56:02.496",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "train_df \u003d pd.read_csv(\u0027../../../datascience/data/santander-customer-transaction-prediction/train.csv\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 19:56:12.737",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1551912894424_-1521216252",
+      "id": "20190306-195454_1687710764",
+      "dateCreated": "2019-03-06 19:54:54.424",
+      "dateStarted": "2019-03-06 19:56:12.747",
+      "dateFinished": "2019-03-06 19:56:18.506",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "X \u003d train_df.drop(\u0027target\u0027,axis\u003d1)\ny \u003d train_df[\u0027target\u0027]",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 19:57:38.018",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "ID_code": "string",
+                      "target": "string",
+                      "var_0": "string",
+                      "var_1": "string",
+                      "var_2": "string",
+                      "var_3": "string",
+                      "var_4": "string",
+                      "var_5": "string",
+                      "var_6": "string",
+                      "var_7": "string",
+                      "var_8": "string",
+                      "var_9": "string",
+                      "var_10": "string",
+                      "var_11": "string",
+                      "var_12": "string",
+                      "var_13": "string",
+                      "var_14": "string",
+                      "var_15": "string",
+                      "var_16": "string",
+                      "var_17": "string",
+                      "var_18": "string",
+                      "var_19": "string",
+                      "var_20": "string",
+                      "var_21": "string",
+                      "var_22": "string",
+                      "var_23": "string",
+                      "var_24": "string",
+                      "var_25": "string",
+                      "var_26": "string",
+                      "var_27": "string",
+                      "var_28": "string",
+                      "var_29": "string",
+                      "var_30": "string",
+                      "var_31": "string",
+                      "var_32": "string",
+                      "var_33": "string",
+                      "var_34": "string",
+                      "var_35": "string",
+                      "var_36": "string",
+                      "var_37": "string",
+                      "var_38": "string",
+                      "var_39": "string",
+                      "var_40": "string",
+                      "var_41": "string",
+                      "var_42": "string",
+                      "var_43": "string",
+                      "var_44": "string",
+                      "var_45": "string",
+                      "var_46": "string",
+                      "var_47": "string",
+                      "var_48": "string",
+                      "var_49": "string",
+                      "var_50": "string",
+                      "var_51": "string",
+                      "var_52": "string",
+                      "var_53": "string",
+                      "var_54": "string",
+                      "var_55": "string",
+                      "var_56": "string",
+                      "var_57": "string",
+                      "var_58": "string",
+                      "var_59": "string",
+                      "var_60": "string",
+                      "var_61": "string",
+                      "var_62": "string",
+                      "var_63": "string",
+                      "var_64": "string",
+                      "var_65": "string",
+                      "var_66": "string",
+                      "var_67": "string",
+                      "var_68": "string",
+                      "var_69": "string",
+                      "var_70": "string",
+                      "var_71": "string",
+                      "var_72": "string",
+                      "var_73": "string",
+                      "var_74": "string",
+                      "var_75": "string",
+                      "var_76": "string",
+                      "var_77": "string",
+                      "var_78": "string",
+                      "var_79": "string",
+                      "var_80": "string",
+                      "var_81": "string",
+                      "var_82": "string",
+                      "var_83": "string",
+                      "var_84": "string",
+                      "var_85": "string",
+                      "var_86": "string",
+                      "var_87": "string",
+                      "var_88": "string",
+                      "var_89": "string",
+                      "var_90": "string",
+                      "var_91": "string",
+                      "var_92": "string",
+                      "var_93": "string",
+                      "var_94": "string",
+                      "var_95": "string",
+                      "var_96": "string",
+                      "var_97": "string",
+                      "var_98": "string",
+                      "var_99": "string",
+                      "var_100": "string",
+                      "var_101": "string",
+                      "var_102": "string",
+                      "var_103": "string",
+                      "var_104": "string",
+                      "var_105": "string",
+                      "var_106": "string",
+                      "var_107": "string",
+                      "var_108": "string",
+                      "var_109": "string",
+                      "var_110": "string",
+                      "var_111": "string",
+                      "var_112": "string",
+                      "var_113": "string",
+                      "var_114": "string",
+                      "var_115": "string",
+                      "var_116": "string",
+                      "var_117": "string",
+                      "var_118": "string",
+                      "var_119": "string",
+                      "var_120": "string",
+                      "var_121": "string",
+                      "var_122": "string",
+                      "var_123": "string",
+                      "var_124": "string",
+                      "var_125": "string",
+                      "var_126": "string",
+                      "var_127": "string",
+                      "var_128": "string",
+                      "var_129": "string",
+                      "var_130": "string",
+                      "var_131": "string",
+                      "var_132": "string",
+                      "var_133": "string",
+                      "var_134": "string",
+                      "var_135": "string",
+                      "var_136": "string",
+                      "var_137": "string",
+                      "var_138": "string",
+                      "var_139": "string",
+                      "var_140": "string",
+                      "var_141": "string",
+                      "var_142": "string",
+                      "var_143": "string",
+                      "var_144": "string",
+                      "var_145": "string",
+                      "var_146": "string",
+                      "var_147": "string",
+                      "var_148": "string",
+                      "var_149": "string",
+                      "var_150": "string",
+                      "var_151": "string",
+                      "var_152": "string",
+                      "var_153": "string",
+                      "var_154": "string",
+                      "var_155": "string",
+                      "var_156": "string",
+                      "var_157": "string",
+                      "var_158": "string",
+                      "var_159": "string",
+                      "var_160": "string",
+                      "var_161": "string",
+                      "var_162": "string",
+                      "var_163": "string",
+                      "var_164": "string",
+                      "var_165": "string",
+                      "var_166": "string",
+                      "var_167": "string",
+                      "var_168": "string",
+                      "var_169": "string",
+                      "var_170": "string",
+                      "var_171": "string",
+                      "var_172": "string",
+                      "var_173": "string",
+                      "var_174": "string",
+                      "var_175": "string",
+                      "var_176": "string",
+                      "var_177": "string",
+                      "var_178": "string",
+                      "var_179": "string",
+                      "var_180": "string",
+                      "var_181": "string",
+                      "var_182": "string",
+                      "var_183": "string",
+                      "var_184": "string",
+                      "var_185": "string",
+                      "var_186": "string",
+                      "var_187": "string",
+                      "var_188": "string",
+                      "var_189": "string",
+                      "var_190": "string",
+                      "var_191": "string",
+                      "var_192": "string",
+                      "var_193": "string",
+                      "var_194": "string",
+                      "var_195": "string",
+                      "var_196": "string",
+                      "var_197": "string",
+                      "var_198": "string",
+                      "var_199": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1551912972737_600232476",
+      "id": "20190306-195612_2090095937",
+      "dateCreated": "2019-03-06 19:56:12.737",
+      "dateStarted": "2019-03-06 19:57:38.031",
+      "dateFinished": "2019-03-06 19:57:38.165",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-06 19:57:48.301",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "             ID_code    var_0   var_1   ...     var_197  var_198  var_199\n0            train_0   8.9255 -6.7863   ...      8.5635  12.7803  -1.0914\n1            train_1  11.5006 -4.1473   ...      8.7889  18.3560   1.9518\n2            train_2   8.6093 -2.7457   ...      8.2675  14.7222   0.3965\n3            train_3  11.0604 -2.1518   ...     10.2922  17.9697  -8.9996\n4            train_4   9.8369 -1.4834   ...      9.5031  17.9974  -8.8104\n5            train_5  11.4763 -2.3182   ...      9.7670  12.5809  -4.7602\n6            train_6  11.8091 -0.0832   ...      9.1143  10.8869  -3.2097\n7            train_7  13.5580 -7.9881   ...      9.4237   8.6624   3.4806\n8            train_8  16.1071  2.4426   ...      8.1975  19.5114   4.8453\n9            train_9  12.5088  1.9743   ...      7.9133  16.2375  14.2514\n10          train_10   5.0702 -0.5447   ...      9.2553  14.2914  -7.6652\n11          train_11  12.7188 -7.9750   ...      9.6745  16.7498  -3.9728\n12          train_12   8.7671 -4.6154   ...      8.4897  17.0938   4.6106\n13          train_13  16.3699  1.5934   ...      9.0419  15.6064 -10.8529\n14          train_14  13.8080  5.0514   ...      9.3439  24.4479  -5.1110\n15          train_15   3.9416  2.6562   ...      8.2899  12.9116  -4.9182\n16          train_16   5.0615  0.2689   ...      8.6367  20.2548  11.1524\n17          train_17   8.4199 -1.8128   ...      9.4560  19.4505  -5.2407\n18          train_18   4.8750  1.2646   ...      8.5873  17.1516 -22.1940\n19          train_19   4.4090 -0.7863   ...      9.1711  14.7352   3.9133\n20          train_20  12.6700 -2.0221   ...      8.2176  22.4754 -19.9444\n21          train_21   8.3918  1.4806   ...      7.7761  17.4662  11.3979\n22          train_22  10.2031  0.1925   ...      9.5064   8.7281 -25.6523\n23          train_23  15.0029 -9.3439   ...      9.4714  12.8480 -10.0357\n24          train_24   5.9240 -3.7285   ...     10.2561  14.3032   2.0897\n25          train_25   8.2703 -5.6854   ...      9.5360  17.8582  -3.3911\n26          train_26  15.6567 -4.4950   ...      7.8821  19.3055  -7.5090\n27          train_27  10.7166 -9.9800   ...      7.9933  20.2128  -1.7144\n28          train_28   7.8010  4.5262   ...      9.8715  14.0120  -4.5997\n29          train_29   5.3301 -2.6064   ...      9.4513  17.4105 -14.6897\n...              ...      ...     ...   ...         ...      ...      ...\n199970  train_199970  15.5794 -2.5687   ...      7.8741  18.4707  -6.4407\n199971  train_199971  14.5745 -3.9178   ...      7.1448  16.4238  15.5478\n199972  train_199972   7.4206 -2.5972   ...      7.6474  17.9137  -8.8790\n199973  train_199973   8.7758 -0.4604   ...      8.2211  16.1504  22.6103\n199974  train_199974  16.2010 -5.7847   ...      9.8244  17.6050   3.5219\n199975  train_199975   7.5238  1.0548   ...      7.3537  20.0787 -15.7676\n199976  train_199976   7.9663 -2.8485   ...      8.4627  14.3604  -1.6688\n199977  train_199977   7.3884 -0.8093   ...      9.0411  15.8939   1.6908\n199978  train_199978  12.2015 -0.8787   ...      7.5484  13.1150   6.7866\n199979  train_199979  10.8208 -2.9344   ...      9.5072  17.3854  -4.0844\n199980  train_199980   7.9618  6.2271   ...      8.2107  14.5403  -8.7837\n199981  train_199981  12.8140  0.6386   ...      8.6519  16.0341   7.3809\n199982  train_199982  11.8224 -2.3596   ...      8.2403  15.0018 -11.7721\n199983  train_199983  15.3063  2.8260   ...      9.7643  16.9017   6.8054\n199984  train_199984  11.3184  0.3745   ...     10.1784  17.1267 -16.5440\n199985  train_199985   9.0249 -3.6379   ...      8.1901  18.5124 -15.6321\n199986  train_199986  12.0298 -8.7800   ...      8.8019  15.0031  -0.3659\n199987  train_199987   8.0438 -1.9184   ...      8.1765  19.5095 -13.3091\n199988  train_199988  10.8657 -8.3545   ...      8.1970  14.7355   7.4554\n199989  train_199989  11.7554 -4.5356   ...      6.8686  19.5728  10.0835\n199990  train_199990  14.1475  1.8568   ...      9.1627  13.8077  -1.9646\n199991  train_199991   9.9909  2.5523   ...      8.5414  13.2895  -6.7896\n199992  train_199992  12.2825  2.6918   ...     10.1758  17.4066 -11.5244\n199993  train_199993  13.2152 -5.8006   ...      8.9709  14.5405   6.1149\n199994  train_199994  12.3925 -5.8821   ...      9.1164  16.3170  -7.5048\n199995  train_199995  11.4880 -0.4956   ...      8.5326  16.6660 -17.8661\n199996  train_199996   4.9149 -2.4484   ...      6.7419  15.9054   0.3388\n199997  train_199997  11.2232 -5.0518   ...      8.7155  13.8329   4.1995\n199998  train_199998   9.7148 -8.6098   ...     10.0342  15.5289 -13.9001\n199999  train_199999  10.8762 -5.7105   ...      8.1857  12.1284   0.1385\n\n[200000 rows x 201 columns]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1551912991497_34847512",
+      "id": "20190306-195631_2074360092",
+      "dateCreated": "2019-03-06 19:56:31.497",
+      "dateStarted": "2019-03-06 19:57:43.186",
+      "dateFinished": "2019-03-06 19:57:43.428",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1551913060646_-1283475201",
+      "id": "20190306-195740_1263469193",
+      "dateCreated": "2019-03-06 19:57:40.646",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "KAGGLE/SANTANDER/1-EDA",
+  "id": "2E86J32Q8",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
