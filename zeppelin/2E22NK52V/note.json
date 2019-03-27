@@ -44,7 +44,7 @@
     {
       "text": "%pyspark\n\nfrom pyspark import SparkContext, SparkConf,SQLContext\nfrom pyspark.sql.functions import col, udf\nfrom pyspark.sql.types import DateType\nfrom sklearn.cluster import DBSCAN\nimport numpy as np \nfrom datetime import datetime\n# Import `pyplot` \nimport matplotlib.pyplot as plt\n\n# Set the style to `ggplot`\nplt.style.use(\"ggplot\")\n\nconf \u003d SparkConf().setAppName(\"App\")\nconf \u003d (conf.setMaster(\u0027local[*]\u0027)\n        .set(\u0027spark.executor.memory\u0027, \u00274G\u0027)\n        .set(\u0027spark.driver.memory\u0027, \u002730G\u0027)\n        .set(\u0027spark.driver.maxResultSize\u0027, \u002710G\u0027))\n\nsc \u003d SparkContext.getOrCreate(conf\u003dconf)\nsqlContext \u003d SQLContext(sc)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-06 10:35:56.374",
+      "dateUpdated": "2019-03-24 16:18:30.288",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,22 +63,28 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.net.ConnectException: Connection refused (Connection refused)\n\tat java.net.PlainSocketImpl.socketConnect(Native Method)\n\tat java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)\n\tat java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)\n\tat java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)\n\tat java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)\n\tat java.net.Socket.connect(Socket.java:589)\n\tat org.apache.thrift.transport.TSocket.open(TSocket.java:182)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:51)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:37)\n\tat org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:60)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:861)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.getClient(RemoteInterpreterProcess.java:62)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:133)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1546564361402_-1489627498",
       "id": "20190103-231241_997301010",
       "dateCreated": "2019-01-03 23:12:41.402",
-      "dateStarted": "2019-03-06 10:35:56.419",
-      "dateFinished": "2019-03-06 10:35:56.429",
-      "status": "FINISHED",
+      "dateStarted": "2019-03-24 16:18:30.330",
+      "dateFinished": "2019-03-24 16:18:30.332",
+      "status": "ERROR",
+      "errorMessage": "java.net.ConnectException: Connection refused (Connection refused)\n\tat java.net.PlainSocketImpl.socketConnect(Native Method)\n\tat java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)\n\tat java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)\n\tat java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)\n\tat java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)\n\tat java.net.Socket.connect(Socket.java:589)\n\tat org.apache.thrift.transport.TSocket.open(TSocket.java:182)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:51)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:37)\n\tat org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:60)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:861)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.getClient(RemoteInterpreterProcess.java:62)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:133)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nraw_path\u003d\u0027/work/datascience/data/urbs/2018-11/19-23/\u0027\npath\u003d\u0027/work/datascience/data/urbs-dbscan/\u0027\n\ntoDateTime \u003d  udf(lambda x: datetime.strptime(x, \u0027%d/%m/%Y %H:%M:%S\u0027), DateType())\n\nclusters_df \u003d sqlContext.read.option(\"header\", \"true\").csv(path+\u0027*.csv\u0027,sep\u003d\u0027;\u0027)\nclusters_df \u003d clusters_df.withColumn(\"data\", toDateTime(col(\u0027dthr\u0027)))\n",
+      "text": "%pyspark\n\nraw_path\u003d\u0027/home/alieris/datascience/data/curitibaurbs/raw/\u0027\n#path\u003d\u0027/work/datascience/data/urbs-dbscan/\u0027\n\ntoDateTime \u003d  udf(lambda x: datetime.strptime(x, \u0027%d/%m/%Y %H:%M:%S\u0027), DateType())\n\nclusters_df \u003d sqlContext.read.option(\"header\", \"true\").csv(path+\u0027*.csv\u0027,sep\u003d\u0027;\u0027)\nclusters_df \u003d clusters_df.withColumn(\"data\", toDateTime(col(\u0027dthr\u0027)))\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-05 11:08:25.937",
+      "dateUpdated": "2019-03-24 13:26:05.793",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -750,7 +756,7 @@
     {
       "text": "%sql\n\nwith \nbunchs as (\n-- todas as chaves\nselect key,cod_linha,nome,data,cluster_id,count(distinct veic) \nfrom bus_bunchings\nwhere data \u003c \u00272018-11-24\u0027\ngroup by key,cod_linha,nome,data,cluster_id\nhaving count(distinct veic) \u003e 1\norder by cod_linha,data\n) select nome,count(1) as qtd from bunchs\ngroup by nome\norder by qtd desc limit 50\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-06 12:06:20.963",
+      "dateUpdated": "2019-03-24 22:30:01.340",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,

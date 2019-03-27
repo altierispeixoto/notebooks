@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68135f5a-2254-45dc-ab0d-45a7df6eed12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bulario.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bulario.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zeppelin/2E22NK52V/note.json" beforeDir="false" afterPath="$PROJECT_DIR$/../zeppelin/2E22NK52V/note.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../santander/.ipynb_checkpoints/santander-eda-lgbm-with-new-features-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../santander/.ipynb_checkpoints/santander-eda-lgbm-with-new-features-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../santander/.ipynb_checkpoints/std-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../santander/.ipynb_checkpoints/std-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../santander/santander-eda-lgbm-with-new-features.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../santander/santander-eda-lgbm-with-new-features.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../santander/std.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../santander/std.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../santander/submission-90082.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,41 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/11-create-database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="94" selection-start-line="80" selection-start-column="5" selection-end-line="94" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Neo4JConnection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="105" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -104,17 +71,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bulario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bulario" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -274,7 +231,7 @@
   <component name="ToolWindowManager">
     <frame x="49" y="27" width="1871" height="1053" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18356164" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18575342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -467,7 +424,7 @@
     <entry file="file://$PROJECT_DIR$/src/11-create-database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -476,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/10-translate-drug-interactions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="94" selection-start-line="80" selection-start-column="5" selection-end-line="94" />
+        <state relative-caret-position="281">
+          <caret line="70" column="49" lean-forward="true" selection-start-line="69" selection-end-line="70" selection-end-column="49" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
