@@ -338,13 +338,12 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "URBS/uncompress-files",
+  "name": "URBS/PRE-PROCESS/UNCOMPRESS-FILES",
   "id": "2E8WR17UM",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "python:shared_process": [],
     "spark:shared_process": []
   },
   "config": {

@@ -1,0 +1,875 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sql\nselect cod_empresa,nome_empresa\nfrom empresas_onibus",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 14:37:41.915",
+      "config": {
+        "colWidth": 4.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 510.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "cod_empresa",
+                        "visible": true,
+                        "width": 236.0,
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "nome_empresa",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "cod_empresa": "string",
+                      "nome_empresa": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "cod_empresa",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "nome_empresa",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 167.0,
+              "optionOpen": false
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "cod_empresa\tnome_empresa\n009\tARAUCARIA/TRANSBUS\n010\tMERCES/PONTUAL\n011\tSORRISO/PIONEIRO\n003\tGLORIA/PONTUAL\n002\tTAMANDARE/PIONEIRO\n005\tCCD/PIONEIRO\n007\tREDENTOR/TRANSBUS\n008\tEXPRESSO AZUL/TRANSBUS\n004\tSANTO ANTONIO/PONTUAL\n006\tS?O JOSE/PIONEIRO\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d80",
+            "http://172.16.1.103:4040/jobs/job?id\u003d81",
+            "http://172.16.1.103:4040/jobs/job?id\u003d82",
+            "http://172.16.1.103:4040/jobs/job?id\u003d83",
+            "http://172.16.1.103:4040/jobs/job?id\u003d84"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554045181892_747166369",
+      "id": "20190331-121301_667375535",
+      "dateCreated": "2019-03-31 12:13:01.892",
+      "dateStarted": "2019-03-31 14:06:05.997",
+      "dateFinished": "2019-03-31 14:06:06.528",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect cast(cod_categoria as int) as cod_categoria,nome_categoria\nfrom categorias_onibus\norder by  cod_categoria\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 14:37:39.291",
+      "config": {
+        "colWidth": 4.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 500.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "COD_CATEGORIA",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "NOME_CATEGORIA",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "cod_categoria": "string",
+                      "nome_categoria": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 147.0,
+              "optionOpen": false
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "cod_categoria\tnome_categoria\n1\tALIMENTADOR\n3\tINTERBAIRROS\n4\tEXPRESSO\n5\tLINHA DIRETA\n6\tTRONCAL\n8\tCONVENCIONAL\n12\tCIRCULAR CENTRO\n13\tJARDINEIRA\n15\tMADRUGUEIRO\n27\tLIGEIR?O\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d85"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554045244256_-1263652540",
+      "id": "20190331-121404_589364581",
+      "dateCreated": "2019-03-31 12:14:04.256",
+      "dateStarted": "2019-03-31 14:06:54.788",
+      "dateFinished": "2019-03-31 14:06:55.285",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect count(distinct ti.cod_linha) as nr_linhas,emp.nome_empresa  \n    from trechos_itinerarios ti  \n    inner join empresas_onibus emp on (ti.cod_empresa \u003d emp.cod_empresa) \nwhere sourcedate \u003d\u00272019-03-14\u0027 \ngroup by emp.nome_empresa \norder by nr_linhas desc",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 22:18:40.125",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 355.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nr_linhas": "string",
+                      "nome_empresa": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nome_empresa",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "nr_linhas",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nr_linhas\tnome_empresa\n85\tGLORIA/PONTUAL\n58\tREDENTOR/TRANSBUS\n52\tSORRISO/PIONEIRO\n40\tCCD/PIONEIRO\n32\tEXPRESSO AZUL/TRANSBUS\n32\tS?O JOSE/PIONEIRO\n24\tMERCES/PONTUAL\n21\tARAUCARIA/TRANSBUS\n15\tSANTO ANTONIO/PONTUAL\n12\tTAMANDARE/PIONEIRO\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d201",
+            "http://172.16.1.103:4040/jobs/job?id\u003d202"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554052140968_157697680",
+      "id": "20190331-140900_121063337",
+      "dateCreated": "2019-03-31 14:09:00.968",
+      "dateStarted": "2019-03-31 15:11:31.557",
+      "dateFinished": "2019-03-31 15:11:32.655",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect distinct ti.cod_categoria,cat.nome_categoria,emp.cod_empresa,emp.nome_empresa,li.cod\nfrom trechos_itinerarios ti \ninner join categorias_onibus cat on (ti.cod_categoria \u003d cat.cod_categoria)\ninner join empresas_onibus emp  on (ti.cod_empresa \u003d emp.cod_empresa) \ninner join linhas li on (ti.cod_linha \u003d li.cod and ti.sourcedate \u003d li.sourcedate)\nwhere ti.sourcedate \u003d \u00272019-03-14\u0027\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 15:11:02.736",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 530.583,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "cod_categoria": "string",
+                      "nome_categoria": "string",
+                      "cod_empresa": "string",
+                      "nome_empresa": "string",
+                      "cod": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nome_empresa",
+                  "index": 3.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "nome_categoria",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "cod_categoria",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 87.0,
+              "optionOpen": false
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "cod_categoria\tnome_categoria\tcod_empresa\tnome_empresa\tcod\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t342\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t718\n8\tCONVENCIONAL\t004\tSANTO ANTONIO/PONTUAL\t380\n5\tLINHA DIRETA\t003\tGLORIA/PONTUAL\t022\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t540\n5\tLINHA DIRETA\t007\tREDENTOR/TRANSBUS\t022\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t213\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t761\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t680\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t169\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t681\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t823\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t658\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t821\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t461\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t545\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t521\n4\tEXPRESSO\t009\tARAUCARIA/TRANSBUS\t303\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t216\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t511\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t515\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t614\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t822\n5\tLINHA DIRETA\t004\tSANTO ANTONIO/PONTUAL\t307\n15\tMADRUGUEIRO\t007\tREDENTOR/TRANSBUS\t679\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t020\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t236\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t181\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\t602\n5\tLINHA DIRETA\t008\tEXPRESSO AZUL/TRANSBUS\t024\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t659\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t641\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t370\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t623\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t667\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t027\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t548\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t779\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t614\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t516\n12\tCIRCULAR CENTRO\t003\tGLORIA/PONTUAL\t001\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t201\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\tZ01\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t021\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\t503\n3\tINTERBAIRROS\t003\tGLORIA/PONTUAL\t010\n3\tINTERBAIRROS\t003\tGLORIA/PONTUAL\t030\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t631\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t274\n4\tEXPRESSO\t002\tTAMANDARE/PIONEIRO\t503\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t632\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t030\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t285\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t341\n5\tLINHA DIRETA\t010\tMERCES/PONTUAL\t023\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t467\n5\tLINHA DIRETA\t005\tCCD/PIONEIRO\t305\n8\tCONVENCIONAL\t011\tSORRISO/PIONEIRO\t662\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t260\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t372\n6\tTRONCAL\t010\tMERCES/PONTUAL\t972\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t050\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t650\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t216\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\t602\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t654\n3\tINTERBAIRROS\t005\tCCD/PIONEIRO\t021\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t668\n8\tCONVENCIONAL\t010\tMERCES/PONTUAL\t150\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t532\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t244\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t243\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t719\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t231\n5\tLINHA DIRETA\t008\tEXPRESSO AZUL/TRANSBUS\t023\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t214\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t523\n3\tINTERBAIRROS\t010\tMERCES/PONTUAL\t021\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t183\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t535\n27\tLIGEIR?O\t007\tREDENTOR/TRANSBUS\t550\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t506\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t270\n1\tALIMENTADOR\t002\tTAMANDARE/PIONEIRO\t629\n3\tINTERBAIRROS\t005\tCCD/PIONEIRO\t050\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t685\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t166\n3\tINTERBAIRROS\t005\tCCD/PIONEIRO\t030\n8\tCONVENCIONAL\t011\tSORRISO/PIONEIRO\t661\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t760\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t386\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t655\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t924\n3\tINTERBAIRROS\t008\tEXPRESSO AZUL/TRANSBUS\t040\n15\tMADRUGUEIRO\t005\tCCD/PIONEIRO\t309\n8\tCONVENCIONAL\t007\tREDENTOR/TRANSBUS\t265\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t470\n8\tCONVENCIONAL\t010\tMERCES/PONTUAL\t967\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t615\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\tZ03\n6\tTRONCAL\t008\tEXPRESSO AZUL/TRANSBUS\t701\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t711\n15\tMADRUGUEIRO\t003\tGLORIA/PONTUAL\t229\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t825\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t175\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t924\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t370\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t713\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t732\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t815\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t918\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t610\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t644\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t649\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t827\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t030\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t233\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t684\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t916\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t508\n15\tMADRUGUEIRO\t008\tEXPRESSO AZUL/TRANSBUS\t789\n3\tINTERBAIRROS\t004\tSANTO ANTONIO/PONTUAL\t020\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t216\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t385\n15\tMADRUGUEIRO\t005\tCCD/PIONEIRO\t308\n5\tLINHA DIRETA\t004\tSANTO ANTONIO/PONTUAL\t023\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t829\n3\tINTERBAIRROS\t009\tARAUCARIA/TRANSBUS\t050\n15\tMADRUGUEIRO\t006\tS?O JOSE/PIONEIRO\t549\n5\tLINHA DIRETA\t007\tREDENTOR/TRANSBUS\t607\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t374\n15\tMADRUGUEIRO\t007\tREDENTOR/TRANSBUS\t608\n5\tLINHA DIRETA\t010\tMERCES/PONTUAL\t307\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t776\n27\tLIGEIR?O\t011\tSORRISO/PIONEIRO\t500\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t335\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t513\n3\tINTERBAIRROS\t010\tMERCES/PONTUAL\t040\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t633\n1\tALIMENTADOR\t004\tSANTO ANTONIO/PONTUAL\t233\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\tX20\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t621\n6\tTRONCAL\t010\tMERCES/PONTUAL\t901\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t870\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t022\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t222\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t536\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t271\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\tX19\n5\tLINHA DIRETA\t010\tMERCES/PONTUAL\t902\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\tX12\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t331\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t635\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\tX14\n5\tLINHA DIRETA\t007\tREDENTOR/TRANSBUS\t023\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t522\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t323\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t464\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t625\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t508\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t628\n8\tCONVENCIONAL\t010\tMERCES/PONTUAL\t365\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t506\n6\tTRONCAL\t004\tSANTO ANTONIO/PONTUAL\t373\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t646\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t638\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t465\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t171\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t023\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t184\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t167\n3\tINTERBAIRROS\t003\tGLORIA/PONTUAL\t021\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t642\n15\tMADRUGUEIRO\t011\tSORRISO/PIONEIRO\t689\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t875\n6\tTRONCAL\t004\tSANTO ANTONIO/PONTUAL\t375\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t024\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t512\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t658\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t643\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t637\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t620\n3\tINTERBAIRROS\t008\tEXPRESSO AZUL/TRANSBUS\t050\n3\tINTERBAIRROS\t008\tEXPRESSO AZUL/TRANSBUS\t011\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t360\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\t502\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t380\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t336\n5\tLINHA DIRETA\t005\tCCD/PIONEIRO\t469\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t640\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t911\n8\tCONVENCIONAL\t007\tREDENTOR/TRANSBUS\t671\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t541\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t860\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t505\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t561\n15\tMADRUGUEIRO\t007\tREDENTOR/TRANSBUS\t209\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t205\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t653\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t714\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t712\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t365\n8\tCONVENCIONAL\t011\tSORRISO/PIONEIRO\t663\n3\tINTERBAIRROS\t002\tTAMANDARE/PIONEIRO\t021\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t560\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t211\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t826\n4\tEXPRESSO\t002\tTAMANDARE/PIONEIRO\t502\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t266\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t335\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t545\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t022\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t619\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t917\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t811\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t828\n15\tMADRUGUEIRO\t003\tGLORIA/PONTUAL\t389\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t688\n15\tMADRUGUEIRO\t007\tREDENTOR/TRANSBUS\t609\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t212\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t915\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t371\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t639\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t471\n5\tLINHA DIRETA\t005\tCCD/PIONEIRO\t304\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t168\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t916\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t657\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t611\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t721\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t242\n12\tCIRCULAR CENTRO\t005\tCCD/PIONEIRO\t002\n5\tLINHA DIRETA\t009\tARAUCARIA/TRANSBUS\t024\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t321\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t683\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t170\n5\tLINHA DIRETA\t009\tARAUCARIA/TRANSBUS\t022\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t913\n8\tCONVENCIONAL\t007\tREDENTOR/TRANSBUS\t670\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\t502\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t762\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t720\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t462\n5\tLINHA DIRETA\t009\tARAUCARIA/TRANSBUS\t023\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t812\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t225\n8\tCONVENCIONAL\t011\tSORRISO/PIONEIRO\t665\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t182\n15\tMADRUGUEIRO\t005\tCCD/PIONEIRO\t489\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t023\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t176\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t280\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t622\n1\tALIMENTADOR\t010\tMERCES/PONTUAL\t912\n5\tLINHA DIRETA\t005\tCCD/PIONEIRO\t023\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t021\n6\tTRONCAL\t010\tMERCES/PONTUAL\t965\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t311\n1\tALIMENTADOR\t004\tSANTO ANTONIO/PONTUAL\t341\n6\tTRONCAL\t008\tEXPRESSO AZUL/TRANSBUS\t778\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t674\n3\tINTERBAIRROS\t004\tSANTO ANTONIO/PONTUAL\t021\n8\tCONVENCIONAL\t002\tTAMANDARE/PIONEIRO\t472\n5\tLINHA DIRETA\t003\tGLORIA/PONTUAL\t307\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t665\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t624\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t831\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t224\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t366\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t865\n1\tALIMENTADOR\t004\tSANTO ANTONIO/PONTUAL\t222\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t533\n8\tCONVENCIONAL\t007\tREDENTOR/TRANSBUS\t180\n5\tLINHA DIRETA\t004\tSANTO ANTONIO/PONTUAL\t022\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\t203\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\t603\n1\tALIMENTADOR\t008\tEXPRESSO AZUL/TRANSBUS\t712\n4\tEXPRESSO\t011\tSORRISO/PIONEIRO\t603\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t393\n4\tEXPRESSO\t005\tCCD/PIONEIRO\t303\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t828\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t463\n8\tCONVENCIONAL\t010\tMERCES/PONTUAL\t464\n5\tLINHA DIRETA\t003\tGLORIA/PONTUAL\t505\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t777\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t826\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t617\n5\tLINHA DIRETA\t006\tS?O JOSE/PIONEIRO\t507\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t652\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t165\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t612\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t343\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t226\n3\tINTERBAIRROS\t004\tSANTO ANTONIO/PONTUAL\t030\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t547\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t594\n15\tMADRUGUEIRO\t008\tEXPRESSO AZUL/TRANSBUS\t788\n6\tTRONCAL\t004\tSANTO ANTONIO/PONTUAL\t372\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t332\n3\tINTERBAIRROS\t002\tTAMANDARE/PIONEIRO\t050\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t475\n3\tINTERBAIRROS\t002\tTAMANDARE/PIONEIRO\t027\n6\tTRONCAL\t009\tARAUCARIA/TRANSBUS\t801\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t627\n5\tLINHA DIRETA\t004\tSANTO ANTONIO/PONTUAL\t340\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t656\n3\tINTERBAIRROS\t003\tGLORIA/PONTUAL\t011\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t020\n3\tINTERBAIRROS\t010\tMERCES/PONTUAL\t020\n1\tALIMENTADOR\t002\tTAMANDARE/PIONEIRO\t545\n5\tLINHA DIRETA\t007\tREDENTOR/TRANSBUS\t024\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t338\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t272\n15\tMADRUGUEIRO\t006\tS?O JOSE/PIONEIRO\t519\n5\tLINHA DIRETA\t005\tCCD/PIONEIRO\t022\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t466\n1\tALIMENTADOR\t003\tGLORIA/PONTUAL\t232\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t361\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t472\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t630\n15\tMADRUGUEIRO\t003\tGLORIA/PONTUAL\t209\n3\tINTERBAIRROS\t003\tGLORIA/PONTUAL\t020\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t468\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t387\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t334\n3\tINTERBAIRROS\t011\tSORRISO/PIONEIRO\t040\n4\tEXPRESSO\t003\tGLORIA/PONTUAL\t203\n8\tCONVENCIONAL\t006\tS?O JOSE/PIONEIRO\t663\n5\tLINHA DIRETA\t010\tMERCES/PONTUAL\t022\n3\tINTERBAIRROS\t002\tTAMANDARE/PIONEIRO\t030\n15\tMADRUGUEIRO\t002\tTAMANDARE/PIONEIRO\t509\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t040\n8\tCONVENCIONAL\t005\tCCD/PIONEIRO\t474\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t322\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t150\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\t203\n1\tALIMENTADOR\t002\tTAMANDARE/PIONEIRO\t540\n8\tCONVENCIONAL\t008\tEXPRESSO AZUL/TRANSBUS\t777\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t060\n4\tEXPRESSO\t005\tCCD/PIONEIRO\t302\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t207\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t636\n5\tLINHA DIRETA\t003\tGLORIA/PONTUAL\t023\n3\tINTERBAIRROS\t007\tREDENTOR/TRANSBUS\t027\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t876\n5\tLINHA DIRETA\t009\tARAUCARIA/TRANSBUS\t304\n6\tTRONCAL\t003\tGLORIA/PONTUAL\t373\n5\tLINHA DIRETA\t011\tSORRISO/PIONEIRO\t507\n5\tLINHA DIRETA\t008\tEXPRESSO AZUL/TRANSBUS\t022\n1\tALIMENTADOR\t006\tS?O JOSE/PIONEIRO\t531\n13\tJARDINEIRA\t003\tGLORIA/PONTUAL\t979\n8\tCONVENCIONAL\t011\tSORRISO/PIONEIRO\t666\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t534\n1\tALIMENTADOR\t009\tARAUCARIA/TRANSBUS\t814\n4\tEXPRESSO\t007\tREDENTOR/TRANSBUS\tX11\n3\tINTERBAIRROS\t002\tTAMANDARE/PIONEIRO\t020\n8\tCONVENCIONAL\t007\tREDENTOR/TRANSBUS\t673\n1\tALIMENTADOR\t004\tSANTO ANTONIO/PONTUAL\t216\n1\tALIMENTADOR\t005\tCCD/PIONEIRO\t338\n27\tLIGEIR?O\t011\tSORRISO/PIONEIRO\t550\n8\tCONVENCIONAL\t009\tARAUCARIA/TRANSBUS\t861\n5\tLINHA DIRETA\t007\tREDENTOR/TRANSBUS\t508\n3\tINTERBAIRROS\t005\tCCD/PIONEIRO\t020\n13\tJARDINEIRA\t010\tMERCES/PONTUAL\t979\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t616\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t378\n8\tCONVENCIONAL\t003\tGLORIA/PONTUAL\t160\n3\tINTERBAIRROS\t009\tARAUCARIA/TRANSBUS\t040\n1\tALIMENTADOR\t011\tSORRISO/PIONEIRO\t542\n1\tALIMENTADOR\t007\tREDENTOR/TRANSBUS\t690\n6\tTRONCAL\t008\tEXPRESSO AZUL/TRANSBUS\t703\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d152",
+            "http://172.16.1.103:4040/jobs/job?id\u003d153",
+            "http://172.16.1.103:4040/jobs/job?id\u003d154",
+            "http://172.16.1.103:4040/jobs/job?id\u003d155",
+            "http://172.16.1.103:4040/jobs/job?id\u003d156",
+            "http://172.16.1.103:4040/jobs/job?id\u003d157",
+            "http://172.16.1.103:4040/jobs/job?id\u003d158",
+            "http://172.16.1.103:4040/jobs/job?id\u003d159"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554053669936_-815741192",
+      "id": "20190331-143429_397489642",
+      "dateCreated": "2019-03-31 14:34:29.936",
+      "dateStarted": "2019-03-31 14:45:32.601",
+      "dateFinished": "2019-03-31 14:45:34.107",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\nselect nome_linha,count(distinct veiculo) as nr_veiculos\nfrom tabela_veiculo\nwhere sourcedate \u003d \u00272019-03-14\u0027\ngroup by nome_linha\norder by nr_veiculos desc\nlimit 10",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 15:15:42.851",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nome_linha": "string",
+                      "nr_veiculos": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nome_linha",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "nr_veiculos",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nome_linha\tnr_veiculos\nINTER 2 (HORARI)\t38\nINTER 2(ANTI-HR)\t30\nCENTENARIO/C.COMPRIDO\t30\nPINHEIRINHO\t26\nINTERBAIRROS IV\t24\nINTERBAIRROS III\t20\nINTERB II ANTI H\t20\nCIR.SUL (ANTI-H)\t17\nSTA.CANDIDA / C. RASO\t17\nBAIRRO NOVO\t16\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d200"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554055512385_-1114966914",
+      "id": "20190331-150512_842522684",
+      "dateCreated": "2019-03-31 15:05:12.385",
+      "dateStarted": "2019-03-31 15:10:57.097",
+      "dateFinished": "2019-03-31 15:10:59.120",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect *\nfrom trechos_itinerarios \nwhere cod_linha \u003d \u0027203\u0027 limit 100",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 22:07:01.883",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "CODIGO_URBS": "string",
+                      "COD_CATEGORIA": "string",
+                      "COD_EMPRESA": "string",
+                      "COD_ITINERARIO": "string",
+                      "COD_LINHA": "string",
+                      "COD_PTO_PARADA_TH": "string",
+                      "COD_PTO_TRECHO_A": "string",
+                      "COD_PTO_TRECHO_B": "string",
+                      "EXTENSAO_TRECHO_A_ATE_B": "string",
+                      "NOME_CATEGORIA": "string",
+                      "NOME_EMPRESA": "string",
+                      "NOME_ITINERARIO": "string",
+                      "NOME_LINHA": "string",
+                      "NOME_PTO_ABREVIADO": "string",
+                      "NOME_PTO_PARADA_TH": "string",
+                      "PTO_ESPECIAL": "string",
+                      "SEQ_PONTO_TRECHO_A": "string",
+                      "SEQ_PONTO_TRECHO_B": "string",
+                      "SEQ_PTO_ITI_TH": "string",
+                      "SOURCEDATE": "string",
+                      "STOP_CODE": "string",
+                      "STOP_NAME": "string",
+                      "TIPO_TRECHO": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "CODIGO_URBS\tCOD_CATEGORIA\tCOD_EMPRESA\tCOD_ITINERARIO\tCOD_LINHA\tCOD_PTO_PARADA_TH\tCOD_PTO_TRECHO_A\tCOD_PTO_TRECHO_B\tEXTENSAO_TRECHO_A_ATE_B\tNOME_CATEGORIA\tNOME_EMPRESA\tNOME_ITINERARIO\tNOME_LINHA\tNOME_PTO_ABREVIADO\tNOME_PTO_PARADA_TH\tPTO_ESPECIAL\tSEQ_PONTO_TRECHO_A\tSEQ_PONTO_TRECHO_B\tSEQ_PTO_ITI_TH\tSOURCEDATE\tSTOP_CODE\tSTOP_NAME\tTIPO_TRECHO\n461\t4\t003\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-15\t108023\tEstac?o Central\tT\n880\t4\t007\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-15\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n880\t4\t011\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-15\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n1473\t4\t003\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t003\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t007\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-15\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n833\t4\t011\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-15\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t011\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-15\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t011\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-15\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n880\t4\t003\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-15\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n462\t4\t003\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-15\t108024\tEstac?o Central\tT\n1079\t4\t007\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-15\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n461\t4\t011\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-15\t108023\tEstac?o Central\tT\n1473\t4\t007\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t007\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t011\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-15\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t011\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-15\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1473\t4\t011\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t011\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-15\t108035\tEstac?o Tubo Bento Viana\tE\n462\t4\t011\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-15\t108024\tEstac?o Central\tT\n833\t4\t003\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-15\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n833\t4\t007\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-15\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t007\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-15\t108036\tEstac?o Tubo Bento Viana\tT\n461\t4\t007\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-15\t108023\tEstac?o Central\tT\n1471\t4\t003\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-15\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t003\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-15\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1472\t4\t003\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-15\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t003\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-15\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n462\t4\t007\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-15\t108024\tEstac?o Central\tT\n1470\t4\t007\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-15\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n461\t4\t003\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-02-12\t108023\tEstac?o Central\tT\n880\t4\t007\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-02-12\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n880\t4\t011\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-02-12\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n1473\t4\t003\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t003\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t007\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-02-12\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n833\t4\t011\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-02-12\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t011\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-02-12\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t011\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-02-12\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n880\t4\t003\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-02-12\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n462\t4\t003\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-02-12\t108024\tEstac?o Central\tT\n1079\t4\t007\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-02-12\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n461\t4\t011\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-02-12\t108023\tEstac?o Central\tT\n1473\t4\t007\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t007\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t011\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-02-12\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t011\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-02-12\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1473\t4\t011\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t011\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-02-12\t108035\tEstac?o Tubo Bento Viana\tE\n462\t4\t011\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-02-12\t108024\tEstac?o Central\tT\n833\t4\t003\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-02-12\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n833\t4\t007\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-02-12\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t007\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-02-12\t108036\tEstac?o Tubo Bento Viana\tT\n461\t4\t007\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-02-12\t108023\tEstac?o Central\tT\n1471\t4\t003\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-02-12\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t003\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-02-12\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1472\t4\t003\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-02-12\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t003\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-02-12\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n462\t4\t007\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-02-12\t108024\tEstac?o Central\tT\n1470\t4\t007\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-02-12\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n461\t4\t003\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-14\t108023\tEstac?o Central\tT\n880\t4\t007\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-14\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n880\t4\t011\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-14\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n1473\t4\t003\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t003\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t007\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-14\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n833\t4\t011\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-14\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t011\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-14\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t011\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-14\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n880\t4\t003\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-14\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n462\t4\t003\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-14\t108024\tEstac?o Central\tT\n1079\t4\t007\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-14\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n461\t4\t011\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-14\t108023\tEstac?o Central\tT\n1473\t4\t007\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t007\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t011\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-14\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t011\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-14\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1473\t4\t011\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t011\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-14\t108035\tEstac?o Tubo Bento Viana\tE\n462\t4\t011\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-14\t108024\tEstac?o Central\tT\n833\t4\t003\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-14\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n833\t4\t007\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-14\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t007\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-14\t108036\tEstac?o Tubo Bento Viana\tT\n461\t4\t007\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-14\t108023\tEstac?o Central\tT\n1471\t4\t003\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-14\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1470\t4\t003\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-14\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n1472\t4\t003\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-14\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t003\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-14\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n462\t4\t007\t74\t203\t462\t462\t1472\t3.085\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/SU\tESTACAO CENTRAL/SENTIDO SUL\tN\t3608\t5736\t3608\t2019-03-14\t108024\tEstac?o Central\tT\n1470\t4\t007\t74\t203\t1470\t1470\t462\t3.246\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/SUL\tTERMINAL CABRAL/SENTIDO SUL\tN\t5735\t3608\t5735\t2019-03-14\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n461\t4\t003\t74\t203\t461\t461\t1471\t3.219\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tCENTRAL/NO\tESTACAO CENTRAL/SENTIDO NORTE\tN\t3610\t5738\t3610\t2019-03-11\t108023\tEstac?o Central\tT\n880\t4\t007\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-11\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n880\t4\t011\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-11\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n1473\t4\t003\t74\t203\t1473\t1473\t461\t3.088\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t3610\t5737\t2019-03-11\t108035\tEstac?o Tubo Bento Viana\tT\n1473\t4\t003\t74\t203\t1473\t1473\t1079\t2.069\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/NO\tESTACAO BENTO VIANA/SENT.NORTE\tN\t5737\t5378\t5737\t2019-03-11\t108035\tEstac?o Tubo Bento Viana\tE\n1471\t4\t007\t74\t203\t1471\t1471\t880\t4.594\tEXPRESSO\tREDENTOR/TRANSBUS\tTRONCO\tSTA. CANDIDA / C. RASO\tCABRAL/NOR\tTERMINAL CABRAL/SENTIDO NORTE\tN\t5738\t3607\t5738\t2019-03-11\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tT\n833\t4\t011\t74\t203\t833\t833\t1473\t5.562\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tC.RASO\tTERMINAL CAPAO RASO\tN\t3609\t5737\t3609\t2019-03-11\t104801\tTerminal Cap?o Raso - 203 - Santa Candida / Cap?o Raso\tT\n1472\t4\t011\t74\t203\t1472\t1472\t833\t5.747\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tB.VIANA/SU\tESTACAO BENTO VIANA/SENT.SUL\tN\t5736\t3609\t5736\t2019-03-11\t108036\tEstac?o Tubo Bento Viana\tT\n1079\t4\t011\t74\t203\t1079\t1079\t461\t1.019\tEXPRESSO\tSORRISO/PIONEIRO\tTRONCO\tSTA. CANDIDA / C. RASO\tEUFRASIO-N\tESTACAO EUFRASIO CORREA /NORTE\tN\t5378\t3610\t5378\t2019-03-11\t108026\tEstac?o Tubo Praca Eufrasio Correia\tE\n880\t4\t003\t74\t203\t880\t880\t1470\t4.356\tEXPRESSO\tGLORIA/PONTUAL\tTRONCO\tSTA. CANDIDA / C. RASO\tS.CANDIDA\tTERMINAL SANTA CANDIDA\tN\t3607\t5735\t3607\t2019-03-11\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tT\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d210"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554054867768_-780462182",
+      "id": "20190331-145427_374890164",
+      "dateCreated": "2019-03-31 14:54:27.768",
+      "dateStarted": "2019-03-31 22:07:01.459",
+      "dateFinished": "2019-03-31 22:07:01.564",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect * from tabela_veiculo",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 15:33:05.420",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "COD_LINHA": "string",
+                      "COD_PONTO": "string",
+                      "HORARIO": "string",
+                      "NOME_LINHA": "string",
+                      "SOURCEDATE": "string",
+                      "TABELA": "string",
+                      "VEICULO": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "COD_LINHA\tCOD_PONTO\tHORARIO\tNOME_LINHA\tSOURCEDATE\tTABELA\tVEICULO\n509\t\t00:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n519\t\t00:05\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n509\t\t00:05\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n608\t\t00:05\tMAD. PINHEIRINHO\t2019-03-01\t1\tHA259\n209\t\t00:10\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n519\t\t00:30\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n209\t\t00:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n209\t\t00:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n509\t\t00:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n608\t\t00:35\tMAD. PINHEIRINHO\t2019-03-01\t1\tHA259\n389\t\t00:50\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n188\t\t00:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n189\t\t00:50\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n209\t\t00:50\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n209\t\t00:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n788\t102001\t00:55\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n519\t\t00:55\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n889\t\t00:58\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n689\t\t00:59\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n188\t\t01:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n509\t\t01:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n189\t\t01:00\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n789\t102002\t01:00\tMAD. CAIUA\t2019-03-01\t1\tJC859\n809\t\t01:00\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n188\t\t01:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n489\t\t01:05\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n509\t\t01:05\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n608\t\t01:05\tMAD. PINHEIRINHO\t2019-03-01\t1\tHA259\n519\t\t01:05\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n889\t\t01:08\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n788\t102009\t01:08\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n609\t\t01:10\tMAD. CIC\t2019-03-01\t1\tHA261\n309\t\t01:10\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n689\t\t01:10\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n209\t\t01:10\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n789\t102016\t01:10\tMAD. CAIUA\t2019-03-01\t1\tJC859\n188\t\t01:10\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n809\t\t01:10\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n989\t\t01:10\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n389\t\t01:10\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n229\t\t01:15\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n519\t\t01:15\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n209\t\t01:17\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n989\t\t01:20\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n188\t\t01:25\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n188\t\t01:30\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n209\t\t01:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n549\t\t01:30\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n809\t\t01:30\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n679\t\t01:30\tMAD. TATUQUARA\t2019-03-01\t1\tHA259\n509\t\t01:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n229\t\t01:35\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n209\t\t01:37\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n609\t\t01:43\tMAD. CIC\t2019-03-01\t1\tHA261\n549\t\t01:45\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n188\t\t01:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n309\t\t01:50\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n189\t\t01:50\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n809\t\t01:50\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n188\t\t01:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n889\t\t01:50\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n389\t\t01:50\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n788\t102001\t01:53\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n509\t\t01:55\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n209\t\t01:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n389\t\t01:55\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n209\t\t01:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n489\t\t01:55\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n889\t\t02:00\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n788\t102009\t02:00\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n188\t\t02:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n189\t\t02:00\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n809\t\t02:00\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n188\t\t02:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n509\t\t02:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n309\t\t02:00\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n489\t\t02:00\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n519\t\t02:05\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n789\t102002\t02:10\tMAD. CAIUA\t2019-03-01\t1\tJC859\n679\t\t02:15\tMAD. TATUQUARA\t2019-03-01\t1\tHA259\n229\t\t02:15\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n519\t\t02:15\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n789\t102016\t02:20\tMAD. CAIUA\t2019-03-01\t1\tJC859\n989\t\t02:20\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n209\t\t02:20\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n188\t\t02:25\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n809\t\t02:25\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n188\t\t02:25\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n689\t\t02:25\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n229\t\t02:30\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n209\t\t02:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n689\t\t02:30\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n509\t\t02:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n609\t\t02:30\tMAD. CIC\t2019-03-01\t1\tHA261\n549\t\t02:30\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n989\t\t02:30\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n209\t\t02:40\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n549\t\t02:45\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n889\t\t02:50\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n188\t\t02:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n309\t\t02:50\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n809\t\t02:50\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n788\t102001\t02:50\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n189\t\t02:50\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n188\t\t02:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n489\t\t02:50\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n509\t\t02:55\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n389\t\t02:55\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n209\t\t02:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n609\t\t02:58\tMAD. CIC\t2019-03-01\t1\tHA261\n889\t\t03:00\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n788\t102009\t03:00\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n188\t\t03:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n189\t\t03:00\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n809\t\t03:00\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n209\t\t03:00\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n389\t\t03:00\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n188\t\t03:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n509\t\t03:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n309\t\t03:00\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n489\t\t03:00\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n679\t\t03:00\tMAD. TATUQUARA\t2019-03-01\t1\tHA259\n519\t\t03:05\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n229\t\t03:10\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n519\t\t03:15\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n188\t\t03:20\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n188\t\t03:25\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n809\t\t03:25\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n229\t\t03:25\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n209\t\t03:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n789\t102002\t03:30\tMAD. CAIUA\t2019-03-01\t1\tJC859\n509\t\t03:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n549\t\t03:30\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n209\t\t03:30\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n679\t\t03:30\tMAD. TATUQUARA\t2019-03-01\t1\tHA259\n989\t\t03:35\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n689\t\t03:40\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n989\t\t03:40\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n489\t\t03:40\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n789\t102016\t03:40\tMAD. CAIUA\t2019-03-01\t1\tJC859\n609\t\t03:40\tMAD. CIC\t2019-03-01\t1\tHA261\n389\t\t03:40\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n389\t\t03:42\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n689\t\t03:45\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n309\t\t03:50\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n188\t\t03:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n188\t\t03:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n189\t\t03:50\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n788\t102001\t03:50\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n489\t\t03:50\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n809\t\t03:50\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n889\t\t03:50\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n209\t\t03:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n509\t\t03:55\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n209\t\t03:55\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n188\t\t04:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n788\t102009\t04:00\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n679\t\t04:00\tMAD. TATUQUARA\t2019-03-01\t1\tHA259\n509\t\t04:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n809\t\t04:00\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n309\t\t04:00\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n189\t\t04:00\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n188\t\t04:00\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n889\t\t04:00\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n549\t\t04:00\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n519\t\t04:05\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n229\t\t04:05\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n609\t\t04:08\tMAD. CIC\t2019-03-01\t1\tHA261\n519\t\t04:15\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n209\t\t04:20\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n209\t\t04:20\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n229\t\t04:20\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n188\t\t04:20\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n809\t\t04:25\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n188\t\t04:25\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n389\t\t04:26\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n509\t\t04:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n809\t\t04:30\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n549\t\t04:30\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n389\t\t04:31\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n809\t\t04:40\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n549\t\t04:45\tMAD. BAIRRO NOVO\t2019-03-01\t1\tEA173\n209\t\t04:45\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n541\t106103\t04:49\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n189\t\t04:50\tMAD. ABRANCHES\t2019-03-01\t1\tBN622\n209\t\t04:50\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n684\t170532\t04:50\tRIO BONITO\t2019-03-01\t1-1\tHA292\n619\t170952\t04:50\tSTA. RITA / CIC\t2019-03-01\t1\tHA264\n617\t171013\t04:50\tJD. LUDOVICA\t2019-03-01\t1\tHA190\n519\t\t04:50\tMAD. S. FRANCISCO / IGUAPE\t2019-03-01\t1\tEA183\n542\t106104\t04:50\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n060\t130488\t04:50\tINTERBAIRROS VI\t2019-03-01\t3\tHB301\n188\t\t04:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t1\tBC851\n609\t\t04:50\tMAD. CIC\t2019-03-01\t1\tHA261\n827\t190384\t04:50\tRIVIERA\t2019-03-01\t1\tBI855\n309\t\t04:50\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n889\t\t04:50\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n650\t171013\t04:50\tSTA.RITA/PINHEIRINHO\t2019-03-01\t1\tHI004\n788\t102001\t04:50\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n789\t102002\t04:50\tMAD. CAIUA\t2019-03-01\t1\tJC859\n690\t170993\t04:50\tV. JULIANA\t2019-03-01\t1\tHA197\n188\t\t04:50\tMAD. PILARZINHO / UBERABA\t2019-03-01\t2\tBC850\n653\t180870\t04:54\tSABARA\t2019-03-01\t1\tHA022\n655\t170434\t04:55\tJD. ORDEM\t2019-03-01\t1\tHI013\n334\t105106\t04:55\tAGRICOLA\t2019-03-01\t1\tDA023\n528\t160070\t04:55\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t3\tGA203\n548\t160773\t04:55\tOSTERN/S.CERCADO\t2019-03-01\t2\tGA147\n509\t\t04:55\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n646\t170401\t04:55\tPOMPEIA / JANAINA\t2019-03-01\t1\tHA023\n809\t\t04:55\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n630\t170371\t05:00\tVITORIA REGIA\t2019-03-01\t1\tHA019\n652\t170747\t05:00\tV. VERDE\t2019-03-01\t1\tLA011\n655\t170438\t05:00\tJD. ORDEM\t2019-03-01\t1\tHI013\n528\t160756\t05:00\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t1\tGA001\n646\t170907\t05:00\tPOMPEIA / JANAINA\t2019-03-01\t1\tHA023\n789\t102016\t05:00\tMAD. CAIUA\t2019-03-01\t1\tJC859\n788\t102009\t05:00\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n989\t\t05:00\tMAD. STA. FELICIDADE\t2019-03-01\t1\tMN607\n685\t170966\t05:00\tRIO BONITO/CIC\t2019-03-01\t1\tHA286\n809\t\t05:00\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n040\t106001\t05:00\tINTERBAIRROS IV\t2019-03-01\t11\tHB603\n040\t104612\t05:00\tINTERBAIRROS IV\t2019-03-01\t8\tMB603\n889\t\t05:00\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n229\t\t05:00\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n541\t160115\t05:00\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n633\t150538\t05:00\tMARIA ANGELICA\t2019-03-01\t1\tGA157\n535\t160756\t05:00\tOSTERNACK/BOQ.\t2019-03-01\t1\tEA024\n901\t101121\t05:00\tSTA. FELICIDADE\t2019-03-01\t1\tMC307\n624\t150443\t05:00\tV. S?O PEDRO\t2019-03-01\t1\tGA156\n636\t160147\t05:00\tRIO NEGRO\t2019-03-01\t1\tGA181\n547\t106105\t05:00\tBAIRRO NOVO C\t2019-03-01\t1\tGA204\n649\t106111\t05:00\tPIRINEUS\t2019-03-01\t1\tGA180\n332\t105108\t05:00\tACROPOLE\t2019-03-01\t1\tEA174\n335\t105103\t05:00\tCENTENARIO / BOQUEIR?O \t2019-03-01\t1\tDR407\n502\t104301\t05:00\tCIR.SUL(HORARIO)\t2019-03-01\t1\tGR021\n542\t160093\t05:00\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n689\t\t05:00\tMAD. S. PEDRO / R. NEGRO\t2019-03-01\t1\tGN600\n489\t\t05:00\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n309\t\t05:00\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n545\t105307\t05:00\tTRABALHADOR\t2019-03-01\t3\tJA300\n545\t104319\t05:00\tTRABALHADOR\t2019-03-01\t1\tKA600\n638\t160265\t05:00\tPINHEIRINHO\t2019-03-01\t1\tGA179\n509\t\t05:00\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n653\t180863\t05:00\tSABARA\t2019-03-01\t1\tHA022\n040\t105718\t05:02\tINTERBAIRROS IV\t2019-03-01\t9\tHB605\n030\t105907\t05:03\tINTERBAIRROS III\t2019-03-01\t6\tBB605\n600\t\t05:03\tKAMYR/QUARTEL GENERAL\t2019-03-01\t1\tHA006\n231\t105906\t05:04\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n654\t104817\t05:05\tCAMPO ALEGRE\t2019-03-01\t1\tHI005\n619\t170952\t05:05\tSTA. RITA / CIC\t2019-03-01\t2\tHI012\n625\t106112\t05:05\tGRAMADOS\t2019-03-01\t3\tGA161\n684\t170532\t05:05\tRIO BONITO\t2019-03-01\t2\tHA602\n060\t104616\t05:05\tINTERBAIRROS VI\t2019-03-01\t1\tHB600\n209\t\t05:05\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t2\tHN606\n643\t160292\t05:05\tUMBARA\t2019-03-01\t1\tGA171\n540\t104319\t05:05\tBOQUEIR?O/MONDELEZ\t2019-03-01\t1-1\tGA155\n623\t170209\t05:05\tPQ.INDUSTRIAL\t2019-03-01\t3\tHI002\n030\t105603\t05:05\tINTERBAIRROS III\t2019-03-01\t4\tKB603\n650\t171013\t05:06\tSTA.RITA/PINHEIRINHO\t2019-03-01\t2\tHR415\n602\t105703\t05:09\tCIR.SUL (ANTI-H)\t2019-03-01\t3\tGR027\n341\t105911\t05:10\tB.ALTO / STA.CANDIDA\t2019-03-01\t1\tCI005\n030\t104815\t05:10\tINTERBAIRROS III\t2019-03-01\t2\tKB602\n040\t105316\t05:10\tINTERBAIRROS IV\t2019-03-01\t5\tLB602\n030\t104907\t05:10\tINTERBAIRROS III\t2019-03-01\t3\tDR117\n209\t\t05:10\tMAD. S. CANDIDA / C. RASO\t2019-03-01\t1\tBC928\n232\t120990\t05:10\tALIANCA\t2019-03-01\t1\tBA124\n342\t104203\t05:10\tB.ALTO / BOA VISTA\t2019-03-01\t1\tBA133\n629\t160016\t05:10\tALTO BOQUEIR?O\t2019-03-01\t3\tKA605\n203\t105901\t05:10\tSTA.CANDIDA / C. RASO\t2019-03-01\t1\tBE721\n338\t105509\t05:10\tCENTENARIO/HAUER\t2019-03-01\t1\tDA019\n338\t105105\t05:10\tCENTENARIO/HAUER\t2019-03-01\t3\tDA029\n511\t150389\t05:10\tS?O FRANCISCO\t2019-03-01\t2\tEA171\n531\t160130\t05:10\tSTA. INES\t2019-03-01\t1\tEA177\n040\t105309\t05:12\tINTERBAIRROS IV\t2019-03-01\t8\tMB603\n545\t106114\t05:12\tTRABALHADOR\t2019-03-01\t1\tKA600\n617\t171013\t05:12\tJD. LUDOVICA\t2019-03-01\t2\tHA296\n541\t106103\t05:12\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n911\t660100\t05:13\tPASSAUNA\t2019-03-01\t1\tMN400\n040\t105206\t05:13\tINTERBAIRROS IV\t2019-03-01\t9\tHB605\n231\t350042\t05:14\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n653\t180870\t05:14\tSABARA\t2019-03-01\t2\tHA011\n600\t\t05:15\tKAMYR/QUARTEL GENERAL\t2019-03-01\t1\tHA006\n916\t190451\t05:15\tPINHEIROS\t2019-03-01\t1\tMA299\n628\t104806\t05:15\tCARBOMAFRA\t2019-03-01\t1\tHI015\n021\t105511\t05:15\tINTERB II ANTI H\t2019-03-01\t6\tDR114\n222\t130929\t05:15\tV. ESPERANCA\t2019-03-01\t1\tCI002\n040\t104603\t05:15\tINTERBAIRROS IV\t2019-03-01\t1\tLB600\n389\t\t05:15\tMAD. TARUM? / AUGUSTA\t2019-03-01\t1\tBC931\n030\t104001\t05:15\tINTERBAIRROS III\t2019-03-01\t6\tBB605\n229\t\t05:15\tMAD.PENHA/F.NORO\t2019-03-01\t1\tBN611\n706\t105001\t05:15\tCAIUA/FAZ/CENTRO\t2019-03-01\t4\tJC306\n612\t105809\t05:15\tPORT?O / CIC\t2019-03-01\t1\tHI010\n334\t105106\t05:15\tAGRICOLA\t2019-03-01\t1\tDA023\n322\t105608\t05:15\tCAMARGO\t2019-03-01\t1\tDA027\n602\t106102\t05:15\tCIR.SUL (ANTI-H)\t2019-03-01\t2\tHR045\n503\t104303\t05:15\tBOQUEIR?O\t2019-03-01\t1\tGR035\n502\t106101\t05:15\tCIR.SUL(HORARIO)\t2019-03-01\t1\tGR021\n827\t104606\t05:15\tRIVIERA\t2019-03-01\t1\tBI855\n628\t170369\t05:15\tCARBOMAFRA\t2019-03-01\t2\tHA015\n040\t105718\t05:16\tINTERBAIRROS IV\t2019-03-01\t4\tLB603\n646\t170401\t05:17\tPOMPEIA / JANAINA\t2019-03-01\t2\tHI014\n911\t660104\t05:17\tPASSAUNA\t2019-03-01\t1\tMN400\n540\t106114\t05:17\tBOQUEIR?O/MONDELEZ\t2019-03-01\t1-1\tGA155\n654\t104817\t05:18\tCAMPO ALEGRE\t2019-03-01\t2\tHI006\n542\t160093\t05:18\tBAIRRO NOVO B\t2019-03-01\t2\tGA144\n542\t106104\t05:18\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n548\t160773\t05:18\tOSTERN/S.CERCADO\t2019-03-01\t1\tGA199\n040\t105316\t05:19\tINTERBAIRROS IV\t2019-03-01\t3\tMB605\n912\t106010\t05:20\tJOSE CULPI\t2019-03-01\t1\tMN405\n652\t105202\t05:20\tV. VERDE\t2019-03-01\t1\tLA011\n653\t180863\t05:20\tSABARA\t2019-03-01\t2\tHA011\n653\t105208\t05:20\tSABARA\t2019-03-01\t1\tHA022\n528\t160070\t05:20\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t5\tEA005\n528\t160756\t05:20\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t2\tGA202\n654\t105203\t05:20\tCAMPO ALEGRE\t2019-03-01\t1\tHI005\n622\t180304\t05:20\tRONDON\t2019-03-01\t1\tHI009\n182\t104107\t05:20\tABRANCHES\t2019-03-01\t1\tBC310\n180\t150528\t05:20\tAGUA VERDE / ABRANCHES\t2019-03-01\t1\tHC300\n528\t105917\t05:20\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t3\tGA203\n528\t104911\t05:20\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t1\tGA001\n030\t105907\t05:20\tINTERBAIRROS III\t2019-03-01\t7\tBB606\n721\t180959\t05:20\tMARIO JORGE\t2019-03-01\t1\tJA013\n548\t106106\t05:20\tOSTERN/S.CERCADO\t2019-03-01\t2\tGA147\n809\t\t05:20\tMAD. CAMPO COMPRIDO\t2019-03-01\t1\tLC850\n040\t106001\t05:20\tINTERBAIRROS IV\t2019-03-01\t2\tLB605\n040\t104612\t05:20\tINTERBAIRROS IV\t2019-03-01\t11\tHB603\n607\t350808\t05:20\tCOLOMBO/CIC\t2019-03-01\t9\t\n607\t109100\t05:20\tCOLOMBO/CIC\t2019-03-01\t1\tHL303\n684\t170532\t05:20\tRIO BONITO\t2019-03-01\t4\tHR412\n030\t105603\t05:20\tINTERBAIRROS III\t2019-03-01\t5\tBB610\n633\t150538\t05:20\tMARIA ANGELICA\t2019-03-01\t2\tGA173\n535\t104310\t05:20\tOSTERNACK/BOQ.\t2019-03-01\t1\tEA024\n901\t106007\t05:20\tSTA. FELICIDADE\t2019-03-01\t1\tMC307\n619\t170952\t05:20\tSTA. RITA / CIC\t2019-03-01\t3\tHA020\n522\t150808\t05:20\tMARINGA\t2019-03-01\t1\tEA189\n624\t150443\t05:20\tV. S?O PEDRO\t2019-03-01\t2\tGA145\n624\t104811\t05:20\tV. S?O PEDRO\t2019-03-01\t1\tGA156\n706\t105302\t05:20\tCAIUA/FAZ/CENTRO\t2019-03-01\t4\tJC306\n621\t105514\t05:20\tFANNY\t2019-03-01\t2\tEA012\n332\t105108\t05:20\tACROPOLE\t2019-03-01\t1\tEA174\n336\t140428\t05:20\tV. RENO\t2019-03-01\t1\tDA013\n335\t104307\t05:20\tCENTENARIO / BOQUEIR?O \t2019-03-01\t1\tDR407\n323\t105604\t05:20\tV. AUTODROMO\t2019-03-01\t1\tDA011\n602\t105703\t05:20\tCIR.SUL (ANTI-H)\t2019-03-01\t4\tGR034\n828\t104613\t05:20\tC.COMP/C.RASO\t2019-03-01\t2\tLA010\n502\t104301\t05:20\tCIR.SUL(HORARIO)\t2019-03-01\t3\tKE841\n821\t106017\t05:20\tFERN?O DIAS\t2019-03-01\t1\tMA949\n712\t105314\t05:20\tJD.INDEPEND./CIC\t2019-03-01\t2\tHA010\n712\t105209\t05:20\tJD.INDEPEND./CIC\t2019-03-01\t1\tHA016\n545\t104319\t05:20\tTRABALHADOR\t2019-03-01\t2\tKA601\n609\t\t05:20\tMAD. CIC\t2019-03-01\t1\tHA261\n652\t170747\t05:20\tV. VERDE\t2019-03-01\t2\tLA009\n603\t108170\t05:20\tPINHEIRINHO\t2019-03-01\t8\tHE716\n633\t105710\t05:21\tMARIA ANGELICA\t2019-03-01\t1\tGA157\n060\t105733\t05:21\tINTERBAIRROS VI\t2019-03-01\t3\tHB301\n060\t105007\t05:21\tINTERBAIRROS VI\t2019-03-01\t1\tHB600\n603\t105701\t05:22\tPINHEIRINHO\t2019-03-01\t1\tHE714\n650\t171013\t05:22\tSTA.RITA/PINHEIRINHO\t2019-03-01\t3\tHA030\n658\t105004\t05:22\tC.RASO/CAIUA\t2019-03-01\t1\tHI007\n646\t170907\t05:22\tPOMPEIA / JANAINA\t2019-03-01\t2\tHI014\n303\t105101\t05:22\tCENTENARIO/C.COMPRIDO\t2019-03-01\t12\tDE709\n541\t160115\t05:22\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n541\t106103\t05:22\tBAIRRO NOVO A\t2019-03-01\t2\tGA210\n203\t104413\t05:22\tSTA.CANDIDA / C. RASO\t2019-03-01\t1\tBE721\n617\t105740\t05:22\tJD. LUDOVICA\t2019-03-01\t1\tHA190\n030\t104006\t05:22\tINTERBAIRROS III\t2019-03-01\t8\tBB608\n619\t105207\t05:23\tSTA. RITA / CIC\t2019-03-01\t1\tHA264\n547\t106109\t05:23\tBAIRRO NOVO C\t2019-03-01\t1\tGA204\n020\t104706\t05:23\tINTERBAIRR II H\t2019-03-01\t3\tCB601\n650\t105739\t05:25\tSTA.RITA/PINHEIRINHO\t2019-03-01\t1\tHI004\n638\t105717\t05:25\tPINHEIRINHO\t2019-03-01\t1\tGA179\n181\t120421\t05:25\tMATEUS LEME\t2019-03-01\t1\tBN621\n690\t170993\t05:25\tV. JULIANA\t2019-03-01\t2\tHA198\n655\t170434\t05:25\tJD. ORDEM\t2019-03-01\t2\tHA005\n040\t104603\t05:25\tINTERBAIRROS IV\t2019-03-01\t5\tLB602\n236\t121008\t05:25\tS?O BENEDITO\t2019-03-01\t1\tBN611\n684\t105742\t05:25\tRIO BONITO\t2019-03-01\t1-1\tHA292\n030\t104907\t05:25\tINTERBAIRROS III\t2019-03-01\t4\tKB603\n265\t180899\t05:25\tAHU / LOS ANGELES\t2019-03-01\t1\tHN616\n515\t104309\t05:25\tIGUAPE II\t2019-03-01\t1\tEA198\n534\t106110\t05:25\tPARIGOT DE SOUZA\t2019-03-01\t1\tGA002\n623\t170209\t05:25\tPQ.INDUSTRIAL\t2019-03-01\t1\tHI001\n649\t106111\t05:25\tPIRINEUS\t2019-03-01\t2\tGA176\n649\t105711\t05:25\tPIRINEUS\t2019-03-01\t1\tGA180\n338\t105509\t05:25\tCENTENARIO/HAUER\t2019-03-01\t2\tDA015\n338\t105105\t05:25\tCENTENARIO/HAUER\t2019-03-01\t4\tEA190\n511\t105506\t05:25\tS?O FRANCISCO\t2019-03-01\t2\tEA171\n545\t106108\t05:25\tTRABALHADOR\t2019-03-01\t3\tJA300\n690\t105914\t05:25\tV. JULIANA\t2019-03-01\t1\tHA197\n627\t104807\t05:26\tBOSCH\t2019-03-01\t1\tHA012\n532\t160152\t05:26\tJD.PARANAENSE\t2019-03-01\t1\tEA187\n635\t160255\t05:26\tLONDRINA\t2019-03-01\t1\tGA152\n040\t105211\t05:27\tINTERBAIRROS IV\t2019-03-01\t8\tMB603\n643\t160758\t05:27\tUMBARA\t2019-03-01\t2\tGA003\n040\t105206\t05:27\tINTERBAIRROS IV\t2019-03-01\t4\tLB603\n502\t106101\t05:27\tCIR.SUL(HORARIO)\t2019-03-01\t2\tHR040\n623\t104818\t05:27\tPQ.INDUSTRIAL\t2019-03-01\t3\tHI002\n503\t104303\t05:27\tBOQUEIR?O\t2019-03-01\t3\tKE845\n231\t105909\t05:27\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n040\t105718\t05:28\tINTERBAIRROS IV\t2019-03-01\t6\tHB602\n203\t105901\t05:28\tSTA.CANDIDA / C. RASO\t2019-03-01\t3\tBE711\n812\t190069\t05:28\tMONTANA\t2019-03-01\t1\tBA020\n030\t105606\t05:28\tINTERBAIRROS III\t2019-03-01\t9\tBB620\n502\t105702\t05:29\tCIR.SUL(HORARIO)\t2019-03-01\t1\tGR021\n602\t106102\t05:29\tCIR.SUL (ANTI-H)\t2019-03-01\t3\tGR027\n242\t120568\t05:30\tV. LEONICE\t2019-03-01\t1\tBA128\n513\t104316\t05:30\tHAUER/BOQUEIR?O\t2019-03-01\t1\tEA196\n658\t104809\t05:30\tC.RASO/CAIUA\t2019-03-01\t3\tHA027\n630\t105728\t05:30\tVITORIA REGIA\t2019-03-01\t1\tHA019\n628\t105205\t05:30\tCARBOMAFRA\t2019-03-01\t1\tHI015\n680\t170477\t05:30\tRURBANA\t2019-03-01\t1\tHA029\n184\t120288\t05:30\tV. SUICA\t2019-03-01\t1\tBN610\n823\t180950\t05:30\tAUGUSTA\t2019-03-01\t1\tLA850\n646\t105721\t05:30\tPOMPEIA / JANAINA\t2019-03-01\t1\tHA023\n170\t120317\t05:30\tBRACATINGA\t2019-03-01\t1\tBC599\n913\t190399\t05:30\tBUTIATUVINHA\t2019-03-01\t1\tMN401\n655\t170990\t05:30\tJD. ORDEM\t2019-03-01\t2\tHA005\n030\t104815\t05:30\tINTERBAIRROS III\t2019-03-01\t3\tDR117\n870\t190264\t05:30\tS?O BRAZ\t2019-03-01\t1\tBC283\n311\t130205\t05:30\tARAGUAIA\t2019-03-01\t1\tBI879\n625\t106112\t05:30\tGRAMADOS\t2019-03-01\t1\tGA165\n889\t\t05:30\tMAD. S?O BRAZ\t2019-03-01\t1\tBC935\n631\t150837\t05:30\tPIRATINI/BR476\t2019-03-01\t1\tGA167\n607\t109100\t05:30\tCOLOMBO/CIC\t2019-03-01\t2\tHL311\n232\t105903\t05:30\tALIANCA\t2019-03-01\t1\tBA124\n561\t150628\t05:30\tGUILHERMINA\t2019-03-01\t1\tEC010\n531\t160130\t05:30\tSTA. INES\t2019-03-01\t2\tEA168\n531\t104318\t05:30\tSTA. INES\t2019-03-01\t1\tEA177\n629\t160016\t05:30\tALTO BOQUEIR?O\t2019-03-01\t1\tKA603\n621\t104813\t05:30\tFANNY\t2019-03-01\t1\tEA011\n674\t170987\t05:30\tN. SRA. DA LUZ\t2019-03-01\t1\tLC012\n636\t160147\t05:30\tRIO NEGRO\t2019-03-01\t2\tGA154\n636\t105735\t05:30\tRIO NEGRO\t2019-03-01\t1\tGA181\n233\t105908\t05:30\tOLARIA\t2019-03-01\t1\tBA138\n967\t190539\t05:30\tJULIO GRAF\t2019-03-01\t1\tMN604\n020\t104706\t05:30\tINTERBAIRR II H\t2019-03-01\t4\tBB300\n021\t104405\t05:30\tINTERB II ANTI H\t2019-03-01\t2\tBB307\n533\t160778\t05:30\tE.VERIS/PANTANAL\t2019-03-01\t1\tEA194\n547\t106105\t05:30\tBAIRRO NOVO C\t2019-03-01\t1\tGA204\n272\t120148\t05:30\tPAINEIRAS\t2019-03-01\t1\tBN617\n472\t140807\t05:30\tUBERABA\t2019-03-01\t1\tKC001\n332\t105108\t05:30\tACROPOLE\t2019-03-01\t2\tDA033\n915\t190162\t05:30\tO.VERDE/V.BADIA\t2019-03-01\t1\tMN402\n321\t140436\t05:30\tTRINDADE\t2019-03-01\t1\tDA014\n521\t150342\t05:30\tNIVALDO BRAGA\t2019-03-01\t1\tEA184\n050\t140287\t05:30\tINTERBAIRROS V\t2019-03-01\t5\tDR116\n050\t105312\t05:30\tINTERBAIRROS V\t2019-03-01\t1\tJB301\n213\t130168\t05:30\tS?O JO?O\t2019-03-01\t1\tBI873\n523\t140342\t05:30\tIGUAPE I\t2019-03-01\t1\tEA181\n244\t120995\t05:30\tJD. DO ARROIO\t2019-03-01\t1\tBN609\n602\t104304\t05:30\tCIR.SUL (ANTI-H)\t2019-03-01\t2\tHR045\n665\t150195\t05:30\tV. REX\t2019-03-01\t1\tGC295\n673\t170114\t05:30\tFORMOSA\t2019-03-01\t1\tHN611\n308\t\t05:30\tMAD. CENTENARIO / RUI BARBOSA\t2019-03-01\t1-1\tDN606\n860\t180567\t05:30\tV. SANDRA\t2019-03-01\t1\tLC028\n542\t160093\t05:30\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n309\t\t05:30\tMAD. CENTENARIO\t2019-03-01\t1\tDC093\n972\t106015\t05:30\tJD. ITALIA\t2019-03-01\t1\tMC851\n545\t105307\t05:30\tTRABALHADOR\t2019-03-01\t5\tJI601\n644\t105730\t05:30\tPINHEIRINHO/CIC\t2019-03-01\t1\tHN403\n509\t\t05:30\tMAD. BOQUEIR?O\t2019-03-01\t1\tKB499\n916\t190451\t05:30\tPINHEIROS\t2019-03-01\t2\tMA006\n603\t105701\t05:31\tPINHEIRINHO\t2019-03-01\t3\tGD341\n030\t104905\t05:31\tINTERBAIRROS III\t2019-03-01\t2\tKB602\n040\t105316\t05:31\tINTERBAIRROS IV\t2019-03-01\t9\tHB605\n542\t106104\t05:31\tBAIRRO NOVO B\t2019-03-01\t2\tGA144\n030\t105603\t05:31\tINTERBAIRROS III\t2019-03-01\t6\tBB605\n203\t104801\t05:31\tSTA.CANDIDA / C. RASO\t2019-03-01\t11\tBE707\n607\t350808\t05:31\tCOLOMBO/CIC\t2019-03-01\t10\t\n030\t104001\t05:32\tINTERBAIRROS III\t2019-03-01\t7\tBB606\n541\t160115\t05:32\tBAIRRO NOVO A\t2019-03-01\t2\tGA210\n541\t106103\t05:32\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n916\t106006\t05:32\tPINHEIROS\t2019-03-01\t1\tMA299\n322\t105107\t05:32\tCAMARGO\t2019-03-01\t1\tDA027\n545\t106114\t05:32\tTRABALHADOR\t2019-03-01\t2\tKA601\n625\t104812\t05:32\tGRAMADOS\t2019-03-01\t3\tGA161\n040\t106001\t05:33\tINTERBAIRROS IV\t2019-03-01\t1\tLB600\n231\t130585\t05:33\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n683\t160069\t05:33\tFUTURAMA/S.CERC.\t2019-03-01\t1\tGA153\n617\t171013\t05:33\tJD. LUDOVICA\t2019-03-01\t3\tHA025\n021\t104703\t05:33\tINTERB II ANTI H\t2019-03-01\t6\tDR114\n901\t106007\t05:33\tSTA. FELICIDADE\t2019-03-01\t2\tMC304\n657\t150482\t05:34\tXAXIM/CAP?O RASO\t2019-03-01\t2\tEA019\n203\t108024\t05:34\tSTA.CANDIDA / C. RASO\t2019-03-01\t1\tBE721\n341\t104004\t05:35\tB.ALTO / STA.CANDIDA\t2019-03-01\t1\tCI005\n917\t190450\t05:35\tJD. IPE\t2019-03-01\t1\tMA011\n222\t104205\t05:35\tV. ESPERANCA\t2019-03-01\t1\tCI002\n663\t150524\t05:35\tV. CUBAS\t2019-03-01\t1\tEC008\n040\t105309\t05:35\tINTERBAIRROS IV\t2019-03-01\t11\tHB603\n684\t170532\t05:35\tRIO BONITO\t2019-03-01\t5\tHA603\n629\t104816\t05:35\tALTO BOQUEIR?O\t2019-03-01\t3\tKA605\n924\t106018\t05:35\tSTA. FELICIDADE / STA. CANDIDA\t2019-03-01\t1\tBA140\n619\t170952\t05:35\tSTA. RITA / CIC\t2019-03-01\t4\tHA290\n706\t105916\t05:35\tCAIUA/FAZ/CENTRO\t2019-03-01\t1\tJC301\n020\t104501\t05:35\tINTERBAIRR II H\t2019-03-01\t10\tBB613\n020\t104406\t05:35\tINTERBAIRR II H\t2019-03-01\t7\tCB604\n214\t105910\t05:35\tTINGUI\t2019-03-01\t1\tBN411\n711\t180500\t05:35\tITATIAIA\t2019-03-01\t1\tJA033\n222\t130929\t05:35\tV. ESPERANCA\t2019-03-01\t2\tBA031\n685\t170966\t05:36\tRIO BONITO/CIC\t2019-03-01\t2\tHA288\n303\t104601\t05:36\tCENTENARIO/C.COMPRIDO\t2019-03-01\t13\t\n550\t105704\t05:36\tPINH/C.GOMES\t2019-03-01\t4\tGE710\n876\t190069\t05:36\tSAVOIA\t2019-03-01\t1\tBC016\n030\t105907\t05:37\tINTERBAIRROS III\t2019-03-01\t8\tBB608\n540\t170347\t05:37\tBOQUEIR?O/MONDELEZ\t2019-03-01\t1-1\tGA155\n827\t190384\t05:37\tRIVIERA\t2019-03-01\t1\tBI855\n911\t106009\t05:37\tPASSAUNA\t2019-03-01\t1\tMN400\n060\t104616\t05:37\tINTERBAIRROS VI\t2019-03-01\t2\tHB300\n912\t190324\t05:38\tJOSE CULPI\t2019-03-01\t1\tMN405\n655\t105708\t05:38\tJD. ORDEM\t2019-03-01\t1\tHI013\n650\t171013\t05:38\tSTA.RITA/PINHEIRINHO\t2019-03-01\t4\tHR414\n643\t105714\t05:38\tUMBARA\t2019-03-01\t1\tGA171\n627\t105205\t05:38\tBOSCH\t2019-03-01\t1\tHA012\n685\t105207\t05:38\tRIO BONITO/CIC\t2019-03-01\t1\tHA286\n040\t104603\t05:38\tINTERBAIRROS IV\t2019-03-01\t3\tMB605\n171\t120342\t05:38\tPRIMAVERA\t2019-03-01\t1\tBC008\n646\t170401\t05:39\tPOMPEIA / JANAINA\t2019-03-01\t3\tHA193\n619\t105207\t05:39\tSTA. RITA / CIC\t2019-03-01\t2\tHI012\n502\t106101\t05:39\tCIR.SUL(HORARIO)\t2019-03-01\t3\tKE841\n503\t104303\t05:39\tBOQUEIR?O\t2019-03-01\t4\tKE843\n020\t105512\t05:39\tINTERBAIRR II H\t2019-03-01\t3\tCB601\n380\t130221\t05:40\tDETRAN/V.MACHADO\t2019-03-01\t1\tLC304\n652\t105202\t05:40\tV. VERDE\t2019-03-01\t2\tLA009\n603\t108170\t05:40\tPINHEIRINHO\t2019-03-01\t11\tGD349\n653\t180863\t05:40\tSABARA\t2019-03-01\t1\tHA022\n653\t105208\t05:40\tSABARA\t2019-03-01\t2\tHA011\n600\t\t05:40\tKAMYR/QUARTEL GENERAL\t2019-03-01\t1\tHA006\n040\t105718\t05:40\tINTERBAIRROS IV\t2019-03-01\t8\tMB603\n789\t180392\t05:40\tMAD. CAIUA\t2019-03-01\t1\tJC859\n659\t170417\t05:40\tCAXIMBA/OLARIA\t2019-03-01\t1\tHA195\n528\t104911\t05:40\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t2\tGA202\n721\t105002\t05:40\tMARIO JORGE\t2019-03-01\t1\tJA013\n176\t120248\t05:40\tPARQUE TANGUA\t2019-03-01\t1\tBI850\n040\t105206\t05:40\tINTERBAIRROS IV\t2019-03-01\t6\tHB602\n040\t104612\t05:40\tINTERBAIRROS IV\t2019-03-01\t2\tLB605\n716\t181019\t05:40\tFORUM/B. VISTA\t2019-03-01\t1\tJA852\n607\t109100\t05:40\tCOLOMBO/CIC\t2019-03-01\t4\tHL300\n684\t105742\t05:40\tRIO BONITO\t2019-03-01\t2\tHA602\n030\t104907\t05:40\tINTERBAIRROS III\t2019-03-01\t5\tBB610\n615\t105805\t05:40\tUBERLANDIA\t2019-03-01\t1\tHI016\n633\t150538\t05:40\tMARIA ANGELICA\t2019-03-01\t1\tGA157\n535\t160756\t05:40\tOSTERNACK/BOQ.\t2019-03-01\t1\tEA024\n612\t105210\t05:40\tPORT?O / CIC\t2019-03-01\t1\tHI010\n640\t160345\t05:40\tPALMEIRA\t2019-03-01\t1\tGA174\n203\t104413\t05:40\tSTA.CANDIDA / C. RASO\t2019-03-01\t3\tBE711\n522\t150808\t05:40\tMARINGA\t2019-03-01\t2\tEA188\n522\t104909\t05:40\tMARINGA\t2019-03-01\t1\tEA189\n624\t150443\t05:40\tV. S?O PEDRO\t2019-03-01\t1\tGA156\n624\t104811\t05:40\tV. S?O PEDRO\t2019-03-01\t2\tGA145\n471\t140818\t05:40\tV. S?O PAULO\t2019-03-01\t1\tEC014\n642\t160180\t05:40\tGANCHINHO\t2019-03-01\t1\tGA143\n387\t140942\t05:40\tPALOTINOS\t2019-03-01\t1\tDN604\n375\t104009\t05:40\tSAGRADO CORAC?O\t2019-03-01\t1\tCC194\n021\t104819\t05:40\tINTERB II ANTI H\t2019-03-01\t3\tMR106\n280\t120370\t05:40\tNSA.SRA.DE NAZARE\t2019-03-01\t1\tBI871\n343\t130308\t05:40\tPARAISO\t2019-03-01\t1\tBC942\n621\t105514\t05:40\tFANNY\t2019-03-01\t4\tEA013\n332\t105108\t05:40\tACROPOLE\t2019-03-01\t1\tEA174\n050\t105607\t05:40\tINTERBAIRROS V\t2019-03-01\t5\tDR116\n342\t104005\t05:40\tB.ALTO / BOA VISTA\t2019-03-01\t1\tBA133\n020\t104805\t05:40\tINTERBAIRR II H\t2019-03-01\t2\tDR118\n602\t105703\t05:40\tCIR.SUL (ANTI-H)\t2019-03-01\t5\tHR028\n828\t104613\t05:40\tC.COMP/C.RASO\t2019-03-01\t3\tJA021\n303\t105101\t05:40\tCENTENARIO/C.COMPRIDO\t2019-03-01\t3\tDE702\n671\t170900\t05:40\tPORT?O\t2019-03-01\t1\tHN617\n370\t130899\t05:40\tRUA XV / BARIGUI\t2019-03-01\t1\tBC031\n828\t104810\t05:40\tC.COMP/C.RASO\t2019-03-01\t1\tJA027\n661\t150683\t05:40\tLINDOIA\t2019-03-01\t1\tGN604\n342\t104203\t05:40\tB.ALTO / BOA VISTA\t2019-03-01\t2\tBA002\n489\t\t05:40\tMAD. PETROPOLIS / SOLITUDE\t2019-03-01\t1\tDC853\n822\t190355\t05:40\tGABINETO\t2019-03-01\t1\tBA017\n712\t105314\t05:40\tJD.INDEPEND./CIC\t2019-03-01\t1\tHA016\n712\t105209\t05:40\tJD.INDEPEND./CIC\t2019-03-01\t2\tHA010\n545\t104319\t05:40\tTRABALHADOR\t2019-03-01\t3\tJA300\n160\t190896\t05:40\tJ.MERCES/GUANABA\t2019-03-01\t1\tBC027\n603\t105701\t05:40\tPINHEIRINHO\t2019-03-01\t5\tGD342\n650\t105739\t05:41\tSTA.RITA/PINHEIRINHO\t2019-03-01\t2\tHR415\n628\t105212\t05:41\tCARBOMAFRA\t2019-03-01\t2\tHA015\n548\t160773\t05:41\tOSTERN/S.CERCADO\t2019-03-01\t2\tGA147\n633\t105710\t05:41\tMARIA ANGELICA\t2019-03-01\t2\tGA173\n203\t104801\t05:41\tSTA.CANDIDA / C. RASO\t2019-03-01\t12\tBE708\n502\t105702\t05:41\tCIR.SUL(HORARIO)\t2019-03-01\t2\tHR040\n706\t102016\t05:41\tCAIUA/FAZ/CENTRO\t2019-03-01\t4\tJC306\n532\t160152\t05:41\tJD.PARANAENSE\t2019-03-01\t3\tEA175\n020\t104706\t05:41\tINTERBAIRR II H\t2019-03-01\t5\tBB615\n021\t104405\t05:41\tINTERB II ANTI H\t2019-03-01\t5\tMB602\n203\t105901\t05:41\tSTA.CANDIDA / C. RASO\t2019-03-01\t5\tBE719\n654\t105203\t05:42\tCAMPO ALEGRE\t2019-03-01\t2\tHI006\n654\t104817\t05:42\tCAMPO ALEGRE\t2019-03-01\t1\tHI005\n622\t104808\t05:42\tRONDON\t2019-03-01\t1\tHI009\n607\t350808\t05:42\tCOLOMBO/CIC\t2019-03-01\t11\t\n541\t106103\t05:42\tBAIRRO NOVO A\t2019-03-01\t2\tGA210\n231\t105906\t05:42\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n652\t170747\t05:42\tV. VERDE\t2019-03-01\t1\tLA011\n534\t106110\t05:42\tPARIGOT DE SOUZA\t2019-03-01\t2\tGA137\n534\t104308\t05:42\tPARIGOT DE SOUZA\t2019-03-01\t1\tGA002\n321\t105605\t05:42\tTRINDADE\t2019-03-01\t1\tDA014\n334\t105106\t05:42\tAGRICOLA\t2019-03-01\t1\tDA023\n338\t105105\t05:42\tCENTENARIO/HAUER\t2019-03-01\t1\tDA019\n372\t104003\t05:42\tTARUM?\t2019-03-01\t1\tCC197\n532\t104311\t05:42\tJD.PARANAENSE\t2019-03-01\t1\tEA187\n030\t104006\t05:43\tINTERBAIRROS III\t2019-03-01\t9\tBB620\n548\t106106\t05:43\tOSTERN/S.CERCADO\t2019-03-01\t1\tGA199\n040\t105316\t05:43\tINTERBAIRROS IV\t2019-03-01\t4\tLB603\n275\t120170\t05:43\tF. NORONHA / LARANJEIRAS\t2019-03-01\t1\tBN615\n542\t160093\t05:43\tBAIRRO NOVO B\t2019-03-01\t2\tGA144\n602\t105503\t05:43\tCIR.SUL (ANTI-H)\t2019-03-01\t2\tHR045\n502\t105801\t05:43\tCIR.SUL(HORARIO)\t2019-03-01\t1\tGR021\n338\t105509\t05:43\tCENTENARIO/HAUER\t2019-03-01\t3\tDA029\n542\t106104\t05:43\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n706\t105302\t05:43\tCAIUA/FAZ/CENTRO\t2019-03-01\t1\tJC301\n646\t170907\t05:44\tPOMPEIA / JANAINA\t2019-03-01\t3\tHA193\n541\t160115\t05:44\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n617\t105740\t05:44\tJD. LUDOVICA\t2019-03-01\t2\tHA296\n303\t104601\t05:44\tCENTENARIO/C.COMPRIDO\t2019-03-01\t10\tLE706\n050\t105811\t05:44\tINTERBAIRROS V\t2019-03-01\t1\tJB301\n602\t106102\t05:44\tCIR.SUL (ANTI-H)\t2019-03-01\t4\tGR034\n550\t105704\t05:44\tPINH/C.GOMES\t2019-03-01\t5\tHE703\n242\t104109\t05:45\tV. LEONICE\t2019-03-01\t1\tBA128\n506\t109038\t05:45\tBAIRRO NOVO\t2019-03-01\t2\tGL324\n778\t105303\t05:45\tCOTOLENGO\t2019-03-01\t1\tJC004\n823\t104614\t05:45\tAUGUSTA\t2019-03-01\t1\tLA850\n777\t180778\t05:45\tV. VELHA\t2019-03-01\t1\tJI001\n180\t103274\t05:45\tAGUA VERDE / ABRANCHES\t2019-03-01\t1\tHC300\n166\t190600\t05:45\tV. NORI\t2019-03-01\t1\tBC011\n183\t120300\t05:45\tJD. CHAPARRAL\t2019-03-01\t1\tBC001\n616\t105807\t05:45\tPORT/ST.BER-LVER\t2019-03-01\t1\tGA949\n030\t104815\t05:45\tINTERBAIRROS III\t2019-03-01\t4\tKB603\n311\t104704\t05:45\tARAGUAIA\t2019-03-01\t1\tBI879\n175\t120948\t05:45\tBOM RETIRO / PUC\t2019-03-01\t2\tBC009\n625\t106112\t05:45\tGRAMADOS\t2019-03-01\t2\tGA150\n716\t105003\t05:45\tFORUM/B. VISTA\t2019-03-01\t1\tJA852\n236\t105904\t05:45\tS?O BENEDITO\t2019-03-01\t1\tBN611\n718\t105304\t05:45\tPORTO BELO\t2019-03-01\t1\tJA028\n232\t120990\t05:45\tALIANCA\t2019-03-01\t1\tBA124\n265\t103272\t05:45\tAHU / LOS ANGELES\t2019-03-01\t1\tHN616\n901\t101121\t05:45\tSTA. FELICIDADE\t2019-03-01\t1\tMC307\n463\t140386\t05:45\tSOLITUDE\t2019-03-01\t1\tDC091\n475\t140871\t05:45\tCANAL BELEM\t2019-03-01\t1\tEC005\n602\t104304\t05:45\tCIR.SUL (ANTI-H)\t2019-03-01\t3\tGR027\n205\t104103\t05:45\tBARREIRINHA\t2019-03-01\t1\tBC311\n212\t130038\t05:45\tSOLAR\t2019-03-01\t1\tBI854\n285\t130867\t05:45\tJUVEVE / AGUA VERDE\t2019-03-01\t1\tBI860\n623\t170209\t05:45\tPQ.INDUSTRIAL\t2019-03-01\t3\tHI002\n274\t120784\t05:45\tSTA. GEMA\t2019-03-01\t1\tBI868\n226\t120182\t05:45\tABAETE\t2019-03-01\t1\tBA118\n335\t104307\t05:45\tCENTENARIO / BOQUEIR?O \t2019-03-01\t2\tEA008\n335\t105103\t05:45\tCENTENARIO / BOQUEIR?O \t2019-03-01\t1\tDR407\n521\t104908\t05:45\tNIVALDO BRAGA\t2019-03-01\t1\tEA184\n323\t105604\t05:45\tV. AUTODROMO\t2019-03-01\t1\tDA011\n511\t150389\t05:45\tS?O FRANCISCO\t2019-03-01\t2\tEA171\n523\t104906\t05:45\tIGUAPE I\t2019-03-01\t1\tEA181\n503\t108065\t05:45\tBOQUEIR?O\t2019-03-01\t1\tGR035\n502\t104301\t05:45\tCIR.SUL(HORARIO)\t2019-03-01\t5\tKE846\n243\t120138\t05:45\tSTA. TEREZINHA\t2019-03-01\t1\tBA001\n811\t190137\t05:45\tSATURNO\t2019-03-01\t1\tBA022\n545\t105307\t05:45\tTRABALHADOR\t2019-03-01\t1\tKA600\n658\t105004\t05:45\tC.RASO/CAIUA\t2019-03-01\t2\tHI008\n615\t170035\t05:46\tUBERLANDIA\t2019-03-01\t1\tHI016\n629\t160016\t05:46\tALTO BOQUEIR?O\t2019-03-01\t2-1\tKA604\n828\t105308\t05:46\tC.COMP/C.RASO\t2019-03-01\t2\tLA010\n021\t104703\t05:46\tINTERB II ANTI H\t2019-03-01\t8\tGB602\n336\t140428\t05:46\tV. RENO\t2019-03-01\t2\tDA010\n901\t106007\t05:46\tSTA. FELICIDADE\t2019-03-01\t3\tMC300\n040\t106001\t05:47\tINTERBAIRROS IV\t2019-03-01\t5\tLB602\n631\t105729\t05:47\tPIRATINI/BR476\t2019-03-01\t1\tGA167\n916\t106006\t05:47\tPINHEIROS\t2019-03-01\t2\tMA006\n203\t108036\t05:47\tSTA.CANDIDA / C. RASO\t2019-03-01\t1\tBE721\n623\t104818\t05:47\tPQ.INDUSTRIAL\t2019-03-01\t1\tHI001\n706\t105001\t05:47\tCAIUA/FAZ/CENTRO\t2019-03-01\t2\tJC315\n913\t106008\t05:48\tBUTIATUVINHA\t2019-03-01\t1\tMN401\n700\t105706\t05:48\tPINHEIRINHO/CABRAL\t2019-03-01\t1\tHL322\n503\t104303\t05:48\tBOQUEIR?O\t2019-03-01\t5\tGD337\n336\t105109\t05:48\tV. RENO\t2019-03-01\t1\tDA013\n244\t104104\t05:48\tJD. DO ARROIO\t2019-03-01\t1\tBN609\n621\t104813\t05:48\tFANNY\t2019-03-01\t2\tEA012\n603\t105701\t05:49\tPINHEIRINHO\t2019-03-01\t7\tGD345\n030\t104001\t05:49\tINTERBAIRROS III\t2019-03-01\t8\tBB608\n643\t160292\t05:49\tUMBARA\t2019-03-01\t3\tGA175\n635\t160255\t05:49\tLONDRINA\t2019-03-01\t2\tGA212\n916\t190451\t05:49\tPINHEIROS\t2019-03-01\t1\tMA299\n203\t108035\t05:49\tSTA.CANDIDA / C. RASO\t2019-03-01\t11\tBE707\n020\t104406\t05:49\tINTERBAIRR II H\t2019-03-01\t8\tBB600\n322\t105608\t05:49\tCAMARGO\t2019-03-01\t1\tDA027\n635\t105709\t05:49\tLONDRINA\t2019-03-01\t1\tGA152\n630\t170371\t05:50\tVITORIA REGIA\t2019-03-01\t1\tHA019\n638\t160265\t05:50\tPINHEIRINHO\t2019-03-01\t1\tGA179\n702\t109142\t05:50\tCAIUA / CACHOEIRA\t2019-03-01\t5\t\n040\t105211\t05:50\tINTERBAIRROS IV\t2019-03-01\t11\tHB603\n181\t101018\t05:50\tMATEUS LEME\t2019-03-01\t1\tBN621\n180\t150528\t05:50\tAGUA VERDE / ABRANCHES\t2019-03-01\t2\tHC303\n627\t104807\t05:50\tBOSCH\t2019-03-01\t2\tHA013\n528\t105917\t05:50\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t5\tEA005\n021\t105511\t05:50\tINTERB II ANTI H\t2019-03-01\t10\tKB605\n788\t102001\t05:50\tMAD. V. VELHA\t2019-03-01\t1\tJC856\n216\t105806\t05:50\tCABRAL / PORT?O\t2019-03-01\t4\tDR405\n216\t104404\t05:50\tCABRAL / PORT?O\t2019-03-01\t1\tBA601\n040\t104603\t05:50\tINTERBAIRROS IV\t2019-03-01\t9\tHB605\n716\t180333\t05:50\tFORUM/B. VISTA\t2019-03-01\t1\tJA852\n507\t109102\t05:50\tS.CERCADO(HORAR)\t2019-03-01\t6\tEL303\n607\t109100\t05:50\tCOLOMBO/CIC\t2019-03-01\t5\tHL314\n684\t170532\t05:50\tRIO BONITO\t2019-03-01\t1-1\tHA292\n256\t109078\t05:50\tBARREIRINHA/GUADALUPE\t2019-03-01\t1\tBL074\n531\t160130\t05:50\tSTA. INES\t2019-03-01\t1\tEA177\n531\t104318\t05:50\tSTA. INES\t2019-03-01\t2\tEA168\n924\t105905\t05:50\tSTA. FELICIDADE / STA. CANDIDA\t2019-03-01\t3\tBA142\n022\t109125\t05:50\tINTER 2 (HORARI)\t2019-03-01\t7\tBL684\n515\t105508\t05:50\tIGUAPE II\t2019-03-01\t1\tEA198\n619\t170952\t05:50\tSTA. RITA / CIC\t2019-03-01\t1\tHA264\n203\t104801\t05:50\tSTA.CANDIDA / C. RASO\t2019-03-01\t13\tBE715\n637\t106115\t05:50\tSTA. JOANA\t2019-03-01\t1\tGA200\n020\t105512\t05:50\tINTERBAIRR II H\t2019-03-01\t4\tBB300\n021\t104506\t05:50\tINTERB II ANTI H\t2019-03-01\t7\tBB309\n365\t130475\t05:50\tJD.SOCIAL/BATEL\t2019-03-01\t1\tBC932\n371\t104011\t05:50\tHIGIENOPOLIS\t2019-03-01\t1\tBC314\n343\t104013\t05:50\tPARAISO\t2019-03-01\t1\tBC942\n533\t104306\t05:50\tE.VERIS/PANTANAL\t2019-03-01\t1\tEA194\n500\t104302\t05:50\tLIGEIRAO BOQUEIRAO\t2019-03-01\t1\tGE716\n649\t106111\t05:50\tPIRINEUS\t2019-03-01\t1\tGA180\n649\t105711\t05:50\tPIRINEUS\t2019-03-01\t2\tGA176\n332\t105108\t05:50\tACROPOLE\t2019-03-01\t2\tDA033\n915\t106004\t05:50\tO.VERDE/V.BADIA\t2019-03-01\t1\tMN402\n321\t140436\t05:50\tTRINDADE\t2019-03-01\t1\tDA014\n307\t109120\t05:50\tB.ALTO / STA.FELICIDADE\t2019-03-01\t1\tCL306\n512\t150402\t05:50\tITAMARATI\t2019-03-01\t1\tEA077\n303\t104601\t05:50\tCENTENARIO/C.COMPRIDO\t2019-03-01\t4\tLE704\n965\t106005\t05:50\tS?O BERNARDO\t2019-03-01\t1\tMN607\n713\t180442\t05:50\tSTA. AMELIA\t2019-03-01\t1\tJA851\n508\t109098\t05:50\tSITIOCERCADO(AH)\t2019-03-01\t1\tGL321\n644\t105204\t05:50\tPINHEIRINHO/CIC\t2019-03-01\t1\tHN403\n711\t180500\t05:50\tITATIAIA\t2019-03-01\t2\tJA022\n702\t109132\t05:50\tCAIUA / CACHOEIRA\t2019-03-01\t1\tJL308\n030\t104905\t05:51\tINTERBAIRROS III\t2019-03-01\t3\tDR117\n040\t105206\t05:51\tINTERBAIRROS IV\t2019-03-01\t8\tMB603\n030\t105603\t05:51\tINTERBAIRROS III\t2019-03-01\t7\tBB606\n711\t105305\t05:51\tITATIAIA\t2019-03-01\t1\tJA033\n541\t106103\t05:51\tBAIRRO NOVO A\t2019-03-01\t3\tGA209\n050\t105312\t05:51\tINTERBAIRROS V\t2019-03-01\t2\tJB300\n502\t106101\t05:51\tCIR.SUL(HORARIO)\t2019-03-01\t4\tHR041\n304\t109143\t05:51\tPINHAIS / C.COMPRIDO\t2019-03-01\t8\t\n040\t105718\t05:52\tINTERBAIRROS IV\t2019-03-01\t12\tHB604\n917\t106003\t05:52\tJD. IPE\t2019-03-01\t1\tMA011\n646\t105721\t05:52\tPOMPEIA / JANAINA\t2019-03-01\t2\tHI014\n607\t109063\t05:52\tCOLOMBO/CIC\t2019-03-01\t9\t\n812\t104508\t05:52\tMONTANA\t2019-03-01\t1\tBA020\n231\t350042\t05:52\tBANES/CALIFORNIA\t2019-03-01\t1\tBA136\n203\t108024\t05:52\tSTA.CANDIDA / C. RASO\t2019-03-01\t3\tBE711\n203\t105901\t05:52\tSTA.CANDIDA / C. RASO\t2019-03-01\t6\tBE716\n233\t105908\t05:52\tOLARIA\t2019-03-01\t1\tBA138\n020\t104706\t05:52\tINTERBAIRR II H\t2019-03-01\t6\tDB300\n550\t105704\t05:52\tPINH/C.GOMES\t2019-03-01\t6\tHE706\n021\t104405\t05:52\tINTERB II ANTI H\t2019-03-01\t4\tBB304\n307\t109121\t05:52\tB.ALTO / STA.FELICIDADE\t2019-03-01\t6\tML312\n545\t106114\t05:52\tTRABALHADOR\t2019-03-01\t3\tJA300\n627\t170344\t05:52\tBOSCH\t2019-03-01\t1\tHA012\n030\t105606\t05:53\tINTERBAIRROS III\t2019-03-01\t2\tKB602\n506\t109112\t05:53\tBAIRRO NOVO\t2019-03-01\t2\tGL324\n607\t350808\t05:53\tCOLOMBO/CIC\t2019-03-01\t13\t\n607\t109051\t05:53\tCOLOMBO/CIC\t2019-03-01\t1\tHL303\n304\t109043\t05:53\tPINHAIS / C.COMPRIDO\t2019-03-01\t1\tLL301\n203\t104413\t05:53\tSTA.CANDIDA / C. RASO\t2019-03-01\t5\tBE719\n821\t104608\t05:53\tFERN?O DIAS\t2019-03-01\t1\tMA949\n060\t105007\t05:53\tINTERBAIRROS VI\t2019-03-01\t2\tHB300\n547\t106109\t05:53\tBAIRRO NOVO C\t2019-03-01\t1\tGA204\n370\t103503\t05:53\tRUA XV / BARIGUI\t2019-03-01\t1\tBC031\n828\t105315\t05:53\tC.COMP/C.RASO\t2019-03-01\t1\tJA027\n502\t105702\t05:53\tCIR.SUL(HORARIO)\t2019-03-01\t3\tKE841\n060\t105733\t05:53\tINTERBAIRROS VI\t2019-03-01\t1\tHB600\n060\t105010\t05:53\tINTERBAIRROS VI\t2019-03-01\t3\tHB301\n821\t106017\t05:53\tFERN?O DIAS\t2019-03-01\t2\tMN404\n505\t109103\t05:53\tBOQUEIR/C.CIVICO\t2019-03-01\t1\tEL305\n650\t171013\t05:54\tSTA.RITA/PINHEIRINHO\t2019-03-01\t1\tHI004\n628\t170369\t05:54\tCARBOMAFRA\t2019-03-01\t1\tHI015\n170\t101126\t05:54\tBRACATINGA\t2019-03-01\t1\tBC599\n541\t160115\t05:54\tBAIRRO NOVO A\t2019-03-01\t2\tGA210\n506\t109038\t05:54\tBAIRRO NOVO\t2019-03-01\t7\tEL304\n374\t104002\t05:54\tHUGO LANGE\t2019-03-01\t1\tBC022\n303\t105101\t05:54\tCENTENARIO/C.COMPRIDO\t2019-03-01\t6\tDE710\n657\t104814\t05:54\tXAXIM/CAP?O RASO\t2019-03-01\t2\tEA019\n617\t171013\t05:54\tJD. LUDOVICA\t2019-03-01\t1\tHA190\n912\t106010\t05:55\tJOSE CULPI\t2019-03-01\t1\tMN405\n822\t104607\t05:55\tGABINETO\t2019-03-01\t1\tBA017\n658\t104809\t05:55\tC.RASO/CAIUA\t2019-03-01\t1\tHI007\n600\t\t05:55\tKAMYR/QUARTEL GENERAL\t2019-03-01\t1\tHA006\n182\t104107\t05:55\tABRANCHES\t2019-03-01\t2\tBC302\n170\t120317\t05:55\tBRACATINGA\t2019-03-01\t2\tBC598\n030\t105907\t05:55\tINTERBAIRROS III\t2019-03-01\t9\tBB620\n222\t130929\t05:55\tV. ESPERANCA\t2019-03-01\t1\tCI002\n222\t104205\t05:55\tV. ESPERANCA\t2019-03-01\t2\tBA031\n816\t104504\t05:55\tC.SIQUEIRA/STA.FELICIDADE\t2019-03-01\t1\tBA014\n040\t105316\t05:55\tINTERBAIRROS IV\t2019-03-01\t6\tHB602\n619\t105207\t05:55\tSTA. RITA / CIC\t2019-03-01\t3\tHA020\n684\t105742\t05:55\tRIO BONITO\t2019-03-01\t4\tHR412\n924\t120032\t05:55\tSTA. FELICIDADE / STA. CANDIDA\t2019-03-01\t1\tBA140\n706\t105302\t05:55\tCAIUA/FAZ/CENTRO\t2019-03-01\t2\tJC315\n465\t102039\t05:55\tERASTO  GAERTNER\t2019-03-01\t1\tDC294\n502\t105801\t05:55\tCIR.SUL(HORARIO)\t2019-03-01\t2\tHR040\n214\t104410\t05:55\tTINGUI\t2019-03-01\t1\tBN411\n214\t105910\t05:55\tTINGUI\t2019-03-01\t2\tBN619\n168\t190638\t05:55\tRAPOSO TAVARES\t2019-03-01\t2\tBI851\n168\t101123\t05:55\tRAPOSO TAVARES\t2019-03-01\t1\tBC930\n213\t130168\t05:55\tS?O JO?O\t2019-03-01\t2\tBI864\n213\t104408\t05:55\tS?O JO?O\t2019-03-01\t1\tBI873\n662\t150641\t05:55\tDOM ATICO\t2019-03-01\t1\tGN602\n665\t150195\t05:55\tV. REX\t2019-03-01\t2\tGC016\n303\t108030\t05:55\tCENTENARIO/C.COMPRIDO\t2019-03-01\t12\tDE709\n542\t160093\t05:55\tBAIRRO NOVO B\t2019-03-01\t1\tGA146\n603\t108170\t05:55\tPINHEIRINHO\t2019-03-01\t1\tHE714\n628\t104806\t05:56\tCARBOMAFRA\t2019-03-01\t2\tHA015\n040\t105309\t05:56\tINTERBAIRROS IV\t2019-03-01\t2\tLB605\n040\t104612\t05:56\tINTERBAIRROS IV\t2019-03-01\t1\tLB600\n826\t105205\t05:56\tC.COMPRIDO/CIC\t2019-03-01\t2\tLA001\n303\t108169\t05:56\tCENTENARIO/C.COMPRIDO\t2019-03-01\t13\t\n826\t104615\t05:56\tC.COMPRIDO/CIC\t2019-03-01\t1\tLA002\n542\t106104\t05:56\tBAIRRO NOVO B\t2019-03-01\t2\tGA144\n532\t160152\t05:56\tJD.PARANAENSE\t2019-03-01\t1\tEA187\n242\t120568\t05:57\tV. LEONICE\t2019-03-01\t1\tBA128\n650\t105739\t05:57\tSTA.RITA/PINHEIRINHO\t2019-03-01\t3\tHA030\n182\t101021\t05:57\tABRANCHES\t2019-03-01\t1\tBC310\n503\t104303\t05:57\tBOQUEIR?O\t2019-03-01\t6\tGR036\n020\t104501\t05:57\tINTERBAIRR II H\t2019-03-01\t1\tMB300\n020\t104805\t05:57\tINTERBAIRR II H\t2019-03-01\t3\tCB601\n621\t105514\t05:57\tFANNY\t2019-03-01\t1\tEA011\n603\t105701\t05:58\tPINHEIRINHO\t2019-03-01\t8\tHE716\n812\t190069\t05:58\tMONTANA\t2019-03-01\t2\tBA019\n030\t104907\t05:58\tINTERBAIRROS III\t2019-03-01\t6\tBB605\n901\t101121\t05:58\tSTA. FELICIDADE\t2019-03-01\t2\tMC304\n911\t660104\t05:58\tPASSAUNA\t2019-03-01\t1\tMN400\n602\t105503\t05:58\tCIR.SUL (ANTI-H)\t2019-03-01\t3\tGR027\n285\t102035\t05:58\tJUVEVE / AGUA VERDE\t2019-03-01\t1\tBI860\n303\t104601\t05:58\tCENTENARIO/C.COMPRIDO\t2019-03-01\t15\tLE710\n534\t106110\t05:58\tPARIGOT DE SOUZA\t2019-03-01\t1\tGA002\n631\t105727\t05:59\tPIRATINI/BR476\t2019-03-01\t1\tGA167\n901\t106007\t05:59\tSTA. FELICIDADE\t2019-03-01\t4\tMC305\n203\t104801\t05:59\tSTA.CANDIDA / C. RASO\t2019-03-01\t14\tGE720\n203\t108035\t05:59\tSTA.CANDIDA / C. RASO\t2019-03-01\t12\tBE708\n706\t105916\t05:59\tCAIUA/FAZ/CENTRO\t2019-03-01\t3\tJC309\n652\t105202\t05:59\tV. VERDE\t2019-03-01\t1\tLA011\n602\t106102\t05:59\tCIR.SUL (ANTI-H)\t2019-03-01\t5\tHR028\n827\t104606\t05:59\tRIVIERA\t2019-03-01\t1\tBI855\n683\t106113\t05:59\tFUTURAMA/S.CERC.\t2019-03-01\t1\tGA153\n652\t170747\t05:59\tV. VERDE\t2019-03-01\t2\tLA009\n534\t104308\t05:59\tPARIGOT DE SOUZA\t2019-03-01\t2\tGA137\n021\t104819\t06:00\tINTERB II ANTI H\t2019-03-01\t1\tHB601\n602\t105703\t06:00\tCIR.SUL (ANTI-H)\t2019-03-01\t1\tGR025\n602\t104304\t06:00\tCIR.SUL (ANTI-H)\t2019-03-01\t4\tGR034\n361\t130033\t06:00\tAUGUSTO STRESSER\t2019-03-01\t1\tBI877\n967\t101014\t06:00\tJULIO GRAF\t2019-03-01\t1\tMN604\n010\t190176\t06:00\tINTERBAIRROS I H\t2019-03-01\t1\tBB308\n523\t140342\t06:00\tIGUAPE I\t2019-03-01\t1\tEA181\n372\t104003\t06:00\tTARUM?\t2019-03-01\t3\tBC318\n521\t150342\t06:00\tNIVALDO BRAGA\t2019-03-01\t1\tEA184\n462\t140591\t06:00\tPETROPOLIS\t2019-03-01\t1\tDC298\n150\t190836\t06:00\tC.MUSIC/V.ALEGRE\t2019-03-01\t1\tBI857\n011\t120104\t06:00\tINTERBAIRROS I A\t2019-03-01\t1\tBB305\n466\t140962\t06:00\tESTUDANTES\t2019-03-01\t1\tDN609\n468\t140630\t06:00\tJD. CENTAURO\t2019-03-01\t1\tDC086\n502\t105502\t06:00\tCIR.SUL(HORARIO)\t2019-03-01\t1\tGR021\n502\t104301\t06:00\tCIR.SUL(HORARIO)\t2019-03-01\t6\tHR042\n536\t160160\t06:00\tZOOLOGICO\t2019-03-01\t1\tEA169\n860\t180567\t06:00\tV. SANDRA\t2019-03-01\t3\tLC019\n860\t102031\t06:00\tV. SANDRA\t2019-03-01\t1\tLC028\n332\t105108\t06:00\tACROPOLE\t2019-03-01\t1\tEA174\n865\t180578\t06:00\tJD. ESPLANADA\t2019-03-01\t1\tLN007\n713\t105313\t06:00\tSTA. AMELIA\t2019-03-01\t1\tJA851\n761\t180777\t06:00\tV. IZABEL\t2019-03-01\t1\tJC855\n762\t180621\t06:00\tV. ROSINHA\t2019-03-01\t1\tJC860\n308\t\t06:00\tMAD. CENTENARIO / RUI BARBOSA\t2019-03-01\t1-1\tDN606\n828\t104810\t06:00\tC.COMP/C.RASO\t2019-03-01\t2\tLA010\n305\t109115\t06:00\tCENTENARIO\t2019-03-01\t1\tDL308\n828\t104613\t06:00\tC.COMP/C.RASO\t2019-03-01\t4\tJA037\n670\t180832\t06:00\tS?O JORGE\t2019-03-01\t1\tHC851\n673\t102029\t06:00\tFORMOSA\t2019-03-01\t1\tHN611\n673\t170114\t06:00\tFORMOSA\t2019-03-01\t2\tHN614\n160\t103242\t06:00\tJ.MERCES/GUANABA\t2019-03-01\t1\tBC027\n657\t150482\t06:00\tXAXIM/CAP?O RASO\t2019-03-01\t1\tEA025\n801\t104507\t06:00\tCAMP.SIQ./BATEL\t2019-03-01\t1\tLC507\n712\t105314\t06:00\tJD.INDEPEND./CIC\t2019-03-01\t2\tHA010\n712\t105209\t06:00\tJD.INDEPEND./CIC\t2019-03-01\t1\tHA016\n243\t104110\t06:00\tSTA. TEREZINHA\t2019-03-01\t1\tBA001\n918\t190344\t06:00\tVENEZA\t2019-03-01\t1\tMA855\n545\t106108\t06:00\tTRABALHADOR\t2019-03-01\t5\tJI601\n545\t104319\t06:00\tTRABALHADOR\t2019-03-01\t4\tGA168\n341\t105911\t06:00\tB.ALTO / STA.CANDIDA\t2019-03-01\t1\tCI005\n211\t\t06:00\tCOLINA VERDE\t2019-03-01\t1\tBA032\n680\t170477\t06:00\tRURBANA\t2019-03-01\t2\tHA192\n260\t120422\t06:00\tMAL.HERMES / STA.EFIGENIA\t2019-03-01\t1\tBI869\n380\t130221\t06:00\tDETRAN/V.MACHADO\t2019-03-01\t2\tCC300\n653\t180863\t06:00\tSABARA\t2019-03-01\t2\tHA011\n653\t105208\t06:00\tSABARA\t2019-03-01\t1\tHA022\n513\t105513\t06:00\tHAUER/BOQUEIR?O\t2019-03-01\t1\tEA196\n655\t170438\t06:00\tJD. ORDEM\t2019-03-01\t1\tHI013\n690\t105914\t06:00\tV. JULIANA\t2019-03-01\t2\tHA198\n385\t130885\t06:00\tCRISTO REI\t2019-03-01\t1\tBI881\n528\t104911\t06:00\tBOQUEIR?O/PINHEIRINHO\t2019-03-01\t3\tGA203\n760\t180816\t06:00\tSTA. QUITERIA\t2019-03-01\t1\tJC852\n779\t180778\t06:00\tV.VELHA / BURITI\t2019-03-01\t1\tJC862\n690\t170993\t06:00\tV. JULIANA\t2019-03-01\t1\tHA197\n184\t120288\t06:00\tV. SUICA\t2019-03-01\t2\tBN622\n823\t180950\t06:00\tAUGUSTA\t2019-03-01\t1\tLA850\n207\t104412\t06:00\tCABRAL / OSORIO\t2019-03-01\t1\tBC280\n169\t120350\t06:00\tJD. KOSMOS\t2019-03-01\t1\tBC007\n814\t180017\t06:00\tMOSSUNGUE\t2019-03-01\t1\tLA851\n876\t190069\t06:00\tSAVOIA\t2019-03-01\t2\tBC017\n176\t101129\t06:00\tPARQUE TANGUA\t2019-03-01\t1\tBI850\n175\t103243\t06:00\tBOM RETIRO / PUC\t2019-03-01\t2\tBC009\n643\t105714\t06:00\tUMBARA\t2019-03-01\t2\tGA003\n870\t190264\t06:00\tS?O BRAZ\t2019-03-01\t3\tBC021\n721\t180959\t06:00\tMARIO JORGE\t2019-03-01\t1\tJA013\n311\t130205\t06:00\tARAGUAIA\t2019-03-01\t1\tBI879\n607\t109100\t06:00\tCOLOMBO/CIC\t2019-03-01\t6\tHL321\n304\t109043\t06:00\tPINHAIS / C.COMPRIDO\t2019-03-01\t9\tLL304\n464\t190908\t06:00\tA.MUNHOZ / JD.BOTANICO\t2019-03-01\t1\tMN610\n464\t140920\t06:00\tA.MUNHOZ / JD.BOTANICO\t2019-03-01\t2\tDC852\n625\t106112\t06:00\tGRAMADOS\t2019-03-01\t3\tGA161\n716\t105003\t06:00\tFORUM/B. VISTA\t2019-03-01\t1\tJA852\n022\t109086\t06:00\tINTER 2 (HORARI)\t2019-03-01\t2\tGL325\n625\t104812\t06:00\tGRAMADOS\t2019-03-01\t1\tGA165\n023\t109167\t06:00\tINTER 2(ANTI-HR)\t2019-03-01\t12\tBL331\n023\t109083\t06:00\tINTER 2(ANTI-HR)\t2019-03-01\t15\tBL334\n875\t190029\t06:00\tBIGORRILHO\t2019-03-01\t1\tBI853\n633\t150538\t06:00\tMARIA ANGELICA\t2019-03-01\t2\tGA173\n470\t140722\t06:00\tGUABIROTUBA\t2019-03-01\t1\tDC854\n561\t150628\t06:00\tGUILHERMINA\t2019-03-01\t2\tEC013\n561\t102006\t06:00\tGUILHERMINA\t2019-03-01\t1\tEC010\n535\t104310\t06:00\tOSTERNACK/BOQ.\t2019-03-01\t1\tEA024\n636\t160147\t06:00\tRIO NEGRO\t2019-03-01\t1\tGA181\n636\t105735\t06:00\tRIO NEGRO\t2019-03-01\t2\tGA154\n386\t130253\t06:00\tCAJURU\t2019-03-01\t1\tBC935\n461\t140584\t06:00\tSTA. BARBARA\t2019-03-01\t1\tDC850\n532\t104311\t06:00\tJD.PARANAENSE\t2019-03-01\t3\tEA175\n541\t106103\t06:00\tBAIRRO NOVO A\t2019-03-01\t1\tGA211\n624\t150443\t06:00\tV. S?O PEDRO\t2019-03-01\t2\tGA145\n624\t104811\t06:00\tV. S?O PEDRO\t2019-03-01\t1\tGA156\n272\t120148\t06:00\tPAINEIRAS\t2019-03-01\t2\tBI865\n272\t101166\t06:00\tPAINEIRAS\t2019-03-01\t1\tBN617\n366\t130868\t06:00\tITUPAVA / HOSP.MILITAR\t2019-03-01\t1\tBC851\n611\t105310\t06:00\tFAZENDINH/PORT?O\t2019-03-01\t1\tJA023\n522\t150808\t06:00\tMARINGA\t2019-03-01\t1\tEA189\n522\t104909\t06:00\tMARINGA\t2019-03-01\t2\tEA188\n224\t104208\t06:00\tCASSIOPEIA\t2019-03-01\t1\tBN606\n266\t120648\t06:00\tESTRIBO AHU\t2019-03-01\t1\tBI861\n533\t160217\t06:00\tE.VERIS/PANTANAL\t2019-03-01\t1\tEA194\n343\t130308\t06:00\tPARAISO\t2019-03-01\t1\tBC942\n547\t106105\t06:00\tBAIRRO NOVO C\t2019-03-01\t1\tGA204\n226\t120182\t06:00\tABAETE\t2019-03-01\t2-1\tBA126\n020\t104406\t06:00\tINTERBAIRR II H\t2019-03-01\t9\tBB498\n040\t106001\t06:01\tINTERBAIRROS IV\t2019-03-01\t3\tMB605\n646\t170401\t06:01\tPOMPEIA / JANAINA\t2019-03-01\t1\tHA023\n022\t109125\t06:01\tINTER 2 (HORARI)\t2019-03-01\t6\tBL326\n633\t105710\t06:01\tMARIA ANGELICA\t2019-03-01\t1\tGA157\n503\t108065\t06:01\tBOQUEIR?O\t2019-03-01\t3\tKE845\n020\t105512\t06:01\tINTERBAIRR II H\t2019-03-01\t5\tBB615\n602\t105802\t06:01\tCIR.SUL (ANTI-H)\t2019-03-01\t2\tHR045\n338\t105105\t06:01\tCENTENARIO/HAUER\t2019-03-01\t2\tDA015\n706\t105312\t06:01\tCAIUA/FAZ/CENTRO\t2019-03-01\t4\tJC306\n680\t105723\t06:02\tRURBANA\t2019-03-01\t1\tHA029\n508\t109111\t06:02\tSITIOCERCADO(AH)\t2019-03-01\t1\tGL321\n627\t105205\t06:02\tBOSCH\t2019-03-01\t2\tHA013\n184\t101019\t06:02\tV. SUICA\t2019-03-01\t1\tBN610\n040\t105206\t06:02\tINTERBAIRROS IV\t2019-03-01\t12\tHB604\n040\t104603\t06:02\tINTERBAIRROS IV\t2019-03-01\t4\tLB603\n030\t104815\t06:02\tINTERBAIRROS III\t2019-03-01\t5\tBB610\n507\t109113\t06:02\tS.CERCADO(HORAR)\t2019-03-01\t6\tEL303\n022\t109119\t06:02\tINTER 2 (HORARI)\t2019-03-01\t20\tHL326\n022\t109108\t06:02\tINTER 2 (HORARI)\t2019-03-01\t19\tBL686\n629\t160016\t06:02\tALTO BOQUEIR?O\t2019-03-01\t3\tKA605\n629\t104816\t06:02\tALTO BOQUEIR?O\t2019-03-01\t1\tKA603\n203\t108023\t06:02\tSTA.CANDIDA / C. RASO\t2019-03-01\t11\tBE707\n373\t104010\t06:02\tALTO TARUM?\t2019-03-01\t1\tCC192\n021\t104506\t06:02\tINTERB II ANTI H\t2019-03-01\t2\tBB307\n338\t105509\t06:02\tCENTENARIO/HAUER\t2019-03-01\t4\tEA190\n050\t105607\t06:02\tINTERBAIRROS V\t2019-03-01\t6\tJB611\n506\t109112\t06:02\tBAIRRO NOVO\t2019-03-01\t7\tEL304\n380\t103501\t06:02\tDETRAN/V.MACHADO\t2019-03-01\t1\tLC304\n040\t105718\t06:03\tINTERBAIRROS IV\t2019-03-01\t11\tHB603\n508\t109098\t06:03\tSITIOCERCADO(AH)\t2019-03-01\t3\tGL313\n607\t109063\t06:03\tCOLOMBO/CIC\t2019-03-01\t10\t\n507\t109102\t06:03\tS.CERCADO(HORAR)\t2019-03-01\t2\tEL317\n236\t121008\t06:03\tS?O BENEDITO\t2019-03-01\t1\tBN611\n615\t105808\t06:03\tUBERLANDIA\t2019-03-01\t1\tHI016\n203\t105901\t06:03\tSTA.CANDIDA / C. RASO\t2019-03-01\t8\tBE703\n472\t140807\t06:03\tUBERABA\t2019-03-01\t2\tKC002\n472\t102024\t06:03\tUBERABA\t2019-03-01\t1\tKC001\n020\t104706\t06:03\tINTERBAIRR II H\t2019-03-01\t7\tCB604\n550\t105704\t06:03\tPINH/C.GOMES\t2019-03-01\t1\tHE704\n021\t104405\t06:03\tINTERB II ANTI H\t2019-03-01\t6\tDR114\n307\t109120\t06:03\tB.ALTO / STA.FELICIDADE\t2019-03-01\t2\tBL329\n321\t105605\t06:03\tTRINDADE\t2019-03-01\t1\tDA014\n502\t106101\t06:03\tCIR.SUL(HORARIO)\t2019-03-01\t5\tKE846\n506\t109038\t06:03\tBAIRRO NOVO\t2019-03-01\t6\tEL074\n232\t105903\t06:03\tALIANCA\t2019-03-01\t1\tBA124\n603\t105701\t06:04\tPINHEIRINHO\t2019-03-01\t9\tGD346\n972\t101122\t06:04\tJD. ITALIA\t2019-03-01\t1\tMC851\n654\t105203\t06:04\tCAMPO ALEGRE\t2019-03-01\t1\tHI005\n654\t104817\t06:04\tCAMPO ALEGRE\t2019-03-01\t2\tHI006\n622\t180304\t06:04\tRONDON\t2019-03-01\t1\tHI009\n304\t109143\t06:04\tPINHAIS / C.COMPRIDO\t2019-03-01\t10\t\n548\t160773\t06:04\tOSTERN/S.CERCADO\t2019-03-01\t1\tGA199\n607\t350808\t06:04\tCOLOMBO/CIC\t2019-03-01\t14\t\n"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"result-alert alert-warning\" role\u003d\"alert\"\u003e\u003cbutton type\u003d\"button\" class\u003d\"close\" data-dismiss\u003d\"alert\" aria-label\u003d\"Close\"\u003e\u003cspan aria-hidden\u003d\"true\"\u003e\u0026times;\u003c/span\u003e\u003c/button\u003e\u003cstrong\u003eOutput is truncated\u003c/strong\u003e to 1000 rows. Learn more about \u003cstrong\u003ezeppelin.spark.maxResult\u003c/strong\u003e\u003c/div\u003e\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d208"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1554054910515_1628062875",
+      "id": "20190331-145510_1118868995",
+      "dateCreated": "2019-03-31 14:55:10.516",
+      "dateStarted": "2019-03-31 15:33:03.900",
+      "dateFinished": "2019-03-31 15:33:03.936",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-31 22:11:50.006",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1554081110005_-2080755726",
+      "id": "20190331-221150_973973412",
+      "dateCreated": "2019-03-31 22:11:50.005",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "URBS/III - GENERATE DATASETS",
+  "id": "2E7A4SYVX",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "angular:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

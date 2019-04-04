@@ -756,7 +756,7 @@
     {
       "text": "%sql\n\nwith \nbunchs as (\n-- todas as chaves\nselect key,cod_linha,nome,data,cluster_id,count(distinct veic) \nfrom bus_bunchings\nwhere data \u003c \u00272018-11-24\u0027\ngroup by key,cod_linha,nome,data,cluster_id\nhaving count(distinct veic) \u003e 1\norder by cod_linha,data\n) select nome,count(1) as qtd from bunchs\ngroup by nome\norder by qtd desc limit 50\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:30:01.340",
+      "dateUpdated": "2019-03-31 12:11:45.492",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1159,7 +1159,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "/URBS/BUS-BUNCHING-ANALYSIS",
+  "name": "URBS/OLD/BUS-BUNCHING-ANALYSIS",
   "id": "2E22NK52V",
   "noteParams": {},
   "noteForms": {},

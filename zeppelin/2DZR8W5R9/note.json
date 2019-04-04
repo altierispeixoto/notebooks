@@ -3,7 +3,7 @@
     {
       "text": "%spark.conf\n\n# You can customize SPARK_HOME as well in `spark.conf`\nSPARK_HOME  /usr/lib/spark\n\n# set driver memrory to 8g\nspark.driver.memory 16g\n\n# set executor number to be 6\nspark.executor.instances  2\n\n# set executor memrory 4g\nspark.executor.memory  4g\n\n# Any other spark properties can be set here. Here\u0027s avaliable spark configruation you can set. (http://spark.apache.org/docs/latest/configuration.html)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-26 20:58:03.522",
+      "dateUpdated": "2019-03-31 11:13:03.559",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +29,15 @@
       "jobName": "paragraph_1553478193003_-1303016775",
       "id": "20190324-224313_114805943",
       "dateCreated": "2019-03-24 22:43:13.003",
-      "dateStarted": "2019-03-26 20:58:03.675",
-      "dateFinished": "2019-03-26 20:58:03.696",
+      "dateStarted": "2019-03-31 11:13:03.669",
+      "dateFinished": "2019-03-31 11:13:03.690",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nprocessed_path \u003d \u0027/home/altieris/datascience/data/curitibaurbs/processed/\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-26 21:07:31.422",
+      "dateUpdated": "2019-03-31 11:13:03.764",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,8 +63,8 @@
       "jobName": "paragraph_1553478401544_149541277",
       "id": "20190324-224641_1338316923",
       "dateCreated": "2019-03-24 22:46:41.544",
-      "dateStarted": "2019-03-26 21:07:31.479",
-      "dateFinished": "2019-03-26 21:07:31.486",
+      "dateStarted": "2019-03-31 11:13:03.831",
+      "dateFinished": "2019-03-31 11:13:14.926",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -72,7 +72,7 @@
       "title": "Carrega os datasets da urbs",
       "text": "%pyspark\n\nlinhas \u003d sqlContext.read.json(processed_path+\u0027linhas/\u0027)\nlinhas.registerTempTable(\"linhas\")\n\npontosLinha \u003d sqlContext.read.json(processed_path+\u0027pontoslinha/\u0027)\npontosLinha.registerTempTable(\"pontos_linha\")\n\ntabelaVeiculo \u003d sqlContext.read.json(processed_path+\u0027tabelaveiculo/\u0027)\ntabelaVeiculo.registerTempTable(\"tabela_veiculo\")\n\ntabelaLinha \u003d sqlContext.read.json(processed_path+\u0027tabelalinha/\u0027)\ntabelaLinha.registerTempTable(\"tabela_linha\")\n\ntrechosItinerarios \u003d sqlContext.read.json(processed_path+\u0027trechositinerarios/\u0027)\ntrechosItinerarios.registerTempTable(\"trechos_itinerarios\")\n\ncategoriasOnibus \u003d trechosItinerarios.select(\u0027COD_CATEGORIA\u0027,\u0027NOME_CATEGORIA\u0027).distinct()\ncategoriasOnibus.registerTempTable(\"categorias_onibus\")\n\ntipoItinerarios \u003d trechosItinerarios.select(\u0027COD_ITINERARIO\u0027,\u0027NOME_ITINERARIO\u0027).distinct()\ntipoItinerarios.registerTempTable(\"tipos_itinerarios\")\n\nempresasOnibus \u003d trechosItinerarios.select(\"COD_EMPRESA\",\"NOME_EMPRESA\").distinct()\nempresasOnibus.registerTempTable(\"empresas_onibus\")\n\nposition_events \u003d sqlContext.read.json(processed_path+\u0027veiculos/\u0027)\nposition_events.registerTempTable(\"veiculos\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-26 21:07:33.872",
+      "dateUpdated": "2019-03-31 11:13:14.937",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -118,8 +118,8 @@
       "jobName": "paragraph_1546706176416_-685983938",
       "id": "20190105-143616_103887860",
       "dateCreated": "2019-01-05 14:36:16.416",
-      "dateStarted": "2019-03-26 21:07:33.917",
-      "dateFinished": "2019-03-26 21:10:39.978",
+      "dateStarted": "2019-03-31 11:13:15.004",
+      "dateFinished": "2019-03-31 11:16:26.325",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -127,7 +127,7 @@
       "title": "POSICOES_VEICULO",
       "text": "%pyspark\nposition_events.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:53:59.699",
+      "dateUpdated": "2019-03-31 11:16:26.373",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -156,12 +156,24 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d6"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546709334746_2067987504",
       "id": "20190105-152854_900218601",
       "dateCreated": "2019-01-05 15:28:54.746",
-      "dateStarted": "2019-03-24 22:53:59.725",
-      "dateFinished": "2019-03-24 22:53:59.838",
+      "dateStarted": "2019-03-31 11:16:26.408",
+      "dateFinished": "2019-03-31 11:16:26.808",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -169,7 +181,7 @@
       "title": "LINHAS",
       "text": "%pyspark\nlinhas.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:54:02.773",
+      "dateUpdated": "2019-03-31 11:16:26.907",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -230,12 +242,24 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d7"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546708773740_1133557345",
       "id": "20190105-151933_494858361",
       "dateCreated": "2019-01-05 15:19:33.740",
-      "dateStarted": "2019-03-24 22:54:02.798",
-      "dateFinished": "2019-03-24 22:54:02.852",
+      "dateStarted": "2019-03-31 11:16:26.940",
+      "dateFinished": "2019-03-31 11:16:27.075",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -243,7 +267,7 @@
       "title": "TABELA_VEICULO",
       "text": "%pyspark\ntabelaVeiculo.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.148",
+      "dateUpdated": "2019-03-31 11:16:27.139",
       "config": {
         "colWidth": 5.0,
         "fontSize": 9.0,
@@ -268,16 +292,28 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+---------+---------+-------+--------------------+------+-------+\n|COD_LINHA|COD_PONTO|HORARIO|          NOME_LINHA|TABELA|VEICULO|\n+---------+---------+-------+--------------------+------+-------+\n|      509|         |  00:00|      MAD. BOQUEIR?O|     1|  KB499|\n|      519|         |  00:05|MAD. S. FRANCISCO...|     1|  EA173|\n|      509|         |  00:05|      MAD. BOQUEIR?O|     1|  KB499|\n|      608|         |  00:05|    MAD. PINHEIRINHO|     1|  HA259|\n|      209|         |  00:10|MAD. S. CANDIDA /...|     1|  BC933|\n+---------+---------+-------+--------------------+------+-------+\nonly showing top 5 rows\n\n"
+            "data": "+---------+---------+-------+--------------------+----------+------+-------+\n|COD_LINHA|COD_PONTO|HORARIO|          NOME_LINHA|SOURCEDATE|TABELA|VEICULO|\n+---------+---------+-------+--------------------+----------+------+-------+\n|      509|         |  00:00|      MAD. BOQUEIR?O|2019-03-01|     1|  KB499|\n|      519|         |  00:05|MAD. S. FRANCISCO...|2019-03-01|     1|  EA183|\n|      509|         |  00:05|      MAD. BOQUEIR?O|2019-03-01|     1|  KB499|\n|      608|         |  00:05|    MAD. PINHEIRINHO|2019-03-01|     1|  HA259|\n|      209|         |  00:10|MAD. S. CANDIDA /...|2019-03-01|     1|  BC928|\n+---------+---------+-------+--------------------+----------+------+-------+\nonly showing top 5 rows\n\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d8"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1546708883884_-338198895",
       "id": "20190105-152123_1714905334",
       "dateCreated": "2019-01-05 15:21:23.884",
-      "dateStarted": "2019-01-05 15:21:31.893",
-      "dateFinished": "2019-01-05 15:21:32.083",
+      "dateStarted": "2019-03-31 11:16:27.172",
+      "dateFinished": "2019-03-31 11:16:27.297",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -285,7 +321,7 @@
       "title": "PONTOS_LINHA",
       "text": "%pyspark\npontosLinha.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.185",
+      "dateUpdated": "2019-03-31 11:16:27.372",
       "config": {
         "colWidth": 7.0,
         "fontSize": 9.0,
@@ -310,16 +346,28 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+---+-----+------------+----------------+----------------+--------------------+------+------------+---+---------------+\n|COD|GRUPO|ITINERARY_ID|             LAT|             LON|                NOME|   NUM|     SENTIDO|SEQ|           TIPO|\n+---+-----+------------+----------------+----------------+--------------------+------+------------+---+---------------+\n|010|     |         481|-25.423430413535|-49.287646127345|R. Julia Wanderle...|110036|     Horario| 42|Novo mobiliario|\n|010|     |         481|-25.450112696017|-49.281852682209|Rua Bento Viana, ...|150232|     Horario| 32|Novo mobiliario|\n|010|     |         481|-25.444688097732|-49.255299616275|Rua Baltazar Carr...|140875|     Horario| 19|  Chapeu chines|\n|011|     |         482|-25.442672993214|-49.288137735075|Av. do Batel, 161...|180067|Anti-horario| 21|Novo mobiliario|\n|011|     |         482|-25.450261873841|-49.259898163195|Rua Rockefeller, ...|140265|Anti-horario| 31|Novo mobiliario|\n+---+-----+------------+----------------+----------------+--------------------+------+------------+---+---------------+\nonly showing top 5 rows\n\n"
+            "data": "+---+-----+------------+----------------+----------------+--------------------+------+------------+---+----------+---------------+\n|COD|GRUPO|ITINERARY_ID|             LAT|             LON|                NOME|   NUM|     SENTIDO|SEQ|SOURCEDATE|           TIPO|\n+---+-----+------------+----------------+----------------+--------------------+------+------------+---+----------+---------------+\n|010|     |         481|-25.422482678274|-49.284327553297|Av. Manoel Ribas,...|110037|     Horario| 39|2019-03-17|Novo mobiliario|\n|010|     |         481|-25.432681513162|-49.258593202776|Av. Visc. de Guar...|140204|     Horario| 11|2019-03-17|Novo mobiliario|\n|010|     |         481|-25.432206677422|-49.292185860119|R. Cap. Souza Fra...|180042|     Horario| 34|2019-03-17|Novo mobiliario|\n|011|     |         482|-25.442672993214|-49.288137735075|Av. do Batel, 161...|180067|Anti-horario| 21|2019-03-17|Novo mobiliario|\n|011|     |         482|-25.450261873841|-49.259898163195|Rua Rockefeller, ...|140265|Anti-horario| 31|2019-03-17|Novo mobiliario|\n+---+-----+------------+----------------+----------------+--------------------+------+------------+---+----------+---------------+\nonly showing top 5 rows\n\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d9"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1546708805804_-167540008",
       "id": "20190105-152005_793725253",
       "dateCreated": "2019-01-05 15:20:05.804",
-      "dateStarted": "2019-01-05 15:21:06.553",
-      "dateFinished": "2019-01-05 15:21:06.735",
+      "dateStarted": "2019-03-31 11:16:27.396",
+      "dateFinished": "2019-03-31 11:16:27.550",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -327,7 +375,7 @@
       "title": "TABELA_LINHA",
       "text": "%pyspark\ntabelaLinha.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.222",
+      "dateUpdated": "2019-03-31 11:16:27.595",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -352,24 +400,36 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-----+---+---+-----+------+--------------------+------+\n|ADAPT|COD|DIA| HORA|   NUM|               PONTO|TABELA|\n+-----+---+---+-----+------+--------------------+------+\n|     |340|  1|06:58|109120|TERMINAL BAIRRO ALTO|   1-1|\n|     |340|  1|07:09|109025|TUBO DETRAN (SENT...|   1-1|\n|     |340|  1|07:19|109120|TERMINAL BAIRRO ALTO|   1-1|\n|     |340|  1|07:32|109025|TUBO DETRAN (SENT...|   1-1|\n|     |340|  1|07:43|109120|TERMINAL BAIRRO ALTO|   1-1|\n+-----+---+---+-----+------+--------------------+------+\nonly showing top 5 rows\n\n"
+            "data": "+--------+---+---+-----+---+--------------------+----------+------+\n|   ADAPT|COD|DIA| HORA|NUM|               PONTO|SOURCEDATE|TABELA|\n+--------+---+---+-----+---+--------------------+----------+------+\n|ELEVADOR|989|  1|01:10|   |PRACA RUI BARBOSA...|2019-01-25|     1|\n|ELEVADOR|989|  1|01:20|   |PRACA RUI BARBOSA...|2019-01-25|     1|\n|ELEVADOR|989|  1|02:20|   |PRACA RUI BARBOSA...|2019-01-25|     1|\n|ELEVADOR|989|  1|02:30|   |PRACA RUI BARBOSA...|2019-01-25|     1|\n|ELEVADOR|989|  1|03:35|   |PRACA RUI BARBOSA...|2019-01-25|     1|\n+--------+---+---+-----+---+--------------------+----------+------+\nonly showing top 5 rows\n\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d10"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1546708899567_1117395313",
       "id": "20190105-152139_732852902",
       "dateCreated": "2019-01-05 15:21:39.567",
-      "dateStarted": "2019-01-05 15:21:44.759",
-      "dateFinished": "2019-01-05 15:21:45.017",
+      "dateStarted": "2019-03-31 11:16:27.627",
+      "dateFinished": "2019-03-31 11:16:27.813",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "EMPRESAS",
-      "text": "%pyspark\nempresas_onibus.show(5)",
+      "text": "%pyspark\nempresasOnibus.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.257",
+      "dateUpdated": "2019-03-31 13:58:40.832",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -398,12 +458,27 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d52",
+            "http://172.16.1.103:4040/jobs/job?id\u003d53",
+            "http://172.16.1.103:4040/jobs/job?id\u003d54",
+            "http://172.16.1.103:4040/jobs/job?id\u003d55"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546709613810_735460095",
       "id": "20190105-153333_1647818851",
       "dateCreated": "2019-01-05 15:33:33.810",
-      "dateStarted": "2019-01-05 15:40:45.282",
-      "dateFinished": "2019-01-05 15:40:45.484",
+      "dateStarted": "2019-03-31 13:58:40.849",
+      "dateFinished": "2019-03-31 13:58:41.283",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -495,7 +570,7 @@
       "title": "TRECHOS_ITINERARIOS -- NÃO UTILIZADO",
       "text": "%pyspark\ntrechosItinerarios.drop(\u0027CODIGO_URBS\u0027,\u0027NOME_EMPRESA\u0027,\u0027NOME_CATEGORIA\u0027,\u0027NOME_LINHA\u0027,\u0027NOME_ITINERARIO\u0027,\u0027STOP_NAME\u0027,\u0027TIPO_TRECHO\u0027).show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.355",
+      "dateUpdated": "2019-03-31 13:58:49.937",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -534,537 +609,6 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Cria uma view com a sequencia de paradas de cada linha",
-      "text": "",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-26 21:12:23.319",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {}
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "tableHide": false,
-        "lineNumbers": true,
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": ""
-          },
-          {
-            "type": "TEXT",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706368703_-216073381",
-      "id": "20190105-143928_376321531",
-      "dateCreated": "2019-01-05 14:39:28.703",
-      "dateStarted": "2019-03-26 21:11:28.841",
-      "dateFinished": "2019-03-26 21:11:29.300",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%sql\nCREATE OR REPLACE TEMPORARY VIEW rota_sequenciada AS \nselect \tpseq.cod_linha\n\t\t\t,pseq.sentido_linha\n\t\t\t,pseq.seq_inicio\n\t\t\t,pseq.seq_fim\n\t\t\t,pseq.ponto_inicio\n\t\t\t,pseq.nome_ponto_inicio\n\t\t\t,pseq.ponto_final\n\t\t\t,pseq.nome_ponto_final\n\t\t\t,li.CATEGORIA_SERVICO as categoria_servico\n\t\t\t,li.NOME as nome_linha\n\t\t\t,li.NOME_COR as nome_cor\n\t\t\t,li.SOMENTE_CARTAO as somente_cartao\nfrom (select\n \t\tp1.COD as cod_linha\n\t\t,p1.SENTIDO  as sentido_linha\n\t\t,p1.SEQ      as seq_inicio\n\t\t,p2.SEQ      as seq_fim\n\t\t,p1.NUM      as ponto_inicio\n\t\t,p1.NOME     as nome_ponto_inicio\n\t\t,p2.NUM      as ponto_final\n\t\t,p2.NOME     as nome_ponto_final\n\tfrom pontos_linha P1 \n\tinner join pontos_linha p2 on (p1.SEQ+1 \u003d p2.SEQ and p1.COD \u003d p2.COD and p1.SENTIDO \u003d p2.SENTIDO)\n\t) pseq\n\tinner join linhas       li on (pseq.cod_linha \u003d li.COD) \norder by pseq.cod_linha,pseq.sentido_linha,pseq.seq_inicio,pseq.seq_fim\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-26 21:12:39.540",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1553645496991_1188565210",
-      "id": "20190326-211136_1210189577",
-      "dateCreated": "2019-03-26 21:11:36.991",
-      "status": "READY",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Cria a view de itinerário dos ônibus",
-      "text": "%sql\n\n/*\n   Ao executar a view para a Clauciane, lembrar de descomentar a linha 24\n*/\nCREATE OR REPLACE TEMPORARY VIEW itinerario as \nselect tv.COD_LINHA \t     as cod_linha \n      ,tv.TABELA\t\t     as tabela \n      ,tv.COD_PONTO \t     as cod_ponto \n      ,tv.HORARIO            as horario\n      ,tv.VEICULO \t         as veiculo \n      ,tl.ADAPT  \t\t     as adapt\n      ,tl.PONTO  \t\t     as nome_ponto\n      ,li.CATEGORIA_SERVICO  as categoria_servico\n      ,li.NOME \t   \t         as nome_linha \n      ,li.NOME_COR           as cor \n      ,li.SOMENTE_CARTAO     as somente_cartao\nfrom tabela_veiculo tv  \n\tinner join tabela_linha tl on (tv.COD_LINHA \u003d tl.COD and tv.COD_PONTO \u003d tl.NUM and tv.HORARIO \u003d tl.HORA and tv.TABELA \u003d  tl.TABELA)\n\tinner join linhas li on (tl.COD \u003d li.COD)\n\twhere\n\t-- tv.\"COD_LINHA\"\u003d\u0027040\u0027 and\n\t   tl.DIA\u003d\u00271\u0027 -- dias uteis\n\t--  and hour(tv.HORARIO) between 7 and 19\n\t  and tv.TABELA not like \u0027%-%\u0027 and tv.COD_PONTO \u003c\u003e \u0027\u0027\norder by tv.COD_LINHA,tv.TABELA,tv.VEICULO,tv.HORARIO",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.401",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {}
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "lineNumbers": true,
-        "tableHide": false,
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546707462983_1904446206",
-      "id": "20190105-145742_948677749",
-      "dateCreated": "2019-01-05 14:57:42.983",
-      "dateStarted": "2019-01-05 15:09:42.567",
-      "dateFinished": "2019-01-05 15:09:42.583",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Cria uma nova view com a sequencia e o sentido da linha",
-      "text": "%sql\nCREATE OR REPLACE TEMPORARY view sequencia_itinerario as \n\t\tselect \t \n\t\t\t\t tv.cod_linha \n\t\t\t\t,tv.nome_linha\n\t\t\t\t,tv.tabela  \n\t\t\t\t,tv.veiculo\n\t\t\t\t,tv.horario\n\t\t\t\t,tv.cod_ponto \n\t\t\t\t,tv.nome_ponto\n\t\t\t\t,pl.SENTIDO as sentido \n\t\t\t\t,pl.SEQ as seq \n\t\tfrom itinerario tv \n\t\t\t\tinner join pontos_linha pl on (tv.cod_linha \u003d pl.COD and tv.cod_ponto \u003d pl.NUM)\n--\t\twhere \t\n--\t\t\t\t tv.cod_linha  in (\u0027040\u0027)\n\t\torder by tv.cod_linha,tv.tabela,tv.veiculo,tv.horario",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.424",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 84.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {}
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "tableHide": false,
-        "lineNumbers": true,
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706380791_1970790823",
-      "id": "20190105-143940_1815932425",
-      "dateCreated": "2019-01-05 14:39:40.791",
-      "dateStarted": "2019-01-05 15:10:13.845",
-      "dateFinished": "2019-01-05 15:10:13.859",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Tabula a sequencia do itinerário",
-      "text": "%sql\nCREATE OR REPLACE TEMPORARY view itinerario_tabulado as\nselect * from (\nselect \n\thorario as horario_i\n\t,lead(horario,1) OVER (order BY cod_linha,sentido,tabela,veiculo,horario) as horario_f\n\t,seq as seq_i\n\t,lead(seq,1) OVER (order BY cod_linha,sentido,tabela,veiculo,horario,seq desc,cod_ponto,sentido) as seq_f\n\t,cod_linha\n\t,cod_ponto\n\t,nome_ponto\n\t,nome_linha\n\t,tabela\n\t,veiculo\n\t,sentido\nfrom sequencia_itinerario\norder by tabela,sentido,horario_i,seq desc,cod_ponto\n) t where seq_i \u003c seq_f",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.450",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 272.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {},
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "tableHide": false,
-        "title": true,
-        "lineNumbers": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706507963_1811394644",
-      "id": "20190105-144147_1500562571",
-      "dateCreated": "2019-01-05 14:41:47.963",
-      "dateStarted": "2019-01-05 15:15:41.156",
-      "dateFinished": "2019-01-05 15:15:41.193",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Cria as rotas dos itinerários",
-      "text": "%sql\nCREATE OR REPLACE TEMPORARY view rotas_itinerario as \nselect \n       cod_linha\n      ,horario_i\n      ,horario_f\n      ,veiculo\n      ,seq_inicio\n      ,seq_fim\n      ,concat_ws(\u0027,\u0027,collect_list(sentido_linha)) as sentidos_linha\n      --,sentido_linha\n      ,ponto\n      ,nome_ponto_final\n      ,horario_inicio\n      ,horario_fim\n      ,categoria_servico\n      ,nome_cor\nfrom (\nselect it.cod_linha \n\t  ,it.horario_i\n      ,it.horario_f\n      ,it.veiculo\n      ,rt.seq_inicio\n      ,rt.seq_fim\n      ,rt.sentido_linha\n      ,rt.ponto_final as ponto\n      ,rt.nome_ponto_final\n      ,rt.categoria_servico\n      ,rt.nome_cor\n      ,hour(it.horario_i) as horario_inicio\n      ,hour(it.horario_i + INTERVAL 1 HOURS) as horario_fim\n     from itinerario_tabulado it  \n inner join rota_sequenciada rt on (it.cod_linha \u003d rt.cod_linha and it.seq_i \u003c\u003d rt.seq_inicio and it.seq_f \u003e rt.seq_inicio and it.sentido \u003d rt.sentido_linha)\norder by it.cod_linha,tabela,sentido,horario_i,seq_inicio,rt.seq_fim\n) t \nwhere horario_i \u003c\u003e horario_f -- and  horario_i between \u002707:00:00\u0027 and \u002719:00:00\u0027 --and cod_linha \u003d \u0027203\u0027 --veiculo\u003d\u0027JB604\u0027\ngroup by cod_linha,horario_i,horario_f,veiculo,ponto,nome_ponto_final,horario_inicio,horario_fim,seq_inicio,seq_fim,categoria_servico,nome_cor\norder by cod_linha,veiculo,horario_i,horario_f,seq_inicio,seq_fim,sentidos_linha",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.476",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {},
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "tableHide": false,
-        "title": true,
-        "lineNumbers": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706537359_655174164",
-      "id": "20190105-144217_599141610",
-      "dateCreated": "2019-01-05 14:42:17.359",
-      "dateStarted": "2019-01-05 15:18:14.036",
-      "dateFinished": "2019-01-05 15:18:14.160",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%sql\nselect COUNT(distinct veiculo) as veiculos\n\t      ,cod_linha\n\t      ,ponto\n\t      ,nome_ponto_final as nome_ponto\n\t      ,categoria_servico\n\t      ,nome_cor\n\t      ,horario_inicio\n\t      ,horario_fim\n   \t\tfrom rotas_itinerario \n  \twhere cod_linha \u003d\u0027860\u0027 -- ponto \u003d \u0027108050\u0027\n\tgroup by cod_linha,ponto,nome_ponto_final,categoria_servico,nome_cor,horario_inicio,horario_fim\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.504",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "veiculos": "string",
-                      "cod_linha": "string",
-                      "ponto": "string",
-                      "nome_ponto": "string",
-                      "categoria_servico": "string",
-                      "nome_cor": "string",
-                      "horario_inicio": "string",
-                      "horario_fim": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "title": true,
-        "lineNumbers": true,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "veiculos\tcod_linha\tponto\tnome_ponto\tcategoria_servico\tnome_cor\thorario_inicio\thorario_fim\n4\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n2\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n1\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n1\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n1\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n1\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n2\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t22\t23\n1\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t5\t6\n2\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t5\t6\n2\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n2\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n1\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n2\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n1\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t5\t6\n1\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n1\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n1\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n1\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n2\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n2\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n2\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n1\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n1\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n1\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t17\t18\n1\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n1\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n1\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n2\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n1\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n1\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180223\tRua Eduardo Sprada, 4651 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n2\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n2\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n1\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t17\t18\n1\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180565\tRua Chapeco, 32 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n2\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n2\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n2\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180662\tAv. Nossa Senhora Aparecida, 779 - Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n2\t860\t180589\tAvenida Nossa Senhora Aparecida, 785- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180064\tRua Goncalves Dias, 11 - Batel\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n1\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t14\t15\n1\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180470\tAv. Nossa Senhora Aparecida, 334 - Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t21\t22\n4\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180225\tRua Eduardo Sprada, 4300 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180471\tRua Eduardo Sprada, 80 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n1\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n1\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n2\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n3\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n4\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n4\t860\t180228\tRua Eduardo Sprada, 3958 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t18\t19\n1\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n1\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n2\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t19\t20\n1\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180560\tAv. Nossa Senhora Aparecida, 305 - Seminario\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n1\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n2\t860\t180175\tR. Jo?o Dembinski, 1532 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n1\t860\t180588\tRua Eduardo Sprada, 331- Campo Comprido\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n3\t860\t180215\tRua Jo?o Dembinski, 802 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t17\t18\n2\t860\t180587\tRua Eduardo Sprada, 641 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180583\tAvenida Nossa Senhora Aparecida, 1080- Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t21\t22\n2\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180072\tRua Benjamin Lins, 25 - Batel\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180586\tRua Eduardo Sprada, 81 - Campo Comprido\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n1\t860\t180545\tRua Eduardo Sprada, 2739 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t20\t21\n1\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n3\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t0\t1\n4\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180174\tR. Jo?o Dembinski, 1597 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t110090\tAv. Visc. de Guarapuava, 2302 - Centro\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180549\tRua Eduardo Sprada, 3237- Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n1\t860\t180179\tRua Jo?o Dembinski, 1340 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t10\t11\n4\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180719\tRua Chapeco, 228- Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n4\t860\t180550\tRua Eduardo Sprada, 3611 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180473\tAvenida Nossa Senhora Aparecida, 1450- Seminario\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t12\t13\n4\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t11\t12\n2\t860\t180221\tRua Jo?o Dembinski, 74 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180566\tRua Ararangua, 320 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180958\tRua Benjamin Lins, 134 -  Batel\tCONVENCIONAL\tAMARELA\t19\t20\n2\t860\t180665\tRua Eduardo Sprada, 1305 - Campo Comprido\tCONVENCIONAL\tAMARELA\t21\t22\n3\t860\t180720\tRua Eduardo Sprada, 3613 - Campo Comprido\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180069\tAv. do Batel, 1190 - Batel\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n4\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t10\t11\n1\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n4\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t6\t7\n1\t860\t180668\tRua Eduardo Sprada, 1989- Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t110089\tAv. Visc. de Guarapuava, 2022 - Centro\tCONVENCIONAL\tAMARELA\t22\t23\n1\t860\t180660\tAv. Nossa Senhora Aparecida, 83 - Seminario\tCONVENCIONAL\tAMARELA\t23\t0\n2\t860\t180717\tRua Ararangua, 321 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n1\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t0\t1\n1\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t110400\tRua Doutor Pedrosa, 299- Centro\tCONVENCIONAL\tAMARELA\t6\t7\n4\t860\t180217\tRua Jo?o Dembinski, 542 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t9\t10\n4\t860\t180222\tRua Eduardo Sprada, 4901 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t14\t15\n4\t860\t180469\tAv. Visc. de Guarapuava, 2616 - Batel\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t15\t16\n4\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n1\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t0\t1\n3\t860\t180063\tRua Goncalves Dias, 509  - Batel\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180663\tAvenida Nossa Senhora Aparecida, 336 -  Seminario\tCONVENCIONAL\tAMARELA\t6\t7\n2\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t20\t21\n3\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t102031\tPraca Rui Barbosa - 860 - Vila Sandra\tCONVENCIONAL\tAMARELA\t14\t15\n3\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180547\tRua Eduardo Sprada, 3031 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n1\t860\t180595\tRua Eduardo Sprada, 1083 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n3\t860\t180541\tRua Eduardo Sprada, 2297 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n3\t860\t180227\tRua Eduardo Sprada, 3999 - Campo Comprido\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180544\tRua Eduardo Sprada, 2738 - Campo Comprido\tCONVENCIONAL\tAMARELA\t16\t17\n1\t860\t180585\tRua Eduardo Sprada, 1082 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t23\t0\n4\t860\t180226\tRua Eduardo Sprada, 4266 - Campo Comprido\tCONVENCIONAL\tAMARELA\t9\t10\n3\t860\t180584\tAv. Nossa Senhora Aparecida, 778 - Seminario\tCONVENCIONAL\tAMARELA\t8\t9\n2\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n2\t860\t180220\tRua Jo?o Dembinski, 150 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n2\t860\t180548\tRua Eduardo Sprada, 3238 - Campo Comprido\tCONVENCIONAL\tAMARELA\t19\t20\n3\t860\t180661\tRua Eduardo Sprada, 640 -  Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180594\tRua Eduardo Sprada, 332 - Campo Comprido\tCONVENCIONAL\tAMARELA\t12\t13\n3\t860\t180721\tRua Eduardo Sprada, 1408 - Campo Comprido\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180718\tRua Chapeco, 33 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t20\t21\n4\t860\t180590\tAvenida Nossa Senhora Aparecida, 786- Seminario\tCONVENCIONAL\tAMARELA\t7\t8\n3\t860\t180667\tRua Eduardo Sprada, 1658 - Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180669\tRua Eduardo Sprada, 1990 - Campo Comprido\tCONVENCIONAL\tAMARELA\t15\t16\n1\t860\t180666\tRua Eduardo Sprada, 1304 - Campo Comprido\tCONVENCIONAL\tAMARELA\t5\t6\n4\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t11\t12\n3\t860\t180885\tAv. Visc. de Guarapuava, 3118 - Batel\tCONVENCIONAL\tAMARELA\t10\t11\n3\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t8\t9\n4\t860\t180546\tRua Eduardo Sprada, 3032- Campo Comprido\tCONVENCIONAL\tAMARELA\t13\t14\n3\t860\t180474\tAvenida Nossa Senhora Aparecida, 1081- Seminario\tCONVENCIONAL\tAMARELA\t15\t16\n2\t860\t180567\tRua Elzira Alves Lourenco, 25 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t6\t7\n3\t860\t180472\tAvenida Nossa Senhora Aparecida, 1449- Seminario\tCONVENCIONAL\tAMARELA\t17\t18\n3\t860\t180543\tRua Eduardo Sprada, 2374 - Campo Comprido\tCONVENCIONAL\tAMARELA\t18\t19\n4\t860\t180177\tRua Jo?o Dembinski, 1352 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n4\t860\t180067\tAv. do Batel, 1614 - Batel\tCONVENCIONAL\tAMARELA\t8\t9\n3\t860\t180564\tRua Chapeco, 229 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t22\t23\n3\t860\t180062\tRua Goncalves Dias, 655 - Batel\tCONVENCIONAL\tAMARELA\t13\t14\n4\t860\t180224\tRua Eduardo Sprada, 4520 - Cidade Industrial\tCONVENCIONAL\tAMARELA\t7\t8\n"
-          },
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"result-alert alert-warning\" role\u003d\"alert\"\u003e\u003cbutton type\u003d\"button\" class\u003d\"close\" data-dismiss\u003d\"alert\" aria-label\u003d\"Close\"\u003e\u003cspan aria-hidden\u003d\"true\"\u003e\u0026times;\u003c/span\u003e\u003c/button\u003e\u003cstrong\u003eOutput is truncated\u003c/strong\u003e to 1000 rows. Learn more about \u003cstrong\u003ezeppelin.spark.maxResult\u003c/strong\u003e\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706551852_1894027701",
-      "id": "20190105-144231_517629104",
-      "dateCreated": "2019-01-05 14:42:31.852",
-      "dateStarted": "2019-01-05 15:18:22.516",
-      "dateFinished": "2019-01-05 15:18:32.985",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%sql\nselect distinct COUNT(distinct veiculo) as veiculos\n\t      ,cod_linha\n\t      ,categoria_servico\n\t      ,nome_cor\n\t      ,horario_inicio\n\t      ,horario_fim\n\t      ,sentidos_linha\n   \t\tfrom rotas_itinerario \n  \twhere cod_linha \u003d\u0027860\u0027 -- ponto \u003d \u0027108050\u0027\n\tgroup by cod_linha,ponto,nome_ponto_final,categoria_servico,nome_cor,horario_inicio,horario_fim,sentidos_linha\n\torder by horario_inicio",
-      "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.537",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "veiculos": "string",
-                      "cod_linha": "string",
-                      "categoria_servico": "string",
-                      "nome_cor": "string",
-                      "horario_inicio": "string",
-                      "horario_fim": "string",
-                      "sentidos_linha": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql",
-        "title": true,
-        "lineNumbers": true,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "veiculos\tcod_linha\tcategoria_servico\tnome_cor\thorario_inicio\thorario_fim\tsentidos_linha\n4\t860\tCONVENCIONAL\tAMARELA\t7\t8\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t7\t8\tPraca Rui Barbosa\n4\t860\tCONVENCIONAL\tAMARELA\t8\t9\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t8\t9\tV. Sandra\n4\t860\tCONVENCIONAL\tAMARELA\t9\t10\tV. Sandra\n4\t860\tCONVENCIONAL\tAMARELA\t9\t10\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t10\t11\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t10\t11\tPraca Rui Barbosa\n4\t860\tCONVENCIONAL\tAMARELA\t11\t12\tV. Sandra\n4\t860\tCONVENCIONAL\tAMARELA\t11\t12\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t12\t13\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t12\t13\tPraca Rui Barbosa\n4\t860\tCONVENCIONAL\tAMARELA\t13\t14\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t13\t14\tPraca Rui Barbosa\n4\t860\tCONVENCIONAL\tAMARELA\t14\t15\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t14\t15\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t15\t16\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t15\t16\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t16\t17\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t16\t17\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t17\t18\tV. Sandra\n3\t860\tCONVENCIONAL\tAMARELA\t17\t18\tPraca Rui Barbosa\n2\t860\tCONVENCIONAL\tAMARELA\t18\t19\tPraca Rui Barbosa\n3\t860\tCONVENCIONAL\tAMARELA\t18\t19\tV. Sandra\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1546706586500_-99638960",
-      "id": "20190105-144306_55706040",
-      "dateCreated": "2019-01-05 14:43:06.500",
-      "dateStarted": "2019-01-05 14:47:58.165",
-      "dateFinished": "2019-01-05 14:48:07.909",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
       "text": "%sql\n",
       "user": "anonymous",
       "dateUpdated": "2019-03-24 22:38:31.559",
@@ -1099,6 +643,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
+    "md:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
