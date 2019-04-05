@@ -3,7 +3,7 @@
     {
       "text": "%sql\n\n/*\n   cria sequencia de pontos de cada linha. Importante filtrar pela data : sourcedate\n*/\n\nCREATE OR REPLACE TEMPORARY VIEW rota_sequenciada AS \nselect \tpseq.cod_linha\n\t\t\t,pseq.sentido_linha\n\t\t\t,pseq.seq_inicio\n\t\t\t,pseq.seq_fim\n\t\t\t,pseq.ponto_inicio\n\t\t\t,pseq.nome_ponto_inicio\n\t\t\t,pseq.ponto_final\n\t\t\t,pseq.nome_ponto_final\n\t\t\t,li.CATEGORIA_SERVICO as categoria_servico\n\t\t\t,li.NOME as nome_linha\n\t\t\t,li.NOME_COR as nome_cor\n\t\t\t,li.SOMENTE_CARTAO as somente_cartao\n\t\t\t,pseq.sourcedate\nfrom (select\n \t\t p1.COD as cod_linha\n\t\t,p1.SENTIDO  as sentido_linha\n\t\t,p1.SEQ      as seq_inicio\n\t\t,p2.SEQ      as seq_fim\n\t\t,p1.NUM      as ponto_inicio\n\t\t,p1.NOME     as nome_ponto_inicio\n\t\t,p2.NUM      as ponto_final\n\t\t,p2.NOME     as nome_ponto_final\n\t\t,p1.sourcedate\n\tfrom pontos_linha P1 \n\tinner join pontos_linha p2 on (p1.SEQ+1 \u003d p2.SEQ and p1.COD \u003d p2.COD and p1.SENTIDO \u003d p2.SENTIDO and p1.sourcedate \u003d p2.sourcedate)\n\t) pseq\n\tinner join linhas       li on (pseq.cod_linha \u003d li.COD and pseq.sourcedate \u003d li.sourcedate) \norder by pseq.cod_linha,pseq.sentido_linha,pseq.seq_inicio,pseq.seq_fim\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:29:22.058",
+      "dateUpdated": "2019-04-04 21:56:09.672",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,15 +63,15 @@
       "jobName": "paragraph_1553645524620_-1930698321",
       "id": "20190326-211204_1291583665",
       "dateCreated": "2019-03-26 21:12:04.620",
-      "dateStarted": "2019-03-31 11:29:22.087",
-      "dateFinished": "2019-03-31 11:29:22.125",
+      "dateStarted": "2019-04-04 21:56:09.702",
+      "dateFinished": "2019-04-04 21:56:10.125",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\nselect * from rota_sequenciada where sourcedate \u003d\u00272019-03-17\u0027 and cod_linha \u003d\u0027200\u0027",
+      "text": "%sql\nselect cod_linha,sentido_linha,ponto_inicio,nome_ponto_inicio,ponto_final,nome_ponto_final,categoria_servico,nome_linha,nome_cor,somente_cartao\nfrom rota_sequenciada where sourcedate \u003d\u00272019-03-14\u0027 and cod_linha \u003d\u0027200\u0027",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:18:51.788",
+      "dateUpdated": "2019-04-04 21:58:54.005",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -89,8 +89,6 @@
                     "names": {
                       "cod_linha": "string",
                       "sentido_linha": "string",
-                      "seq_inicio": "string",
-                      "seq_fim": "string",
                       "ponto_inicio": "string",
                       "nome_ponto_inicio": "string",
                       "ponto_final": "string",
@@ -98,8 +96,7 @@
                       "categoria_servico": "string",
                       "nome_linha": "string",
                       "nome_cor": "string",
-                      "somente_cartao": "string",
-                      "sourcedate": "string"
+                      "somente_cartao": "string"
                     },
                     "updated": false
                   },
@@ -134,7 +131,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "cod_linha\tsentido_linha\tseq_inicio\tseq_fim\tponto_inicio\tnome_ponto_inicio\tponto_final\tnome_ponto_final\tcategoria_servico\tnome_linha\tnome_cor\tsomente_cartao\tsourcedate\n200\tPraca do Jap?o\t1\t2\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\t104201\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t2\t3\t104201\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t3\t4\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\t108022\tEstac?o Tubo Passeio Publico\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t4\t5\t108022\tEstac?o Tubo Passeio Publico\t108024\tEstac?o Central\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t5\t6\t108024\tEstac?o Central\t108025\tEstac?o Tubo Praca Eufrasio Correia\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t6\t7\t108025\tEstac?o Tubo Praca Eufrasio Correia\t108032\tEstac?o Tubo Praca Oswaldo Cruz\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tPraca do Jap?o\t7\t8\t108032\tEstac?o Tubo Praca Oswaldo Cruz\t108035\tEstac?o Tubo Bento Viana\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t1\t2\t108035\tEstac?o Tubo Bento Viana\t108031\tEstac?o Tubo Praca Oswaldo Cruz\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t2\t3\t108031\tEstac?o Tubo Praca Oswaldo Cruz\t108026\tEstac?o Tubo Praca Eufrasio Correia\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t3\t4\t108026\tEstac?o Tubo Praca Eufrasio Correia\t108023\tEstac?o Central\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t4\t5\t108023\tEstac?o Central\t108021\tEstac?o Tubo Passeio Publico\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t5\t6\t108021\tEstac?o Tubo Passeio Publico\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t6\t7\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\t104202\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n200\tTerminal Santa Candida\t7\t8\t104202\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\t2019-03-17\n"
+            "data": "cod_linha\tsentido_linha\tponto_inicio\tnome_ponto_inicio\tponto_final\tnome_ponto_final\tcategoria_servico\tnome_linha\tnome_cor\tsomente_cartao\n200\tPraca do Jap?o\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\t104201\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t104201\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t104413\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca. do Jap?o - 203-Santa Candida/Cap?o Raso\t108022\tEstac?o Tubo Passeio Publico\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t108022\tEstac?o Tubo Passeio Publico\t108024\tEstac?o Central\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t108024\tEstac?o Central\t108025\tEstac?o Tubo Praca Eufrasio Correia\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t108025\tEstac?o Tubo Praca Eufrasio Correia\t108032\tEstac?o Tubo Praca Oswaldo Cruz\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tPraca do Jap?o\t108032\tEstac?o Tubo Praca Oswaldo Cruz\t108035\tEstac?o Tubo Bento Viana\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t108035\tEstac?o Tubo Bento Viana\t108031\tEstac?o Tubo Praca Oswaldo Cruz\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t108031\tEstac?o Tubo Praca Oswaldo Cruz\t108026\tEstac?o Tubo Praca Eufrasio Correia\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t108026\tEstac?o Tubo Praca Eufrasio Correia\t108023\tEstac?o Central\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t108023\tEstac?o Central\t108021\tEstac?o Tubo Passeio Publico\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t108021\tEstac?o Tubo Passeio Publico\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t104411\tTerminal Cabral - 200-Ligeir?o Sta.Candida-Pca.do Jap?o - 203-Santa Candida/Cap?o Raso\t104202\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n200\tTerminal Santa Candida\t104202\tTerminal Boa Vista - 200-Ligeir?o Sta.Candida/Pca. do Jap?o - 203-Sta.Candida / C. Raso\t105901\tTerminal Santa Candida - 200 - Ligeir?o Sta.Candida/Pca. do Jap?o - 203 - Santa Candida / Cap?o Raso\tLIGEIR?O\tLIGEIR?O STA.CANDIDA / PCA.DO JAP?O\tAZUL\tN\n"
           },
           {
             "type": "TEXT",
@@ -149,8 +146,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d11",
-            "http://172.16.1.103:4040/jobs/job?id\u003d12"
+            "http://172.16.1.103:4040/jobs/job?id\u003d27",
+            "http://172.16.1.103:4040/jobs/job?id\u003d28"
           ],
           "interpreterSettingId": "spark"
         }
@@ -159,8 +156,8 @@
       "jobName": "paragraph_1553645767545_-1404187378",
       "id": "20190326-211607_436862819",
       "dateCreated": "2019-03-26 21:16:07.545",
-      "dateStarted": "2019-03-31 11:18:51.831",
-      "dateFinished": "2019-03-31 11:18:57.880",
+      "dateStarted": "2019-04-04 21:58:50.102",
+      "dateFinished": "2019-04-04 21:58:53.564",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -305,19 +302,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d13",
-            "http://172.16.1.103:4040/jobs/job?id\u003d14"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1553646078641_-1799240759",
@@ -466,20 +450,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d15",
-            "http://172.16.1.103:4040/jobs/job?id\u003d16",
-            "http://172.16.1.103:4040/jobs/job?id\u003d17"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1553646335147_977394784",
@@ -630,21 +600,6 @@
             "data": "\u003cdiv class\u003d\"result-alert alert-warning\" role\u003d\"alert\"\u003e\u003cbutton type\u003d\"button\" class\u003d\"close\" data-dismiss\u003d\"alert\" aria-label\u003d\"Close\"\u003e\u003cspan aria-hidden\u003d\"true\"\u003e\u0026times;\u003c/span\u003e\u003c/button\u003e\u003cstrong\u003eOutput is truncated\u003c/strong\u003e to 102400 bytes. Learn more about \u003cstrong\u003eZEPPELIN_INTERPRETER_OUTPUT_LIMIT\u003c/strong\u003e\u003c/div\u003e"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d18",
-            "http://172.16.1.103:4040/jobs/job?id\u003d19",
-            "http://172.16.1.103:4040/jobs/job?id\u003d20",
-            "http://172.16.1.103:4040/jobs/job?id\u003d21"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1553646592481_-1421351429",
@@ -798,24 +753,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d22",
-            "http://172.16.1.103:4040/jobs/job?id\u003d23",
-            "http://172.16.1.103:4040/jobs/job?id\u003d24",
-            "http://172.16.1.103:4040/jobs/job?id\u003d25",
-            "http://172.16.1.103:4040/jobs/job?id\u003d26",
-            "http://172.16.1.103:4040/jobs/job?id\u003d27",
-            "http://172.16.1.103:4040/jobs/job?id\u003d28"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1553648106346_1693333839",
       "id": "20190326-215506_485914552",
@@ -894,29 +831,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d29",
-            "http://172.16.1.103:4040/jobs/job?id\u003d30",
-            "http://172.16.1.103:4040/jobs/job?id\u003d31",
-            "http://172.16.1.103:4040/jobs/job?id\u003d32",
-            "http://172.16.1.103:4040/jobs/job?id\u003d33",
-            "http://172.16.1.103:4040/jobs/job?id\u003d34",
-            "http://172.16.1.103:4040/jobs/job?id\u003d35",
-            "http://172.16.1.103:4040/jobs/job?id\u003d36",
-            "http://172.16.1.103:4040/jobs/job?id\u003d37",
-            "http://172.16.1.103:4040/jobs/job?id\u003d38",
-            "http://172.16.1.103:4040/jobs/job?id\u003d39",
-            "http://172.16.1.103:4040/jobs/job?id\u003d40"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1553648129446_1042750778",
@@ -1093,18 +1007,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d41"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1553649792992_-1764073115",

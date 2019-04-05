@@ -3,7 +3,7 @@
     {
       "text": "%spark.conf\n\n# You can customize SPARK_HOME as well in `spark.conf`\nSPARK_HOME  /usr/lib/spark\n\n# set driver memrory to 8g\nspark.driver.memory 16g\n\n# set executor number to be 6\nspark.executor.instances  2\n\n# set executor memrory 4g\nspark.executor.memory  4g\n\n# Any other spark properties can be set here. Here\u0027s avaliable spark configruation you can set. (http://spark.apache.org/docs/latest/configuration.html)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:13:03.559",
+      "dateUpdated": "2019-04-04 21:49:25.432",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -29,15 +29,15 @@
       "jobName": "paragraph_1553478193003_-1303016775",
       "id": "20190324-224313_114805943",
       "dateCreated": "2019-03-24 22:43:13.003",
-      "dateStarted": "2019-03-31 11:13:03.669",
-      "dateFinished": "2019-03-31 11:13:03.690",
+      "dateStarted": "2019-04-04 21:49:25.555",
+      "dateFinished": "2019-04-04 21:49:25.573",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nprocessed_path \u003d \u0027/home/altieris/datascience/data/curitibaurbs/processed/\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:13:03.764",
+      "dateUpdated": "2019-04-04 21:49:25.653",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -63,8 +63,8 @@
       "jobName": "paragraph_1553478401544_149541277",
       "id": "20190324-224641_1338316923",
       "dateCreated": "2019-03-24 22:46:41.544",
-      "dateStarted": "2019-03-31 11:13:03.831",
-      "dateFinished": "2019-03-31 11:13:14.926",
+      "dateStarted": "2019-04-04 21:49:25.705",
+      "dateFinished": "2019-04-04 21:49:42.399",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -72,7 +72,7 @@
       "title": "Carrega os datasets da urbs",
       "text": "%pyspark\n\nlinhas \u003d sqlContext.read.json(processed_path+\u0027linhas/\u0027)\nlinhas.registerTempTable(\"linhas\")\n\npontosLinha \u003d sqlContext.read.json(processed_path+\u0027pontoslinha/\u0027)\npontosLinha.registerTempTable(\"pontos_linha\")\n\ntabelaVeiculo \u003d sqlContext.read.json(processed_path+\u0027tabelaveiculo/\u0027)\ntabelaVeiculo.registerTempTable(\"tabela_veiculo\")\n\ntabelaLinha \u003d sqlContext.read.json(processed_path+\u0027tabelalinha/\u0027)\ntabelaLinha.registerTempTable(\"tabela_linha\")\n\ntrechosItinerarios \u003d sqlContext.read.json(processed_path+\u0027trechositinerarios/\u0027)\ntrechosItinerarios.registerTempTable(\"trechos_itinerarios\")\n\ncategoriasOnibus \u003d trechosItinerarios.select(\u0027COD_CATEGORIA\u0027,\u0027NOME_CATEGORIA\u0027).distinct()\ncategoriasOnibus.registerTempTable(\"categorias_onibus\")\n\ntipoItinerarios \u003d trechosItinerarios.select(\u0027COD_ITINERARIO\u0027,\u0027NOME_ITINERARIO\u0027).distinct()\ntipoItinerarios.registerTempTable(\"tipos_itinerarios\")\n\nempresasOnibus \u003d trechosItinerarios.select(\"COD_EMPRESA\",\"NOME_EMPRESA\").distinct()\nempresasOnibus.registerTempTable(\"empresas_onibus\")\n\nposition_events \u003d sqlContext.read.json(processed_path+\u0027veiculos/\u0027)\nposition_events.registerTempTable(\"veiculos\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:13:14.937",
+      "dateUpdated": "2019-04-04 21:49:42.416",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -118,8 +118,8 @@
       "jobName": "paragraph_1546706176416_-685983938",
       "id": "20190105-143616_103887860",
       "dateCreated": "2019-01-05 14:36:16.416",
-      "dateStarted": "2019-03-31 11:13:15.004",
-      "dateFinished": "2019-03-31 11:16:26.325",
+      "dateStarted": "2019-04-04 21:49:42.515",
+      "dateFinished": "2019-04-04 21:52:57.396",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -127,7 +127,7 @@
       "title": "POSICOES_VEICULO",
       "text": "%pyspark\nposition_events.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:16:26.373",
+      "dateUpdated": "2019-04-04 21:52:57.460",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -172,8 +172,8 @@
       "jobName": "paragraph_1546709334746_2067987504",
       "id": "20190105-152854_900218601",
       "dateCreated": "2019-01-05 15:28:54.746",
-      "dateStarted": "2019-03-31 11:16:26.408",
-      "dateFinished": "2019-03-31 11:16:26.808",
+      "dateStarted": "2019-04-04 21:52:57.505",
+      "dateFinished": "2019-04-04 21:52:57.908",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -181,7 +181,7 @@
       "title": "LINHAS",
       "text": "%pyspark\nlinhas.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:16:26.907",
+      "dateUpdated": "2019-04-04 21:52:58.004",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -258,8 +258,8 @@
       "jobName": "paragraph_1546708773740_1133557345",
       "id": "20190105-151933_494858361",
       "dateCreated": "2019-01-05 15:19:33.740",
-      "dateStarted": "2019-03-31 11:16:26.940",
-      "dateFinished": "2019-03-31 11:16:27.075",
+      "dateStarted": "2019-04-04 21:52:58.040",
+      "dateFinished": "2019-04-04 21:52:58.166",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -267,7 +267,7 @@
       "title": "TABELA_VEICULO",
       "text": "%pyspark\ntabelaVeiculo.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:16:27.139",
+      "dateUpdated": "2019-04-04 21:52:58.240",
       "config": {
         "colWidth": 5.0,
         "fontSize": 9.0,
@@ -312,8 +312,8 @@
       "jobName": "paragraph_1546708883884_-338198895",
       "id": "20190105-152123_1714905334",
       "dateCreated": "2019-01-05 15:21:23.884",
-      "dateStarted": "2019-03-31 11:16:27.172",
-      "dateFinished": "2019-03-31 11:16:27.297",
+      "dateStarted": "2019-04-04 21:52:58.266",
+      "dateFinished": "2019-04-04 21:52:58.381",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -321,7 +321,7 @@
       "title": "PONTOS_LINHA",
       "text": "%pyspark\npontosLinha.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:16:27.372",
+      "dateUpdated": "2019-04-04 21:52:58.466",
       "config": {
         "colWidth": 7.0,
         "fontSize": 9.0,
@@ -366,8 +366,8 @@
       "jobName": "paragraph_1546708805804_-167540008",
       "id": "20190105-152005_793725253",
       "dateCreated": "2019-01-05 15:20:05.804",
-      "dateStarted": "2019-03-31 11:16:27.396",
-      "dateFinished": "2019-03-31 11:16:27.550",
+      "dateStarted": "2019-04-04 21:52:58.498",
+      "dateFinished": "2019-04-04 21:52:58.615",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -375,7 +375,7 @@
       "title": "TABELA_LINHA",
       "text": "%pyspark\ntabelaLinha.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 11:16:27.595",
+      "dateUpdated": "2019-04-04 21:52:58.695",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -420,8 +420,8 @@
       "jobName": "paragraph_1546708899567_1117395313",
       "id": "20190105-152139_732852902",
       "dateCreated": "2019-01-05 15:21:39.567",
-      "dateStarted": "2019-03-31 11:16:27.627",
-      "dateFinished": "2019-03-31 11:16:27.813",
+      "dateStarted": "2019-04-04 21:52:58.723",
+      "dateFinished": "2019-04-04 21:52:58.852",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -429,7 +429,7 @@
       "title": "EMPRESAS",
       "text": "%pyspark\nempresasOnibus.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 13:58:40.832",
+      "dateUpdated": "2019-04-04 21:52:58.922",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -465,10 +465,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d52",
-            "http://172.16.1.103:4040/jobs/job?id\u003d53",
-            "http://172.16.1.103:4040/jobs/job?id\u003d54",
-            "http://172.16.1.103:4040/jobs/job?id\u003d55"
+            "http://172.16.1.103:4040/jobs/job?id\u003d11",
+            "http://172.16.1.103:4040/jobs/job?id\u003d12",
+            "http://172.16.1.103:4040/jobs/job?id\u003d13",
+            "http://172.16.1.103:4040/jobs/job?id\u003d14"
           ],
           "interpreterSettingId": "spark"
         }
@@ -477,8 +477,8 @@
       "jobName": "paragraph_1546709613810_735460095",
       "id": "20190105-153333_1647818851",
       "dateCreated": "2019-01-05 15:33:33.810",
-      "dateStarted": "2019-03-31 13:58:40.849",
-      "dateFinished": "2019-03-31 13:58:41.283",
+      "dateStarted": "2019-04-04 21:52:58.951",
+      "dateFinished": "2019-04-04 21:53:00.654",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -486,7 +486,7 @@
       "title": "TIPOS_ITINERARIOS",
       "text": "%pyspark\ntipoItinerarios.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.295",
+      "dateUpdated": "2019-04-04 21:53:00.663",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -515,12 +515,25 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d15",
+            "http://172.16.1.103:4040/jobs/job?id\u003d16"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546710639468_462460935",
       "id": "20190105-155039_1954855751",
       "dateCreated": "2019-01-05 15:50:39.469",
-      "dateStarted": "2019-01-05 15:50:47.037",
-      "dateFinished": "2019-01-05 15:50:47.195",
+      "dateStarted": "2019-04-04 21:53:00.708",
+      "dateFinished": "2019-04-04 21:53:01.149",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -528,7 +541,7 @@
       "title": "CATEGORIAS_ONIBUS",
       "text": "%pyspark\ncategoriasOnibus.show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.326",
+      "dateUpdated": "2019-04-04 21:53:01.208",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -557,12 +570,30 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d17",
+            "http://172.16.1.103:4040/jobs/job?id\u003d18",
+            "http://172.16.1.103:4040/jobs/job?id\u003d19",
+            "http://172.16.1.103:4040/jobs/job?id\u003d20",
+            "http://172.16.1.103:4040/jobs/job?id\u003d21",
+            "http://172.16.1.103:4040/jobs/job?id\u003d22",
+            "http://172.16.1.103:4040/jobs/job?id\u003d23"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546710416921_-487010883",
       "id": "20190105-154656_1584920416",
       "dateCreated": "2019-01-05 15:46:56.921",
-      "dateStarted": "2019-01-05 15:47:12.052",
-      "dateFinished": "2019-01-05 15:47:12.285",
+      "dateStarted": "2019-04-04 21:53:01.229",
+      "dateFinished": "2019-04-04 21:53:01.803",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -570,7 +601,7 @@
       "title": "TRECHOS_ITINERARIOS -- NÃO UTILIZADO",
       "text": "%pyspark\ntrechosItinerarios.drop(\u0027CODIGO_URBS\u0027,\u0027NOME_EMPRESA\u0027,\u0027NOME_CATEGORIA\u0027,\u0027NOME_LINHA\u0027,\u0027NOME_ITINERARIO\u0027,\u0027STOP_NAME\u0027,\u0027TIPO_TRECHO\u0027).show(5)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 13:58:49.937",
+      "dateUpdated": "2019-04-04 21:53:01.829",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -595,28 +626,68 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+---------+\n|COD_CATEGORIA|COD_EMPRESA|COD_ITINERARIO|COD_LINHA|COD_PTO_PARADA_TH|COD_PTO_TRECHO_A|COD_PTO_TRECHO_B|EXTENSAO_TRECHO_A_ATE_B|NOME_PTO_ABREVIADO|  NOME_PTO_PARADA_TH|PTO_ESPECIAL|SEQ_PONTO_TRECHO_A|SEQ_PONTO_TRECHO_B|SEQ_PTO_ITI_TH|STOP_CODE|\n+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+---------+\n|            5|        004|           909|      340|              806|             806|             488|                  3.148|            B.ALTO|TERMINAL BAIRRO ALTO|           N|              5688|              5689|          5688|   109120|\n|            5|        004|           909|      340|              908|             908|             806|                  3.203|        DETRAN/BAI|TUBO DETRAN (SENT...|           N|              5900|              5688|          5900|   109024|\n|            5|        004|           909|      340|              806|             806|             908|                  4.197|            B.ALTO|TERMINAL BAIRRO ALTO|           N|              5688|              5900|          5688|   109120|\n|            5|        004|           909|      340|              488|             488|             806|                  3.162|        DETRAN/CEN|TUBO DETRAN (SENT...|           S|              5689|              5688|          5689|   109025|\n|            1|        011|           676|      616|             1192|            1192|            1193|                   5.86|        PORTAO-FAN|PORTAO-LINHA VERD...|           N|              5014|              5015|          5014|   105807|\n+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+---------+\nonly showing top 5 rows\n\n"
+            "data": "+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+----------+---------+\n|COD_CATEGORIA|COD_EMPRESA|COD_ITINERARIO|COD_LINHA|COD_PTO_PARADA_TH|COD_PTO_TRECHO_A|COD_PTO_TRECHO_B|EXTENSAO_TRECHO_A_ATE_B|NOME_PTO_ABREVIADO|  NOME_PTO_PARADA_TH|PTO_ESPECIAL|SEQ_PONTO_TRECHO_A|SEQ_PONTO_TRECHO_B|SEQ_PTO_ITI_TH|SOURCEDATE|STOP_CODE|\n+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+----------+---------+\n|            5|        004|           909|      340|              806|             806|             488|                  3.148|            B.ALTO|TERMINAL BAIRRO ALTO|           N|              5688|              5689|          5688|2019-03-15|   109120|\n|            5|        004|           909|      340|              908|             908|             806|                  3.203|        DETRAN/BAI|TUBO DETRAN (SENT...|           N|              5900|              5688|          5900|2019-03-15|   109024|\n|            5|        004|           909|      340|              806|             806|             908|                  4.197|            B.ALTO|TERMINAL BAIRRO ALTO|           N|              5688|              5900|          5688|2019-03-15|   109120|\n|            5|        004|           909|      340|              488|             488|             806|                  3.162|        DETRAN/CEN|TUBO DETRAN (SENT...|           S|              5689|              5688|          5689|2019-03-15|   109025|\n|            1|        011|           676|      616|             1192|            1192|            1193|                   5.86|        PORTAO-FAN|PORTAO-LINHA VERD...|           N|              5014|              5015|          5014|2019-03-15|   105807|\n+-------------+-----------+--------------+---------+-----------------+----------------+----------------+-----------------------+------------------+--------------------+------------+------------------+------------------+--------------+----------+---------+\nonly showing top 5 rows\n\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d24"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1546710145769_-1995264317",
       "id": "20190105-154225_1906606985",
       "dateCreated": "2019-01-05 15:42:25.769",
-      "dateStarted": "2019-01-05 16:25:24.875",
-      "dateFinished": "2019-01-05 16:25:25.050",
+      "dateStarted": "2019-04-04 21:53:01.853",
+      "dateFinished": "2019-04-04 21:53:01.986",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\n",
+      "text": "%sql\nselect count(1) from (select distinct nome,num,tipo,lat,lon from pontos_linha where sourcedate \u003d \u00272019-03-14\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2019-03-24 22:38:31.559",
+      "dateUpdated": "2019-04-04 22:48:53.740",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "sql",
           "editOnDblClick": false,
@@ -630,11 +701,54 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\n7002\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.1.103:4040/jobs/job?id\u003d35"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1546706593903_481304478",
       "id": "20190105-144313_28528205",
       "dateCreated": "2019-01-05 14:43:13.903",
+      "dateStarted": "2019-04-04 22:48:51.500",
+      "dateFinished": "2019-04-04 22:48:53.538",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-04 22:48:03.775",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1554428883774_1855625557",
+      "id": "20190404-224803_803157184",
+      "dateCreated": "2019-04-04 22:48:03.775",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -643,7 +757,6 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
