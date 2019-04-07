@@ -1,0 +1,353 @@
+{
+  "paragraphs": [
+    {
+      "text": "import glob\nimport lzma\nimport json\nimport pandas as pd\nfrom datetime import datetime, timedelta",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 15:08:12.223",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1553361391947_-1521502594",
+      "id": "20190323-141631_1026690094",
+      "dateCreated": "2019-03-23 14:16:31.947",
+      "dateStarted": "2019-03-23 15:08:12.238",
+      "dateFinished": "2019-03-23 15:08:12.241",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "linhas \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*linhas.json.xz\")\npontosLinha  \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*pontosLinha.json.xz\")\nshapeLinha  \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*shapeLinha.json.xz\")\nveiculos  \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*veiculos.json.xz\")\ntabelaLinha  \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*tabelaLinha.json.xz\")\ntrechosItinerarios  \u003d glob.glob(\"/home/altieris/datascience/data/curitibaurbs/*trechosItinerarios.json.xz\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 17:13:58.099",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1553361530844_-1396418899",
+      "id": "20190323-141850_339663871",
+      "dateCreated": "2019-03-23 14:18:50.844",
+      "dateStarted": "2019-03-23 14:24:06.882",
+      "dateFinished": "2019-03-23 14:24:06.949",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def read_file(filepath):\n    try:\n        filename \u003d filepath.split(\u0027/\u0027)[6].replace(\u0027.xz\u0027,\u0027\u0027)\n        filedate \u003d filename[0:10].replace(\u0027_\u0027,\u0027-\u0027)\n        \n        data \u003d lzma.open(filepath).read().decode(\u0027utf-8\u0027)\n        df \u003d pd.read_json(json.dumps(json.loads(data)))\n        df[\u0027data\u0027] \u003d datetime.strptime(filedate, \u0027%Y-%m-%d\u0027) - timedelta(days\u003d1)\n        return df\n    except Exception as err:\n        print(err)\n        print(filepath)\n        print(len(data))\n        return pd.DataFrame()",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 16:20:54.013",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1553361395403_-1559880441",
+      "id": "20190323-141635_1192868104",
+      "dateCreated": "2019-03-23 14:16:35.403",
+      "dateStarted": "2019-03-23 16:20:54.025",
+      "dateFinished": "2019-03-23 16:20:54.029",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def gera_csv(files,savepath):\n    dfall \u003d pd.DataFrame()\n    for file in files: \n        df \u003d read_file(file)\n        if not df.empty:\n            dfall \u003d dfall.append(df,sort\u003dTrue)\n    dfall.to_csv(savepath,index\u003dFalse,sep\u003d\u0027;\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 16:20:55.871",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "CATEGORIA_SERVICO": "string",
+                      "COD": "string",
+                      "NOME": "string",
+                      "NOME_COR": "string",
+                      "SOMENTE_CARTAO": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1553362002527_-1754511835",
+      "id": "20190323-142642_821332305",
+      "dateCreated": "2019-03-23 14:26:42.527",
+      "dateStarted": "2019-03-23 16:20:55.885",
+      "dateFinished": "2019-03-23 16:20:55.889",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "savepath \u003d \u0027/home/altieris/datascience/data/urbs/linhas.csv\u0027\ngera_csv(linhas,savepath)",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 15:33:51.451",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Expecting value: line 1 column 1 (char 0)\n/home/altieris/datascience/data/curitibaurbs/2017_01_25_linhas.json.xz\n0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553364525365_-775758815",
+      "id": "20190323-150845_1375336037",
+      "dateCreated": "2019-03-23 15:08:45.366",
+      "dateStarted": "2019-03-23 15:33:51.463",
+      "dateFinished": "2019-03-23 15:34:21.434",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "savepath \u003d \u0027/home/altieris/datascience/data/urbs/pontoslinha.csv\u0027\ngera_csv(pontosLinha,savepath)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 16:20:58.453",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Expecting value: line 1 column 1 (char 0)\n/home/altieris/datascience/data/curitibaurbs/2017_01_25_pontosLinha.json.xz\n0\nCorrupt input data\n/home/altieris/datascience/data/curitibaurbs/2017_11_19_pontosLinha.json.xz\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 5, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 200, in read\n    return self._buffer.read(size)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/_compression.py\", line 103, in read\n    data \u003d self._decompressor.decompress(rawblock, size)\n_lzma.LZMAError: Corrupt input data\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 12, in read_file\nUnboundLocalError: local variable \u0027data\u0027 referenced before assignment\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 319, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 5, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 200, in read\n    return self._buffer.read(size)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/_compression.py\", line 103, in read\n    data \u003d self._decompressor.decompress(rawblock, size)\n_lzma.LZMAError: Corrupt input data\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 12, in read_file\nUnboundLocalError: local variable \u0027data\u0027 referenced before assignment\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553363486814_69620119",
+      "id": "20190323-145126_1587495040",
+      "dateCreated": "2019-03-23 14:51:26.814",
+      "dateStarted": "2019-03-23 16:20:58.465",
+      "dateFinished": "2019-03-23 16:33:58.161",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "savepath \u003d \u0027/home/altieris/datascience/data/urbs/shapelinha.csv\u0027\ngera_csv(shapeLinha,savepath)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 16:42:20.960",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Expecting value: line 1 column 1 (char 0)\n/home/altieris/datascience/data/curitibaurbs/2017_01_25_shapeLinha.json.xz\n0\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 6, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 427, in read_json\n    result \u003d json_reader.read()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 537, in read\n    obj \u003d self._get_object_parser(self.data)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 556, in _get_object_parser\n    obj \u003d FrameParser(json, **kwargs).parse()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 652, in parse\n    self._parse_no_numpy()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 871, in _parse_no_numpy\n    loads(json, precise_float\u003dself.precise_float), dtype\u003dNone)\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 227, in handler_stop_signals\n    sys.exit(\"Got signal : \" + str(sig))\nSystemExit: Got signal : 2\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 319, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 6, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 427, in read_json\n    result \u003d json_reader.read()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 537, in read\n    obj \u003d self._get_object_parser(self.data)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 556, in _get_object_parser\n    obj \u003d FrameParser(json, **kwargs).parse()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 652, in parse\n    self._parse_no_numpy()\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/site-packages/pandas/io/json/json.py\", line 871, in _parse_no_numpy\n    loads(json, precise_float\u003dself.precise_float), dtype\u003dNone)\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 227, in handler_stop_signals\n    sys.exit(\"Got signal : \" + str(sig))\nSystemExit: Got signal : 2\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553362656916_1468025639",
+      "id": "20190323-143736_776499982",
+      "dateCreated": "2019-03-23 14:37:36.916",
+      "dateStarted": "2019-03-23 16:42:20.968",
+      "dateFinished": "2019-03-23 17:13:37.490",
+      "status": "ABORT",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "savepath \u003d \u0027/home/altieris/datascience/data/urbs/veiculos.csv\u0027\ngera_csv(veiculos,savepath)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-23 16:42:46.011",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Extra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_12_27_veiculos.json.xz\n484046878\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_06_17_veiculos.json.xz\n515557239\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_03_veiculos.json.xz\n276579966\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_09_24_veiculos.json.xz\n346774843\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_01_08_veiculos.json.xz\n486730299\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_08_25_veiculos.json.xz\n529057487\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_10_19_veiculos.json.xz\n130250712\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_10_29_veiculos.json.xz\n346658455\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_06_24_veiculos.json.xz\n160337105\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_20_veiculos.json.xz\n30466301\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_12_veiculos.json.xz\n542320156\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_09_26_veiculos.json.xz\n566070621\nExtra data: line 2 column 7 (char 7)\n/home/altieris/datascience/data/curitibaurbs/2018_11_14_veiculos.json.xz\n20822265\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_03_04_veiculos.json.xz\n255449785\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_22_veiculos.json.xz\n535958125\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_02_01_veiculos.json.xz\n514049065\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_11_08_veiculos.json.xz\n35769783\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_05_08_veiculos.json.xz\n521377541\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_10_23_veiculos.json.xz\n1284464\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_10_02_veiculos.json.xz\n59989171\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_08_09_veiculos.json.xz\n538743211\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_28_veiculos.json.xz\n340806766\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_16_veiculos.json.xz\n261939108\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_04_06_veiculos.json.xz\n391567696\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_02_15_veiculos.json.xz\n58068754\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_04_02_veiculos.json.xz\n383160372\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_22_veiculos.json.xz\n264632543\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_06_29_veiculos.json.xz\n166288706\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_07_veiculos.json.xz\n529388972\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_09_veiculos.json.xz\n259809047\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_30_veiculos.json.xz\n148447305\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_01_01_veiculos.json.xz\n330582061\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_20_veiculos.json.xz\n55529669\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_12_08_veiculos.json.xz\n528315843\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_09_22_veiculos.json.xz\n539431248\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_03_16_veiculos.json.xz\n109252146\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_09_25_veiculos.json.xz\n69977068\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_12_09_veiculos.json.xz\n41848901\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_08_08_veiculos.json.xz\n536066159\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_21_veiculos.json.xz\n360910161\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2017_09_15_veiculos.json.xz\n125904037\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2017_06_23_veiculos.json.xz\n186818610\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_26_veiculos.json.xz\n55853867\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_05_05_veiculos.json.xz\n532415156\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_04_24_veiculos.json.xz\n270291066\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_02_veiculos.json.xz\n66415180\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_01_21_veiculos.json.xz\n383296356\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_13_veiculos.json.xz\n261967879\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_26_veiculos.json.xz\n342264243\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_08_veiculos.json.xz\n529488781\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_07_veiculos.json.xz\n73496088\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_18_veiculos.json.xz\n504641172\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_12_09_veiculos.json.xz\n349699788\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_02_veiculos.json.xz\n248468886\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_27_veiculos.json.xz\n523379600\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_01_08_veiculos.json.xz\n262963230\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_05_veiculos.json.xz\n537214127\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_06_11_veiculos.json.xz\n354450642\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_05_07_veiculos.json.xz\n263743873\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_17_veiculos.json.xz\n339955559\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_02_09_veiculos.json.xz\n1688243\nExtra data: line 3 column 1 (char 102)\n/home/altieris/datascience/data/curitibaurbs/2018_03_03_veiculos.json.xz\n42956232\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_01_09_veiculos.json.xz\n494892594\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_07_24_veiculos.json.xz\n21294540\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_14_veiculos.json.xz\n528257849\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_30_veiculos.json.xz\n84251984\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_11_veiculos.json.xz\n498193390\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_04_veiculos.json.xz\n529917105\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_11_17_veiculos.json.xz\n495803660\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_02_07_veiculos.json.xz\n503912421\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_23_veiculos.json.xz\n516006480\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_11_veiculos.json.xz\n116388429\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_02_17_veiculos.json.xz\n439883370\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_08_veiculos.json.xz\n361394622\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_02_26_veiculos.json.xz\n262109209\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_19_veiculos.json.xz\n508166673\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_28_veiculos.json.xz\n182904392\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_02_08_veiculos.json.xz\n21105781\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_11_11_veiculos.json.xz\n343849942\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_03_08_veiculos.json.xz\n525156607\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_08_24_veiculos.json.xz\n170041494\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_02_05_veiculos.json.xz\n259010271\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2017_06_14_veiculos.json.xz\n536955850\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_11_10_veiculos.json.xz\n527684873\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_31_veiculos.json.xz\n263904394\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_05_13_veiculos.json.xz\n390907372\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_09_19_veiculos.json.xz\n534165912\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_09_veiculos.json.xz\n65946618\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_27_veiculos.json.xz\n255016649\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_25_veiculos.json.xz\n532257378\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_04_veiculos.json.xz\n532089263\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_30_veiculos.json.xz\n361657362\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2017_01_29_veiculos.json.xz\n351694859\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_24_veiculos.json.xz\n337014527\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_07_19_veiculos.json.xz\n513933183\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_17_veiculos.json.xz\n260192574\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_09_09_veiculos.json.xz\n263333217\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_17_veiculos.json.xz\n359857501\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_14_veiculos.json.xz\n358058964\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_12_10_veiculos.json.xz\n367813498\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_21_veiculos.json.xz\n57584155\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_23_veiculos.json.xz\n296254453\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_04_01_veiculos.json.xz\n341480769\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_13_veiculos.json.xz\n92785861\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_07_15_veiculos.json.xz\n353618191\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_23_veiculos.json.xz\n1517462\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2017_07_25_veiculos.json.xz\n514179295\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_03_veiculos.json.xz\n484750248\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_03_13_veiculos.json.xz\n62691513\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_01_27_veiculos.json.xz\n508732350\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_31_veiculos.json.xz\n6321915\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_13_veiculos.json.xz\n96927611\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_06_25_veiculos.json.xz\n259294682\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_26_veiculos.json.xz\n355216331\nExpecting value: line 2 column 1 (char 1)\n/home/altieris/datascience/data/curitibaurbs/2017_11_14_veiculos.json.xz\n1\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_03_veiculos.json.xz\n263859968\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_04_veiculos.json.xz\n260072524\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_05_17_veiculos.json.xz\n81310350\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_05_veiculos.json.xz\n348667462\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_02_09_veiculos.json.xz\n4103703\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_05_19_veiculos.json.xz\n51904284\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_13_veiculos.json.xz\n499566699\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_28_veiculos.json.xz\n528417633\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_09_19_veiculos.json.xz\n530251478\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_14_veiculos.json.xz\n106340321\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_16_veiculos.json.xz\n537464551\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_02_veiculos.json.xz\n398091894\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_20_veiculos.json.xz\n268230005\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_28_veiculos.json.xz\n1407439\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_07_18_veiculos.json.xz\n512800959\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_10_08_veiculos.json.xz\n260879651\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_28_veiculos.json.xz\n353949442\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_29_veiculos.json.xz\n50418734\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_10_11_veiculos.json.xz\n609349708\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_04_05_veiculos.json.xz\n582590815\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_29_veiculos.json.xz\n60647521\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_02_03_veiculos.json.xz\n124423935\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_04_19_veiculos.json.xz\n546033426\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_09_27_veiculos.json.xz\n528974715\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_01_veiculos.json.xz\n514590817\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_27_veiculos.json.xz\n261421626\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_04_18_veiculos.json.xz\n541522622\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_05_veiculos.json.xz\n124476634\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_01_27_veiculos.json.xz\n344416108\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_11_13_veiculos.json.xz\n524218739\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_01_16_veiculos.json.xz\n493284666\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_27_veiculos.json.xz\n528092390\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_01_09_veiculos.json.xz\n492506875\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_17_veiculos.json.xz\n527703530\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_10_veiculos.json.xz\n109890127\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_09_25_veiculos.json.xz\n258650440\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_13_veiculos.json.xz\n133341102\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_05_08_veiculos.json.xz\n265314888\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_03_21_veiculos.json.xz\n200533423\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_06_veiculos.json.xz\n267921410\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_08_03_veiculos.json.xz\n599581954\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_01_veiculos.json.xz\n265695201\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_27_veiculos.json.xz\n559790163\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_01_05_veiculos.json.xz\n487374835\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_25_veiculos.json.xz\n561189407\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_04_08_veiculos.json.xz\n138098009\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_30_veiculos.json.xz\n380783284\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_05_18_veiculos.json.xz\n588530026\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_06_veiculos.json.xz\n561460708\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_01_25_veiculos.json.xz\n494141268\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_20_veiculos.json.xz\n245722144\nExtra data: line 3 column 1 (char 102)\n/home/altieris/datascience/data/curitibaurbs/2017_09_05_veiculos.json.xz\n526868406\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_16_veiculos.json.xz\n526500976\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_05_25_veiculos.json.xz\n76519953\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_06_veiculos.json.xz\n20640939\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_07_veiculos.json.xz\n532696252\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_06_05_veiculos.json.xz\n265761220\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_02_10_veiculos.json.xz\n17011027\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_15_veiculos.json.xz\n139165134\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_07_veiculos.json.xz\n525324358\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_05_veiculos.json.xz\n270556827\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_29_veiculos.json.xz\n21141196\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_05_veiculos.json.xz\n106754944\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_10_09_veiculos.json.xz\n187391691\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_25_veiculos.json.xz\n543811561\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_04_23_veiculos.json.xz\n349317605\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_09_26_veiculos.json.xz\n527185395\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_07_20_veiculos.json.xz\n514185222\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_07_17_veiculos.json.xz\n509568063\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_03_14_veiculos.json.xz\n545695258\nExtra data: line 3 column 1 (char 102)\n/home/altieris/datascience/data/curitibaurbs/2017_08_18_veiculos.json.xz\n29921165\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_10_veiculos.json.xz\n388602208\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_03_19_veiculos.json.xz\n87151831\nExpecting value: line 2 column 1 (char 1)\n/home/altieris/datascience/data/curitibaurbs/2017_10_16_veiculos.json.xz\n1\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_12_21_veiculos.json.xz\n505251535\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_07_24_veiculos.json.xz\n262046365\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_02_10_veiculos.json.xz\n7459134\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_07_19_veiculos.json.xz\n518218504\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_06_20_veiculos.json.xz\n203655016\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_25_veiculos.json.xz\n395055151\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_12_veiculos.json.xz\n44701762\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_12_22_veiculos.json.xz\n507166333\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_05_24_veiculos.json.xz\n115019029\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_06_27_veiculos.json.xz\n534990736\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_23_veiculos.json.xz\n125537019\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_12_15_veiculos.json.xz\n518326950\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_05_27_veiculos.json.xz\n372927525\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_11_05_veiculos.json.xz\n336696286\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2019_01_31_veiculos.json.xz\n35186021\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_16_veiculos.json.xz\n71266736\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_12_17_veiculos.json.xz\n259677896\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_02_07_veiculos.json.xz\n504681985\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_12_16_veiculos.json.xz\n340409108\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_07_09_veiculos.json.xz\n402394010\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_11_18_veiculos.json.xz\n530284908\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_11_13_veiculos.json.xz\n258955018\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_27_veiculos.json.xz\n528333560\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_03_19_veiculos.json.xz\n263710515\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_02_22_veiculos.json.xz\n56763714\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_30_veiculos.json.xz\n111280893\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_11_30_veiculos.json.xz\n154592583\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_05_16_veiculos.json.xz\n62636792\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_02_12_veiculos.json.xz\n30745654\nExtra data: line 3 column 1 (char 103)\n/home/altieris/datascience/data/curitibaurbs/2018_10_01_veiculos.json.xz\n259239082\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_01_07_veiculos.json.xz\n350803402\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_08_31_veiculos.json.xz\n66902372\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_08_28_veiculos.json.xz\n248491907\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_08_25_veiculos.json.xz\n229353327\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_06_07_veiculos.json.xz\n176814667\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2017_09_07_veiculos.json.xz\n522105213\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_10_24_veiculos.json.xz\n110694645\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2019_01_18_veiculos.json.xz\n491841456\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_03_21_veiculos.json.xz\n355892533\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_09_09_veiculos.json.xz\n262145727\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2017_05_21_veiculos.json.xz\n436991062\nExtra data: line 3 column 1 (char 104)\n/home/altieris/datascience/data/curitibaurbs/2018_03_05_veiculos.json.xz\n259299316\nExtra data: line 3 column 1 (char 105)\n/home/altieris/datascience/data/curitibaurbs/2018_04_09_veiculos.json.xz\n262343694\n[Errno 2] No such file or directory: \u0027/home/altieris/datascience/data/curitibaurbs/2017_02_24_veiculos.json.xz\u0027\n/home/altieris/datascience/data/curitibaurbs/2017_02_24_veiculos.json.xz\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 5, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 302, in open\n    preset\u003dpreset, filters\u003dfilters)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 120, in __init__\n    self._fp \u003d builtins.open(filename, mode)\nFileNotFoundError: [Errno 2] No such file or directory: \u0027/home/altieris/datascience/data/curitibaurbs/2017_02_24_veiculos.json.xz\u0027\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 12, in read_file\nUnboundLocalError: local variable \u0027data\u0027 referenced before assignment\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 319, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 5, in read_file\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 302, in open\n    preset\u003dpreset, filters\u003dfilters)\n  File \"/home/altieris/tools/anaconda3/lib/python3.6/lzma.py\", line 120, in __init__\n    self._fp \u003d builtins.open(filename, mode)\nFileNotFoundError: [Errno 2] No such file or directory: \u0027/home/altieris/datascience/data/curitibaurbs/2017_02_24_veiculos.json.xz\u0027\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-5016916546057460457.py\", line 312, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in gera_csv\n  File \"\u003cstdin\u003e\", line 12, in read_file\nUnboundLocalError: local variable \u0027data\u0027 referenced before assignment\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553362046181_-447023708",
+      "id": "20190323-142726_1799064884",
+      "dateCreated": "2019-03-23 14:27:26.181",
+      "dateStarted": "2019-03-23 16:42:46.018",
+      "dateFinished": "2019-03-23 17:21:30.052",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1553362690032_1929943601",
+      "id": "20190323-143810_2015836069",
+      "dateCreated": "2019-03-23 14:38:10.032",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "URBS/PRE-PROCESS/UNCOMPRESS-FILES",
+  "id": "2E8WR17UM",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

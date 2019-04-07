@@ -3,7 +3,7 @@
     {
       "text": "%pyspark\n\nfrom datetime import datetime\nfrom pyspark.sql.functions import col, udf\nfrom pyspark.sql.types import Row\nfrom pyspark.sql.types import DateType\nfrom sklearn.cluster import DBSCAN\nimport numpy as np \nfrom datetime import datetime\nimport pandas as pd\n\n# Import `pyplot` \nimport matplotlib.pyplot as plt\n\n# Set the style to `ggplot`\nplt.style.use(\"ggplot\")\n\nconf \u003d SparkConf().setAppName(\"App\")\nconf \u003d (conf.setMaster(\u0027local[*]\u0027)\n        .set(\u0027spark.executor.memory\u0027, \u00274G\u0027)\n        .set(\u0027spark.driver.memory\u0027, \u002730G\u0027)\n        .set(\u0027spark.driver.maxResultSize\u0027, \u002710G\u0027))\n\nsc \u003d SparkContext.getOrCreate(conf\u003dconf)\nsqlContext \u003d SQLContext(sc)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-01-05 10:16:24.950",
+      "dateUpdated": "2019-03-24 12:51:54.769",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -22,16 +22,21 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 16: conf \u003d SparkConf().setAppName(\"App\")\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4692858279292416418.py\", line 375, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 16, in \u003cmodule\u003e\nNameError: name \u0027SparkConf\u0027 is not defined\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1546648889088_-1227554719",
       "id": "20190104-224129_1936190543",
       "dateCreated": "2019-01-04 22:41:29.088",
-      "dateStarted": "2019-01-05 10:16:24.970",
-      "dateFinished": "2019-01-05 10:16:35.033",
-      "status": "FINISHED",
+      "dateStarted": "2019-03-24 12:51:54.847",
+      "dateFinished": "2019-03-24 12:52:12.066",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -97,18 +102,6 @@
         "code": "SUCCESS",
         "msg": []
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d36"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1546648943670_-113695905",
       "id": "20190104-224223_1649059680",
@@ -142,18 +135,6 @@
       "results": {
         "code": "SUCCESS",
         "msg": []
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d37"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1546648976197_-1902090883",
@@ -233,18 +214,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d38"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1546648991919_296555697",
       "id": "20190104-224311_1879009407",
@@ -279,18 +248,6 @@
         "code": "SUCCESS",
         "msg": []
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d39"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1546649012808_-1753232925",
       "id": "20190104-224332_1810036617",
@@ -317,7 +274,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "URBS/II - BUS-BUNCHING-DETECTION",
+  "name": "URBS/OLD/II - BUS-BUNCHING-DETECTION",
   "id": "2E3AEH7UG",
   "noteParams": {},
   "noteForms": {},
