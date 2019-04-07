@@ -131,22 +131,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d80",
-            "http://172.16.1.103:4040/jobs/job?id\u003d81",
-            "http://172.16.1.103:4040/jobs/job?id\u003d82",
-            "http://172.16.1.103:4040/jobs/job?id\u003d83",
-            "http://172.16.1.103:4040/jobs/job?id\u003d84"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554045181892_747166369",
       "id": "20190331-121301_667375535",
@@ -264,18 +248,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d85"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554045244256_-1263652540",
       "id": "20190331-121404_589364581",
@@ -288,7 +260,7 @@
     {
       "text": "%sql\nselect count(distinct ti.cod_linha) as nr_linhas,emp.nome_empresa  \n    from trechos_itinerarios ti  \n    inner join empresas_onibus emp on (ti.cod_empresa \u003d emp.cod_empresa) \nwhere sourcedate \u003d\u00272019-03-14\u0027 \ngroup by emp.nome_empresa \norder by nr_linhas desc",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 22:18:40.125",
+      "dateUpdated": "2019-04-07 17:33:05.784",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -383,19 +355,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d201",
-            "http://172.16.1.103:4040/jobs/job?id\u003d202"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554052140968_157697680",
       "id": "20190331-140900_121063337",
@@ -408,7 +367,7 @@
     {
       "text": "%sql\nselect distinct ti.cod_categoria,cat.nome_categoria,emp.cod_empresa,emp.nome_empresa,li.cod\nfrom trechos_itinerarios ti \ninner join categorias_onibus cat on (ti.cod_categoria \u003d cat.cod_categoria)\ninner join empresas_onibus emp  on (ti.cod_empresa \u003d emp.cod_empresa) \ninner join linhas li on (ti.cod_linha \u003d li.cod and ti.sourcedate \u003d li.sourcedate)\nwhere ti.sourcedate \u003d \u00272019-03-14\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 15:11:02.736",
+      "dateUpdated": "2019-04-07 17:33:05.947",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -507,25 +466,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d152",
-            "http://172.16.1.103:4040/jobs/job?id\u003d153",
-            "http://172.16.1.103:4040/jobs/job?id\u003d154",
-            "http://172.16.1.103:4040/jobs/job?id\u003d155",
-            "http://172.16.1.103:4040/jobs/job?id\u003d156",
-            "http://172.16.1.103:4040/jobs/job?id\u003d157",
-            "http://172.16.1.103:4040/jobs/job?id\u003d158",
-            "http://172.16.1.103:4040/jobs/job?id\u003d159"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554053669936_-815741192",
       "id": "20190331-143429_397489642",
@@ -538,7 +478,7 @@
     {
       "text": "%sql\n\nselect nome_linha,count(distinct veiculo) as nr_veiculos\nfrom tabela_veiculo\nwhere sourcedate \u003d \u00272019-03-14\u0027\ngroup by nome_linha\norder by nr_veiculos desc\nlimit 10",
       "user": "anonymous",
-      "dateUpdated": "2019-03-31 15:15:42.851",
+      "dateUpdated": "2019-04-07 17:33:06.082",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -620,18 +560,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d200"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1554055512385_-1114966914",
@@ -726,18 +654,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d210"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554054867768_-780462182",
       "id": "20190331-145427_374890164",
@@ -819,18 +735,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.1.103:4040/jobs/job?id\u003d208"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1554054910515_1628062875",
       "id": "20190331-145510_1118868995",
@@ -862,7 +766,6 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
     "angular:shared_process": [],
     "spark:shared_process": []
   },
