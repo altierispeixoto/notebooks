@@ -260,7 +260,7 @@
     {
       "text": "%sql\nselect count(distinct ti.cod_linha) as nr_linhas,emp.nome_empresa  \n    from trechos_itinerarios ti  \n    inner join empresas_onibus emp on (ti.cod_empresa \u003d emp.cod_empresa) \nwhere sourcedate \u003d\u00272019-03-14\u0027 \ngroup by emp.nome_empresa \norder by nr_linhas desc",
       "user": "anonymous",
-      "dateUpdated": "2019-04-07 17:33:05.784",
+      "dateUpdated": "2019-04-11 20:45:28.275",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -367,7 +367,7 @@
     {
       "text": "%sql\nselect distinct ti.cod_categoria,cat.nome_categoria,emp.cod_empresa,emp.nome_empresa,li.cod\nfrom trechos_itinerarios ti \ninner join categorias_onibus cat on (ti.cod_categoria \u003d cat.cod_categoria)\ninner join empresas_onibus emp  on (ti.cod_empresa \u003d emp.cod_empresa) \ninner join linhas li on (ti.cod_linha \u003d li.cod and ti.sourcedate \u003d li.sourcedate)\nwhere ti.sourcedate \u003d \u00272019-03-14\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2019-04-07 17:33:05.947",
+      "dateUpdated": "2019-04-11 20:45:28.388",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -478,7 +478,7 @@
     {
       "text": "%sql\n\nselect nome_linha,count(distinct veiculo) as nr_veiculos\nfrom tabela_veiculo\nwhere sourcedate \u003d \u00272019-03-14\u0027\ngroup by nome_linha\norder by nr_veiculos desc\nlimit 10",
       "user": "anonymous",
-      "dateUpdated": "2019-04-07 17:33:06.082",
+      "dateUpdated": "2019-04-11 20:45:28.437",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
