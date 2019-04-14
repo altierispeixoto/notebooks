@@ -58,17 +58,31 @@ class UrbsNeo4JDatabase(object):
                                " SET b.vehicle = $vehicle RETURN id(b)",
                                vehicle=vehicle).single().value()
 
-    def create_position(self, vehicle, latitude, longitude, dt_event):
+    def create_position(self, vehicle, latitude, longitude,line_code, dt_event):
         with self._driver.session() as session:
             return session.run('CREATE (p:Position) '
                                ' SET p.vehicle = $vehicle '
-                               ', p.latitude=$latitude '
-                               ', p.longitude =$longitude '
-                               ', p.dt_event = p.dt_event '
+                               ', p.coordinates = point({ latitude:toFloat($latitude),longitude:toFloat($longitude) }) '
+                               ', p.dt_event = $dt_event '
+                               ', p.line_code = $line_code '
                                ' RETURN id(p)',
                                vehicle=vehicle, latitude=latitude, longitude=longitude,
-                               dt_event=dt_event).single().value()
+                               dt_event=str(dt_event),line_code=line_code).single().value()
+    
+    
+    def connect_events(self,vehicle,line_code):
+        
+        connect_evt = "MATCH (p:Position {vehicle: $vehicle,line_code: $line_code }) " \
+                       "WITH p ORDER BY p.dt_event DESC " \
+                       "WITH collect(p) as entries "  \
+                       "FOREACH(i in RANGE(0, size(entries)-2) | " \
+                       "FOREACH(e1 in [entries[i]] | " \
+                       "FOREACH(e2 in [entries[i+1]] | " \
+                       "MERGE (e2)-[ :MOVES_TO ]->(e1)))) "
 
+        with self._driver.session() as session:
+            return session.run(connect_evt, vehicle=vehicle,line_code=line_code)
+        
     #
     # def create_principio_ativo(self, name_pt_br, name_en, drugbank_id, description_en, description_pt_br):
     #     with self._driver.session() as session:
