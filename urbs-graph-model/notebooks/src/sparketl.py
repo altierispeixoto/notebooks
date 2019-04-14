@@ -5,6 +5,8 @@ from pyspark.conf import SparkConf
 from pyspark.context import SparkContext
 from pyspark.sql import SQLContext
 from pyspark.sql.functions import input_file_name
+import pyspark.sql.functions as functions
+
 import gc
 
 
@@ -21,7 +23,18 @@ class ETLSpark:
         self.sqlContext = SQLContext(self.sc)
 
     def extract(self, src):
-        return self.sqlContext.read.json(src).withColumn("filename", input_file_name())
+        df = self.sqlContext.read.json(src).withColumn("filepath", input_file_name())
+
+        split_col = functions.split(df['filepath'], '/')
+        df = df.withColumn('filename', split_col.getItem(10))
+
+        split = functions.split(df['filename'], '_')
+
+        # sourcedate = str(split.getItem(0))+'-'+str(split.getItem(1))+'-'+str(split.getItem(2))
+        df = df.withColumn('year', split.getItem(0))
+        df = df.withColumn('month', split.getItem(1))
+        df = df.withColumn('day', split.getItem(2))
+        return df
 
     def transform(self, src_data, target_path, coalesce=1):
         src_data.coalesce(coalesce).write.mode('overwrite').format("parquet").save(target_path)

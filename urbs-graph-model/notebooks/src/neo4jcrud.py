@@ -26,7 +26,7 @@ class UrbsNeo4JDatabase(object):
             return session.run("CREATE (bs:BusStop) "
                                " SET bs.name = $name , bs.number=$number , bs.type=$type, "
                                "bs.latitude=$latitude, bs.longitude=$longitude ",
-                               name=name, number=number, type=type, latitude=latitude, longitude=longitude).single().value()
+                               name=name, number=number, type=type, latitude=latitude, longitude=longitude)#.single().value()
 
     def create_bus_lines(self, start_point, end_point, line_code, line_way, service_category, line_name, color_name, card_only):
         cipher_query = "MATCH(bss: BusStop {number: $start_point}), (bse: BusStop {number: $end_point}) " \
