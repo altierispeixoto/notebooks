@@ -9,7 +9,7 @@ class UrbsNeo4JDatabase(object):
     def close(self):
         self._driver.close()
 
-    def create_bus_company(self, company_code,company_name):
+    def create_bus_company(self, company_code, company_name):
         with self._driver.session() as session:
             return session.run("CREATE (c:Company) "
                                " SET c.company_code = $company_code , c.company_name=$company_name RETURN id(c)",
@@ -25,19 +25,21 @@ class UrbsNeo4JDatabase(object):
         with self._driver.session() as session:
             return session.run("CREATE (bs:BusStop) "
                                " SET bs.name = $name , bs.number=$number , bs.type=$type, "
-                               "bs.latitude=$latitude, bs.longitude=$longitude ",
-                               name=name, number=number, type=type, latitude=latitude, longitude=longitude)#.single().value()
+                               "bs.latitude=$latitude, bs.longitude=$longitude return id(bs)",
+                               name=name, number=number, type=type, latitude=latitude,
+                               longitude=longitude).single().value()
 
-    def create_bus_lines(self, start_point, end_point, line_code, line_way, service_category, line_name, color_name, card_only):
-        cipher_query = "MATCH(bss: BusStop {number: $start_point}), (bse: BusStop {number: $end_point}) " \
-                       "CREATE(bss) - [: NEXT_STOP {" \
-                       "  line_code: $line_code" \
-                       " ,line_way: $line_way" \
-                       " ,service_category: $service_category" \
-                       " ,line_name: $line_name" \
-                       " ,color_name: $color_name" \
-                       " ,card_only: $card_only" \
-                       "}]->(bse)"
+    def create_bus_lines(self, start_point, end_point, line_code, line_way, service_category, line_name, color_name,
+                         card_only):
+        cipher_query = 'MATCH(bss: BusStop {number: $start_point}), (bse: BusStop {number: $end_point}) ' \
+                       'CREATE(bss) - [: NEXT_STOP {' \
+                       '  line_code: $line_code' \
+                       ' ,line_way: $line_way' \
+                       ' ,service_category: $service_category' \
+                       ' ,line_name: $line_name' \
+                       ' ,color_name: $color_name' \
+                       ' ,card_only: $card_only' \
+                       '}]->(bse)'
 
         with self._driver.session() as session:
             return session.run(cipher_query,
@@ -50,9 +52,22 @@ class UrbsNeo4JDatabase(object):
                                , color_name=color_name
                                , card_only=card_only)
 
+    def create_bus(self, vehicle):
+        with self._driver.session() as session:
+            return session.run("CREATE (b:Bus) "
+                               " SET b.vehicle = $vehicle RETURN id(b)",
+                               vehicle=vehicle).single().value()
 
-
-
+    def create_position(self, vehicle, latitude, longitude, dt_event):
+        with self._driver.session() as session:
+            return session.run('CREATE (p:Position) '
+                               ' SET p.vehicle = $vehicle '
+                               ', p.latitude=$latitude '
+                               ', p.longitude =$longitude '
+                               ', p.dt_event = p.dt_event '
+                               ' RETURN id(p)',
+                               vehicle=vehicle, latitude=latitude, longitude=longitude,
+                               dt_event=dt_event).single().value()
 
     #
     # def create_principio_ativo(self, name_pt_br, name_en, drugbank_id, description_en, description_pt_br):

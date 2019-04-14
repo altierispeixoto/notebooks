@@ -4,9 +4,7 @@ findspark.init()
 from pyspark.conf import SparkConf
 from pyspark.context import SparkContext
 from pyspark.sql import SQLContext
-
-from src.neo4jcrud import UrbsNeo4JDatabase
-
+import pyspark.sql.functions as functions
 
 class DataLoader:
 
@@ -83,3 +81,22 @@ class DataLoader:
         [conn.create_bus_lines(row['ponto_inicio'], row['ponto_final'], row['cod_linha'], row['sentido_linha'],
                                row['categoria_servico'], row['nome_linha'], row['nome_cor'],
                                row['somente_cartao']) for index, row in rota_sequenciada_df.iterrows()]
+
+    def create_vehicles(self, vehicles, conn):
+
+        vehicles_df = vehicles.select('veic').filter("year ='2019' and month='03' and day = '14'").distinct().toPandas()
+
+        [conn.create_bus(row['veic']) for index, row in vehicles_df.iterrows()]
+
+    def create_positions(self, vehicles, conn):
+
+        vehicles_df = vehicles.select('veic', 'lat', 'lon' \
+                        , functions.unix_timestamp('dthr', 'dd/MM/yyyy HH:mm:ss') \
+                        .cast('timestamp').alias('dt_event')) \
+            .filter("year = '2019' and month='03' and day='14' and veic is not null").orderBy("dthr", 'veic').distinct().toPandas()
+
+        [conn.create_position(row['veic'], row['lat'], row['lon'], row['dt_event']) for index, row in vehicles_df.iterrows()]
+
+
+
+
