@@ -5,7 +5,8 @@ from pyspark.conf import SparkConf
 from pyspark.context import SparkContext
 from pyspark.sql import SQLContext
 
-from neo4jcrud  import UrbsNeo4JDatabase
+from src.neo4jcrud import UrbsNeo4JDatabase
+
 
 class DataLoader:
 
@@ -22,50 +23,63 @@ class DataLoader:
     def load_data(self, src):
         return self.sqlContext.read.parquet(src)
 
-
-    def create_empresas_onibus(self,trechosItinerarios,conn):
-
-        empresasOnibus = trechosItinerarios.select("COD_EMPRESA", "NOME_EMPRESA").distinct()
-        empresas_df = empresasOnibus.toPandas()
+    def create_empresas_onibus(self, trechosItinerarios, conn):
+        empresas_df = trechosItinerarios.select("COD_EMPRESA", "NOME_EMPRESA").distinct().toPandas()
         [conn.create_bus_company(row['COD_EMPRESA'], row['NOME_EMPRESA']) for index, row in empresas_df.iterrows()]
 
     #### CATEGORIAS ONIBUS
-    def create_categorias_onibus(self,trechosItinerarios,conn):
+    def create_categorias_onibus(self, trechosItinerarios, conn):
         categoriasOnibus = trechosItinerarios.select('COD_CATEGORIA', 'NOME_CATEGORIA').distinct()
 
         categorias_df = categoriasOnibus.toPandas()
-        [conn.create_bus_category(row['COD_CATEGORIA'], row['NOME_CATEGORIA']) for index, row in categorias_df.iterrows()]
+        [conn.create_bus_category(row['COD_CATEGORIA'], row['NOME_CATEGORIA']) for index, row in
+         categorias_df.iterrows()]
 
+    def create_bus_stops(self, pontos_linha, conn):
+        pontos_df = pontos_linha.select(['nome', 'num', 'tipo', 'lat', 'lon']).filter(
+            "year ='2019' and month='03' and day = '14'").distinct().toPandas()
 
-    def create_bus_stops(self, pontos_linha):
+        [conn.create_bus_stop(row['nome'], row['num'], row['tipo'], row['lat'], row['lon']) for index, row in
+         pontos_df.iterrows()]
 
-        pontos = self.sqlContext.sql("select distinct nome,num,tipo,lat,lon from pontos_linha where sourcedate = '2019-03-14' ")
+    def create_routes(self, conn):
+        linhas = self.sqlContext.read.parquet('/home/altieris/datascience/data/curitibaurbs/processed/linhas/')
+        linhas.registerTempTable("linhas")
 
-        pontos_df = pontos.toPandas()
+        pontosLinha = self.sqlContext.read.parquet(
+            '/home/altieris/datascience/data/curitibaurbs/processed/pontoslinha/')
+        pontosLinha.registerTempTable("pontos_linha")
 
-        [conn.create_bus_stop(row['nome'], row['num'], row['tipo'], row['lat'], row['lon']) for index, row in pontos_df.iterrows()]
+        query_view_rota_sequenciada = "CREATE OR REPLACE TEMPORARY VIEW rota_sequenciada AS  " \
+                                      "select 	pseq.cod_linha,pseq.sentido_linha,pseq.seq_inicio,pseq.seq_fim,pseq.ponto_inicio,pseq.nome_ponto_inicio " \
+                                      ",pseq.ponto_final,pseq.nome_ponto_final,li.CATEGORIA_SERVICO as categoria_servico,li.NOME as nome_linha,li.NOME_COR as nome_cor,li.SOMENTE_CARTAO as somente_cartao " \
+                                      ",pseq.year, pseq.month,pseq.day " \
+                                      "from (select " \
+                                      "p1.COD as cod_linha " \
+                                      ",p1.SENTIDO  as sentido_linha " \
+                                      ",p1.SEQ      as seq_inicio " \
+                                      ",p2.SEQ      as seq_fim " \
+                                      ",p1.NUM      as ponto_inicio " \
+                                      ",p1.NOME     as nome_ponto_inicio " \
+                                      ",p2.NUM      as ponto_final " \
+                                      ",p2.NOME     as nome_ponto_final " \
+                                      ",p1.year " \
+                                      ",p1.month " \
+                                      ",p1.day " \
+                                      "from pontos_linha P1 " \
+                                      "inner join pontos_linha p2 on (p1.SEQ+1 = p2.SEQ and p1.COD = p2.COD and p1.SENTIDO = p2.SENTIDO and p1.year = p2.year and p1.month=p2.month and p1.day=p2.day) " \
+                                      ") pseq " \
+                                      "inner join linhas       li on (pseq.cod_linha = li.COD and pseq.year = li.year and pseq.month=li.month and pseq.day=li.day) " \
+                                      "order by pseq.cod_linha,pseq.sentido_linha,pseq.seq_inicio,pseq.seq_fim "
 
+        self.sqlContext.sql(query_view_rota_sequenciada)
 
+        query_rota_sequenciada = "select cod_linha,sentido_linha,ponto_inicio,nome_ponto_inicio,ponto_final,nome_ponto_final,categoria_servico,nome_linha,nome_cor,somente_cartao " \
+                                 "from rota_sequenciada where year ='2019' and month='03' and day='14' "
 
-if __name__ == '__main__':
-    NEO4J_URI = 'bolt://172.17.0.2:7687'
-    NEO4J_USER = 'neo4j'
-    NEO4J_PASSWORD = 'neo4j2018'
+        rota_sequenciada = self.sqlContext.sql(query_rota_sequenciada)
+        rota_sequenciada_df = rota_sequenciada.toPandas()
 
-    conn = UrbsNeo4JDatabase(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
-    dataloader = DataLoader()
-
-    trechositinerarios_source_path = '/home/altieris/datascience/data/curitibaurbs/processed/trechositinerarios/'
-
-    # trechositinerarios = dataloader.load_data(trechositinerarios_source_path)
-    # dataloader.create_empresas_onibus(trechositinerarios, conn)
-    # dataloader.create_categorias_onibus(trechositinerarios, conn)
-
-    pontos_linha_source_path = '/home/altieris/datascience/data/curitibaurbs/processed/pontoslinha/'
-    pontos_linha = dataloader.load_data(pontos_linha_source_path)
-
-    pontos_linha.select('filename').show()
-
-
-
-    conn.close()
+        [conn.create_bus_lines(row['ponto_inicio'], row['ponto_final'], row['cod_linha'], row['sentido_linha'],
+                               row['categoria_servico'], row['nome_linha'], row['nome_cor'],
+                               row['somente_cartao']) for index, row in rota_sequenciada_df.iterrows()]

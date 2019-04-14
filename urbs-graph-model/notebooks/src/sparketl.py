@@ -10,7 +10,6 @@ import pyspark.sql.functions as functions
 import gc
 
 
-
 class ETLSpark:
 
     def __init__(self):
@@ -25,18 +24,17 @@ class ETLSpark:
 
     def extract(self, src):
         df = self.sqlContext.read.json(src).withColumn("filepath", input_file_name())
-        
+
         split_col = functions.split(df['filepath'], '/')
         df = df.withColumn('filename', split_col.getItem(10))
-        
+
         split = functions.split(df['filename'], '_')
-        
-        #sourcedate = str(split.getItem(0))+'-'+str(split.getItem(1))+'-'+str(split.getItem(2))
+
+        # sourcedate = str(split.getItem(0))+'-'+str(split.getItem(1))+'-'+str(split.getItem(2))
         df = df.withColumn('year', split.getItem(0))
         df = df.withColumn('month', split.getItem(1))
         df = df.withColumn('day', split.getItem(2))
         return df
-
 
     def transform(self, src_data, target_path, coalesce=1):
         src_data.coalesce(coalesce).write.mode('overwrite').format("parquet").save(target_path)
