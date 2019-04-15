@@ -5,6 +5,7 @@ from pyspark.conf import SparkConf
 from pyspark.context import SparkContext
 from pyspark.sql import SQLContext
 import pyspark.sql.functions as functions
+import gc
 
 class DataLoader:
 
@@ -81,10 +82,17 @@ class DataLoader:
         [conn.create_bus_lines(row['ponto_inicio'], row['ponto_final'], row['cod_linha'], row['sentido_linha'],
                                row['categoria_servico'], row['nome_linha'], row['nome_cor'],
                                row['somente_cartao']) for index, row in rota_sequenciada_df.iterrows()]
+        
+        del rota_sequenciada
+        del rota_sequenciada_df
+        gc.collect()
 
     def create_vehicles(self, vehicles, conn):
 
         vehicles_df = vehicles.select('veic').filter("year ='2019' and month='03' and day = '14'  ").distinct().toPandas()
+        del vehicles
+        del vehicles_df
+        gc.collect()
 
         [conn.create_bus(row['veic']) for index, row in vehicles_df.iterrows()]
         
@@ -100,6 +108,10 @@ class DataLoader:
         [conn.create_position(row['veic'], row['lat'], row['lon'], row['cod_linha'], row['dt_event']) for index, row in vehicles_df.iterrows()]
         
         conn.connect_events(vehicle,line_code)
+        
+        del vehicles
+        del vehicles_df
+        gc.collect()
         
 
 
