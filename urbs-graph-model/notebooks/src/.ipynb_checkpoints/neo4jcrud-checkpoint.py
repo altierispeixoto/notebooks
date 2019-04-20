@@ -58,22 +58,23 @@ class UrbsNeo4JDatabase(object):
                                " SET b.vehicle = $vehicle RETURN id(b)",
                                vehicle=vehicle).single().value()
 
-    def create_position(self, vehicle, latitude, longitude,line_code, dt_event):
+    def create_position(self, vehicle, latitude, longitude,line_code, event_timestamp,date):
         with self._driver.session() as session:
             return session.run('CREATE (p:Position) '
                                ' SET p.vehicle = $vehicle '
                                ', p.coordinates = point({ latitude:toFloat($latitude),longitude:toFloat($longitude) }) '
-                               ', p.dt_event = $dt_event '
+                               ', p.event_timestamp = $event_timestamp '
+                               ', p.date = $date '
                                ', p.line_code = $line_code '
                                ' RETURN id(p)',
                                vehicle=vehicle, latitude=latitude, longitude=longitude,
-                               dt_event=str(dt_event),line_code=line_code).single().value()
+                               event_timestamp=str(event_timestamp),date=date,line_code=line_code).single().value()
     
     
-    def connect_events(self,vehicle,line_code):
+    def connect_events(self,vehicle,line_code,date):
         
-        connect_evt = "MATCH (p:Position {vehicle: $vehicle,line_code: $line_code }) " \
-                       "WITH p ORDER BY p.dt_event DESC " \
+        connect_evt = "MATCH (p:Position {vehicle: $vehicle,line_code: $line_code,date: $date }) " \
+                       "WITH p ORDER BY p.event_timestamp DESC " \
                        "WITH collect(p) as entries "  \
                        "FOREACH(i in RANGE(0, size(entries)-2) | " \
                        "FOREACH(e1 in [entries[i]] | " \
@@ -81,51 +82,21 @@ class UrbsNeo4JDatabase(object):
                        "MERGE (e2)-[ :MOVES_TO ]->(e1)))) "
 
         with self._driver.session() as session:
-            return session.run(connect_evt, vehicle=vehicle,line_code=line_code)
+            return session.run(connect_evt, vehicle=vehicle,line_code=line_code,date=date)
         
-    #
-    # def create_principio_ativo(self, name_pt_br, name_en, drugbank_id, description_en, description_pt_br):
-    #     with self._driver.session() as session:
-    #         return session.run(
-    #             "MERGE (d:Drug "
-    #             "{name_pt_br: $name_pt_br"
-    #             ",name_en: $name_en,"
-    #             " drugbank_id:$drugbank_id,"
-    #             " drugbank_description_en:$description_en,"
-    #             " description_pt_br:$description_pt_br}"
-    #             ") RETURN id(d)",
-    #             name_pt_br=name_pt_br, name_en=name_en, drugbank_id=drugbank_id,
-    #             description_en=description_en, description_pt_br=description_pt_br).single().value()
-    #
-    # def create_relationship_drug_disease(self, drugbank_id, disease):
-    #     with self._driver.session() as session:
-    #         return session.run("MATCH (p:Patologia),(d:Drug) "
-    #                            "WHERE p.disease = $disease and  d.drugbank_id = $drugbank_id "
-    #                            "CREATE (d)-[r:indication "
-    #                            "{ nome: p.disease + ' <-> ' + d.name_pt_br}]->(p) "
-    #                            "RETURN type(r), r.nome",
-    #                            disease=disease, drugbank_id=drugbank_id)
-    #
-    # def create_relationship_counter_indication_drug_disease(self, drugbank_id, disease):
-    #     with self._driver.session() as session:
-    #         return session.run("MATCH (p:Patologia),(d:Drug) "
-    #                            "WHERE p.disease = $disease and  d.drugbank_id = $drugbank_id "
-    #                            "CREATE (d)-[r:counter_indication "
-    #                            "{ nome: p.disease + ' <-> ' + d.name_pt_br}]->(p) "
-    #                            "RETURN type(r), r.nome",
-    #                            disease=disease, drugbank_id=drugbank_id)
-    #
-    # def create_drug_interaction_relationship(self,drugbank_interaction_id,drugbank_id, description_pt_br):
-    #     with self._driver.session() as session:
-    #         return session.run("MATCH (d0:Drug),(d:Drug) "
-    #                            "WHERE d0.drugbank_id = $drugbank_interaction_id and  d.drugbank_id = $drugbank_id "
-    #                            "CREATE (d0)-[r:drug_interaction "
-    #                            "{ description: $description_pt_br}]->(d) "
-    #                            "RETURN type(r)",
-    #                            drugbank_interaction_id=drugbank_interaction_id, drugbank_id=drugbank_id
-    #                            , description_pt_br=description_pt_br)
-    #
-    #
+    def create_edge_properties(self,vehicle,line_code,date):
+        
+        
+        create_edge_properties = "MATCH (ps:Position {line_code:$line_code,vehicle:$vehicle,date: $date})-[m:MOVES_TO]->(pf:Position {line_code:$line_code,vehicle:$vehicle,date: $date}) " \
+                                 "with ps.line_code as line_code,ps.vehicle as vehicle, ps.event_timestamp as start_date,pf.event_timestamp as end_date,distance(ps.coordinates,pf.coordinates) as delta_distance " \
+                                 ",(datetime(pf.event_timestamp).epochMillis - datetime(ps.event_timestamp).epochMillis)/1000 as delta_time " \
+                                 "MATCH (ps:Position {line_code:line_code,vehicle:vehicle,event_timestamp:start_date})-[m:MOVES_TO]->(pf:Position {line_code:line_code,vehicle:vehicle,event_timestamp:end_date}) " \
+                                 "SET m.delta_distance=delta_distance , m.delta_time=delta_time"
+        
+        with self._driver.session() as session:
+            return session.run(create_edge_properties, vehicle=vehicle,line_code=line_code,date=date)
+        
+        
     def delete_all(self):
         with self._driver.session() as session:
             return session.run("MATCH (n) DETACH DELETE n").single()

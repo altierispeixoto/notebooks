@@ -7,13 +7,26 @@ from pyspark.sql import SQLContext
 import pyspark.sql.functions as functions
 import gc
 
+from src.neo4jcrud import UrbsNeo4JDatabase
+
+
+def insert_events(row):
+    NEO4J_URI = 'bolt://172.16.1.118:7687'
+    NEO4J_USER = 'neo4j'
+    NEO4J_PASSWORD = 'neo4j2018'
+
+    conn = UrbsNeo4JDatabase(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
+
+    conn.create_position(row[0], row[1], row[2], row[3], row[4],row[5])
+    conn.close()
+        
 class DataLoader:
 
     def __init__(self):
         self.conf = SparkConf().setAppName("App")
         self.conf = (self.conf.setMaster('local[*]')
-                     .set('spark.executor.memory', '4G')
-                     .set('spark.driver.memory', '30G')
+                     .set('spark.executor.memory', '5G')
+                     .set('spark.driver.memory', '10G')
                      .set('spark.driver.maxResultSize', '10G'))
 
         self.sc = SparkContext.getOrCreate(conf=self.conf)
@@ -87,33 +100,54 @@ class DataLoader:
         del rota_sequenciada_df
         gc.collect()
 
-    def create_vehicles(self, vehicles, conn):
+#     def create_vehicles(self, vehicles, conn):
 
-        vehicles_df = vehicles.select('veic').filter("year ='2019' and month='03' and day = '14'  ").distinct().toPandas()
-        del vehicles
-        del vehicles_df
-        gc.collect()
+#         vehicles_df = vehicles.select('veic').filter("year ='2019' and month='03' and day = '14'  ").distinct().toPandas()
+#         del vehicles
+#         del vehicles_df
+#         gc.collect()
 
-        [conn.create_bus(row['veic']) for index, row in vehicles_df.iterrows()]
+#         [conn.create_bus(row['veic']) for index, row in vehicles_df.iterrows()]
+
         
 
-    def create_positions(self, vehicles,vehicle,line_code, conn):
+    def create_positions(self, vehicles,vehicle,line_code,date):
 
-        f = "year = '2019' and month='03' and day='14' and veic = '{}' and cod_linha = '{}'".format(vehicle, line_code)
+        f = "veic = '{}' and cod_linha = '{}' and date='{}'".format(vehicle, line_code,date)
         
-        vehicles_df = vehicles.select('veic', 'lat', 'lon','cod_linha', functions.unix_timestamp('dthr', 'dd/MM/yyyy HH:mm:ss') \
-                        .cast('timestamp').alias('dt_event')) \
-                        .filter(f).orderBy("dt_event", 'veic').distinct().toPandas()
+        vehicles.select('veic', 'lat', 'lon','cod_linha', 'event_timestamp','date').filter(f).foreach(insert_events)
+        
+       
+        
+        print('Vehicle: {} - Line Code: {}'.format(vehicle,line_code))
+        
+      
+    def connect_events(self,vehicle,line_code,date):
+        
+        NEO4J_URI = 'bolt://172.16.1.118:7687'
+        NEO4J_USER = 'neo4j'
+        NEO4J_PASSWORD = 'neo4j2018'
 
-        [conn.create_position(row['veic'], row['lat'], row['lon'], row['cod_linha'], row['dt_event']) for index, row in vehicles_df.iterrows()]
+        conn = UrbsNeo4JDatabase(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
+        conn.connect_events(vehicle,line_code,date)
+        conn.close()
         
-        conn.connect_events(vehicle,line_code)
+    def create_edge_properties(self,vehicle,line_code,date):
         
-        del vehicles
-        del vehicles_df
-        gc.collect()
-        
+        NEO4J_URI = 'bolt://172.16.1.118:7687'
+        NEO4J_USER = 'neo4j'
+        NEO4J_PASSWORD = 'neo4j2018'
 
+        conn = UrbsNeo4JDatabase(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
+        conn.create_edge_properties(vehicle,line_code,date)
+        conn.close()
+        
+        
+#         del vehicles
+#         del vehicles_df
+#         gc.collect()
+        
+     
 
 
 
