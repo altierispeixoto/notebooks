@@ -11,7 +11,7 @@ from src.neo4jcrud import UrbsNeo4JDatabase
 
 
 def insert_events(row):
-    NEO4J_URI = 'bolt://172.16.1.118:7687'
+    NEO4J_URI = 'bolt://172.16.1.106:7687'
     NEO4J_USER = 'neo4j'
     NEO4J_PASSWORD = 'neo4j2018'
 
@@ -124,7 +124,7 @@ class DataLoader:
       
     def connect_events(self,vehicle,line_code,date):
         
-        NEO4J_URI = 'bolt://172.16.1.118:7687'
+        NEO4J_URI = 'bolt://172.16.1.106:7687'
         NEO4J_USER = 'neo4j'
         NEO4J_PASSWORD = 'neo4j2018'
 
@@ -134,7 +134,7 @@ class DataLoader:
         
     def create_edge_properties(self,vehicle,line_code,date):
         
-        NEO4J_URI = 'bolt://172.16.1.118:7687'
+        NEO4J_URI = 'bolt://172.16.1.106:7687'
         NEO4J_USER = 'neo4j'
         NEO4J_PASSWORD = 'neo4j2018'
 
