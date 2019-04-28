@@ -11,7 +11,7 @@ from src.neo4jcrud import UrbsNeo4JDatabase
 
 
 def insert_events(row):
-    NEO4J_URI = 'bolt://172.16.1.106:7687'
+    NEO4J_URI = 'bolt://localhost:7687'
     NEO4J_USER = 'neo4j'
     NEO4J_PASSWORD = 'neo4j2018'
 
@@ -34,7 +34,10 @@ class DataLoader:
 
     def load_data(self, src):
         return self.sqlContext.read.parquet(src)
-
+     
+    def load_data_csv(self, src):
+        return self.sqlContext.read.csv(src, header='true')
+    
     def create_empresas_onibus(self, trechosItinerarios, conn):
         empresas_df = trechosItinerarios.select("COD_EMPRESA", "NOME_EMPRESA").distinct().toPandas()
         [conn.create_bus_company(row['COD_EMPRESA'], row['NOME_EMPRESA']) for index, row in empresas_df.iterrows()]
@@ -55,6 +58,8 @@ class DataLoader:
          pontos_df.iterrows()]
 
     def create_routes(self, conn):
+        target_path = '/home/altieris/datascience/data/curitibaurbs/neo4j/routes/'
+            
         linhas = self.sqlContext.read.parquet('/home/altieris/datascience/data/curitibaurbs/processed/linhas/')
         linhas.registerTempTable("linhas")
 
@@ -90,15 +95,18 @@ class DataLoader:
                                  "from rota_sequenciada where year ='2019' and month='03' and day='14' "
 
         rota_sequenciada = self.sqlContext.sql(query_rota_sequenciada)
-        rota_sequenciada_df = rota_sequenciada.toPandas()
-
-        [conn.create_bus_lines(row['ponto_inicio'], row['ponto_final'], row['cod_linha'], row['sentido_linha'],
-                               row['categoria_servico'], row['nome_linha'], row['nome_cor'],
-                               row['somente_cartao']) for index, row in rota_sequenciada_df.iterrows()]
+        #rota_sequenciada_df = rota_sequenciada.toPandas()
         
-        del rota_sequenciada
-        del rota_sequenciada_df
-        gc.collect()
+        rota_sequenciada.coalesce(1).write.mode('overwrite').option("mapreduce.fileoutputcommitter.marksuccessfuljobs","false")\
+        .option("header","true").format("csv").save(target_path)
+        
+#         [conn.create_bus_lines(row['ponto_inicio'], row['ponto_final'], row['cod_linha'], row['sentido_linha'],
+#                                row['categoria_servico'], row['nome_linha'], row['nome_cor'],
+#                                row['somente_cartao']) for index, row in rota_sequenciada_df.iterrows()]
+        
+#         del rota_sequenciada
+#         del rota_sequenciada_df
+#         gc.collect()
 
 #     def create_vehicles(self, vehicles, conn):
 
@@ -124,7 +132,7 @@ class DataLoader:
       
     def connect_events(self,vehicle,line_code,date):
         
-        NEO4J_URI = 'bolt://172.16.1.106:7687'
+        NEO4J_URI = 'bolt://localhost:7687'
         NEO4J_USER = 'neo4j'
         NEO4J_PASSWORD = 'neo4j2018'
 
@@ -134,7 +142,7 @@ class DataLoader:
         
     def create_edge_properties(self,vehicle,line_code,date):
         
-        NEO4J_URI = 'bolt://172.16.1.106:7687'
+        NEO4J_URI = 'bolt://localhost:7687'
         NEO4J_USER = 'neo4j'
         NEO4J_PASSWORD = 'neo4j2018'
 
